@@ -3,51 +3,71 @@
 # =============================================================================
 
 import os
+import email
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
 
-# Function to read .eml files
-def read_email_files(folder_path):
-    emails = []
-    labels = []
-    filenames = []  # To store the original filenames
-    for filename in os.listdir(folder_path):
-        if filename.endswith(".eml"):
-            email_file_path = os.path.join(folder_path, filename)
-            with open(email_file_path, "r", encoding="utf-8") as file:
-                email_content = file.read()
-                emails.append(email_content)
-                # Label your emails as spam or legitimate based on their filenames
-                if "spam" in filename:
-                    labels.append("spam")
-                else:
-                    labels.append("legitimate")
-                filenames.append(filename)
-    return emails, labels, filenames  # Return the filenames along with emails and labels
+# Define a function to extract text from a .eml file
+def extract_text_from_eml(eml_file):
+    with open(eml_file, 'r', encoding='utf-8') as file:
+        msg = email.message_from_file(file)
+        text = ''
+        for part in msg.walk():
+            if part.get_content_type() == 'text/plain':
+                text += part.get_payload()
+        return text
 
-# Specify the path to the folder containing your .eml files
-folder_path = "path/to/your/email/folder"
+# Define the directory containing your .eml files
+email_dir = 'emails'
 
-# Read email data and labels
-emails, labels, filenames = read_email_files(folder_path)
+# Create lists to store email text and labels (0 for legitimate, 1 for spam)
+emails = []
+labels = []
 
-# Create a feature vector using CountVectorizer
-vectorizer = CountVectorizer()
-X = vectorizer.fit_transform(emails)
+# Read and label the email content
+for filename in os.listdir(email_dir):
+    if filename.endswith('.eml'):
+        email_path = os.path.join(email_dir, filename)
+        email_text = extract_text_from_eml(email_path)
+        if email_text:  # Check if email text is not empty
+            emails.append(email_text)
+            if 'spam_emails' in email_path:
+                labels.append(1)  # Spam
+            else:
+                labels.append(0)  # Legitimate
 
-# Split the data into a training set and a test set
-X_train, X_test, y_train, y_test, filenames_test = train_test_split(X, labels, filenames, test_size=0.2, random_state=42)
+# Split the dataset into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(emails, labels, test_size=0.2, random_state=42)
 
-# Train a Multinomial Naive Bayes classifier
-clf = MultinomialNB()
-clf.fit(X_train, y_train)
+# Check if there's any email text data to process
+if not X_train:
+    print("No valid email text data found.")
+else:
+    # Vectorize the email text using CountVectorizer
+    vectorizer = CountVectorizer()
+    X_train = vectorizer.fit_transform(X_train)
+    X_test = vectorizer.transform(X_test)
 
-# Predict the labels for the test set
-y_pred = clf.predict(X_test)
+    # Train a Naive Bayes classifier
+    classifier = MultinomialNB()
+    classifier.fit(X_train, y_train)
 
-# Output the filenames along with their classifications
-for filename, prediction in zip(filenames_test, y_pred):
-    print(f"File: {filename} - Classification: {prediction}")
+    # Make predictions on the test set
+    y_pred = classifier.predict(X_test)
+
+    # Calculate accuracy on the test set
+    accuracy = accuracy_score(y_test, y_pred)
+
+    # Classify individual email files and output the results
+    for filename, email_text in zip(os.listdir(email_dir), emails):
+        X_email = vectorizer.transform([email_text])
+        prediction = classifier.predict(X_email)
+        result = 'spam email' if prediction[0] == 1 else 'legitimate source'
+        print(f"{filename}: {result}")
+
+    print(f"Overall Accuracy: {accuracy * 100:.2f}%")
+
 
 # ===== END OF FILE ===========================================================
