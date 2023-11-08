@@ -24,6 +24,7 @@ Prepare your email dataset with labeled emails. The emails should be in `.eml` f
 1. Clone this repository:
 
 ```git clone https://github.com/your-username/email-spam-classification.git```
+
 ```cd email-spam-classification```
 
 2. Specify the path to your email dataset folder in the `read_email_files` function within the Python script.
