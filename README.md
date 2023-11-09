@@ -15,7 +15,7 @@ You can install these libraries using `pip`:
 
 ### Dataset
 
-Prepare your email dataset with labeled emails. The emails should be in `.eml` format, and the labels can be based on filenames (e.g., "spam" or "legitimate").
+Prepare your email dataset with labeled emails. The emails should be in `.eml` format, and the labels can be based on filenames with a tag including info if it is spam or legit. 
 
 ### Running the Program
 

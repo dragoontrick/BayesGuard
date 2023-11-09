@@ -1,0 +1,2810 @@
+Delivered-To: lytommy321@gmail.com
+Received: by 2002:ac4:c8da:0:b0:66b:7215:ed40 with SMTP id e26csp1796162pim;
+        Sun, 5 Nov 2023 15:46:31 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IF7aTuLhy+pbjy+1/89WYJ4ASBQW9PsAOYWGbfsY3GM+15xaIZjmoFwS/aBrBE3MweAUXDM
+X-Received: by 2002:a05:6e02:1bcf:b0:359:5389:c0ea with SMTP id x15-20020a056e021bcf00b003595389c0eamr13754524ilv.1.1699227991448;
+        Sun, 05 Nov 2023 15:46:31 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1699227991; cv=none;
+        d=google.com; s=arc-20160816;
+        b=MTxYMgEGSYw0C9zJmVL5JUpcV3LK5grRypJ59kStLNLnjWouwyH6gLathc2owIxxEL
+         iWXZKD3sMcQ99+gUty2qSWrWAAZEhFygfoNkrKHWXKGiBdojOCfOeinVgxJNolDbrQ+W
+         UDKDiKtjhoP35MqSlYzFa+gL6Qd4oDnSqmkUZIxWlJI9aaz3UICh15zSMkCWZthwziVa
+         +b4JvHYQJz44EGHnN1nj9i+WQpQG4+o+I/QYQ2/GKFiP0E+y2tGkiqzX9hk94E4O68Hu
+         YnJ1wn2yBZGa472gOJmoMxvq+sVjOvlDg28hMJSwfyolnesw8BsCuOLET77YhxDcnEKR
+         ve1Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=from:reply-to:to:date:subject:message-id:mime-version:errors-to
+         :list-unsubscribe:content-transfer-encoding:dkim-signature;
+        bh=4X8dVWyzbjaUIoXBcL19tcUKK54kKk6LLJ01azMuPAk=;
+        fh=IT3edqKCdtDLXaIMwYfaNWMty2FMAp5aTwwhDcOGAyI=;
+        b=ZUEoayEkSJbDxVNjWJX1X6PCNgJ73fw+99oCyVwGXZRAcrUq2tGKKybLbCN4zWZfxE
+         +N+xeexZkht3jlLcv+Z4GLU+EX1xVLf70cpHSXo76goCXGhtRZuVg+z0PGvprmiHIvpf
+         UXWUtKVNrDRkHlIjuSQZPamjG1fLzYPNzn5/Q25AUy/LarIFgZcTwY3u/C2a/79K1kvz
+         wqUisOxyx05af9nUy1CTIRYDYrh7O3Ei697+dkxUFuXv//cbzcD8/oOhnHByq/r8jRNF
+         JNoG9lWWz+NFjVmHLwffShRS7OSOHSH33HnGvNYwMCB0OfGOBYRHY9CLgZ2KMh6lAl1q
+         QhdQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@oag.ca.gov header.s=22q1 header.b=UKlZN9yE;
+       spf=pass (google.com: domain of messages@oag.ca.gov designates 208.42.137.35 as permitted sender) smtp.mailfrom=messages@oag.ca.gov;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=oag.ca.gov
+Return-Path: <messages@oag.ca.gov>
+Received: from mailer137035.service.govdelivery.com (mailer137035.service.govdelivery.com. [208.42.137.35])
+        by mx.google.com with ESMTPS id q11-20020a92ca4b000000b00352690d52e2si2877440ilo.47.2023.11.05.15.46.31
+        for <lytommy321@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 05 Nov 2023 15:46:31 -0800 (PST)
+Received-SPF: pass (google.com: domain of messages@oag.ca.gov designates 208.42.137.35 as permitted sender) client-ip=208.42.137.35;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@oag.ca.gov header.s=22q1 header.b=UKlZN9yE;
+       spf=pass (google.com: domain of messages@oag.ca.gov designates 208.42.137.35 as permitted sender) smtp.mailfrom=messages@oag.ca.gov;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=oag.ca.gov
+Received: from gepdp-smeds19-2.systems.dc.gdi ([10.5.36.75])
+	by mailer137035.service.govdelivery.com (-); Sun, 05 Nov 2023 23:44:59 +0000
+X-VirtualServer: VSG001, mailer137035.service.govdelivery.com, 10.5.39.39
+X-VirtualServerGroup: VSG001
+X-MailingID: 16881793::20231105.85186281::1001::MDB-PRD-BUL-20231105.85186281::lytommy321@gmail.com::5269274_0_0
+X-SMHeaderMap: mid="X-MailingID"
+X-Destination-ID: lytommy321@gmail.com
+X-SMFBL: bHl0b21teTMyMUBnbWFpbC5jb20=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=oag.ca.gov; s=22q1; i=@oag.ca.gov; h=Content-Transfer-Encoding:
+	Content-Type:x-subscriber:List-Unsubscribe:X-Accountcode:
+	Errors-To:MIME-Version:Message-ID:X-ReportingKey:Subject:Date:To:
+	Reply-To:From; bh=4X8dVWyzbjaUIoXBcL19tcUKK54kKk6LLJ01azMuPAk=;
+	b=UKlZN9yEtuujBecF5bB3VXDM6ly8MbHL1kv56RQDKMzye7poR0cWPge+r1R0qV
+	MnLwDSguiikw6htouzHj5PMr1EK7Za5xW2f/7MIEd+7+AluFXRijBdOUSP+JlLMk
+	ndlIUzFUZhH8QfpoVZ2turZNydXJ9PWkOg9Vknxz8I24JegKFfbRTpZBqrlOGlyG
+	phNf0ok8FXs58upf5FDhniJPRSFZWa05J0V/uPqi3CsrZRVZfpYJgNRGVOJ/CEMy
+	uKCcz2R5qEVdT8QEYwtnS6YQokdnDlrQXl4+d1bWhtuVN7HQzYRpg3wyAFrm9/M4
+	GUnUOccE6fhysnMge6i+3SsA==
+Content-Transfer-Encoding: 7bit
+Content-Type: multipart/alternative;
+	boundary="----=_NextPart_72A_3204_0AF192E2.6A0C7CA4"
+x-subscriber: 3.Ndf0VTjVYQJH9EqLmurWA4xaBTU4sjuKuowPV51H0ym+pLuDPksXiQ7tpNeg9PJ7rAUcft43GkusZ7RYrz079gugplkJMICOejKmSK+uUj2VyubId79709QGHOEpH3gxPOCaDD7PISf+ovyKfRIeIA==
+List-Unsubscribe: <https://public.govdelivery.com/accounts/CAOAG/subscriber/one_click_unsubscribe?verification=5.4b0f6e0d7d7df3bf519d9f4bc66a8be7&destination=lytommy321%40gmail.com>
+X-Accountcode: CAOAG
+Errors-To: messages@oag.ca.gov
+MIME-Version: 1.0
+Message-ID: <16881793.5269274@oag.ca.gov>
+X-ReportingKey: MJJJ2EWJKF4DKJJ22846NJJJ::lytommy321@gmail.com::lytommy321@gmail.com
+Subject: =?US-ASCII?Q?Read_the_California_DOJ_Weekly_Newsletter?=
+Date: Sun, 05 Nov 2023 23:44:55 +0000
+To: lytommy321@gmail.com
+Reply-To: info@oag.ca.gov
+From: "=?US-ASCII?Q?CA_Attorney_General_Rob_Bonta?=" <info@oag.ca.gov>
+
+
+------=_NextPart_72A_3204_0AF192E2.6A0C7CA4
+Content-Type: text/plain;
+	charset="UTF-8"
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Healthcare is a human right. =20
+
+=20
+
+=20
+
+Having trouble viewing this email?=C2=A0View it as a Web page [ https://c=
+ontent.govdelivery.com/accounts/CAOAG/bulletins/37955c6 ].
+
+=20
+=20
+=20
+=20
+
+California Attorney General Rob Bonta Weekly Update=20
+=20
+=20
+=20
+
+Visit the California Attorney General's Facebook [ https://www.facebook.c=
+om/AGRobBonta?utm_medium=3Demail&utm_source=3Dgovdelivery ]Follow the Att=
+orney General on Twitter [ https://twitter.com/AGRobBonta?utm_medium=3Dem=
+ail&utm_source=3Dgovdelivery ]Visit the Attorney General's Instagram [ ht=
+tps://www.instagram.com/AGRobBonta?utm_medium=3Demail&utm_source=3Dgovdel=
+ivery ]Visit the Attorney General's YouTube Channel [ https://www.youtube=
+.com/user/caoag?utm_medium=3Demail&utm_source=3Dgovdelivery ]
+
+Follow us: Facebook [ https://protect-us.mimecast.com/s/2arACG690oIyPQ8PF=
+KqIwc?domain=3Dfacebook.com&utm_medium=3Demail&utm_source=3Dgovdelivery ]=
+ | Twitter [ https://protect-us.mimecast.com/s/wVvJCJ6PBrI42Dn2hGc274?dom=
+ain=3Dtwitter.com&utm_medium=3Demail&utm_source=3Dgovdelivery ] | Instagr=
+am [ https://protect-us.mimecast.com/s/R7V1CKr6DvcAYG1YT32CsJ?domain=3Din=
+stagram.com&utm_medium=3Demail&utm_source=3Dgovdelivery ] | YouTube [ htt=
+ps://protect-us.mimecast.com/s/OUJlCL9PEwcogZ3ghmPsPj?domain=3Dyoutube.co=
+m&utm_medium=3Demail&utm_source=3Dgovdelivery ]=20
+=20
+
+Every American, no matter where you live, how you look, how you identify,=
+ or how much money you have deserves access to quality, affordable, equit=
+able healthcare.
+
+Healthcare is a human right.
+
+At California DOJ, we=E2=80=99re standing up for that right. From calling=
+ on the U.S. Food and Drug Administration to address racial bias in pulse=
+ oximeters, to addressing the Black maternal mortality crisis, we=E2=80=99=
+re fighting for a more equitable healthcare system that provides high-qua=
+lity care to all Californians.
+
+=C2=A0
+
+In solidarity,
+
+Rob Bonta
+
+=20
+=20
+=20
+=20
+
+*Fighting**=C2=A0for Equity in Healthcare*=20
+Image of AG Bonta at press conference  [ https://oag.ca.gov/news/press-re=
+leases/attorney-general-bonta-leads-multistate-letter-urging-fda-address-=
+concerns-about?utm_medium=3Demail&utm_source=3Dgovdelivery ]
+
+Communities of color =E2=80=94 in California and across the nation =E2=80=
+=94 continue to be disproportionately impacted by the deep and shameful r=
+acial disparities in healthcare. This is unacceptable to me. With the rel=
+ease of=C2=A0DOJ=E2=80=99s report on anti-implicit bias training [ https:=
+//oag.ca.gov/news/press-releases/attorney-general-bonta-announces-results=
+-investigation-anti-bias-training?utm_medium=3Demail&utm_source=3Dgovdeli=
+very ], and our letter to the U.S. Food and Drug Administration related t=
+o medical devices=E2=80=99 race and color bias, we are moving forward in =
+the fight for a just and equitable healthcare system. I will use every to=
+ol in my power to protect the health and future of all Californians.
+
+*Learn More =E2=86=92* [ https://oag.ca.gov/news/press-releases/attorney-=
+general-bonta-leads-multistate-letter-urging-fda-address-concerns-about?u=
+tm_medium=3Demail&utm_source=3Dgovdelivery ]=20
+=20
+=20
+=20
+=20
+=20
+
+*Protecting Access to Housing*
+Apartments [ https://oag.ca.gov/news/press-releases/two-year-anniversary-=
+housing-justice-team-attorney-general-bonta-highlights?utm_medium=3Demail=
+&utm_source=3Dgovdelivery ]
+
+Two years ago this week [ https://oag.ca.gov/news/press-releases/attorney=
+-general-bonta-launches-housing-strike-force-announces-convening-tenant?u=
+tm_medium=3Demail&utm_source=3Dgovdelivery ], I launched the Housing Just=
+ice Team to advance housing access, affordability, and equity in Californ=
+ia. Since then, our talented attorneys have delivered real results. From =
+protecting renters from unlawful evictions to ensuring that local governm=
+ents=C2=A0allow for the building of=C2=A0their fair share of housing, I a=
+m immensely proud of what the Housing Justice Team has accomplished=C2=A0=
+already.=C2=A0Tackling California=E2=80=99s housing crisis remains a top =
+priority=C2=A0=E2=80=94=C2=A0and with the work of the past two years, we =
+are just getting started.
+
+*Learn More =E2=86=92* [ https://oag.ca.gov/news/press-releases/two-year-=
+anniversary-housing-justice-team-attorney-general-bonta-highlights?utm_me=
+dium=3Demail&utm_source=3Dgovdelivery ]=20
+=20
+=20
+=20
+=20
+=20
+
+*Holding Fraudsters Accountable*
+Woman with face in hands [ https://oag.ca.gov/news/press-releases/attorne=
+y-general-bonta-announces-indictment-over-8-million-ponzi-scheme?utm_medi=
+um=3Demail&utm_source=3Dgovdelivery ]
+
+We=E2=80=99re committed to holding=C2=A0accountable=C2=A0those who=C2=A0e=
+xploit Californians through=C2=A0financial fraud and white-collar crime.=C2=
+=A0This week, in San Bernardino, I announced the arraignment and filing o=
+f charges against two defendants in a multimillion-dollar embezzlement an=
+d tax fraud scheme [ https://oag.ca.gov/news/press-releases/attorney-gene=
+ral-bonta-announces-charges-arraignments-over-8-million?utm_medium=3Demai=
+l&utm_source=3Dgovdelivery ]. And in Los Angeles County, I announced the =
+unsealing of an indictment against a developer for an $8 million investme=
+nt ponzi scheme [ https://oag.ca.gov/news/press-releases/attorney-general=
+-bonta-announces-indictment-over-8-million-ponzi-scheme?utm_medium=3Demai=
+l&utm_source=3Dgovdelivery ], many of whose victims were elderly. We enco=
+urage any potential victims of this scheme who have not yet come forward =
+to contact us at oag.ca.gov/report [ https://oag.ca.gov/contact/consumer-=
+complaint-against-business-or-company?utm_medium=3Demail&utm_source=3Dgov=
+delivery ].=C2=A0
+
+*Learn More =E2=86=92* [ https://oag.ca.gov/news/press-releases/attorney-=
+general-bonta-announces-indictment-over-8-million-ponzi-scheme?utm_medium=
+=3Demail&utm_source=3Dgovdelivery ]=20
+=20
+=20
+=20
+=20
+=20
+
+*Standing up for LGBTQ+ Students*
+Student with rainbow graduation cap  [ https://oag.ca.gov/news/press-rele=
+ases/attorney-general-bonta-joins-multistate-coalition-effort-support-cur=
+riculum?utm_medium=3Demail&utm_source=3Dgovdelivery ]
+
+All students deserve to be represented in the school curriculum. That=E2=80=
+=99s why this week,=C2=A0I joined a multistate coalition of states suppor=
+ting a Maryland board of education=E2=80=99s policy that permits schools =
+to incorporate LGBTQ+-inclusive books into language arts curriculum. This=
+ type of policy reflects the diversity of the school community and allows=
+ for a fully inclusive environment for all students. I will continue to f=
+ight for the rights of LGBTQ+ students and all of our nation=E2=80=99s ch=
+ildren.
+
+*Learn More =E2=86=92* [ https://oag.ca.gov/news/press-releases/attorney-=
+general-bonta-joins-multistate-coalition-effort-support-curriculum?utm_me=
+dium=3Demail&utm_source=3Dgovdelivery ]=20
+=20
+=20
+=20
+=20
+=20
+
+*Safeguarding Competition for Travelers*
+Spirit Jet Blue Airlines [ https://oag.ca.gov/news/press-releases/attorne=
+y-general-bonta-issues-statement-first-day-trial-lawsuit-challenging?utm_=
+medium=3Demail&utm_source=3Dgovdelivery ]
+
+The proposed JetBlue-Spirit merger is a bad deal for consumers. If it goe=
+s through, tens of millions of travelers across the country =E2=80=94 inc=
+luding Californians, particularly on the Los Angeles to Miami route =E2=80=
+=94 will face higher fares and fewer options.=C2=A0That is unacceptable.=C2=
+=A0Consolidation in the airline industry is a serious concern of mine. I =
+couldn't be prouder that my office, alongside the U.S. Department of Just=
+ice and six other attorneys general, was in court this week fighting agai=
+nst the merger to ensure a fair and competitive economy.
+
+*Learn More =E2=86=92* [ https://oag.ca.gov/news/press-releases/attorney-=
+general-bonta-issues-statement-first-day-trial-lawsuit-challenging?utm_me=
+dium=3Demail&utm_source=3Dgovdelivery ]=20
+=20
+=20
+=20
+=20
+=20
+
+*Make a Difference at California DOJ*
+We're Hiring [ https://oag.ca.gov/careers?utm_medium=3Demail&utm_source=3D=
+govdelivery ]
+
+Apply today to help DOJ protect the health, well-being, and public safety=
+ of Californians. Check out our featured jobs below and visit oag.ca.gov/=
+careers [ https://oag.ca.gov/careers?utm_medium=3Demail&utm_source=3Dgovd=
+elivery ] for a full listing of available positions:
+
+Deputy Attorney General III, Health Education & Welfare [ https://www.cal=
+careers.ca.gov/CalHrPublic/Jobs/JobPosting.aspx?JobControlId=3D398377&utm=
+_medium=3Demail&utm_source=3Dgovdelivery ]
+
+Deputy Attorney General III, Division of Medi-Cal Fraud and Elder Abuse [=
+ https://www.calcareers.ca.gov/CalHrPublic/Jobs/JobPosting.aspx?JobContro=
+lId=3D392895&utm_medium=3Demail&utm_source=3Dgovdelivery ]
+
+Deputy Attorney General III, Employment and Administrative Mandate [ http=
+s://www.calcareers.ca.gov/CalHrPublic/Jobs/JobPosting.aspx?JobControlId=3D=
+395788&utm_medium=3Demail&utm_source=3Dgovdelivery ]
+
+Deputy Attorney General III, Correctional Law Class-Action [ https://www.=
+calcareers.ca.gov/CalHrPublic/Jobs/JobPosting.aspx?JobControlId=3D392725&=
+utm_medium=3Demail&utm_source=3Dgovdelivery ]
+
+Deputy Attorney General IV, Health Quality Enforcement [ https://www.calc=
+areers.ca.gov/CalHrPublic/Jobs/JobPosting.aspx?JobControlId=3D389055&utm_=
+medium=3Demail&utm_source=3Dgovdelivery ]
+
+=C2=A0
+
+Assistant Chief, California Justice Information Services Division [ https=
+://www.calcareers.ca.gov/CalHrPublic/Jobs/JobPosting.aspx?JobControlId=3D=
+398671&utm_medium=3Demail&utm_source=3Dgovdelivery ]
+
+Bureau Director, Enterprise Services Bureau [ https://www.calcareers.ca.g=
+ov/CalHrPublic/Jobs/JobPosting.aspx?JobControlId=3D399721&utm_medium=3Dem=
+ail&utm_source=3Dgovdelivery ]
+
+Special Agent, Dignitary Protection Unit [ https://www.calcareers.ca.gov/=
+CalHrPublic/Jobs/JobPosting.aspx?JobControlId=3D398834&utm_medium=3Demail=
+&utm_source=3Dgovdelivery ]
+
+Legal Secretary, Legal Support Operations [ https://www.calcareers.ca.gov=
+/CalHrPublic/Jobs/JobPosting.aspx?JobControlId=3D399236&utm_medium=3Demai=
+l&utm_source=3Dgovdelivery ]
+
+Project Manager and Coordinator, Office of Strategic Initiative Branch [ =
+https://www.calcareers.ca.gov/CalHrPublic/Jobs/JobPosting.aspx?JobControl=
+Id=3D398982&utm_medium=3Demail&utm_source=3Dgovdelivery ]
+
+=C2=A0
+
+*Attorney General=E2=80=99s Honors Program =E2=80=93 San Francisco*
+
+Deputy Attorney General [ https://www.calcareers.ca.gov/CalHrPublic/Jobs/=
+JobPosting.aspx?JobControlId=3D389286&utm_medium=3Demail&utm_source=3Dgov=
+delivery ]
+
+Graduate Legal Assistant [ https://www.calcareers.ca.gov/CalHrPublic/Jobs=
+/JobPosting.aspx?JobControlId=3D389326&utm_medium=3Demail&utm_source=3Dgo=
+vdelivery ]
+
+=C2=A0
+
+*Attorney General=E2=80=99s Honors Program =E2=80=93 Sacramento*
+
+Deputy Attorney General [ https://www.calcareers.ca.gov/CalHrPublic/Jobs/=
+JobPosting.aspx?JobControlId=3D399894&utm_medium=3Demail&utm_source=3Dgov=
+delivery ]
+
+Graduate Legal Assistant [ https://www.calcareers.ca.gov/CalHrPublic/Jobs=
+/JobPosting.aspx?JobControlId=3D399935&utm_medium=3Demail&utm_source=3Dgo=
+vdelivery ]
+
+*Apply =E2=86=92* [ https://oag.ca.gov/careers?utm_medium=3Demail&utm_sou=
+rce=3Dgovdelivery ]=20
+=20
+=20
+=20
+=20
+=20
+
+*Post of the Week*
+
+Post of the Week  [ https://twitter.com/AGRobBonta/status/172050116970407=
+1662?utm_medium=3Demail&utm_source=3Dgovdelivery ]=20
+
+*Follow =E2=86=92* [ https://twitter.com/AGRobBonta/status/17205011697040=
+71662?utm_medium=3Demail&utm_source=3Dgovdelivery ]=20
+=20
+=20
+=20
+=20
+=20
+
+FLASH BRIEFING
+
+On Two-Year Anniversary of Housing Justice Team, Attorney General Bonta H=
+ighlights Critical Work to Fight for Equitable, Affordable Housing for Al=
+l Californians
+
+*Learn More =E2=86=92* [ https://oag.ca.gov/news/press-releases/two-year-=
+anniversary-housing-justice-team-attorney-general-bonta-highlights?utm_me=
+dium=3Demail&utm_source=3Dgovdelivery ]=20
+=20
+
+________________________________________________________________________
+
+=20
+
+Attorney General Bonta Leads Multistate Letter Urging FDA to Address Conc=
+erns about Dangerous Pulse Oximeter Inaccuracies Impacting Communities of=
+ Color
+
+*Learn More =E2=86=92* [ https://oag.ca.gov/news/press-releases/attorney-=
+general-bonta-leads-multistate-letter-urging-fda-address-concerns-about?u=
+tm_medium=3Demail&utm_source=3Dgovdelivery ]=20
+=20
+
+________________________________________________________________________
+
+=20
+
+Attorney General Bonta Advises California Law Enforcement on Legal Uses a=
+nd Management of Automated License Plate Recognition Data
+
+*Learn More =E2=86=92* [ https://oag.ca.gov/news/press-releases/attorney-=
+general-bonta-advises-california-law-enforcement-legal-uses-and?utm_mediu=
+m=3Demail&utm_source=3Dgovdelivery ]=20
+=20
+
+________________________________________________________________________
+
+=20
+
+California Department of Justice Releases Report on Officer-Involved Shoo=
+ting of Brandon Lopez
+
+*Learn More =E2=86=92* [ https://oag.ca.gov/news/press-releases/californi=
+a-department-justice-releases-report-officer-involved-shooting-brandon?ut=
+m_medium=3Demail&utm_source=3Dgovdelivery ]=20
+=20
+
+________________________________________________________________________
+
+=20
+
+Attorney General Bonta: California=E2=80=99s Ban on Assault Weapons Remai=
+ns in Effect Until Further Notice
+
+*Learn More =E2=86=92* [ https://oag.ca.gov/news/press-releases/attorney-=
+general-bonta-california%E2%80%99s-ban-assault-weapons-remains-effect-unt=
+il?utm_medium=3Demail&utm_source=3Dgovdelivery ]=20
+=20
+
+________________________________________________________________________
+
+=20
+
+Attorney General Bonta Co-Leads Multistate Coalition in Fighting for Heal=
+th and Nutrition Stability for Immigrant Families
+
+*Learn More =E2=86=92* [ https://oag.ca.gov/news/press-releases/attorney-=
+general-bonta-co-leads-multistate-coalition-fighting-health-and?utm_mediu=
+m=3Demail&utm_source=3Dgovdelivery ]=20
+=20
+
+________________________________________________________________________
+
+=20
+
+Attorney General Bonta Announces Arrest of Placer County Suspect for Fent=
+anyl Homicide
+
+*Learn More =E2=86=92* [ https://oag.ca.gov/news/press-releases/attorney-=
+general-bonta-announces-arrest-placer-county-suspect-fentanyl-homicide?ut=
+m_medium=3Demail&utm_source=3Dgovdelivery ]=20
+=20
+
+________________________________________________________________________
+
+=20
+
+Attorney General Bonta Announces 14 Arrests as Part of Sexual Predator Ap=
+prehension Operation in Fresno County
+
+*Learn More =E2=86=92* [ https://oag.ca.gov/news/press-releases/attorney-=
+general-bonta-announces-14-arrests-part-sexual-predator-apprehension?utm_=
+medium=3Demail&utm_source=3Dgovdelivery ]=20
+=20
+=20
+=20
+=20
+=20
+
+VIDEO OF THE WEEK
+Video of the week  [ https://x.com/agrobbonta/status/1719081228849348663?=
+s=3D46&t=3Dy7O4CPiRyNAXm962LIXnzA&utm_medium=3Demail&utm_source=3Dgovdeli=
+very ]
+
+We can=E2=80=99t let another patient suffer the consequences of inadequat=
+e training. I=E2=80=99m committed to working=C2=A0with=C2=A0my colleagues=
+ in the Legislature to strengthen the California Dignity in Pregnancy and=
+ Childbirth Act and tackle implicit bias in our healthcare system. Time i=
+s of the essence.
+
+*Watch =E2=86=92* [ https://x.com/agrobbonta/status/1719081228849348663?s=
+=3D46&t=3Dy7O4CPiRyNAXm962LIXnzA&utm_medium=3Demail&utm_source=3Dgovdeliv=
+ery ]=20
+=20
+=20
+=20
+=20
+=20
+
+NEWS FLASH
+
+**LA Times:=C2=A0**Editorial: Social media can harm kids. Lawsuits could =
+force Meta, others to make platforms safer [ https://www.latimes.com/opin=
+ion/story/2023-10-26/editorial-social-media-can-harm-kids-now-states-are-=
+suing-to-force-meta-other-companies-to-make-platforms-safer?utm_medium=3D=
+email&utm_source=3Dgovdelivery ]
+
+**NPR: **California's ban on assault weapons will remain in effect after =
+judges grant a stay [ https://www.npr.org/2023/10/29/1209325973/californi=
+as-ban-on-assault-weapons-will-remain-in-effect-after-judges-grant-a-st?u=
+tm_medium=3Demail&utm_source=3Dgovdelivery ]
+
+*CalMatters:* Despite high Black maternal death rate, California hospital=
+s ignored training about bias in care [ https://calmatters.org/health/202=
+3/10/despite-high-black-maternal-death-rate-california-hospitals-ignored-=
+training-about-bias-in-care/?utm_medium=3Demail&utm_source=3Dgovdelivery =
+]
+
+*ABC 7:* CA lawmakers, hospitals step up efforts to protect lives of Blac=
+k women during childbirth [ https://abc7.com/black-women-maternal-mortali=
+ty-childbirth-pregnancy/13982619/?utm_medium=3Demail&utm_source=3Dgovdeli=
+very ]
+
+*LA Times:*=C2=A09th Circuit stays ruling against California assault weap=
+ons ban, pending appeal [ https://www.latimes.com/california/story/2023-1=
+0-30/9th-circuit-stays-ruling-against-california-ban-on-assault-weapons-p=
+ending-appeal?utm_medium=3Demail&utm_source=3Dgovdelivery ]
+
+*The Pride LA:=C2=A0*California Attorney General Addresses LGBTQ+ Domesti=
+c Violence Issues [ https://thepridela.com/2023/11/california-attorney-ge=
+neral-addresses-lgbtq-domestic-violence-issues/?utm_medium=3Demail&utm_so=
+urce=3Dgovdelivery ]
+
+=20
+=20
+=20
+=20
+
+*Join Us for Our Next Event*
+
+Join us Wednesday, November 15 at 10 a.m. for our next Demystifying the D=
+OJ event! Learn about the how our Housing Justice Team is tackling Califo=
+rnia's housing crisis by advancing housing access, affordability, and equ=
+ity throughout the state. Register today!
+
+Demystifying the DOJ [ https://doj-ca.zoomgov.com/webinar/register/WN_mfw=
+wna4TQ9-o8Gj2bBGgtA?utm_medium=3Demail&utm_source=3Dgovdelivery#/registra=
+tion ]
+
+*RSVP TODAY =E2=86=92* [ https://doj-ca.zoomgov.com/webinar/register/WN_m=
+fwwna4TQ9-o8Gj2bBGgtA?utm_medium=3Demail&utm_source=3Dgovdelivery#/regist=
+ration ]=20
+=20
+=20
+=20
+=20
+=20
+ =20
+=20
+________________________________________________________________________
+
+Update your subscriptions, modify your password or email address, or unsu=
+bscribe using the=C2=A0Subscriber Preferences Page [ https://public.govde=
+livery.com/accounts/CAOAG/subscriber/new?preferences=3Dtrue ]. You will n=
+eed to use your email address to log in. If you have questions or problem=
+s with the subscription service, please visit subscriberhelp.govdelivery.=
+com [ https://subscriberhelp.govdelivery.com/ ].
+
+This service is provided to you at no charge by California Department of =
+Justice [ https://oag.ca.gov/?utm_medium=3Demail&utm_source=3Dgovdelivery=
+ ].
+
+________________________________________________________________________
+
+ This email was sent to lytommy321@gmail.com using govDelivery Communicat=
+ions Cloud on behalf of: California Department of Justice - Office of the=
+ Attorney General =C2=B7 P.O. Box 944255 =C2=B7 Sacramento, CA 94244-2550=
+ GovDelivery logo  [ https://subscriberhelp.granicus.com/?utm_medium=3Dem=
+ail&utm_source=3Dgovdelivery ]
+=0A
+------=_NextPart_72A_3204_0AF192E2.6A0C7CA4
+Content-Type: text/html;
+	charset="UTF-8"
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml" xml:lang=3D"en" lang=3D"en">=
+
+<head>
+<title>    Read the California DOJ Weekly Newsletter
+</title>
+    <meta name=3D"viewport" content=3D"initial-scale=3D1.0">
+<meta name=3D"format-detection" content=3D"telephone=3Dno">
+<!--[if (gte mso 9)|(IE)]>
+  <style type=3D"text/css">
+      table {border-collapse: collapse;}
+  </style>
+  <![endif]-->
+<style type=3D"text/css">
+  /* Make columns expand to 100% on small screens */
+  @media only screen and (max-width: 480px) {
+    .abe-column-block {
+      min-width: 100%;
+    }
+  }
+  /* Disables Apple clients adding blue color and underline to links and =
+other text */
+  a[x-apple-data-detectors] {
+    color: inherit !important;
+    text-decoration: none !important;
+    font-size: inherit !important;
+    font-family: inherit !important;
+    font-weight: inherit !important;
+    line-height: inherit !important;
+  }
+</style>
+
+
+</head>
+<body style=3D"margin:0;padding:0;margin:0;padding:0;width:100% !importan=
+t;">
+<table bgcolor=3D'#ffffff' border=3D'0' cellpadding=3D'0' cellspacing=3D'=
+0' style=3D'width: 100%;'>
+<tbody>
+<tr bgcolor=3D'#ffffff'>
+<td align=3D'center' style=3D'background-color: #ffffff; padding: 0px; fo=
+nt-size:1px; font-family:&#39;Helvetica Neue&#39;, Helvetica, Arial, sans=
+-serif; color:#ffffff' valign=3D'top'>
+Healthcare is a human right.
+</td>
+</tr>
+</tbody>
+</table>
+
+
+<!--[if (gte mso 9)|(IE)]>
+  <table style=3D"display:none"><tr><td><a name=3D"gd_top" id=3D"gd_top">=
+</a></td></tr></table>
+<![endif]-->
+<a name=3D"gd_top" id=3D"gd_top"></a>
+
+ =20
+
+
+
+ =20
+  <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" =
+align=3D"center" class=3D"gd_tbl_wrap"><tr><td style=3D"margin: 0; paddin=
+g: 0; width: 100% !important">
+<table id=3D"flexible-abe-main-table" width=3D"100%" align=3D"center" bor=
+der=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"-webkit-text-size-=
+adjust: 100%; -ms-text-size-adjust: 100%; border-spacing: 0; mso-table-ls=
+pace: 0pt; mso-table-rspace: 0pt; padding-top: 20px; padding-bottom: 20px=
+;">
+  <tr>
+    <td style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 10=
+0%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;"></td>
+    <!-- centered column -->
+    <td style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 10=
+0%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+<!--[if (gte mso 9)|(IE)]>
+  <table width=3D"600" align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0">
+    <tr>
+      <td>
+<![endif]-->
+<div class=3D"abe-section-block" data-block-type=3D"FancyBlockSection" da=
+ta-block-id=3D"103179206">
+  <table class=3D"abe-section-table" width=3D"100%" align=3D"center" bord=
+er=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D=
+"max-width: 600px; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: =
+100%; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+    <tr id=3D"abe-section-row-1d8e8481-f692-4591-a008-b6ab965604ac" class=
+=3D"abe-section-row" style=3D"background-color: #ffffff;" bgcolor=3D"#fff=
+fff">
+      <td style=3D"text-align: center; vertical-align: top; font-size: 0;=
+ -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-ls=
+pace: 0pt; mso-table-rspace: 0pt;" align=3D"center" valign=3D"top">
+        <!--[if (gte mso 9)|(IE)]>
+  <table width=3D"100%" align=3D"center" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-a=
+djust: 100%; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: =
+0pt;">
+    <tr>
+<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+  <td width=3D"600" valign=3D"top" id=3D"abe-column-block-4a054a7f-7a61-4=
+bde-80e4-d5bd4bbf3fe7-outlook-only" class=3D"abe-column-block-outlook-onl=
+y" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; m=
+so-table-lspace: 0pt; mso-table-rspace: 0pt;">
+<![endif]-->
+<div id=3D"abe-column-block-4a054a7f-7a61-4bde-80e4-d5bd4bbf3fe7" class=3D=
+"abe-column-block" data-block-type=3D"FancyBlockColumn" data-block-id=3D"=
+103179207" style=3D"width: 100%; box-sizing: border-box; display: inline-=
+block; font-size: 16px; vertical-align: top;">
+  <table width=3D"100%" align=3D"center" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" role=3D"presentation" style=3D"table-layout: fixed; over=
+flow-wrap: break-word; word-wrap: break-word; text-align: left; -webkit-t=
+ext-size-adjust: 100%; -ms-text-size-adjust: 100%; border-spacing: 0; mso=
+-table-lspace: 0pt; mso-table-rspace: 0pt;">
+    <tr>
+      <td class=3D"abe-column-block-padding" id=3D"abe-column-block-4a054=
+a7f-7a61-4bde-80e4-d5bd4bbf3fe7-padding" style=3D"-webkit-text-size-adjus=
+t: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rsp=
+ace: 0pt; padding: 15px;"><p style=3D"text-align: center; -webkit-text-si=
+ze-adjust: 100%; -ms-text-size-adjust: 100%; line-height: 1.4; color: #66=
+6666; font-size: 11px; font-family: helvetica; margin: 0 0 0px;" align=3D=
+"center">Having trouble viewing this email?=C2=A0<a href=3D"https://lnks.=
+gd/l/eyJhbGciOiJIUzI1NiJ9.eyJidWxsZXRpbl9saW5rX2lkIjoxMDAsInVyaSI6ImJwMjp=
+jbGljayIsInVybCI6Imh0dHBzOi8vY29udGVudC5nb3ZkZWxpdmVyeS5jb20vYWNjb3VudHMv=
+Q0FPQUcvYnVsbGV0aW5zLzM3OTU1YzYiLCJidWxsZXRpbl9pZCI6IjIwMjMxMTA1Ljg1MTg2M=
+jgxIn0.DPJ3vUJ6hk4HCvzfcGEj-qRD_mHVllvxUKfproK17Uw/s/2145798483/br/230027=
+852294-l" target=3D"_blank" rel=3D"noopener" style=3D"-webkit-text-size-a=
+djust: 100%; -ms-text-size-adjust: 100%; color: #666666;">View it as a We=
+b page</a>.</p></td>
+    </tr>
+  </table>
+</div>
+<!--[if (gte mso 9)|(IE)]>
+  </td>
+<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+  </tr>
+  </table>
+<![endif]-->
+      </td>
+    </tr>
+  </table>
+</div>
+<!--[if (gte mso 9)|(IE)]>
+      </td>
+    </tr>
+  </table>
+<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+  <table width=3D"600" align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0">
+    <tr>
+      <td>
+<![endif]-->
+<div class=3D"abe-section-block" data-block-type=3D"FancyBlockSection" da=
+ta-block-id=3D"103179209">
+  <table class=3D"abe-section-table" width=3D"100%" align=3D"center" bord=
+er=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D=
+"max-width: 600px; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: =
+100%; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+    <tr id=3D"abe-section-row-d7bb6dd9-3dd0-4efb-bb56-4a35cfd8ac50" class=
+=3D"abe-section-row" style=3D"background-color: #434959;" bgcolor=3D"#434=
+959">
+      <td style=3D"text-align: center; vertical-align: top; font-size: 0;=
+ -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-ls=
+pace: 0pt; mso-table-rspace: 0pt;" align=3D"center" valign=3D"top">
+        <!--[if (gte mso 9)|(IE)]>
+  <table width=3D"100%" align=3D"center" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-a=
+djust: 100%; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: =
+0pt;">
+    <tr>
+<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+  <td width=3D"600" valign=3D"top" id=3D"abe-column-block-1d757e30-f50b-4=
+34c-852b-6a5728468a38-outlook-only" class=3D"abe-column-block-outlook-onl=
+y" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; m=
+so-table-lspace: 0pt; mso-table-rspace: 0pt;">
+<![endif]-->
+<div id=3D"abe-column-block-1d757e30-f50b-434c-852b-6a5728468a38" class=3D=
+"abe-column-block" data-block-type=3D"FancyBlockColumn" data-block-id=3D"=
+103179210" style=3D"width: 100%; box-sizing: border-box; display: inline-=
+block; font-size: 16px; vertical-align: top;">
+  <table width=3D"100%" align=3D"center" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" role=3D"presentation" style=3D"table-layout: fixed; over=
+flow-wrap: break-word; word-wrap: break-word; text-align: left; -webkit-t=
+ext-size-adjust: 100%; -ms-text-size-adjust: 100%; border-spacing: 0; mso=
+-table-lspace: 0pt; mso-table-rspace: 0pt;">
+    <tr>
+      <td class=3D"abe-column-block-padding" id=3D"abe-column-block-1d757=
+e30-f50b-434c-852b-6a5728468a38-padding" style=3D"-webkit-text-size-adjus=
+t: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rsp=
+ace: 0pt; padding: 0px;"><img class=3D"govd_template_image" src=3D"https:=
+//content.govdelivery.com/attachments/fancy_images/CAOAG/2022/01/5449805/=
+ag-weekly-update-banner-default_original.jpeg" style=3D"width: 601px; hei=
+ght: auto; -ms-interpolation-mode: bicubic; line-height: 1; outline: none=
+; text-decoration: none; max-width: 100%; border: none;" alt=3D"Californi=
+a Attorney General Rob Bonta Weekly Update" width=3D"601" height=3D"250">=
+</td>
+    </tr>
+  </table>
+</div>
+<!--[if (gte mso 9)|(IE)]>
+  </td>
+<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+  </tr>
+  </table>
+<![endif]-->
+      </td>
+    </tr>
+  </table>
+</div>
+<!--[if (gte mso 9)|(IE)]>
+      </td>
+    </tr>
+  </table>
+<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+  <table width=3D"600" align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0">
+    <tr>
+      <td>
+<![endif]-->
+<div class=3D"abe-section-block" data-block-type=3D"FancyBlockSection" da=
+ta-block-id=3D"103179212">
+  <table class=3D"abe-section-table" width=3D"100%" align=3D"center" bord=
+er=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D=
+"max-width: 600px; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: =
+100%; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+    <tr id=3D"abe-section-row-3553e2b7-fd6d-4889-9dc3-d9667ee81fd9" class=
+=3D"abe-section-row" style=3D"background-color: #ffffff;" bgcolor=3D"#fff=
+fff">
+      <td style=3D"text-align: center; vertical-align: top; font-size: 0;=
+ -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-ls=
+pace: 0pt; mso-table-rspace: 0pt;" align=3D"center" valign=3D"top">
+        <!--[if (gte mso 9)|(IE)]>
+  <table width=3D"100%" align=3D"center" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-a=
+djust: 100%; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: =
+0pt;">
+    <tr>
+<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+  <td width=3D"600" valign=3D"top" id=3D"abe-column-block-874b8d61-f81f-4=
+8b7-be9e-88ea5882a214-outlook-only" class=3D"abe-column-block-outlook-onl=
+y" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; m=
+so-table-lspace: 0pt; mso-table-rspace: 0pt;">
+<![endif]-->
+<div id=3D"abe-column-block-874b8d61-f81f-48b7-be9e-88ea5882a214" class=3D=
+"abe-column-block" data-block-type=3D"FancyBlockColumn" data-block-id=3D"=
+103179213" style=3D"width: 100%; box-sizing: border-box; display: inline-=
+block; font-size: 16px; vertical-align: top;">
+  <table width=3D"100%" align=3D"center" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" role=3D"presentation" style=3D"table-layout: fixed; over=
+flow-wrap: break-word; word-wrap: break-word; text-align: left; -webkit-t=
+ext-size-adjust: 100%; -ms-text-size-adjust: 100%; border-spacing: 0; mso=
+-table-lspace: 0pt; mso-table-rspace: 0pt;">
+    <tr>
+      <td class=3D"abe-column-block-padding" id=3D"abe-column-block-874b8=
+d61-f81f-48b7-be9e-88ea5882a214-padding" style=3D"-webkit-text-size-adjus=
+t: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rsp=
+ace: 0pt; padding: 15px;">
+<p style=3D"text-align: center; -webkit-text-size-adjust: 100%; -ms-text-=
+size-adjust: 100%; line-height: 1.4; color: #000000; font-family: helveti=
+ca; font-size: 17px; margin: 0 0 10px;" align=3D"center"><a href=3D"https=
+://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJidWxsZXRpbl9saW5rX2lkIjoxMDEsInVyaSI=
+6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8vd3d3LmZhY2Vib29rLmNvbS9BR1JvYkJvbnRh=
+P3V0bV9tZWRpdW09ZW1haWwmdXRtX3NvdXJjZT1nb3ZkZWxpdmVyeSIsImJ1bGxldGluX2lkI=
+joiMjAyMzExMDUuODUxODYyODEifQ.nraFXcK_NGWasN3XnmSeyMexOCRKe0_2G-xdkX2hzA4=
+/s/2145798483/br/230027852294-l" target=3D"_blank" rel=3D"noopener" style=
+=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; color: #2=
+176ae;"><img src=3D"https://oag.ca.gov/sites/default/themes/custom2017/oa=
+g2017/img/email/fb-icon2.jpg" border=3D"0" alt=3D"Visit the California At=
+torney General's Facebook" style=3D"-ms-interpolation-mode: bicubic; heig=
+ht: auto; line-height: 1; outline: none; text-decoration: none; max-width=
+: 100%; border: none;"></a><a href=3D"https://lnks.gd/l/eyJhbGciOiJIUzI1N=
+iJ9.eyJidWxsZXRpbl9saW5rX2lkIjoxMDIsInVyaSI6ImJwMjpjbGljayIsInVybCI6Imh0d=
+HBzOi8vdHdpdHRlci5jb20vQUdSb2JCb250YT91dG1fbWVkaXVtPWVtYWlsJnV0bV9zb3VyY2=
+U9Z292ZGVsaXZlcnkiLCJidWxsZXRpbl9pZCI6IjIwMjMxMTA1Ljg1MTg2MjgxIn0.nwftHnh=
+wv0yGuin72ceZ4uy_IfquiFNrJAlA9eKuRic/s/2145798483/br/230027852294-l" targ=
+et=3D"_blank" rel=3D"noopener" style=3D"-webkit-text-size-adjust: 100%; -=
+ms-text-size-adjust: 100%; color: #2176ae;"><img src=3D"https://oag.ca.go=
+v/sites/default/themes/custom2017/oag2017/img/email/tw-icon2.jpg" border=3D=
+"0" alt=3D"Follow the Attorney General on Twitter" style=3D"-ms-interpola=
+tion-mode: bicubic; height: auto; line-height: 1; outline: none; text-dec=
+oration: none; max-width: 100%; border: none;"></a><a href=3D"https://lnk=
+s.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJidWxsZXRpbl9saW5rX2lkIjoxMDMsInVyaSI6ImJwM=
+jpjbGljayIsInVybCI6Imh0dHBzOi8vd3d3Lmluc3RhZ3JhbS5jb20vQUdSb2JCb250YT91dG=
+1fbWVkaXVtPWVtYWlsJnV0bV9zb3VyY2U9Z292ZGVsaXZlcnkiLCJidWxsZXRpbl9pZCI6IjI=
+wMjMxMTA1Ljg1MTg2MjgxIn0.Qs-cmv2Z9jHk2ZsSwaCuACO19D3kPaLrbqq6uHchJh0/s/21=
+45798483/br/230027852294-l" target=3D"_blank" rel=3D"noopener" style=3D"-=
+webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; color: #2176ae=
+;"><img src=3D"https://oag.ca.gov/sites/default/themes/custom2017/oag2017=
+/img/email/instagram-icon2.jpg" border=3D"0" alt=3D"Visit the Attorney Ge=
+neral's Instagram" style=3D"-ms-interpolation-mode: bicubic; height: auto=
+; line-height: 1; outline: none; text-decoration: none; max-width: 100%; =
+border: none;"></a><a href=3D"https://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJi=
+dWxsZXRpbl9saW5rX2lkIjoxMDQsInVyaSI6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8vd=
+3d3LnlvdXR1YmUuY29tL3VzZXIvY2FvYWc_dXRtX21lZGl1bT1lbWFpbCZ1dG1fc291cmNlPW=
+dvdmRlbGl2ZXJ5IiwiYnVsbGV0aW5faWQiOiIyMDIzMTEwNS44NTE4NjI4MSJ9.dnu4iClA-I=
+XgJe-BJpL7mk1aSeeMYb-j6FfvekxOpzY/s/2145798483/br/230027852294-l" target=3D=
+"_blank" rel=3D"noopener" style=3D"-webkit-text-size-adjust: 100%; -ms-te=
+xt-size-adjust: 100%; color: #2176ae;"><img src=3D"https://oag.ca.gov/sit=
+es/default/themes/custom2017/oag2017/img/email/yt-icon2.jpg" border=3D"0"=
+ alt=3D"Visit the Attorney General's YouTube Channel" style=3D"-ms-interp=
+olation-mode: bicubic; height: auto; line-height: 1; outline: none; text-=
+decoration: none; max-width: 100%; border: none;"></a></p>
+<table class=3D"gd_table" style=3D"width: 100%; border-collapse: collapse=
+; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; border-spac=
+ing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt;" border=3D"0">
+<tbody>
+<tr>
+<td style=3D"width: 100%; text-align: center; -webkit-text-size-adjust: 1=
+00%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace:=
+ 0pt;" align=3D"center">
+<h3 style=3D"line-height: 1.2; color: #000000; font-family: helvetica; fo=
+nt-size: 13px; margin: 0 0 10px;">Follow us: <a href=3D"https://lnks.gd/l=
+/eyJhbGciOiJIUzI1NiJ9.eyJidWxsZXRpbl9saW5rX2lkIjoxMDUsInVyaSI6ImJwMjpjbGl=
+jayIsInVybCI6Imh0dHBzOi8vcHJvdGVjdC11cy5taW1lY2FzdC5jb20vcy8yYXJBQ0c2OTBv=
+SXlQUThQRktxSXdjP2RvbWFpbj1mYWNlYm9vay5jb20mdXRtX21lZGl1bT1lbWFpbCZ1dG1fc=
+291cmNlPWdvdmRlbGl2ZXJ5IiwiYnVsbGV0aW5faWQiOiIyMDIzMTEwNS44NTE4NjI4MSJ9.C=
+8oLNqAYW-s3SaelvEEn-3zKTKpuWNE7Gosv_lkG4qY/s/2145798483/br/230027852294-l=
+" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; co=
+lor: #2176ae;">Facebook</a> | <a href=3D"https://lnks.gd/l/eyJhbGciOiJIUz=
+I1NiJ9.eyJidWxsZXRpbl9saW5rX2lkIjoxMDYsInVyaSI6ImJwMjpjbGljayIsInVybCI6Im=
+h0dHBzOi8vcHJvdGVjdC11cy5taW1lY2FzdC5jb20vcy93VnZKQ0o2UEJySTQyRG4yaEdjMjc=
+0P2RvbWFpbj10d2l0dGVyLmNvbSZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9zb3VyY2U9Z292ZGVs=
+aXZlcnkiLCJidWxsZXRpbl9pZCI6IjIwMjMxMTA1Ljg1MTg2MjgxIn0.m33Uj2ob2n5Qi7gmA=
+ABCncsT20jwy1-yJkwfFeTlMu0/s/2145798483/br/230027852294-l" style=3D"-webk=
+it-text-size-adjust: 100%; -ms-text-size-adjust: 100%; color: #2176ae;">T=
+witter</a> | <a href=3D"https://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJidWxsZX=
+Rpbl9saW5rX2lkIjoxMDcsInVyaSI6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8vcHJvdGV=
+jdC11cy5taW1lY2FzdC5jb20vcy9SN1YxQ0tyNkR2Y0FZRzFZVDMyQ3NKP2RvbWFpbj1pbnN0=
+YWdyYW0uY29tJnV0bV9tZWRpdW09ZW1haWwmdXRtX3NvdXJjZT1nb3ZkZWxpdmVyeSIsImJ1b=
+GxldGluX2lkIjoiMjAyMzExMDUuODUxODYyODEifQ.c7YXgZ6gR78kT1i58nPzb8v9AF1J8cK=
+-Jf9NQrqpnzY/s/2145798483/br/230027852294-l" style=3D"-webkit-text-size-a=
+djust: 100%; -ms-text-size-adjust: 100%; color: #2176ae;">Instagram</a> |=
+ <a href=3D"https://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJidWxsZXRpbl9saW5rX2=
+lkIjoxMDgsInVyaSI6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8vcHJvdGVjdC11cy5taW1=
+lY2FzdC5jb20vcy9PVUpsQ0w5UEV3Y29nWjNnaG1Qc1BqP2RvbWFpbj15b3V0dWJlLmNvbSZ1=
+dG1fbWVkaXVtPWVtYWlsJnV0bV9zb3VyY2U9Z292ZGVsaXZlcnkiLCJidWxsZXRpbl9pZCI6I=
+jIwMjMxMTA1Ljg1MTg2MjgxIn0.2CSgoaJG0lt6F8dUyu5AXMS9OEgttSvilIrBI5XWBME/s/=
+2145798483/br/230027852294-l" style=3D"-webkit-text-size-adjust: 100%; -m=
+s-text-size-adjust: 100%; color: #2176ae;">YouTube</a>
+</h3>
+</td>
+</tr>
+</tbody>
+</table>
+<p style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; l=
+ine-height: 1.4; color: #000000; font-family: helvetica; font-size: 17px;=
+ margin: 1em 0 10px;">Every American, no matter where you live, how you l=
+ook, how you identify, or how much money you have deserves access to qual=
+ity, affordable, equitable healthcare.</p>
+<p style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; l=
+ine-height: 1.4; color: #000000; font-family: helvetica; font-size: 17px;=
+ margin: 0 0 10px;">Healthcare is a human right.</p>
+<p style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; l=
+ine-height: 1.4; color: #000000; font-family: helvetica; font-size: 17px;=
+ margin: 0 0 10px;">At California DOJ, we=E2=80=99re standing up for that=
+ right. From calling on the U.S. Food and Drug Administration to address =
+racial bias in pulse oximeters, to addressing the Black maternal mortalit=
+y crisis, we=E2=80=99re fighting for a more equitable healthcare system t=
+hat provides high-quality care to all Californians.</p>
+<p style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; l=
+ine-height: 1.4; color: #000000; font-family: helvetica; font-size: 17px;=
+ margin: 0 0 10px;">=C2=A0</p>
+<p style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; l=
+ine-height: 1.4; color: #000000; font-family: helvetica; font-size: 17px;=
+ margin: 0 0 10px;">In solidarity,</p>
+<p style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; l=
+ine-height: 1.4; color: #000000; font-family: helvetica; font-size: 17px;=
+ margin: 0 0 10px;">Rob Bonta</p>
+</td>
+    </tr>
+  </table>
+</div>
+<!--[if (gte mso 9)|(IE)]>
+  </td>
+<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+  </tr>
+  </table>
+<![endif]-->
+      </td>
+    </tr>
+  </table>
+</div>
+<!--[if (gte mso 9)|(IE)]>
+      </td>
+    </tr>
+  </table>
+<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+  <table width=3D"600" align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0">
+    <tr>
+      <td>
+<![endif]-->
+<div class=3D"abe-section-block" data-block-type=3D"FancyBlockSection" da=
+ta-block-id=3D"103179215">
+  <table class=3D"abe-section-table" width=3D"100%" align=3D"center" bord=
+er=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D=
+"max-width: 600px; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: =
+100%; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+    <tr id=3D"abe-section-row-199cd7ae-a92c-4a2d-b1fa-d4fee459a77f" class=
+=3D"abe-section-row" style=3D"background-color: #02A5A5;" bgcolor=3D"#02A=
+5A5">
+      <td style=3D"text-align: center; vertical-align: top; font-size: 0;=
+ -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-ls=
+pace: 0pt; mso-table-rspace: 0pt;" align=3D"center" valign=3D"top">
+        <!--[if (gte mso 9)|(IE)]>
+  <table width=3D"100%" align=3D"center" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-a=
+djust: 100%; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: =
+0pt;">
+    <tr>
+<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+  <td width=3D"600" valign=3D"top" id=3D"abe-column-block-554cc771-9ead-4=
+c74-9b89-f441e1689cb4-outlook-only" class=3D"abe-column-block-outlook-onl=
+y" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; m=
+so-table-lspace: 0pt; mso-table-rspace: 0pt;">
+<![endif]-->
+<div id=3D"abe-column-block-554cc771-9ead-4c74-9b89-f441e1689cb4" class=3D=
+"abe-column-block" data-block-type=3D"FancyBlockColumn" data-block-id=3D"=
+103179216" style=3D"width: 100%; box-sizing: border-box; display: inline-=
+block; font-size: 16px; vertical-align: top;">
+  <table width=3D"100%" align=3D"center" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" role=3D"presentation" style=3D"table-layout: fixed; over=
+flow-wrap: break-word; word-wrap: break-word; text-align: left; -webkit-t=
+ext-size-adjust: 100%; -ms-text-size-adjust: 100%; border-spacing: 0; mso=
+-table-lspace: 0pt; mso-table-rspace: 0pt;">
+    <tr>
+      <td class=3D"abe-column-block-padding" id=3D"abe-column-block-554cc=
+771-9ead-4c74-9b89-f441e1689cb4-padding" style=3D"-webkit-text-size-adjus=
+t: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rsp=
+ace: 0pt; padding: 15px;">
+<h2 style=3D"line-height: 1.2; font-family: helvetica; font-size: 24px; c=
+olor: #ffffff; text-align: center; margin: 0 0 10px;" align=3D"center">
+<strong>Fighting</strong><strong>=C2=A0for Equity in Healthcare</strong>
+</h2>
+<a href=3D"https://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJidWxsZXRpbl9saW5rX2l=
+kIjoxMDksInVyaSI6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8vb2FnLmNhLmdvdi9uZXdz=
+L3ByZXNzLXJlbGVhc2VzL2F0dG9ybmV5LWdlbmVyYWwtYm9udGEtbGVhZHMtbXVsdGlzdGF0Z=
+S1sZXR0ZXItdXJnaW5nLWZkYS1hZGRyZXNzLWNvbmNlcm5zLWFib3V0P3V0bV9tZWRpdW09ZW=
+1haWwmdXRtX3NvdXJjZT1nb3ZkZWxpdmVyeSIsImJ1bGxldGluX2lkIjoiMjAyMzExMDUuODU=
+xODYyODEifQ.vMRBEKmx6Nnicy6kXJM977Gq8pTWnv9h1SAT9i1aPYU/s/2145798483/br/2=
+30027852294-l" target=3D"_blank" rel=3D"noopener noreferrer" style=3D"-we=
+bkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;"><img class=3D"g=
+ovd_template_image" src=3D"https://content.govdelivery.com/attachments/fa=
+ncy_images/CAOAG/2023/11/8482638/5072396/healthcare-bias-press-conference=
+_crop.jpg" style=3D"width: 571px; height: auto; -ms-interpolation-mode: b=
+icubic; line-height: 1; outline: none; text-decoration: none; max-width: =
+100%; border: none;" alt=3D"Image of AG Bonta at press conference " width=
+=3D"571" height=3D"321"></a><p style=3D"-webkit-text-size-adjust: 100%; -=
+ms-text-size-adjust: 100%; line-height: 1.4; font-family: helvetica; font=
+-size: 17px; color: #ffffff; margin: 0 0 10px;">Communities of color =E2=80=
+=94 in California and across the nation =E2=80=94 continue to be dispropo=
+rtionately impacted by the deep and shameful racial disparities in health=
+care. This is unacceptable to me. With the release of=C2=A0<a href=3D"htt=
+ps://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJidWxsZXRpbl9saW5rX2lkIjoxMTAsInVya=
+SI6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8vb2FnLmNhLmdvdi9uZXdzL3ByZXNzLXJlbG=
+Vhc2VzL2F0dG9ybmV5LWdlbmVyYWwtYm9udGEtYW5ub3VuY2VzLXJlc3VsdHMtaW52ZXN0aWd=
+hdGlvbi1hbnRpLWJpYXMtdHJhaW5pbmc_dXRtX21lZGl1bT1lbWFpbCZ1dG1fc291cmNlPWdv=
+dmRlbGl2ZXJ5IiwiYnVsbGV0aW5faWQiOiIyMDIzMTEwNS44NTE4NjI4MSJ9.WJwjDf4G6AED=
+S70fXRBy7viZjyZds3IV26Z2tjLTRNM/s/2145798483/br/230027852294-l" target=3D=
+"_blank" title=3D"https://oag.ca.gov/news/press-releases/attorney-general=
+-bonta-announces-results-investigation-anti-bias-training" rel=3D"noopene=
+r" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; c=
+olor: #ffeaaf;">DOJ=E2=80=99s report on anti-implicit bias training</a>, =
+and our letter to the U.S. Food and Drug Administration related to medica=
+l devices=E2=80=99 race and color bias, we are moving forward in the figh=
+t for a just and equitable healthcare system. I will use every tool in my=
+ power to protect the health and future of all Californians.</p>
+<table class=3D"govd_button" width=3D"100%" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"-webkit-text-size-adjust: 100%; -ms-text-siz=
+e-adjust: 100%; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspac=
+e: 0pt;"><tbody><tr><td style=3D"-webkit-text-size-adjust: 100%; -ms-text=
+-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding=
+-bottom: 15px;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" s=
+tyle=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; borde=
+r-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; margin: 0 aut=
+o;" align=3D"center"><tbody><tr><td class=3D"govd_button" style=3D"-webki=
+t-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0=
+pt; mso-table-rspace: 0pt; background-color: #02a6a6; border-radius: 0px;=
+ text-align: center; display: inline-block; overflow-wrap: break-word; wo=
+rd-wrap: break-word; -ms-word-break: break-all; word-break: break-word; p=
+adding: 10px; border: 2px solid #ffffff;" align=3D"center" bgcolor=3D"#02=
+a6a6"><a href=3D"https://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJidWxsZXRpbl9sa=
+W5rX2lkIjoxMTEsInVyaSI6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8vb2FnLmNhLmdvdi=
+9uZXdzL3ByZXNzLXJlbGVhc2VzL2F0dG9ybmV5LWdlbmVyYWwtYm9udGEtbGVhZHMtbXVsdGl=
+zdGF0ZS1sZXR0ZXItdXJnaW5nLWZkYS1hZGRyZXNzLWNvbmNlcm5zLWFib3V0P3V0bV9tZWRp=
+dW09ZW1haWwmdXRtX3NvdXJjZT1nb3ZkZWxpdmVyeSIsImJ1bGxldGluX2lkIjoiMjAyMzExM=
+DUuODUxODYyODEifQ.hb5GkebbK4Sg7ysobPHiQoxMz39ALnnPW3-iON1jGPY/s/214579848=
+3/br/230027852294-l" target=3D"_blank" rel=3D"noopener noreferrer" style=3D=
+"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; text-decorat=
+ion: none !important;"><strong style=3D"font-family: helvetica; font-size=
+: 18px; color: #FFFFFF; text-decoration: none;">Learn More =E2=86=92</str=
+ong></a></td></tr></tbody></table></td></tr></tbody></table>
+</td>
+    </tr>
+  </table>
+</div>
+<!--[if (gte mso 9)|(IE)]>
+  </td>
+<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+  </tr>
+  </table>
+<![endif]-->
+      </td>
+    </tr>
+  </table>
+</div>
+<!--[if (gte mso 9)|(IE)]>
+      </td>
+    </tr>
+  </table>
+<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+  <table width=3D"600" align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0">
+    <tr>
+      <td>
+<![endif]-->
+<div class=3D"abe-section-block" data-block-type=3D"FancyBlockSection" da=
+ta-block-id=3D"103179221">
+  <table class=3D"abe-section-table" width=3D"100%" align=3D"center" bord=
+er=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D=
+"max-width: 600px; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: =
+100%; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+    <tr id=3D"abe-section-row-4eee41e3-6c3a-4e36-bbc5-ea0b77eec36a" class=
+=3D"abe-section-row" style=3D"background-color: #434959;" bgcolor=3D"#434=
+959">
+      <td style=3D"text-align: center; vertical-align: top; font-size: 0;=
+ -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-ls=
+pace: 0pt; mso-table-rspace: 0pt;" align=3D"center" valign=3D"top">
+        <!--[if (gte mso 9)|(IE)]>
+  <table width=3D"100%" align=3D"center" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-a=
+djust: 100%; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: =
+0pt;">
+    <tr>
+<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+  <td width=3D"600" valign=3D"top" id=3D"abe-column-block-7cea650b-94f8-4=
+e9b-9693-e30088bed269-outlook-only" class=3D"abe-column-block-outlook-onl=
+y" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; m=
+so-table-lspace: 0pt; mso-table-rspace: 0pt;">
+<![endif]-->
+<div id=3D"abe-column-block-7cea650b-94f8-4e9b-9693-e30088bed269" class=3D=
+"abe-column-block" data-block-type=3D"FancyBlockColumn" data-block-id=3D"=
+103179222" style=3D"width: 100%; box-sizing: border-box; display: inline-=
+block; font-size: 16px; vertical-align: top;">
+  <table width=3D"100%" align=3D"center" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" role=3D"presentation" style=3D"table-layout: fixed; over=
+flow-wrap: break-word; word-wrap: break-word; text-align: left; -webkit-t=
+ext-size-adjust: 100%; -ms-text-size-adjust: 100%; border-spacing: 0; mso=
+-table-lspace: 0pt; mso-table-rspace: 0pt;">
+    <tr>
+      <td class=3D"abe-column-block-padding" id=3D"abe-column-block-7cea6=
+50b-94f8-4e9b-9693-e30088bed269-padding" style=3D"-webkit-text-size-adjus=
+t: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rsp=
+ace: 0pt; padding: 15px;">
+<h2 style=3D"line-height: 1.2; font-family: helvetica; font-size: 24px; c=
+olor: #ffffff; text-align: center; margin: 0 0 10px;" align=3D"center"><s=
+trong>Protecting Access to Housing</strong></h2>
+<a href=3D"https://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJidWxsZXRpbl9saW5rX2l=
+kIjoxMTIsInVyaSI6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8vb2FnLmNhLmdvdi9uZXdz=
+L3ByZXNzLXJlbGVhc2VzL3R3by15ZWFyLWFubml2ZXJzYXJ5LWhvdXNpbmctanVzdGljZS10Z=
+WFtLWF0dG9ybmV5LWdlbmVyYWwtYm9udGEtaGlnaGxpZ2h0cz91dG1fbWVkaXVtPWVtYWlsJn=
+V0bV9zb3VyY2U9Z292ZGVsaXZlcnkiLCJidWxsZXRpbl9pZCI6IjIwMjMxMTA1Ljg1MTg2Mjg=
+xIn0.--naLALr6WG5VUUdAIfWbuBAcGNU4Fs3mr8enf5mj1Q/s/2145798483/br/23002785=
+2294-l" target=3D"_blank" rel=3D"noopener noreferrer" style=3D"-webkit-te=
+xt-size-adjust: 100%; -ms-text-size-adjust: 100%;"><img class=3D"govd_tem=
+plate_image" src=3D"https://content.govdelivery.com/attachments/fancy_ima=
+ges/CAOAG/2023/10/8369308/5028567/apartments_crop.jpg" style=3D"width: 57=
+1px; height: auto; -ms-interpolation-mode: bicubic; line-height: 1; outli=
+ne: none; text-decoration: none; max-width: 100%; border: none;" alt=3D"A=
+partments" width=3D"571" height=3D"382"></a><p style=3D"-webkit-text-size=
+-adjust: 100%; -ms-text-size-adjust: 100%; line-height: 1.4; font-family:=
+ helvetica; font-size: 17px; color: #ffffff; margin: 0 0 10px;"><a href=3D=
+"https://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJidWxsZXRpbl9saW5rX2lkIjoxMTMsI=
+nVyaSI6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8vb2FnLmNhLmdvdi9uZXdzL3ByZXNzLX=
+JlbGVhc2VzL2F0dG9ybmV5LWdlbmVyYWwtYm9udGEtbGF1bmNoZXMtaG91c2luZy1zdHJpa2U=
+tZm9yY2UtYW5ub3VuY2VzLWNvbnZlbmluZy10ZW5hbnQ_dXRtX21lZGl1bT1lbWFpbCZ1dG1f=
+c291cmNlPWdvdmRlbGl2ZXJ5IiwiYnVsbGV0aW5faWQiOiIyMDIzMTEwNS44NTE4NjI4MSJ9.=
+drNpiFdf0ijYCxVvc_BxM0J-8uVuauBrWXDhtOeKtyE/s/2145798483/br/230027852294-=
+l" target=3D"_blank" rel=3D"noopener" style=3D"-webkit-text-size-adjust: =
+100%; -ms-text-size-adjust: 100%; color: #ffeaaf;">Two years ago this wee=
+k</a>, I launched the Housing Justice Team to advance housing access, aff=
+ordability, and equity in California. Since then, our talented attorneys =
+have delivered real results. From protecting renters from unlawful evicti=
+ons to ensuring that local governments=C2=A0allow for the building of=C2=A0=
+their fair share of housing, I am immensely proud of what the Housing Jus=
+tice Team has accomplished=C2=A0already.=C2=A0Tackling California=E2=80=99=
+s housing crisis remains a top priority=C2=A0=E2=80=94=C2=A0and with the =
+work of the past two years, we are just getting started.</p>
+<table class=3D"govd_button" width=3D"100%" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"-webkit-text-size-adjust: 100%; -ms-text-siz=
+e-adjust: 100%; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspac=
+e: 0pt;"><tbody><tr><td style=3D"-webkit-text-size-adjust: 100%; -ms-text=
+-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding=
+-bottom: 15px;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" s=
+tyle=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; borde=
+r-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; margin: 0 aut=
+o;" align=3D"center"><tbody><tr><td class=3D"govd_button" style=3D"-webki=
+t-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0=
+pt; mso-table-rspace: 0pt; background-color: #434959; border-radius: 0px;=
+ text-align: center; display: inline-block; overflow-wrap: break-word; wo=
+rd-wrap: break-word; -ms-word-break: break-all; word-break: break-word; p=
+adding: 10px; border: 2px solid #ffffff;" align=3D"center" bgcolor=3D"#43=
+4959"><a href=3D"https://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJidWxsZXRpbl9sa=
+W5rX2lkIjoxMTQsInVyaSI6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8vb2FnLmNhLmdvdi=
+9uZXdzL3ByZXNzLXJlbGVhc2VzL3R3by15ZWFyLWFubml2ZXJzYXJ5LWhvdXNpbmctanVzdGl=
+jZS10ZWFtLWF0dG9ybmV5LWdlbmVyYWwtYm9udGEtaGlnaGxpZ2h0cz91dG1fbWVkaXVtPWVt=
+YWlsJnV0bV9zb3VyY2U9Z292ZGVsaXZlcnkiLCJidWxsZXRpbl9pZCI6IjIwMjMxMTA1Ljg1M=
+Tg2MjgxIn0.KEHiwTqHdYuJezx71bAdnV4Zal_G-yr1SshHONkIP20/s/2145798483/br/23=
+0027852294-l" target=3D"_blank" rel=3D"noopener noreferrer" style=3D"-web=
+kit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; text-decoration: =
+none !important;"><strong style=3D"font-family: helvetica; font-size: 18p=
+x; color: #FFFFFF; text-decoration: none;">Learn More =E2=86=92</strong><=
+/a></td></tr></tbody></table></td></tr></tbody></table>
+</td>
+    </tr>
+  </table>
+</div>
+<!--[if (gte mso 9)|(IE)]>
+  </td>
+<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+  </tr>
+  </table>
+<![endif]-->
+      </td>
+    </tr>
+  </table>
+</div>
+<!--[if (gte mso 9)|(IE)]>
+      </td>
+    </tr>
+  </table>
+<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+  <table width=3D"600" align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0">
+    <tr>
+      <td>
+<![endif]-->
+<div class=3D"abe-section-block" data-block-type=3D"FancyBlockSection" da=
+ta-block-id=3D"103179227">
+  <table class=3D"abe-section-table" width=3D"100%" align=3D"center" bord=
+er=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D=
+"max-width: 600px; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: =
+100%; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+    <tr id=3D"abe-section-row-f68096f4-76a2-4a18-98dc-f794b97d6c93" class=
+=3D"abe-section-row" style=3D"background-color: #02A5A5;" bgcolor=3D"#02A=
+5A5">
+      <td style=3D"text-align: center; vertical-align: top; font-size: 0;=
+ -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-ls=
+pace: 0pt; mso-table-rspace: 0pt;" align=3D"center" valign=3D"top">
+        <!--[if (gte mso 9)|(IE)]>
+  <table width=3D"100%" align=3D"center" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-a=
+djust: 100%; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: =
+0pt;">
+    <tr>
+<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+  <td width=3D"600" valign=3D"top" id=3D"abe-column-block-3935d96f-e88d-4=
+3ab-9795-0a03e45872b9-outlook-only" class=3D"abe-column-block-outlook-onl=
+y" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; m=
+so-table-lspace: 0pt; mso-table-rspace: 0pt;">
+<![endif]-->
+<div id=3D"abe-column-block-3935d96f-e88d-43ab-9795-0a03e45872b9" class=3D=
+"abe-column-block" data-block-type=3D"FancyBlockColumn" data-block-id=3D"=
+103179228" style=3D"width: 100%; box-sizing: border-box; display: inline-=
+block; font-size: 16px; vertical-align: top;">
+  <table width=3D"100%" align=3D"center" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" role=3D"presentation" style=3D"table-layout: fixed; over=
+flow-wrap: break-word; word-wrap: break-word; text-align: left; -webkit-t=
+ext-size-adjust: 100%; -ms-text-size-adjust: 100%; border-spacing: 0; mso=
+-table-lspace: 0pt; mso-table-rspace: 0pt;">
+    <tr>
+      <td class=3D"abe-column-block-padding" id=3D"abe-column-block-3935d=
+96f-e88d-43ab-9795-0a03e45872b9-padding" style=3D"-webkit-text-size-adjus=
+t: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rsp=
+ace: 0pt; padding: 15px;">
+<h2 style=3D"line-height: 1.2; font-family: helvetica; font-size: 24px; c=
+olor: #ffffff; text-align: center; margin: 0 0 10px;" align=3D"center"><s=
+trong>Holding Fraudsters Accountable</strong></h2>
+<a href=3D"https://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJidWxsZXRpbl9saW5rX2l=
+kIjoxMTUsInVyaSI6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8vb2FnLmNhLmdvdi9uZXdz=
+L3ByZXNzLXJlbGVhc2VzL2F0dG9ybmV5LWdlbmVyYWwtYm9udGEtYW5ub3VuY2VzLWluZGljd=
+G1lbnQtb3Zlci04LW1pbGxpb24tcG9uemktc2NoZW1lP3V0bV9tZWRpdW09ZW1haWwmdXRtX3=
+NvdXJjZT1nb3ZkZWxpdmVyeSIsImJ1bGxldGluX2lkIjoiMjAyMzExMDUuODUxODYyODEifQ.=
+kPmMOUi0JaoXE5idsK4PMU24W12eIF8LbRgmyhnNXeE/s/2145798483/br/230027852294-=
+l" target=3D"_blank" rel=3D"noopener noreferrer" style=3D"-webkit-text-si=
+ze-adjust: 100%; -ms-text-size-adjust: 100%;"><img class=3D"govd_template=
+_image" src=3D"https://content.govdelivery.com/attachments/fancy_images/C=
+AOAG/2023/11/8482655/5072397/sad-senior-citizen_crop.jpg" style=3D"width:=
+ 571px; height: auto; -ms-interpolation-mode: bicubic; line-height: 1; ou=
+tline: none; text-decoration: none; max-width: 100%; border: none;" alt=3D=
+"Woman with face in hands" width=3D"571" height=3D"321"></a><p style=3D"-=
+webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; line-height: 1=
+.4; font-family: helvetica; font-size: 17px; color: #ffffff; margin: 0 0 =
+10px;">We=E2=80=99re committed to holding=C2=A0accountable=C2=A0those who=
+=C2=A0exploit Californians through=C2=A0financial fraud and white-collar =
+crime.=C2=A0This week, in San Bernardino, I announced the arraignment and=
+ filing of charges against two defendants in a <a href=3D"https://lnks.gd=
+/l/eyJhbGciOiJIUzI1NiJ9.eyJidWxsZXRpbl9saW5rX2lkIjoxMTYsInVyaSI6ImJwMjpjb=
+GljayIsInVybCI6Imh0dHBzOi8vb2FnLmNhLmdvdi9uZXdzL3ByZXNzLXJlbGVhc2VzL2F0dG=
+9ybmV5LWdlbmVyYWwtYm9udGEtYW5ub3VuY2VzLWNoYXJnZXMtYXJyYWlnbm1lbnRzLW92ZXI=
+tOC1taWxsaW9uP3V0bV9tZWRpdW09ZW1haWwmdXRtX3NvdXJjZT1nb3ZkZWxpdmVyeSIsImJ1=
+bGxldGluX2lkIjoiMjAyMzExMDUuODUxODYyODEifQ.OsnMemVgWYF-orJ4UCXGY3PDIGFKIq=
+yAQ51pn7xrnBs/s/2145798483/br/230027852294-l" target=3D"_blank" rel=3D"no=
+opener" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 10=
+0%; color: #ffeaaf;">multimillion-dollar embezzlement and tax fraud schem=
+e</a>. And in Los Angeles County, I announced the unsealing of an indictm=
+ent against a developer for an <a href=3D"https://lnks.gd/l/eyJhbGciOiJIU=
+zI1NiJ9.eyJidWxsZXRpbl9saW5rX2lkIjoxMTcsInVyaSI6ImJwMjpjbGljayIsInVybCI6I=
+mh0dHBzOi8vb2FnLmNhLmdvdi9uZXdzL3ByZXNzLXJlbGVhc2VzL2F0dG9ybmV5LWdlbmVyYW=
+wtYm9udGEtYW5ub3VuY2VzLWluZGljdG1lbnQtb3Zlci04LW1pbGxpb24tcG9uemktc2NoZW1=
+lP3V0bV9tZWRpdW09ZW1haWwmdXRtX3NvdXJjZT1nb3ZkZWxpdmVyeSIsImJ1bGxldGluX2lk=
+IjoiMjAyMzExMDUuODUxODYyODEifQ.oFExiVfo3Oa0koNSWwYL5pT2VOS6KLOy45Z9VuI0Xa=
+I/s/2145798483/br/230027852294-l" target=3D"_blank" rel=3D"noopener" styl=
+e=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; color: #=
+ffeaaf;">$8 million investment ponzi scheme</a>, many of whose victims we=
+re elderly. We encourage any potential victims of this scheme who have no=
+t yet come forward to contact us at <a href=3D"https://lnks.gd/l/eyJhbGci=
+OiJIUzI1NiJ9.eyJidWxsZXRpbl9saW5rX2lkIjoxMTgsInVyaSI6ImJwMjpjbGljayIsInVy=
+bCI6Imh0dHBzOi8vb2FnLmNhLmdvdi9jb250YWN0L2NvbnN1bWVyLWNvbXBsYWludC1hZ2Fpb=
+nN0LWJ1c2luZXNzLW9yLWNvbXBhbnk_dXRtX21lZGl1bT1lbWFpbCZ1dG1fc291cmNlPWdvdm=
+RlbGl2ZXJ5IiwiYnVsbGV0aW5faWQiOiIyMDIzMTEwNS44NTE4NjI4MSJ9.6UgFpeDvo6l22w=
+6BY0z3AAO1ePbPchHa_LEva4GquEQ/s/2145798483/br/230027852294-l" target=3D"_=
+blank" rel=3D"noopener" style=3D"-webkit-text-size-adjust: 100%; -ms-text=
+-size-adjust: 100%; color: #ffeaaf;">oag.ca.gov/report</a>.=C2=A0</p>
+<table class=3D"govd_button" width=3D"100%" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"-webkit-text-size-adjust: 100%; -ms-text-siz=
+e-adjust: 100%; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspac=
+e: 0pt;"><tbody><tr><td style=3D"-webkit-text-size-adjust: 100%; -ms-text=
+-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding=
+-bottom: 15px;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" s=
+tyle=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; borde=
+r-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; margin: 0 aut=
+o;" align=3D"center"><tbody><tr><td class=3D"govd_button" style=3D"-webki=
+t-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0=
+pt; mso-table-rspace: 0pt; background-color: #02a6a6; border-radius: 0px;=
+ text-align: center; display: inline-block; overflow-wrap: break-word; wo=
+rd-wrap: break-word; -ms-word-break: break-all; word-break: break-word; p=
+adding: 10px; border: 2px solid #ffffff;" align=3D"center" bgcolor=3D"#02=
+a6a6"><a href=3D"https://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJidWxsZXRpbl9sa=
+W5rX2lkIjoxMTksInVyaSI6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8vb2FnLmNhLmdvdi=
+9uZXdzL3ByZXNzLXJlbGVhc2VzL2F0dG9ybmV5LWdlbmVyYWwtYm9udGEtYW5ub3VuY2VzLWl=
+uZGljdG1lbnQtb3Zlci04LW1pbGxpb24tcG9uemktc2NoZW1lP3V0bV9tZWRpdW09ZW1haWwm=
+dXRtX3NvdXJjZT1nb3ZkZWxpdmVyeSIsImJ1bGxldGluX2lkIjoiMjAyMzExMDUuODUxODYyO=
+DEifQ.jk1JeH0IZgneRgB2ZQkS0Q8RBa8Aniik8oqKbfmGgi8/s/2145798483/br/2300278=
+52294-l" target=3D"_blank" rel=3D"noopener noreferrer" style=3D"-webkit-t=
+ext-size-adjust: 100%; -ms-text-size-adjust: 100%; text-decoration: none =
+!important;"><strong style=3D"font-family: helvetica; font-size: 18px; co=
+lor: #FFFFFF; text-decoration: none;">Learn More =E2=86=92</strong></a></=
+td></tr></tbody></table></td></tr></tbody></table>
+</td>
+    </tr>
+  </table>
+</div>
+<!--[if (gte mso 9)|(IE)]>
+  </td>
+<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+  </tr>
+  </table>
+<![endif]-->
+      </td>
+    </tr>
+  </table>
+</div>
+<!--[if (gte mso 9)|(IE)]>
+      </td>
+    </tr>
+  </table>
+<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+  <table width=3D"600" align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0">
+    <tr>
+      <td>
+<![endif]-->
+<div class=3D"abe-section-block" data-block-type=3D"FancyBlockSection" da=
+ta-block-id=3D"103179233">
+  <table class=3D"abe-section-table" width=3D"100%" align=3D"center" bord=
+er=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D=
+"max-width: 600px; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: =
+100%; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+    <tr id=3D"abe-section-row-4e33ed6a-ff62-4b3b-9c4d-4e62257c265f" class=
+=3D"abe-section-row" style=3D"background-color: #434959;" bgcolor=3D"#434=
+959">
+      <td style=3D"text-align: center; vertical-align: top; font-size: 0;=
+ -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-ls=
+pace: 0pt; mso-table-rspace: 0pt;" align=3D"center" valign=3D"top">
+        <!--[if (gte mso 9)|(IE)]>
+  <table width=3D"100%" align=3D"center" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-a=
+djust: 100%; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: =
+0pt;">
+    <tr>
+<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+  <td width=3D"600" valign=3D"top" id=3D"abe-column-block-5958f8eb-21ed-4=
+db3-903a-d95b6b3db849-outlook-only" class=3D"abe-column-block-outlook-onl=
+y" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; m=
+so-table-lspace: 0pt; mso-table-rspace: 0pt;">
+<![endif]-->
+<div id=3D"abe-column-block-5958f8eb-21ed-4db3-903a-d95b6b3db849" class=3D=
+"abe-column-block" data-block-type=3D"FancyBlockColumn" data-block-id=3D"=
+103179234" style=3D"width: 100%; box-sizing: border-box; display: inline-=
+block; font-size: 16px; vertical-align: top;">
+  <table width=3D"100%" align=3D"center" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" role=3D"presentation" style=3D"table-layout: fixed; over=
+flow-wrap: break-word; word-wrap: break-word; text-align: left; -webkit-t=
+ext-size-adjust: 100%; -ms-text-size-adjust: 100%; border-spacing: 0; mso=
+-table-lspace: 0pt; mso-table-rspace: 0pt;">
+    <tr>
+      <td class=3D"abe-column-block-padding" id=3D"abe-column-block-5958f=
+8eb-21ed-4db3-903a-d95b6b3db849-padding" style=3D"-webkit-text-size-adjus=
+t: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rsp=
+ace: 0pt; padding: 15px;">
+<h2 style=3D"text-align: center; line-height: 1.2; font-family: helvetica=
+; font-size: 24px; color: #ffffff; margin: 0 0 10px;" align=3D"center"><s=
+trong>Standing up for LGBTQ+ Students</strong></h2>
+<a href=3D"https://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJidWxsZXRpbl9saW5rX2l=
+kIjoxMjAsInVyaSI6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8vb2FnLmNhLmdvdi9uZXdz=
+L3ByZXNzLXJlbGVhc2VzL2F0dG9ybmV5LWdlbmVyYWwtYm9udGEtam9pbnMtbXVsdGlzdGF0Z=
+S1jb2FsaXRpb24tZWZmb3J0LXN1cHBvcnQtY3VycmljdWx1bT91dG1fbWVkaXVtPWVtYWlsJn=
+V0bV9zb3VyY2U9Z292ZGVsaXZlcnkiLCJidWxsZXRpbl9pZCI6IjIwMjMxMTA1Ljg1MTg2Mjg=
+xIn0.Yg6ijMihvMZG-EP8nfB_Uhxj9k8eL67DXtp9JW52VgI/s/2145798483/br/23002785=
+2294-l" target=3D"_blank" rel=3D"noopener noreferrer" style=3D"-webkit-te=
+xt-size-adjust: 100%; -ms-text-size-adjust: 100%;"><img class=3D"govd_tem=
+plate_image" src=3D"https://content.govdelivery.com/attachments/fancy_ima=
+ges/CAOAG/2023/11/8482657/5072398/lgbt-student-at-graduation_crop.jpg" st=
+yle=3D"width: 571px; height: auto; -ms-interpolation-mode: bicubic; line-=
+height: 1; outline: none; text-decoration: none; max-width: 100%; border:=
+ none;" alt=3D"Student with rainbow graduation cap " width=3D"571" height=
+=3D"321"></a><p style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-ad=
+just: 100%; line-height: 1.4; font-family: helvetica; font-size: 17px; co=
+lor: #ffffff; margin: 0 0 10px;">All students deserve to be represented i=
+n the school curriculum. That=E2=80=99s why this week,=C2=A0I joined a mu=
+ltistate coalition of states supporting a Maryland board of education=E2=80=
+=99s policy that permits schools to incorporate LGBTQ+-inclusive books in=
+to language arts curriculum. This type of policy reflects the diversity o=
+f the school community and allows for a fully inclusive environment for a=
+ll students. I will continue to fight for the rights of LGBTQ+ students a=
+nd all of our nation=E2=80=99s children.</p>
+<table class=3D"govd_button" width=3D"100%" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"-webkit-text-size-adjust: 100%; -ms-text-siz=
+e-adjust: 100%; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspac=
+e: 0pt;"><tbody><tr><td style=3D"-webkit-text-size-adjust: 100%; -ms-text=
+-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding=
+-bottom: 15px;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" s=
+tyle=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; borde=
+r-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; margin: 0 aut=
+o;" align=3D"center"><tbody><tr><td class=3D"govd_button" style=3D"-webki=
+t-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0=
+pt; mso-table-rspace: 0pt; background-color: #434959; border-radius: 0px;=
+ text-align: center; display: inline-block; overflow-wrap: break-word; wo=
+rd-wrap: break-word; -ms-word-break: break-all; word-break: break-word; p=
+adding: 10px; border: 2px solid #ffffff;" align=3D"center" bgcolor=3D"#43=
+4959"><a href=3D"https://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJidWxsZXRpbl9sa=
+W5rX2lkIjoxMjEsInVyaSI6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8vb2FnLmNhLmdvdi=
+9uZXdzL3ByZXNzLXJlbGVhc2VzL2F0dG9ybmV5LWdlbmVyYWwtYm9udGEtam9pbnMtbXVsdGl=
+zdGF0ZS1jb2FsaXRpb24tZWZmb3J0LXN1cHBvcnQtY3VycmljdWx1bT91dG1fbWVkaXVtPWVt=
+YWlsJnV0bV9zb3VyY2U9Z292ZGVsaXZlcnkiLCJidWxsZXRpbl9pZCI6IjIwMjMxMTA1Ljg1M=
+Tg2MjgxIn0.EzLBxu5vuqyJUna_TIJivr6CrjVd1N5KLyzC3ogX_q4/s/2145798483/br/23=
+0027852294-l" target=3D"_blank" rel=3D"noopener noreferrer" style=3D"-web=
+kit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; text-decoration: =
+none !important;"><strong style=3D"font-family: helvetica; font-size: 18p=
+x; color: #FFFFFF; text-decoration: none;">Learn More =E2=86=92</strong><=
+/a></td></tr></tbody></table></td></tr></tbody></table>
+</td>
+    </tr>
+  </table>
+</div>
+<!--[if (gte mso 9)|(IE)]>
+  </td>
+<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+  </tr>
+  </table>
+<![endif]-->
+      </td>
+    </tr>
+  </table>
+</div>
+<!--[if (gte mso 9)|(IE)]>
+      </td>
+    </tr>
+  </table>
+<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+  <table width=3D"600" align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0">
+    <tr>
+      <td>
+<![endif]-->
+<div class=3D"abe-section-block" data-block-type=3D"FancyBlockSection" da=
+ta-block-id=3D"103179239">
+  <table class=3D"abe-section-table" width=3D"100%" align=3D"center" bord=
+er=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D=
+"max-width: 600px; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: =
+100%; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+    <tr id=3D"abe-section-row-54b48ae1-e334-4922-90ea-e88268aef5f8" class=
+=3D"abe-section-row" style=3D"background-color: #02A5A5;" bgcolor=3D"#02A=
+5A5">
+      <td style=3D"text-align: center; vertical-align: top; font-size: 0;=
+ -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-ls=
+pace: 0pt; mso-table-rspace: 0pt;" align=3D"center" valign=3D"top">
+        <!--[if (gte mso 9)|(IE)]>
+  <table width=3D"100%" align=3D"center" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-a=
+djust: 100%; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: =
+0pt;">
+    <tr>
+<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+  <td width=3D"600" valign=3D"top" id=3D"abe-column-block-06ddffee-a7b8-4=
+61a-8ee0-7bf97cd1e78d-outlook-only" class=3D"abe-column-block-outlook-onl=
+y" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; m=
+so-table-lspace: 0pt; mso-table-rspace: 0pt;">
+<![endif]-->
+<div id=3D"abe-column-block-06ddffee-a7b8-461a-8ee0-7bf97cd1e78d" class=3D=
+"abe-column-block" data-block-type=3D"FancyBlockColumn" data-block-id=3D"=
+103179240" style=3D"width: 100%; box-sizing: border-box; display: inline-=
+block; font-size: 16px; vertical-align: top;">
+  <table width=3D"100%" align=3D"center" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" role=3D"presentation" style=3D"table-layout: fixed; over=
+flow-wrap: break-word; word-wrap: break-word; text-align: left; -webkit-t=
+ext-size-adjust: 100%; -ms-text-size-adjust: 100%; border-spacing: 0; mso=
+-table-lspace: 0pt; mso-table-rspace: 0pt;">
+    <tr>
+      <td class=3D"abe-column-block-padding" id=3D"abe-column-block-06ddf=
+fee-a7b8-461a-8ee0-7bf97cd1e78d-padding" style=3D"-webkit-text-size-adjus=
+t: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rsp=
+ace: 0pt; padding: 15px;">
+<h2 style=3D"line-height: 1.2; font-family: helvetica; font-size: 24px; c=
+olor: #ffffff; text-align: center; margin: 0 0 10px;" align=3D"center"><s=
+trong>Safeguarding Competition for Travelers</strong></h2>
+<a href=3D"https://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJidWxsZXRpbl9saW5rX2l=
+kIjoxMjIsInVyaSI6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8vb2FnLmNhLmdvdi9uZXdz=
+L3ByZXNzLXJlbGVhc2VzL2F0dG9ybmV5LWdlbmVyYWwtYm9udGEtaXNzdWVzLXN0YXRlbWVud=
+C1maXJzdC1kYXktdHJpYWwtbGF3c3VpdC1jaGFsbGVuZ2luZz91dG1fbWVkaXVtPWVtYWlsJn=
+V0bV9zb3VyY2U9Z292ZGVsaXZlcnkiLCJidWxsZXRpbl9pZCI6IjIwMjMxMTA1Ljg1MTg2Mjg=
+xIn0.Md03Nh00FKEzzjrkEyp6iE0vbXJ9veoIHmsLSaX6e4c/s/2145798483/br/23002785=
+2294-l" target=3D"_blank" rel=3D"noopener noreferrer" style=3D"-webkit-te=
+xt-size-adjust: 100%; -ms-text-size-adjust: 100%;"><img class=3D"govd_tem=
+plate_image" src=3D"https://content.govdelivery.com/attachments/fancy_ima=
+ges/CAOAG/2023/11/8482648/5072399/spirit-jet-blue_crop.jpg" style=3D"widt=
+h: 571px; height: auto; -ms-interpolation-mode: bicubic; line-height: 1; =
+outline: none; text-decoration: none; max-width: 100%; border: none;" alt=
+=3D"Spirit Jet Blue Airlines" width=3D"571" height=3D"321"></a><p style=3D=
+"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; line-height:=
+ 1.4; font-family: helvetica; font-size: 17px; color: #ffffff; margin: 0 =
+0 10px;">The proposed JetBlue-Spirit merger is a bad deal for consumers. =
+If it goes through, tens of millions of travelers across the country =E2=80=
+=94 including Californians, particularly on the Los Angeles to Miami rout=
+e =E2=80=94 will face higher fares and fewer options.=C2=A0That is unacce=
+ptable.=C2=A0Consolidation in the airline industry is a serious concern o=
+f mine. I couldn't be prouder that my office, alongside the U.S. Departme=
+nt of Justice and six other attorneys general, was in court this week fig=
+hting against the merger to ensure a fair and competitive economy.</p>
+<table class=3D"govd_button" width=3D"100%" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"-webkit-text-size-adjust: 100%; -ms-text-siz=
+e-adjust: 100%; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspac=
+e: 0pt;"><tbody><tr><td style=3D"-webkit-text-size-adjust: 100%; -ms-text=
+-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding=
+-bottom: 15px;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" s=
+tyle=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; borde=
+r-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; margin: 0 aut=
+o;" align=3D"center"><tbody><tr><td class=3D"govd_button" style=3D"-webki=
+t-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0=
+pt; mso-table-rspace: 0pt; background-color: #02a5a5; border-radius: 0px;=
+ text-align: center; display: inline-block; overflow-wrap: break-word; wo=
+rd-wrap: break-word; -ms-word-break: break-all; word-break: break-word; p=
+adding: 10px; border: 2px solid #ffffff;" align=3D"center" bgcolor=3D"#02=
+a5a5"><a href=3D"https://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJidWxsZXRpbl9sa=
+W5rX2lkIjoxMjMsInVyaSI6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8vb2FnLmNhLmdvdi=
+9uZXdzL3ByZXNzLXJlbGVhc2VzL2F0dG9ybmV5LWdlbmVyYWwtYm9udGEtaXNzdWVzLXN0YXR=
+lbWVudC1maXJzdC1kYXktdHJpYWwtbGF3c3VpdC1jaGFsbGVuZ2luZz91dG1fbWVkaXVtPWVt=
+YWlsJnV0bV9zb3VyY2U9Z292ZGVsaXZlcnkiLCJidWxsZXRpbl9pZCI6IjIwMjMxMTA1Ljg1M=
+Tg2MjgxIn0.TRVy6WZM1K9bkKIMY9RefYADncTUp2bv2X1Dtj-M9rE/s/2145798483/br/23=
+0027852294-l" target=3D"_blank" rel=3D"noopener noreferrer" style=3D"-web=
+kit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; text-decoration: =
+none !important;"><strong style=3D"font-family: helvetica; font-size: 18p=
+x; color: #FFFFFF; text-decoration: none;">Learn More =E2=86=92</strong><=
+/a></td></tr></tbody></table></td></tr></tbody></table>
+</td>
+    </tr>
+  </table>
+</div>
+<!--[if (gte mso 9)|(IE)]>
+  </td>
+<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+  </tr>
+  </table>
+<![endif]-->
+      </td>
+    </tr>
+  </table>
+</div>
+<!--[if (gte mso 9)|(IE)]>
+      </td>
+    </tr>
+  </table>
+<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+  <table width=3D"600" align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0">
+    <tr>
+      <td>
+<![endif]-->
+<div class=3D"abe-section-block" data-block-type=3D"FancyBlockSection" da=
+ta-block-id=3D"103179245">
+  <table class=3D"abe-section-table" width=3D"100%" align=3D"center" bord=
+er=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D=
+"max-width: 600px; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: =
+100%; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+    <tr id=3D"abe-section-row-82c160a0-a9ef-4a1f-8e87-88ea5b4d23a3" class=
+=3D"abe-section-row" style=3D"background-color: #434959;" bgcolor=3D"#434=
+959">
+      <td style=3D"text-align: center; vertical-align: top; font-size: 0;=
+ -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-ls=
+pace: 0pt; mso-table-rspace: 0pt;" align=3D"center" valign=3D"top">
+        <!--[if (gte mso 9)|(IE)]>
+  <table width=3D"100%" align=3D"center" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-a=
+djust: 100%; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: =
+0pt;">
+    <tr>
+<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+  <td width=3D"600" valign=3D"top" id=3D"abe-column-block-0787f459-ae24-4=
+fff-aa1f-80db9b3f000c-outlook-only" class=3D"abe-column-block-outlook-onl=
+y" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; m=
+so-table-lspace: 0pt; mso-table-rspace: 0pt;">
+<![endif]-->
+<div id=3D"abe-column-block-0787f459-ae24-4fff-aa1f-80db9b3f000c" class=3D=
+"abe-column-block" data-block-type=3D"FancyBlockColumn" data-block-id=3D"=
+103179246" style=3D"width: 100%; box-sizing: border-box; display: inline-=
+block; font-size: 16px; vertical-align: top;">
+  <table width=3D"100%" align=3D"center" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" role=3D"presentation" style=3D"table-layout: fixed; over=
+flow-wrap: break-word; word-wrap: break-word; text-align: left; -webkit-t=
+ext-size-adjust: 100%; -ms-text-size-adjust: 100%; border-spacing: 0; mso=
+-table-lspace: 0pt; mso-table-rspace: 0pt;">
+    <tr>
+      <td class=3D"abe-column-block-padding" id=3D"abe-column-block-0787f=
+459-ae24-4fff-aa1f-80db9b3f000c-padding" style=3D"-webkit-text-size-adjus=
+t: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rsp=
+ace: 0pt; padding: 15px;">
+<h2 style=3D"line-height: 1.2; font-family: helvetica; font-size: 24px; c=
+olor: #ffffff; text-align: center; margin: 0 0 10px;" align=3D"center"><s=
+trong>Make a Difference at California DOJ</strong></h2>
+<a href=3D"https://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJidWxsZXRpbl9saW5rX2l=
+kIjoxMjQsInVyaSI6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8vb2FnLmNhLmdvdi9jYXJl=
+ZXJzP3V0bV9tZWRpdW09ZW1haWwmdXRtX3NvdXJjZT1nb3ZkZWxpdmVyeSIsImJ1bGxldGluX=
+2lkIjoiMjAyMzExMDUuODUxODYyODEifQ.rcMRuKyn0qYigvJuKS9We8d83xDche5JP_xXnIS=
+7XOg/s/2145798483/br/230027852294-l" target=3D"_blank" rel=3D"noopener no=
+referrer" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: =
+100%;"><img class=3D"govd_template_image" src=3D"https://content.govdeliv=
+ery.com/attachments/fancy_images/CAOAG/2023/06/7817292/4820258/were-hirin=
+g-16x9_crop.jpg" style=3D"width: 571px; height: auto; -ms-interpolation-m=
+ode: bicubic; line-height: 1; outline: none; text-decoration: none; max-w=
+idth: 100%; border: none;" alt=3D"We're Hiring" width=3D"571" height=3D"3=
+21"></a><p style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust:=
+ 100%; line-height: 1.4; font-family: helvetica; font-size: 17px; color: =
+#ffffff; margin: 0 0 10px;">Apply today to help DOJ protect the health, w=
+ell-being, and public safety of Californians. Check out our featured jobs=
+ below and visit <span class=3D"searchHighlight" style=3D"line-height: 1.=
+4;"><a href=3D"https://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJidWxsZXRpbl9saW5=
+rX2lkIjoxMjUsInVyaSI6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8vb2FnLmNhLmdvdi9j=
+YXJlZXJzP3V0bV9tZWRpdW09ZW1haWwmdXRtX3NvdXJjZT1nb3ZkZWxpdmVyeSIsImJ1bGxld=
+GluX2lkIjoiMjAyMzExMDUuODUxODYyODEifQ.vx5B69vWpPDiQ-OvSYaJDf1UbDO5rXst-Ow=
+xDwTXAKA/s/2145798483/br/230027852294-l" target=3D"_blank" rel=3D"noopene=
+r" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; c=
+olor: #ffeaaf;">oag.ca.gov/careers</a></span> for a full listing of avail=
+able positions:</p>
+<p style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; l=
+ine-height: 1.4; font-family: helvetica; font-size: 17px; color: #ffffff;=
+ margin: 0 0 10px;"><a href=3D"https://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJ=
+idWxsZXRpbl9saW5rX2lkIjoxMjYsInVyaSI6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8v=
+d3d3LmNhbGNhcmVlcnMuY2EuZ292L0NhbEhyUHVibGljL0pvYnMvSm9iUG9zdGluZy5hc3B4P=
+0pvYkNvbnRyb2xJZD0zOTgzNzcmdXRtX21lZGl1bT1lbWFpbCZ1dG1fc291cmNlPWdvdmRlbG=
+l2ZXJ5IiwiYnVsbGV0aW5faWQiOiIyMDIzMTEwNS44NTE4NjI4MSJ9.6ouirLfd9cPdVTlFQs=
+GqBigEYuFdpQ6Le8OGTDnUqQA/s/2145798483/br/230027852294-l" target=3D"_blan=
+k" title=3D"https://www.calcareers.ca.gov/CalHrPublic/Jobs/JobPosting.asp=
+x?JobControlId=3D398377" rel=3D"noopener" style=3D"-webkit-text-size-adju=
+st: 100%; -ms-text-size-adjust: 100%; color: #ffeaaf;">Deputy Attorney Ge=
+neral III, Health Education &amp; Welfare</a></p>
+<p style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; l=
+ine-height: 1.4; font-family: helvetica; font-size: 17px; color: #ffffff;=
+ margin: 0 0 10px;"><a href=3D"https://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJ=
+idWxsZXRpbl9saW5rX2lkIjoxMjcsInVyaSI6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8v=
+d3d3LmNhbGNhcmVlcnMuY2EuZ292L0NhbEhyUHVibGljL0pvYnMvSm9iUG9zdGluZy5hc3B4P=
+0pvYkNvbnRyb2xJZD0zOTI4OTUmdXRtX21lZGl1bT1lbWFpbCZ1dG1fc291cmNlPWdvdmRlbG=
+l2ZXJ5IiwiYnVsbGV0aW5faWQiOiIyMDIzMTEwNS44NTE4NjI4MSJ9.1mt5M_lNOR5r8Itg6d=
+oK6WTcAyWNXK_LukUuqlENB1M/s/2145798483/br/230027852294-l" target=3D"_blan=
+k" title=3D"https://www.calcareers.ca.gov/CalHrPublic/Jobs/JobPosting.asp=
+x?JobControlId=3D392895" rel=3D"noopener" style=3D"-webkit-text-size-adju=
+st: 100%; -ms-text-size-adjust: 100%; color: #ffeaaf;">Deputy Attorney Ge=
+neral III, Division of Medi-Cal Fraud and Elder Abuse</a></p>
+<p style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; l=
+ine-height: 1.4; font-family: helvetica; font-size: 17px; color: #ffffff;=
+ margin: 0 0 10px;"><a href=3D"https://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJ=
+idWxsZXRpbl9saW5rX2lkIjoxMjgsInVyaSI6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8v=
+d3d3LmNhbGNhcmVlcnMuY2EuZ292L0NhbEhyUHVibGljL0pvYnMvSm9iUG9zdGluZy5hc3B4P=
+0pvYkNvbnRyb2xJZD0zOTU3ODgmdXRtX21lZGl1bT1lbWFpbCZ1dG1fc291cmNlPWdvdmRlbG=
+l2ZXJ5IiwiYnVsbGV0aW5faWQiOiIyMDIzMTEwNS44NTE4NjI4MSJ9.suJCw2CVDixjAwz3Ov=
+SpZ6wdlbT88o5t3vTNcY24TLw/s/2145798483/br/230027852294-l" target=3D"_blan=
+k" title=3D"https://www.calcareers.ca.gov/CalHrPublic/Jobs/JobPosting.asp=
+x?JobControlId=3D395788" rel=3D"noopener" style=3D"-webkit-text-size-adju=
+st: 100%; -ms-text-size-adjust: 100%; color: #ffeaaf;">Deputy Attorney Ge=
+neral III, Employment and Administrative Mandate</a></p>
+<p style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; l=
+ine-height: 1.4; font-family: helvetica; font-size: 17px; color: #ffffff;=
+ margin: 0 0 10px;"><a href=3D"https://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJ=
+idWxsZXRpbl9saW5rX2lkIjoxMjksInVyaSI6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8v=
+d3d3LmNhbGNhcmVlcnMuY2EuZ292L0NhbEhyUHVibGljL0pvYnMvSm9iUG9zdGluZy5hc3B4P=
+0pvYkNvbnRyb2xJZD0zOTI3MjUmdXRtX21lZGl1bT1lbWFpbCZ1dG1fc291cmNlPWdvdmRlbG=
+l2ZXJ5IiwiYnVsbGV0aW5faWQiOiIyMDIzMTEwNS44NTE4NjI4MSJ9.JVpiCT1E2EblADaxy1=
+5Kd2FypB9H9Aw_EKVPEVw8y2k/s/2145798483/br/230027852294-l" target=3D"_blan=
+k" title=3D"https://www.calcareers.ca.gov/CalHrPublic/Jobs/JobPosting.asp=
+x?JobControlId=3D392725" rel=3D"noopener" style=3D"-webkit-text-size-adju=
+st: 100%; -ms-text-size-adjust: 100%; color: #ffeaaf;">Deputy Attorney Ge=
+neral III, Correctional Law Class-Action</a></p>
+<p style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; l=
+ine-height: 1.4; font-family: helvetica; font-size: 17px; color: #ffffff;=
+ margin: 0 0 10px;"><a href=3D"https://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJ=
+idWxsZXRpbl9saW5rX2lkIjoxMzAsInVyaSI6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8v=
+d3d3LmNhbGNhcmVlcnMuY2EuZ292L0NhbEhyUHVibGljL0pvYnMvSm9iUG9zdGluZy5hc3B4P=
+0pvYkNvbnRyb2xJZD0zODkwNTUmdXRtX21lZGl1bT1lbWFpbCZ1dG1fc291cmNlPWdvdmRlbG=
+l2ZXJ5IiwiYnVsbGV0aW5faWQiOiIyMDIzMTEwNS44NTE4NjI4MSJ9.Y98q3u06-TmlLVtJ0K=
+HblOT34sxPC-vhJnAhQ3LFFPE/s/2145798483/br/230027852294-l" target=3D"_blan=
+k" title=3D"https://www.calcareers.ca.gov/CalHrPublic/Jobs/JobPosting.asp=
+x?JobControlId=3D389055" rel=3D"noopener" style=3D"-webkit-text-size-adju=
+st: 100%; -ms-text-size-adjust: 100%; color: #ffeaaf;">Deputy Attorney Ge=
+neral IV, Health Quality Enforcement</a></p>
+<p style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; l=
+ine-height: 1.4; font-family: helvetica; font-size: 17px; color: #ffffff;=
+ margin: 0 0 10px;">=C2=A0</p>
+<p style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; l=
+ine-height: 1.4; font-family: helvetica; font-size: 17px; color: #ffffff;=
+ margin: 0 0 10px;"><a href=3D"https://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJ=
+idWxsZXRpbl9saW5rX2lkIjoxMzEsInVyaSI6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8v=
+d3d3LmNhbGNhcmVlcnMuY2EuZ292L0NhbEhyUHVibGljL0pvYnMvSm9iUG9zdGluZy5hc3B4P=
+0pvYkNvbnRyb2xJZD0zOTg2NzEmdXRtX21lZGl1bT1lbWFpbCZ1dG1fc291cmNlPWdvdmRlbG=
+l2ZXJ5IiwiYnVsbGV0aW5faWQiOiIyMDIzMTEwNS44NTE4NjI4MSJ9.dRktp_zGMFI5UT8kMA=
+ADS0cNZEqSJZqMUt6oY6dMrU8/s/2145798483/br/230027852294-l" target=3D"_blan=
+k" title=3D"https://www.calcareers.ca.gov/CalHrPublic/Jobs/JobPosting.asp=
+x?JobControlId=3D398671" rel=3D"noopener" style=3D"-webkit-text-size-adju=
+st: 100%; -ms-text-size-adjust: 100%; color: #ffeaaf;">Assistant Chief, C=
+alifornia Justice Information Services Division</a></p>
+<p style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; l=
+ine-height: 1.4; font-family: helvetica; font-size: 17px; color: #ffffff;=
+ margin: 0 0 10px;"><a href=3D"https://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJ=
+idWxsZXRpbl9saW5rX2lkIjoxMzIsInVyaSI6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8v=
+d3d3LmNhbGNhcmVlcnMuY2EuZ292L0NhbEhyUHVibGljL0pvYnMvSm9iUG9zdGluZy5hc3B4P=
+0pvYkNvbnRyb2xJZD0zOTk3MjEmdXRtX21lZGl1bT1lbWFpbCZ1dG1fc291cmNlPWdvdmRlbG=
+l2ZXJ5IiwiYnVsbGV0aW5faWQiOiIyMDIzMTEwNS44NTE4NjI4MSJ9.zMjq4CaPSiPbCHRwjX=
+BjuSEgmnyq_Lopf4O9gh7jHvo/s/2145798483/br/230027852294-l" target=3D"_blan=
+k" title=3D"https://www.calcareers.ca.gov/CalHrPublic/Jobs/JobPosting.asp=
+x?JobControlId=3D399721" rel=3D"noopener" style=3D"-webkit-text-size-adju=
+st: 100%; -ms-text-size-adjust: 100%; color: #ffeaaf;">Bureau Director, E=
+nterprise Services Bureau</a></p>
+<p style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; l=
+ine-height: 1.4; font-family: helvetica; font-size: 17px; color: #ffffff;=
+ margin: 0 0 10px;"><a href=3D"https://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJ=
+idWxsZXRpbl9saW5rX2lkIjoxMzMsInVyaSI6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8v=
+d3d3LmNhbGNhcmVlcnMuY2EuZ292L0NhbEhyUHVibGljL0pvYnMvSm9iUG9zdGluZy5hc3B4P=
+0pvYkNvbnRyb2xJZD0zOTg4MzQmdXRtX21lZGl1bT1lbWFpbCZ1dG1fc291cmNlPWdvdmRlbG=
+l2ZXJ5IiwiYnVsbGV0aW5faWQiOiIyMDIzMTEwNS44NTE4NjI4MSJ9.AR87BbaLxGfNvmNWBX=
+yACPyo8XA9XFXZJqu-ZglDNlE/s/2145798483/br/230027852294-l" target=3D"_blan=
+k" title=3D"https://www.calcareers.ca.gov/CalHrPublic/Jobs/JobPosting.asp=
+x?JobControlId=3D398834" rel=3D"noopener" style=3D"-webkit-text-size-adju=
+st: 100%; -ms-text-size-adjust: 100%; color: #ffeaaf;">Special Agent, Dig=
+nitary Protection Unit</a></p>
+<p style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; l=
+ine-height: 1.4; font-family: helvetica; font-size: 17px; color: #ffffff;=
+ margin: 0 0 10px;"><a href=3D"https://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJ=
+idWxsZXRpbl9saW5rX2lkIjoxMzQsInVyaSI6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8v=
+d3d3LmNhbGNhcmVlcnMuY2EuZ292L0NhbEhyUHVibGljL0pvYnMvSm9iUG9zdGluZy5hc3B4P=
+0pvYkNvbnRyb2xJZD0zOTkyMzYmdXRtX21lZGl1bT1lbWFpbCZ1dG1fc291cmNlPWdvdmRlbG=
+l2ZXJ5IiwiYnVsbGV0aW5faWQiOiIyMDIzMTEwNS44NTE4NjI4MSJ9.OHnsmKBhWFi7EPgGYK=
+lYw2x4aBqwa9Ny4QWA0fds1RE/s/2145798483/br/230027852294-l" target=3D"_blan=
+k" title=3D"https://www.calcareers.ca.gov/CalHrPublic/Jobs/JobPosting.asp=
+x?JobControlId=3D399236" rel=3D"noopener" style=3D"-webkit-text-size-adju=
+st: 100%; -ms-text-size-adjust: 100%; color: #ffeaaf;">Legal Secretary, L=
+egal Support Operations</a></p>
+<p style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; l=
+ine-height: 1.4; font-family: helvetica; font-size: 17px; color: #ffffff;=
+ margin: 0 0 10px;"><a href=3D"https://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJ=
+idWxsZXRpbl9saW5rX2lkIjoxMzUsInVyaSI6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8v=
+d3d3LmNhbGNhcmVlcnMuY2EuZ292L0NhbEhyUHVibGljL0pvYnMvSm9iUG9zdGluZy5hc3B4P=
+0pvYkNvbnRyb2xJZD0zOTg5ODImdXRtX21lZGl1bT1lbWFpbCZ1dG1fc291cmNlPWdvdmRlbG=
+l2ZXJ5IiwiYnVsbGV0aW5faWQiOiIyMDIzMTEwNS44NTE4NjI4MSJ9.kWz9VUbnyVRjX3R20t=
+HO0QAQiyZG9XBmcphHFY6jlos/s/2145798483/br/230027852294-l" target=3D"_blan=
+k" title=3D"https://www.calcareers.ca.gov/CalHrPublic/Jobs/JobPosting.asp=
+x?JobControlId=3D398982" rel=3D"noopener" style=3D"-webkit-text-size-adju=
+st: 100%; -ms-text-size-adjust: 100%; color: #ffeaaf;">Project Manager an=
+d Coordinator, Office of Strategic Initiative Branch</a></p>
+<p style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; l=
+ine-height: 1.4; font-family: helvetica; font-size: 17px; color: #ffffff;=
+ margin: 0 0 10px;">=C2=A0</p>
+<p style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; l=
+ine-height: 1.4; font-family: helvetica; font-size: 17px; color: #ffffff;=
+ margin: 0 0 10px;"><strong>Attorney General=E2=80=99s Honors Program =E2=
+=80=93 San Francisco</strong></p>
+<p style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; l=
+ine-height: 1.4; font-family: helvetica; font-size: 17px; color: #ffffff;=
+ margin: 0 0 10px;"><a href=3D"https://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJ=
+idWxsZXRpbl9saW5rX2lkIjoxMzYsInVyaSI6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8v=
+d3d3LmNhbGNhcmVlcnMuY2EuZ292L0NhbEhyUHVibGljL0pvYnMvSm9iUG9zdGluZy5hc3B4P=
+0pvYkNvbnRyb2xJZD0zODkyODYmdXRtX21lZGl1bT1lbWFpbCZ1dG1fc291cmNlPWdvdmRlbG=
+l2ZXJ5IiwiYnVsbGV0aW5faWQiOiIyMDIzMTEwNS44NTE4NjI4MSJ9.0NtMcviwixvBAcWYLV=
+eUo1nWg4DfVs7XipRLYrf8aV0/s/2145798483/br/230027852294-l" target=3D"_blan=
+k" title=3D"https://www.calcareers.ca.gov/CalHrPublic/Jobs/JobPosting.asp=
+x?JobControlId=3D389286" rel=3D"noopener" style=3D"-webkit-text-size-adju=
+st: 100%; -ms-text-size-adjust: 100%; color: #ffeaaf;">Deputy Attorney Ge=
+neral</a></p>
+<p style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; l=
+ine-height: 1.4; font-family: helvetica; font-size: 17px; color: #ffffff;=
+ margin: 0 0 10px;"><a href=3D"https://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJ=
+idWxsZXRpbl9saW5rX2lkIjoxMzcsInVyaSI6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8v=
+d3d3LmNhbGNhcmVlcnMuY2EuZ292L0NhbEhyUHVibGljL0pvYnMvSm9iUG9zdGluZy5hc3B4P=
+0pvYkNvbnRyb2xJZD0zODkzMjYmdXRtX21lZGl1bT1lbWFpbCZ1dG1fc291cmNlPWdvdmRlbG=
+l2ZXJ5IiwiYnVsbGV0aW5faWQiOiIyMDIzMTEwNS44NTE4NjI4MSJ9.Qm8KmFybiAD1K0dWT7=
+-iOSeBvQNHk8FQZzSwerbpkC8/s/2145798483/br/230027852294-l" target=3D"_blan=
+k" title=3D"https://www.calcareers.ca.gov/CalHrPublic/Jobs/JobPosting.asp=
+x?JobControlId=3D389326" rel=3D"noopener" style=3D"-webkit-text-size-adju=
+st: 100%; -ms-text-size-adjust: 100%; color: #ffeaaf;">Graduate Legal Ass=
+istant</a></p>
+<p style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; l=
+ine-height: 1.4; font-family: helvetica; font-size: 17px; color: #ffffff;=
+ margin: 0 0 10px;">=C2=A0</p>
+<p style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; l=
+ine-height: 1.4; font-family: helvetica; font-size: 17px; color: #ffffff;=
+ margin: 0 0 10px;"><strong>Attorney General=E2=80=99s Honors Program =E2=
+=80=93 Sacramento</strong></p>
+<p style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; l=
+ine-height: 1.4; font-family: helvetica; font-size: 17px; color: #ffffff;=
+ margin: 0 0 10px;"><a href=3D"https://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJ=
+idWxsZXRpbl9saW5rX2lkIjoxMzgsInVyaSI6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8v=
+d3d3LmNhbGNhcmVlcnMuY2EuZ292L0NhbEhyUHVibGljL0pvYnMvSm9iUG9zdGluZy5hc3B4P=
+0pvYkNvbnRyb2xJZD0zOTk4OTQmdXRtX21lZGl1bT1lbWFpbCZ1dG1fc291cmNlPWdvdmRlbG=
+l2ZXJ5IiwiYnVsbGV0aW5faWQiOiIyMDIzMTEwNS44NTE4NjI4MSJ9.iwHLPhnbPQ6_eiOPZy=
+SN3_6UasrVrMqNTtHA1ULe7tY/s/2145798483/br/230027852294-l" target=3D"_blan=
+k" title=3D"https://www.calcareers.ca.gov/CalHrPublic/Jobs/JobPosting.asp=
+x?JobControlId=3D399894" rel=3D"noopener" style=3D"-webkit-text-size-adju=
+st: 100%; -ms-text-size-adjust: 100%; color: #ffeaaf;">Deputy Attorney Ge=
+neral</a></p>
+<p style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; l=
+ine-height: 1.4; font-family: helvetica; font-size: 17px; color: #ffffff;=
+ margin: 0 0 10px;"><a href=3D"https://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJ=
+idWxsZXRpbl9saW5rX2lkIjoxMzksInVyaSI6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8v=
+d3d3LmNhbGNhcmVlcnMuY2EuZ292L0NhbEhyUHVibGljL0pvYnMvSm9iUG9zdGluZy5hc3B4P=
+0pvYkNvbnRyb2xJZD0zOTk5MzUmdXRtX21lZGl1bT1lbWFpbCZ1dG1fc291cmNlPWdvdmRlbG=
+l2ZXJ5IiwiYnVsbGV0aW5faWQiOiIyMDIzMTEwNS44NTE4NjI4MSJ9.zUlvCgK_69EM7P0SF2=
+XQTxDg77s6uqBfzeR79oMbFCE/s/2145798483/br/230027852294-l" target=3D"_blan=
+k" title=3D"https://www.calcareers.ca.gov/CalHrPublic/Jobs/JobPosting.asp=
+x?JobControlId=3D399935" rel=3D"noopener" style=3D"-webkit-text-size-adju=
+st: 100%; -ms-text-size-adjust: 100%; color: #ffeaaf;">Graduate Legal Ass=
+istant</a></p>
+<table class=3D"govd_button" width=3D"100%" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"-webkit-text-size-adjust: 100%; -ms-text-siz=
+e-adjust: 100%; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspac=
+e: 0pt;"><tbody><tr><td style=3D"-webkit-text-size-adjust: 100%; -ms-text=
+-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding=
+-bottom: 15px;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" s=
+tyle=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; borde=
+r-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; margin: 0 aut=
+o;" align=3D"center"><tbody><tr><td class=3D"govd_button" style=3D"-webki=
+t-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0=
+pt; mso-table-rspace: 0pt; background-color: #434959; border-radius: 0px;=
+ text-align: center; display: inline-block; overflow-wrap: break-word; wo=
+rd-wrap: break-word; -ms-word-break: break-all; word-break: break-word; p=
+adding: 10px; border: 2px solid #ffffff;" align=3D"center" bgcolor=3D"#43=
+4959"><a href=3D"https://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJidWxsZXRpbl9sa=
+W5rX2lkIjoxNDAsInVyaSI6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8vb2FnLmNhLmdvdi=
+9jYXJlZXJzP3V0bV9tZWRpdW09ZW1haWwmdXRtX3NvdXJjZT1nb3ZkZWxpdmVyeSIsImJ1bGx=
+ldGluX2lkIjoiMjAyMzExMDUuODUxODYyODEifQ.6Aee2Ys4pbR9m_uvj1X2tMLJ-c_FqCZN4=
+7eI-pIYC8c/s/2145798483/br/230027852294-l" target=3D"_blank" rel=3D"noope=
+ner noreferrer" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-ad=
+just: 100%; text-decoration: none !important;"><strong style=3D"font-fami=
+ly: helvetica; font-size: 18px; color: #FFFFFF; text-decoration: none;">A=
+pply =E2=86=92</strong></a></td></tr></tbody></table></td></tr></tbody></=
+table>
+</td>
+    </tr>
+  </table>
+</div>
+<!--[if (gte mso 9)|(IE)]>
+  </td>
+<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+  </tr>
+  </table>
+<![endif]-->
+      </td>
+    </tr>
+  </table>
+</div>
+<!--[if (gte mso 9)|(IE)]>
+      </td>
+    </tr>
+  </table>
+<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+  <table width=3D"600" align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0">
+    <tr>
+      <td>
+<![endif]-->
+<div class=3D"abe-section-block" data-block-type=3D"FancyBlockSection" da=
+ta-block-id=3D"103179251">
+  <table class=3D"abe-section-table" width=3D"100%" align=3D"center" bord=
+er=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D=
+"max-width: 600px; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: =
+100%; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+    <tr id=3D"abe-section-row-2c3f9cec-a51a-4d0d-9d66-abd8863f8db4" class=
+=3D"abe-section-row" style=3D"background-color: #FFFFFF;" bgcolor=3D"#FFF=
+FFF">
+      <td style=3D"text-align: center; vertical-align: top; font-size: 0;=
+ -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-ls=
+pace: 0pt; mso-table-rspace: 0pt;" align=3D"center" valign=3D"top">
+        <!--[if (gte mso 9)|(IE)]>
+  <table width=3D"100%" align=3D"center" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-a=
+djust: 100%; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: =
+0pt;">
+    <tr>
+<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+  <td width=3D"600" valign=3D"top" id=3D"abe-column-block-5e83e8da-db48-4=
+861-b656-dcbaddbe0dfa-outlook-only" class=3D"abe-column-block-outlook-onl=
+y" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; m=
+so-table-lspace: 0pt; mso-table-rspace: 0pt;">
+<![endif]-->
+<div id=3D"abe-column-block-5e83e8da-db48-4861-b656-dcbaddbe0dfa" class=3D=
+"abe-column-block" data-block-type=3D"FancyBlockColumn" data-block-id=3D"=
+103179252" style=3D"width: 100%; box-sizing: border-box; display: inline-=
+block; font-size: 16px; vertical-align: top;">
+  <table width=3D"100%" align=3D"center" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" role=3D"presentation" style=3D"table-layout: fixed; over=
+flow-wrap: break-word; word-wrap: break-word; text-align: left; -webkit-t=
+ext-size-adjust: 100%; -ms-text-size-adjust: 100%; border-spacing: 0; mso=
+-table-lspace: 0pt; mso-table-rspace: 0pt;">
+    <tr>
+      <td class=3D"abe-column-block-padding" id=3D"abe-column-block-5e83e=
+8da-db48-4861-b656-dcbaddbe0dfa-padding" style=3D"-webkit-text-size-adjus=
+t: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rsp=
+ace: 0pt; padding: 15px;">
+<h2 style=3D"line-height: 1.2; color: #000000; font-family: helvetica; fo=
+nt-size: 24px; text-align: center; margin: 0 0 10px;" align=3D"center"><s=
+trong>Post of the Week</strong></h2>
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" st=
+yle=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; border=
+-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt;"><tr><td align=
+=3D"center" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust=
+: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;"><a href=3D"https:/=
+/lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJidWxsZXRpbl9saW5rX2lkIjoxNDEsInVyaSI6I=
+mJwMjpjbGljayIsInVybCI6Imh0dHBzOi8vdHdpdHRlci5jb20vQUdSb2JCb250YS9zdGF0dX=
+MvMTcyMDUwMTE2OTcwNDA3MTY2Mj91dG1fbWVkaXVtPWVtYWlsJnV0bV9zb3VyY2U9Z292ZGV=
+saXZlcnkiLCJidWxsZXRpbl9pZCI6IjIwMjMxMTA1Ljg1MTg2MjgxIn0.XLNTv1C4WQ52VeqQ=
+C8zRZMHIzWDE2YBSWGauOEA85kQ/s/2145798483/br/230027852294-l" target=3D"_bl=
+ank" rel=3D"noopener noreferrer" style=3D"-webkit-text-size-adjust: 100%;=
+ -ms-text-size-adjust: 100%;"><img class=3D"govd_template_image" src=3D"h=
+ttps://content.govdelivery.com/attachments/fancy_images/CAOAG/2023/11/848=
+2667/post-of-the-week-110323-1_original.jpg" style=3D"width: 501px; heigh=
+t: auto; -ms-interpolation-mode: bicubic; line-height: 1; outline: none; =
+text-decoration: none; max-width: 100%; border: none;" alt=3D"Post of the=
+ Week " width=3D"501" height=3D"715"></a></td></tr></table>
+<table class=3D"govd_button" width=3D"100%" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"-webkit-text-size-adjust: 100%; -ms-text-siz=
+e-adjust: 100%; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspac=
+e: 0pt;"><tbody><tr><td style=3D"-webkit-text-size-adjust: 100%; -ms-text=
+-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding=
+-top: 1em; padding-bottom: 15px;"><table border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-a=
+djust: 100%; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: =
+0pt; margin: 0 auto;" align=3D"center"><tbody><tr><td class=3D"govd_butto=
+n" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; m=
+so-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #FFFFFF; b=
+order-radius: 0px; text-align: center; display: inline-block; overflow-wr=
+ap: break-word; word-wrap: break-word; -ms-word-break: break-all; word-br=
+eak: break-word; padding: 10px; border: 2px solid #000000;" align=3D"cent=
+er" bgcolor=3D"#FFFFFF"><a href=3D"https://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9=
+.eyJidWxsZXRpbl9saW5rX2lkIjoxNDIsInVyaSI6ImJwMjpjbGljayIsInVybCI6Imh0dHBz=
+Oi8vdHdpdHRlci5jb20vQUdSb2JCb250YS9zdGF0dXMvMTcyMDUwMTE2OTcwNDA3MTY2Mj91d=
+G1fbWVkaXVtPWVtYWlsJnV0bV9zb3VyY2U9Z292ZGVsaXZlcnkiLCJidWxsZXRpbl9pZCI6Ij=
+IwMjMxMTA1Ljg1MTg2MjgxIn0.bfZdsnYIno5eisT0K2FlmwX6NF2FMSs9LsBaOP9rIMw/s/2=
+145798483/br/230027852294-l" target=3D"_blank" rel=3D"noopener noreferrer=
+" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; te=
+xt-decoration: none !important;"><strong style=3D"font-family: helvetica;=
+ font-size: 18px; color: #000000; text-decoration: none;">Follow =E2=86=92=
+</strong></a></td></tr></tbody></table></td></tr></tbody></table>
+</td>
+    </tr>
+  </table>
+</div>
+<!--[if (gte mso 9)|(IE)]>
+  </td>
+<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+  </tr>
+  </table>
+<![endif]-->
+      </td>
+    </tr>
+  </table>
+</div>
+<!--[if (gte mso 9)|(IE)]>
+      </td>
+    </tr>
+  </table>
+<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+  <table width=3D"600" align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0">
+    <tr>
+      <td>
+<![endif]-->
+<div class=3D"abe-section-block" data-block-type=3D"FancyBlockSection" da=
+ta-block-id=3D"103179256">
+  <table class=3D"abe-section-table" width=3D"100%" align=3D"center" bord=
+er=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D=
+"max-width: 600px; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: =
+100%; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+    <tr id=3D"abe-section-row-52340591-b9e9-491a-9663-6bc603d72d0e" class=
+=3D"abe-section-row" style=3D"background-color: #434959;" bgcolor=3D"#434=
+959">
+      <td style=3D"text-align: center; vertical-align: top; font-size: 0;=
+ -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-ls=
+pace: 0pt; mso-table-rspace: 0pt;" align=3D"center" valign=3D"top">
+        <!--[if (gte mso 9)|(IE)]>
+  <table width=3D"100%" align=3D"center" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-a=
+djust: 100%; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: =
+0pt;">
+    <tr>
+<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+  <td width=3D"600" valign=3D"top" id=3D"abe-column-block-4621fbe6-53bc-4=
+95a-8823-79eeddbe51c1-outlook-only" class=3D"abe-column-block-outlook-onl=
+y" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; m=
+so-table-lspace: 0pt; mso-table-rspace: 0pt;">
+<![endif]-->
+<div id=3D"abe-column-block-4621fbe6-53bc-495a-8823-79eeddbe51c1" class=3D=
+"abe-column-block" data-block-type=3D"FancyBlockColumn" data-block-id=3D"=
+103179257" style=3D"width: 100%; box-sizing: border-box; display: inline-=
+block; font-size: 16px; vertical-align: top;">
+  <table width=3D"100%" align=3D"center" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" role=3D"presentation" style=3D"table-layout: fixed; over=
+flow-wrap: break-word; word-wrap: break-word; text-align: left; -webkit-t=
+ext-size-adjust: 100%; -ms-text-size-adjust: 100%; border-spacing: 0; mso=
+-table-lspace: 0pt; mso-table-rspace: 0pt;">
+    <tr>
+      <td class=3D"abe-column-block-padding" id=3D"abe-column-block-4621f=
+be6-53bc-495a-8823-79eeddbe51c1-padding" style=3D"-webkit-text-size-adjus=
+t: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rsp=
+ace: 0pt; padding: 15px;">
+<h2 style=3D"line-height: 1.2; font-family: helvetica; font-size: 24px; c=
+olor: #ffffff; text-align: center; margin: 0 0 10px;" align=3D"center">FL=
+ASH BRIEFING</h2>
+<p style=3D"text-align: center; -webkit-text-size-adjust: 100%; -ms-text-=
+size-adjust: 100%; line-height: 1.4; font-family: helvetica; font-size: 1=
+7px; color: #ffffff; margin: 0 0 10px;" align=3D"center">On Two-Year Anni=
+versary of Housing Justice Team, Attorney General Bonta Highlights Critic=
+al Work to Fight for Equitable, Affordable Housing for All Californians</=
+p>
+<table class=3D"govd_button" width=3D"100%" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"-webkit-text-size-adjust: 100%; -ms-text-siz=
+e-adjust: 100%; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspac=
+e: 0pt;"><tbody><tr><td style=3D"-webkit-text-size-adjust: 100%; -ms-text=
+-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding=
+-bottom: 15px;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" s=
+tyle=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; borde=
+r-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; margin: 0 aut=
+o;" align=3D"center"><tbody><tr><td class=3D"govd_button" style=3D"-webki=
+t-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0=
+pt; mso-table-rspace: 0pt; background-color: #434959; border-radius: 0px;=
+ text-align: center; display: inline-block; overflow-wrap: break-word; wo=
+rd-wrap: break-word; -ms-word-break: break-all; word-break: break-word; p=
+adding: 10px; border: 2px solid #ffffff;" align=3D"center" bgcolor=3D"#43=
+4959"><a href=3D"https://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJidWxsZXRpbl9sa=
+W5rX2lkIjoxNDMsInVyaSI6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8vb2FnLmNhLmdvdi=
+9uZXdzL3ByZXNzLXJlbGVhc2VzL3R3by15ZWFyLWFubml2ZXJzYXJ5LWhvdXNpbmctanVzdGl=
+jZS10ZWFtLWF0dG9ybmV5LWdlbmVyYWwtYm9udGEtaGlnaGxpZ2h0cz91dG1fbWVkaXVtPWVt=
+YWlsJnV0bV9zb3VyY2U9Z292ZGVsaXZlcnkiLCJidWxsZXRpbl9pZCI6IjIwMjMxMTA1Ljg1M=
+Tg2MjgxIn0.1CMuDrFGU6Dn2mfQDF_TxBTHpxr31wA-BRM5YBaabW4/s/2145798483/br/23=
+0027852294-l" target=3D"_blank" rel=3D"noopener noreferrer" style=3D"-web=
+kit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; text-decoration: =
+none !important;"><strong style=3D"font-family: helvetica; font-size: 18p=
+x; color: #FFFFFF; text-decoration: none;">Learn More =E2=86=92</strong><=
+/a></td></tr></tbody></table></td></tr></tbody></table>
+<table class=3D"govd_hr" cellspacing=3D"0" border=3D"0" align=3D"center" =
+width=3D"100%" cellpadding=3D"0" style=3D"-webkit-text-size-adjust: 100%;=
+ -ms-text-size-adjust: 100%; border-spacing: 0; mso-table-lspace: 0pt; ms=
+o-table-rspace: 0pt;"><tr class=3D"govd_hr_inner"><td width=3D"100%" styl=
+e=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-tabl=
+e-lspace: 0pt; mso-table-rspace: 0pt;"><hr></td></tr></table>
+<p style=3D"text-align: center; -webkit-text-size-adjust: 100%; -ms-text-=
+size-adjust: 100%; line-height: 1.4; font-family: helvetica; font-size: 1=
+7px; color: #ffffff; margin: 1em 0 10px;" align=3D"center">Attorney Gener=
+al Bonta Leads Multistate Letter Urging FDA to Address Concerns about Dan=
+gerous Pulse Oximeter Inaccuracies Impacting Communities of Color</p>
+<table class=3D"govd_button" width=3D"100%" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"-webkit-text-size-adjust: 100%; -ms-text-siz=
+e-adjust: 100%; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspac=
+e: 0pt;"><tbody><tr><td style=3D"-webkit-text-size-adjust: 100%; -ms-text=
+-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding=
+-bottom: 15px;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" s=
+tyle=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; borde=
+r-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; margin: 0 aut=
+o;" align=3D"center"><tbody><tr><td class=3D"govd_button" style=3D"-webki=
+t-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0=
+pt; mso-table-rspace: 0pt; background-color: #434959; border-radius: 0px;=
+ text-align: center; display: inline-block; overflow-wrap: break-word; wo=
+rd-wrap: break-word; -ms-word-break: break-all; word-break: break-word; p=
+adding: 10px; border: 2px solid #ffffff;" align=3D"center" bgcolor=3D"#43=
+4959"><a href=3D"https://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJidWxsZXRpbl9sa=
+W5rX2lkIjoxNDQsInVyaSI6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8vb2FnLmNhLmdvdi=
+9uZXdzL3ByZXNzLXJlbGVhc2VzL2F0dG9ybmV5LWdlbmVyYWwtYm9udGEtbGVhZHMtbXVsdGl=
+zdGF0ZS1sZXR0ZXItdXJnaW5nLWZkYS1hZGRyZXNzLWNvbmNlcm5zLWFib3V0P3V0bV9tZWRp=
+dW09ZW1haWwmdXRtX3NvdXJjZT1nb3ZkZWxpdmVyeSIsImJ1bGxldGluX2lkIjoiMjAyMzExM=
+DUuODUxODYyODEifQ.zmTs9vmovjPWHwoOOo4ug8UOslHLSduxPGObF2cpULk/s/214579848=
+3/br/230027852294-l" target=3D"_blank" rel=3D"noopener noreferrer" style=3D=
+"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; text-decorat=
+ion: none !important;"><strong style=3D"font-family: helvetica; font-size=
+: 18px; color: #FFFFFF; text-decoration: none;">Learn More =E2=86=92</str=
+ong></a></td></tr></tbody></table></td></tr></tbody></table>
+<table class=3D"govd_hr" cellspacing=3D"0" border=3D"0" align=3D"center" =
+width=3D"100%" cellpadding=3D"0" style=3D"-webkit-text-size-adjust: 100%;=
+ -ms-text-size-adjust: 100%; border-spacing: 0; mso-table-lspace: 0pt; ms=
+o-table-rspace: 0pt;"><tr class=3D"govd_hr_inner"><td width=3D"100%" styl=
+e=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-tabl=
+e-lspace: 0pt; mso-table-rspace: 0pt;"><hr></td></tr></table>
+<p style=3D"text-align: center; -webkit-text-size-adjust: 100%; -ms-text-=
+size-adjust: 100%; line-height: 1.4; font-family: helvetica; font-size: 1=
+7px; color: #ffffff; margin: 1em 0 10px;" align=3D"center">Attorney Gener=
+al Bonta Advises California Law Enforcement on Legal Uses and Management =
+of Automated License Plate Recognition Data</p>
+<table class=3D"govd_button" width=3D"100%" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"-webkit-text-size-adjust: 100%; -ms-text-siz=
+e-adjust: 100%; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspac=
+e: 0pt;"><tbody><tr><td style=3D"-webkit-text-size-adjust: 100%; -ms-text=
+-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding=
+-bottom: 15px;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" s=
+tyle=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; borde=
+r-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; margin: 0 aut=
+o;" align=3D"center"><tbody><tr><td class=3D"govd_button" style=3D"-webki=
+t-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0=
+pt; mso-table-rspace: 0pt; background-color: #434959; border-radius: 0px;=
+ text-align: center; display: inline-block; overflow-wrap: break-word; wo=
+rd-wrap: break-word; -ms-word-break: break-all; word-break: break-word; p=
+adding: 10px; border: 2px solid #ffffff;" align=3D"center" bgcolor=3D"#43=
+4959"><a href=3D"https://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJidWxsZXRpbl9sa=
+W5rX2lkIjoxNDUsInVyaSI6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8vb2FnLmNhLmdvdi=
+9uZXdzL3ByZXNzLXJlbGVhc2VzL2F0dG9ybmV5LWdlbmVyYWwtYm9udGEtYWR2aXNlcy1jYWx=
+pZm9ybmlhLWxhdy1lbmZvcmNlbWVudC1sZWdhbC11c2VzLWFuZD91dG1fbWVkaXVtPWVtYWls=
+JnV0bV9zb3VyY2U9Z292ZGVsaXZlcnkiLCJidWxsZXRpbl9pZCI6IjIwMjMxMTA1Ljg1MTg2M=
+jgxIn0.IbggPyuYTMR2-93qRnOjGse-4KFOCQdy6DdiK13qVJM/s/2145798483/br/230027=
+852294-l" target=3D"_blank" rel=3D"noopener noreferrer" style=3D"-webkit-=
+text-size-adjust: 100%; -ms-text-size-adjust: 100%; text-decoration: none=
+ !important;"><strong style=3D"font-family: helvetica; font-size: 18px; c=
+olor: #FFFFFF; text-decoration: none;">Learn More =E2=86=92</strong></a><=
+/td></tr></tbody></table></td></tr></tbody></table>
+<table class=3D"govd_hr" cellspacing=3D"0" border=3D"0" align=3D"center" =
+width=3D"100%" cellpadding=3D"0" style=3D"-webkit-text-size-adjust: 100%;=
+ -ms-text-size-adjust: 100%; border-spacing: 0; mso-table-lspace: 0pt; ms=
+o-table-rspace: 0pt;"><tr class=3D"govd_hr_inner"><td width=3D"100%" styl=
+e=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-tabl=
+e-lspace: 0pt; mso-table-rspace: 0pt;"><hr></td></tr></table>
+<p style=3D"text-align: center; -webkit-text-size-adjust: 100%; -ms-text-=
+size-adjust: 100%; line-height: 1.4; font-family: helvetica; font-size: 1=
+7px; color: #ffffff; margin: 1em 0 10px;" align=3D"center">California Dep=
+artment of Justice Releases Report on Officer-Involved Shooting of Brando=
+n Lopez</p>
+<table class=3D"govd_button" width=3D"100%" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"-webkit-text-size-adjust: 100%; -ms-text-siz=
+e-adjust: 100%; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspac=
+e: 0pt;"><tbody><tr><td style=3D"-webkit-text-size-adjust: 100%; -ms-text=
+-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding=
+-bottom: 15px;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" s=
+tyle=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; borde=
+r-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; margin: 0 aut=
+o;" align=3D"center"><tbody><tr><td class=3D"govd_button" style=3D"-webki=
+t-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0=
+pt; mso-table-rspace: 0pt; background-color: #434959; border-radius: 0px;=
+ text-align: center; display: inline-block; overflow-wrap: break-word; wo=
+rd-wrap: break-word; -ms-word-break: break-all; word-break: break-word; p=
+adding: 10px; border: 2px solid #ffffff;" align=3D"center" bgcolor=3D"#43=
+4959"><a href=3D"https://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJidWxsZXRpbl9sa=
+W5rX2lkIjoxNDYsInVyaSI6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8vb2FnLmNhLmdvdi=
+9uZXdzL3ByZXNzLXJlbGVhc2VzL2NhbGlmb3JuaWEtZGVwYXJ0bWVudC1qdXN0aWNlLXJlbGV=
+hc2VzLXJlcG9ydC1vZmZpY2VyLWludm9sdmVkLXNob290aW5nLWJyYW5kb24_dXRtX21lZGl1=
+bT1lbWFpbCZ1dG1fc291cmNlPWdvdmRlbGl2ZXJ5IiwiYnVsbGV0aW5faWQiOiIyMDIzMTEwN=
+S44NTE4NjI4MSJ9.CQlDt70c4jiRrp8QiXuMQHZLafSVEUBcvs7FXnvnsY0/s/2145798483/=
+br/230027852294-l" target=3D"_blank" rel=3D"noopener noreferrer" style=3D=
+"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; text-decorat=
+ion: none !important;"><strong style=3D"font-family: helvetica; font-size=
+: 18px; color: #FFFFFF; text-decoration: none;">Learn More =E2=86=92</str=
+ong></a></td></tr></tbody></table></td></tr></tbody></table>
+<table class=3D"govd_hr" cellspacing=3D"0" border=3D"0" align=3D"center" =
+width=3D"100%" cellpadding=3D"0" style=3D"-webkit-text-size-adjust: 100%;=
+ -ms-text-size-adjust: 100%; border-spacing: 0; mso-table-lspace: 0pt; ms=
+o-table-rspace: 0pt;"><tr class=3D"govd_hr_inner"><td width=3D"100%" styl=
+e=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-tabl=
+e-lspace: 0pt; mso-table-rspace: 0pt;"><hr></td></tr></table>
+<p style=3D"text-align: center; -webkit-text-size-adjust: 100%; -ms-text-=
+size-adjust: 100%; line-height: 1.4; font-family: helvetica; font-size: 1=
+7px; color: #ffffff; margin: 1em 0 10px;" align=3D"center">Attorney Gener=
+al Bonta: California=E2=80=99s Ban on Assault Weapons Remains in Effect U=
+ntil Further Notice</p>
+<table class=3D"govd_button" width=3D"100%" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"-webkit-text-size-adjust: 100%; -ms-text-siz=
+e-adjust: 100%; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspac=
+e: 0pt;"><tbody><tr><td style=3D"-webkit-text-size-adjust: 100%; -ms-text=
+-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding=
+-bottom: 15px;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" s=
+tyle=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; borde=
+r-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; margin: 0 aut=
+o;" align=3D"center"><tbody><tr><td class=3D"govd_button" style=3D"-webki=
+t-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0=
+pt; mso-table-rspace: 0pt; background-color: #434959; border-radius: 0px;=
+ text-align: center; display: inline-block; overflow-wrap: break-word; wo=
+rd-wrap: break-word; -ms-word-break: break-all; word-break: break-word; p=
+adding: 10px; border: 2px solid #ffffff;" align=3D"center" bgcolor=3D"#43=
+4959"><a href=3D"https://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJidWxsZXRpbl9sa=
+W5rX2lkIjoxNDcsInVyaSI6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8vb2FnLmNhLmdvdi=
+9uZXdzL3ByZXNzLXJlbGVhc2VzL2F0dG9ybmV5LWdlbmVyYWwtYm9udGEtY2FsaWZvcm5pYSV=
+FMiU4MCU5OXMtYmFuLWFzc2F1bHQtd2VhcG9ucy1yZW1haW5zLWVmZmVjdC11bnRpbD91dG1f=
+bWVkaXVtPWVtYWlsJnV0bV9zb3VyY2U9Z292ZGVsaXZlcnkiLCJidWxsZXRpbl9pZCI6IjIwM=
+jMxMTA1Ljg1MTg2MjgxIn0.rd4HgnjKLMU8XWBvTURo8dWeTwkh0q12yx3f-wb1PHg/s/2145=
+798483/br/230027852294-l" target=3D"_blank" rel=3D"noopener noreferrer" s=
+tyle=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; text-=
+decoration: none !important;"><strong style=3D"font-family: helvetica; fo=
+nt-size: 18px; color: #FFFFFF; text-decoration: none;">Learn More =E2=86=92=
+</strong></a></td></tr></tbody></table></td></tr></tbody></table>
+<table class=3D"govd_hr" cellspacing=3D"0" border=3D"0" align=3D"center" =
+width=3D"100%" cellpadding=3D"0" style=3D"-webkit-text-size-adjust: 100%;=
+ -ms-text-size-adjust: 100%; border-spacing: 0; mso-table-lspace: 0pt; ms=
+o-table-rspace: 0pt;"><tr class=3D"govd_hr_inner"><td width=3D"100%" styl=
+e=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-tabl=
+e-lspace: 0pt; mso-table-rspace: 0pt;"><hr></td></tr></table>
+<p style=3D"text-align: center; -webkit-text-size-adjust: 100%; -ms-text-=
+size-adjust: 100%; line-height: 1.4; font-family: helvetica; font-size: 1=
+7px; color: #ffffff; margin: 1em 0 10px;" align=3D"center">Attorney Gener=
+al Bonta Co-Leads Multistate Coalition in Fighting for Health and Nutriti=
+on Stability for Immigrant Families</p>
+<table class=3D"govd_button" width=3D"100%" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"-webkit-text-size-adjust: 100%; -ms-text-siz=
+e-adjust: 100%; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspac=
+e: 0pt;"><tbody><tr><td style=3D"-webkit-text-size-adjust: 100%; -ms-text=
+-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding=
+-bottom: 15px;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" s=
+tyle=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; borde=
+r-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; margin: 0 aut=
+o;" align=3D"center"><tbody><tr><td class=3D"govd_button" style=3D"-webki=
+t-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0=
+pt; mso-table-rspace: 0pt; background-color: #434959; border-radius: 0px;=
+ text-align: center; display: inline-block; overflow-wrap: break-word; wo=
+rd-wrap: break-word; -ms-word-break: break-all; word-break: break-word; p=
+adding: 10px; border: 2px solid #ffffff;" align=3D"center" bgcolor=3D"#43=
+4959"><a href=3D"https://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJidWxsZXRpbl9sa=
+W5rX2lkIjoxNDgsInVyaSI6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8vb2FnLmNhLmdvdi=
+9uZXdzL3ByZXNzLXJlbGVhc2VzL2F0dG9ybmV5LWdlbmVyYWwtYm9udGEtY28tbGVhZHMtbXV=
+sdGlzdGF0ZS1jb2FsaXRpb24tZmlnaHRpbmctaGVhbHRoLWFuZD91dG1fbWVkaXVtPWVtYWls=
+JnV0bV9zb3VyY2U9Z292ZGVsaXZlcnkiLCJidWxsZXRpbl9pZCI6IjIwMjMxMTA1Ljg1MTg2M=
+jgxIn0.HL867LiT7IdWHmPCyicMz_7u7qzAXD4MKNLYpNZFVAM/s/2145798483/br/230027=
+852294-l" target=3D"_blank" rel=3D"noopener noreferrer" style=3D"-webkit-=
+text-size-adjust: 100%; -ms-text-size-adjust: 100%; text-decoration: none=
+ !important;"><strong style=3D"font-family: helvetica; font-size: 18px; c=
+olor: #FFFFFF; text-decoration: none;">Learn More =E2=86=92</strong></a><=
+/td></tr></tbody></table></td></tr></tbody></table>
+<table class=3D"govd_hr" cellspacing=3D"0" border=3D"0" align=3D"center" =
+width=3D"100%" cellpadding=3D"0" style=3D"-webkit-text-size-adjust: 100%;=
+ -ms-text-size-adjust: 100%; border-spacing: 0; mso-table-lspace: 0pt; ms=
+o-table-rspace: 0pt;"><tr class=3D"govd_hr_inner"><td width=3D"100%" styl=
+e=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-tabl=
+e-lspace: 0pt; mso-table-rspace: 0pt;"><hr></td></tr></table>
+<p style=3D"text-align: center; -webkit-text-size-adjust: 100%; -ms-text-=
+size-adjust: 100%; line-height: 1.4; font-family: helvetica; font-size: 1=
+7px; color: #ffffff; margin: 1em 0 10px;" align=3D"center">Attorney Gener=
+al Bonta Announces Arrest of Placer County Suspect for Fentanyl Homicide<=
+/p>
+<table class=3D"govd_button" width=3D"100%" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"-webkit-text-size-adjust: 100%; -ms-text-siz=
+e-adjust: 100%; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspac=
+e: 0pt;"><tbody><tr><td style=3D"-webkit-text-size-adjust: 100%; -ms-text=
+-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding=
+-bottom: 15px;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" s=
+tyle=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; borde=
+r-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; margin: 0 aut=
+o;" align=3D"center"><tbody><tr><td class=3D"govd_button" style=3D"-webki=
+t-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0=
+pt; mso-table-rspace: 0pt; background-color: #434959; border-radius: 0px;=
+ text-align: center; display: inline-block; overflow-wrap: break-word; wo=
+rd-wrap: break-word; -ms-word-break: break-all; word-break: break-word; p=
+adding: 10px; border: 2px solid #ffffff;" align=3D"center" bgcolor=3D"#43=
+4959"><a href=3D"https://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJidWxsZXRpbl9sa=
+W5rX2lkIjoxNDksInVyaSI6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8vb2FnLmNhLmdvdi=
+9uZXdzL3ByZXNzLXJlbGVhc2VzL2F0dG9ybmV5LWdlbmVyYWwtYm9udGEtYW5ub3VuY2VzLWF=
+ycmVzdC1wbGFjZXItY291bnR5LXN1c3BlY3QtZmVudGFueWwtaG9taWNpZGU_dXRtX21lZGl1=
+bT1lbWFpbCZ1dG1fc291cmNlPWdvdmRlbGl2ZXJ5IiwiYnVsbGV0aW5faWQiOiIyMDIzMTEwN=
+S44NTE4NjI4MSJ9.mS0TBehVvhgbW_bzwt22USH5MyrstDWAgIfwhAPlWYs/s/2145798483/=
+br/230027852294-l" target=3D"_blank" rel=3D"noopener noreferrer" style=3D=
+"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; text-decorat=
+ion: none !important;"><strong style=3D"font-family: helvetica; font-size=
+: 18px; color: #FFFFFF; text-decoration: none;">Learn More =E2=86=92</str=
+ong></a></td></tr></tbody></table></td></tr></tbody></table>
+<table class=3D"govd_hr" cellspacing=3D"0" border=3D"0" align=3D"center" =
+width=3D"100%" cellpadding=3D"0" style=3D"-webkit-text-size-adjust: 100%;=
+ -ms-text-size-adjust: 100%; border-spacing: 0; mso-table-lspace: 0pt; ms=
+o-table-rspace: 0pt;"><tr class=3D"govd_hr_inner"><td width=3D"100%" styl=
+e=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-tabl=
+e-lspace: 0pt; mso-table-rspace: 0pt;"><hr></td></tr></table>
+<p style=3D"text-align: center; -webkit-text-size-adjust: 100%; -ms-text-=
+size-adjust: 100%; line-height: 1.4; font-family: helvetica; font-size: 1=
+7px; color: #ffffff; margin: 1em 0 10px;" align=3D"center">Attorney Gener=
+al Bonta Announces 14 Arrests as Part of Sexual Predator Apprehension Ope=
+ration in Fresno County</p>
+<table class=3D"govd_button" width=3D"100%" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"-webkit-text-size-adjust: 100%; -ms-text-siz=
+e-adjust: 100%; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspac=
+e: 0pt;"><tbody><tr><td style=3D"-webkit-text-size-adjust: 100%; -ms-text=
+-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding=
+-bottom: 15px;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" s=
+tyle=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; borde=
+r-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; margin: 0 aut=
+o;" align=3D"center"><tbody><tr><td class=3D"govd_button" style=3D"-webki=
+t-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0=
+pt; mso-table-rspace: 0pt; background-color: #434959; border-radius: 0px;=
+ text-align: center; display: inline-block; overflow-wrap: break-word; wo=
+rd-wrap: break-word; -ms-word-break: break-all; word-break: break-word; p=
+adding: 10px; border: 2px solid #ffffff;" align=3D"center" bgcolor=3D"#43=
+4959"><a href=3D"https://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJidWxsZXRpbl9sa=
+W5rX2lkIjoxNTAsInVyaSI6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8vb2FnLmNhLmdvdi=
+9uZXdzL3ByZXNzLXJlbGVhc2VzL2F0dG9ybmV5LWdlbmVyYWwtYm9udGEtYW5ub3VuY2VzLTE=
+0LWFycmVzdHMtcGFydC1zZXh1YWwtcHJlZGF0b3ItYXBwcmVoZW5zaW9uP3V0bV9tZWRpdW09=
+ZW1haWwmdXRtX3NvdXJjZT1nb3ZkZWxpdmVyeSIsImJ1bGxldGluX2lkIjoiMjAyMzExMDUuO=
+DUxODYyODEifQ.cIWz5RU9bXWzqdIaYDChokMn2Ee9fAJfml7UkRynMa0/s/2145798483/br=
+/230027852294-l" target=3D"_blank" rel=3D"noopener noreferrer" style=3D"-=
+webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; text-decoratio=
+n: none !important;"><strong style=3D"font-family: helvetica; font-size: =
+18px; color: #FFFFFF; text-decoration: none;">Learn More =E2=86=92</stron=
+g></a></td></tr></tbody></table></td></tr></tbody></table>
+</td>
+    </tr>
+  </table>
+</div>
+<!--[if (gte mso 9)|(IE)]>
+  </td>
+<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+  </tr>
+  </table>
+<![endif]-->
+      </td>
+    </tr>
+  </table>
+</div>
+<!--[if (gte mso 9)|(IE)]>
+      </td>
+    </tr>
+  </table>
+<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+  <table width=3D"600" align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0">
+    <tr>
+      <td>
+<![endif]-->
+<div class=3D"abe-section-block" data-block-type=3D"FancyBlockSection" da=
+ta-block-id=3D"103179270">
+  <table class=3D"abe-section-table" width=3D"100%" align=3D"center" bord=
+er=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D=
+"max-width: 600px; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: =
+100%; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+    <tr id=3D"abe-section-row-3fb26e19-1336-4ed3-ac97-702314fb7998" class=
+=3D"abe-section-row" style=3D"background-color: #ffeaaf;" bgcolor=3D"#ffe=
+aaf">
+      <td style=3D"text-align: center; vertical-align: top; font-size: 0;=
+ -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-ls=
+pace: 0pt; mso-table-rspace: 0pt;" align=3D"center" valign=3D"top">
+        <!--[if (gte mso 9)|(IE)]>
+  <table width=3D"100%" align=3D"center" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-a=
+djust: 100%; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: =
+0pt;">
+    <tr>
+<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+  <td width=3D"600" valign=3D"top" id=3D"abe-column-block-41e7fd3f-3954-4=
+780-b02f-3d68b2d25451-outlook-only" class=3D"abe-column-block-outlook-onl=
+y" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; m=
+so-table-lspace: 0pt; mso-table-rspace: 0pt;">
+<![endif]-->
+<div id=3D"abe-column-block-41e7fd3f-3954-4780-b02f-3d68b2d25451" class=3D=
+"abe-column-block" data-block-type=3D"FancyBlockColumn" data-block-id=3D"=
+103179271" style=3D"width: 100%; box-sizing: border-box; display: inline-=
+block; font-size: 16px; vertical-align: top;">
+  <table width=3D"100%" align=3D"center" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" role=3D"presentation" style=3D"table-layout: fixed; over=
+flow-wrap: break-word; word-wrap: break-word; text-align: left; -webkit-t=
+ext-size-adjust: 100%; -ms-text-size-adjust: 100%; border-spacing: 0; mso=
+-table-lspace: 0pt; mso-table-rspace: 0pt;">
+    <tr>
+      <td class=3D"abe-column-block-padding" id=3D"abe-column-block-41e7f=
+d3f-3954-4780-b02f-3d68b2d25451-padding" style=3D"-webkit-text-size-adjus=
+t: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rsp=
+ace: 0pt; padding: 15px;">
+<h2 style=3D"line-height: 1.2; color: #000000; font-family: helvetica; fo=
+nt-size: 24px; text-align: center; margin: 0 0 10px;" align=3D"center">VI=
+DEO OF THE WEEK</h2>
+<a href=3D"https://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJidWxsZXRpbl9saW5rX2l=
+kIjoxNTEsInVyaSI6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8veC5jb20vYWdyb2Jib250=
+YS9zdGF0dXMvMTcxOTA4MTIyODg0OTM0ODY2Mz9zPTQ2JnQ9eTdPNENQaVJ5TkFYbTk2MkxJW=
+G56QSZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9zb3VyY2U9Z292ZGVsaXZlcnkiLCJidWxsZXRpbl=
+9pZCI6IjIwMjMxMTA1Ljg1MTg2MjgxIn0.VOPXLzBX87HQMnzqyXW7Z11-8lxEyeYJVDwKXgE=
+omJY/s/2145798483/br/230027852294-l" target=3D"_blank" rel=3D"noopener no=
+referrer" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: =
+100%;"><img class=3D"govd_template_image" src=3D"https://content.govdeliv=
+ery.com/attachments/fancy_images/CAOAG/2023/11/8482673/5072400/video-of-t=
+he-week-110323_crop.jpg" style=3D"width: 571px; height: auto; -ms-interpo=
+lation-mode: bicubic; line-height: 1; outline: none; text-decoration: non=
+e; max-width: 100%; border: none;" alt=3D"Video of the week " width=3D"57=
+1" height=3D"460"></a><p style=3D"-webkit-text-size-adjust: 100%; -ms-tex=
+t-size-adjust: 100%; line-height: 1.4; color: #000000; font-family: helve=
+tica; font-size: 17px; margin: 0 0 10px;">We can=E2=80=99t let another pa=
+tient suffer the consequences of inadequate training. I=E2=80=99m committ=
+ed to working=C2=A0with=C2=A0my colleagues in the Legislature to strength=
+en the California Dignity in Pregnancy and Childbirth Act and tackle impl=
+icit bias in our healthcare system. Time is of the essence.</p>
+<table class=3D"govd_button" width=3D"100%" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"-webkit-text-size-adjust: 100%; -ms-text-siz=
+e-adjust: 100%; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspac=
+e: 0pt;"><tbody><tr><td style=3D"-webkit-text-size-adjust: 100%; -ms-text=
+-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding=
+-bottom: 15px;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" s=
+tyle=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; borde=
+r-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; margin: 0 aut=
+o;" align=3D"center"><tbody><tr><td class=3D"govd_button" style=3D"-webki=
+t-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0=
+pt; mso-table-rspace: 0pt; background-color: #ffeaaf; border-radius: 0px;=
+ text-align: center; display: inline-block; overflow-wrap: break-word; wo=
+rd-wrap: break-word; -ms-word-break: break-all; word-break: break-word; p=
+adding: 10px; border: 2px solid #000000;" align=3D"center" bgcolor=3D"#ff=
+eaaf"><a href=3D"https://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJidWxsZXRpbl9sa=
+W5rX2lkIjoxNTIsInVyaSI6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8veC5jb20vYWdyb2=
+Jib250YS9zdGF0dXMvMTcxOTA4MTIyODg0OTM0ODY2Mz9zPTQ2JnQ9eTdPNENQaVJ5TkFYbTk=
+2MkxJWG56QSZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9zb3VyY2U9Z292ZGVsaXZlcnkiLCJidWxs=
+ZXRpbl9pZCI6IjIwMjMxMTA1Ljg1MTg2MjgxIn0.5tsauYWKSEvPESFFtulqdfWIy6A3sXcID=
+HYKJRk0Fgg/s/2145798483/br/230027852294-l" target=3D"_blank" rel=3D"noope=
+ner noreferrer" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-ad=
+just: 100%; text-decoration: none !important;"><strong style=3D"font-fami=
+ly: helvetica; font-size: 18px; color: #000000; text-decoration: none;">W=
+atch =E2=86=92</strong></a></td></tr></tbody></table></td></tr></tbody></=
+table>
+</td>
+    </tr>
+  </table>
+</div>
+<!--[if (gte mso 9)|(IE)]>
+  </td>
+<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+  </tr>
+  </table>
+<![endif]-->
+      </td>
+    </tr>
+  </table>
+</div>
+<!--[if (gte mso 9)|(IE)]>
+      </td>
+    </tr>
+  </table>
+<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+  <table width=3D"600" align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0">
+    <tr>
+      <td>
+<![endif]-->
+<div class=3D"abe-section-block" data-block-type=3D"FancyBlockSection" da=
+ta-block-id=3D"103179275">
+  <table class=3D"abe-section-table" width=3D"100%" align=3D"center" bord=
+er=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D=
+"max-width: 600px; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: =
+100%; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+    <tr id=3D"abe-section-row-9d7b721d-eae6-4edd-ad9f-fc83612b37ff" class=
+=3D"abe-section-row" style=3D"background-color: #02a6a6;" bgcolor=3D"#02a=
+6a6">
+      <td style=3D"text-align: center; vertical-align: top; font-size: 0;=
+ -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-ls=
+pace: 0pt; mso-table-rspace: 0pt;" align=3D"center" valign=3D"top">
+        <!--[if (gte mso 9)|(IE)]>
+  <table width=3D"100%" align=3D"center" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-a=
+djust: 100%; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: =
+0pt;">
+    <tr>
+<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+  <td width=3D"600" valign=3D"top" id=3D"abe-column-block-16c63119-4233-4=
+67d-b92e-52bf9ec56f99-outlook-only" class=3D"abe-column-block-outlook-onl=
+y" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; m=
+so-table-lspace: 0pt; mso-table-rspace: 0pt;">
+<![endif]-->
+<div id=3D"abe-column-block-16c63119-4233-467d-b92e-52bf9ec56f99" class=3D=
+"abe-column-block" data-block-type=3D"FancyBlockColumn" data-block-id=3D"=
+103179276" style=3D"width: 100%; box-sizing: border-box; display: inline-=
+block; font-size: 16px; vertical-align: top;">
+  <table width=3D"100%" align=3D"center" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" role=3D"presentation" style=3D"table-layout: fixed; over=
+flow-wrap: break-word; word-wrap: break-word; text-align: left; -webkit-t=
+ext-size-adjust: 100%; -ms-text-size-adjust: 100%; border-spacing: 0; mso=
+-table-lspace: 0pt; mso-table-rspace: 0pt;">
+    <tr>
+      <td class=3D"abe-column-block-padding" id=3D"abe-column-block-16c63=
+119-4233-467d-b92e-52bf9ec56f99-padding" style=3D"-webkit-text-size-adjus=
+t: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rsp=
+ace: 0pt; padding: 15px;">
+<h2 style=3D"line-height: 1.2; font-family: helvetica; font-size: 24px; c=
+olor: #ffffff; text-align: center; margin: 0 0 10px;" align=3D"center">NE=
+WS FLASH</h2>
+<p style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; l=
+ine-height: 1.4; font-family: helvetica; font-size: 17px; color: #ffffff;=
+ margin: 0 0 10px;"><strong><strong>LA Times:=C2=A0</strong></strong><a h=
+ref=3D"https://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJidWxsZXRpbl9saW5rX2lkIjo=
+xNTMsInVyaSI6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8vd3d3LmxhdGltZXMuY29tL29w=
+aW5pb24vc3RvcnkvMjAyMy0xMC0yNi9lZGl0b3JpYWwtc29jaWFsLW1lZGlhLWNhbi1oYXJtL=
+WtpZHMtbm93LXN0YXRlcy1hcmUtc3VpbmctdG8tZm9yY2UtbWV0YS1vdGhlci1jb21wYW5pZX=
+MtdG8tbWFrZS1wbGF0Zm9ybXMtc2FmZXI_dXRtX21lZGl1bT1lbWFpbCZ1dG1fc291cmNlPWd=
+vdmRlbGl2ZXJ5IiwiYnVsbGV0aW5faWQiOiIyMDIzMTEwNS44NTE4NjI4MSJ9.IFRDqK7EiTU=
+1kVf6Yn1N_4KImFVSPvWXcoMJpNe8dVw/s/2145798483/br/230027852294-l" target=3D=
+"_blank" title=3D"https://www.latimes.com/opinion/story/2023-10-26/editor=
+ial-social-media-can-harm-kids-now-states-are-suing-to-force-meta-other-c=
+ompanies-to-make-platforms-safer" rel=3D"noopener" style=3D"-webkit-text-=
+size-adjust: 100%; -ms-text-size-adjust: 100%; color: #ffeaaf;">Editorial=
+: Social media can harm kids. Lawsuits could force Meta, others to make p=
+latforms safer</a></p>
+<p style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; l=
+ine-height: 1.4; font-family: helvetica; font-size: 17px; color: #ffffff;=
+ margin: 0 0 10px;"><strong><strong>NPR: </strong></strong><a href=3D"htt=
+ps://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJidWxsZXRpbl9saW5rX2lkIjoxNTQsInVya=
+SI6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8vd3d3Lm5wci5vcmcvMjAyMy8xMC8yOS8xMj=
+A5MzI1OTczL2NhbGlmb3JuaWFzLWJhbi1vbi1hc3NhdWx0LXdlYXBvbnMtd2lsbC1yZW1haW4=
+taW4tZWZmZWN0LWFmdGVyLWp1ZGdlcy1ncmFudC1hLXN0P3V0bV9tZWRpdW09ZW1haWwmdXRt=
+X3NvdXJjZT1nb3ZkZWxpdmVyeSIsImJ1bGxldGluX2lkIjoiMjAyMzExMDUuODUxODYyODEif=
+Q.EUsnTBT34XKPC80DrMOG0Sdmik66tsB8oaVS7mC2qbk/s/2145798483/br/23002785229=
+4-l" title=3D"https://www.npr.org/2023/10/29/1209325973/californias-ban-o=
+n-assault-weapons-will-remain-in-effect-after-judges-grant-a-st" style=3D=
+"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; color: #ffea=
+af;">California's ban on assault weapons will remain in effect after judg=
+es grant a stay</a></p>
+<p style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; l=
+ine-height: 1.4; font-family: helvetica; font-size: 17px; color: #ffffff;=
+ margin: 0 0 10px;"><strong>CalMatters:</strong> <a href=3D"https://lnks.=
+gd/l/eyJhbGciOiJIUzI1NiJ9.eyJidWxsZXRpbl9saW5rX2lkIjoxNTUsInVyaSI6ImJwMjp=
+jbGljayIsInVybCI6Imh0dHBzOi8vY2FsbWF0dGVycy5vcmcvaGVhbHRoLzIwMjMvMTAvZGVz=
+cGl0ZS1oaWdoLWJsYWNrLW1hdGVybmFsLWRlYXRoLXJhdGUtY2FsaWZvcm5pYS1ob3NwaXRhb=
+HMtaWdub3JlZC10cmFpbmluZy1hYm91dC1iaWFzLWluLWNhcmUvP3V0bV9tZWRpdW09ZW1haW=
+wmdXRtX3NvdXJjZT1nb3ZkZWxpdmVyeSIsImJ1bGxldGluX2lkIjoiMjAyMzExMDUuODUxODY=
+yODEifQ.AcnZ0zCEXUzTCqiObISHoJxamhKdNxURDoqvFAgGRYA/s/2145798483/br/23002=
+7852294-l" title=3D"https://calmatters.org/health/2023/10/despite-high-bl=
+ack-maternal-death-rate-california-hospitals-ignored-training-about-bias-=
+in-care/" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: =
+100%; color: #ffeaaf;">Despite high Black maternal death rate, California=
+ hospitals ignored training about bias in care</a></p>
+<p style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; l=
+ine-height: 1.4; font-family: helvetica; font-size: 17px; color: #ffffff;=
+ margin: 0 0 10px;"><strong>ABC 7:</strong> <a href=3D"https://lnks.gd/l/=
+eyJhbGciOiJIUzI1NiJ9.eyJidWxsZXRpbl9saW5rX2lkIjoxNTYsInVyaSI6ImJwMjpjbGlj=
+ayIsInVybCI6Imh0dHBzOi8vYWJjNy5jb20vYmxhY2std29tZW4tbWF0ZXJuYWwtbW9ydGFsa=
+XR5LWNoaWxkYmlydGgtcHJlZ25hbmN5LzEzOTgyNjE5Lz91dG1fbWVkaXVtPWVtYWlsJnV0bV=
+9zb3VyY2U9Z292ZGVsaXZlcnkiLCJidWxsZXRpbl9pZCI6IjIwMjMxMTA1Ljg1MTg2MjgxIn0=
+.yDyMPHPZethOAXui3WDx94qmk456DBkOF--MZlTyapE/s/2145798483/br/230027852294=
+-l" title=3D"https://abc7.com/black-women-maternal-mortality-childbirth-p=
+regnancy/13982619/" style=3D"-webkit-text-size-adjust: 100%; -ms-text-siz=
+e-adjust: 100%; color: #ffeaaf;">CA lawmakers, hospitals step up efforts =
+to protect lives of Black women during childbirth</a></p>
+<p style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; l=
+ine-height: 1.4; font-family: helvetica; font-size: 17px; color: #ffffff;=
+ margin: 0 0 10px;"><strong>LA Times:</strong>=C2=A0<a href=3D"https://ln=
+ks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJidWxsZXRpbl9saW5rX2lkIjoxNTcsInVyaSI6ImJw=
+MjpjbGljayIsInVybCI6Imh0dHBzOi8vd3d3LmxhdGltZXMuY29tL2NhbGlmb3JuaWEvc3Rvc=
+nkvMjAyMy0xMC0zMC85dGgtY2lyY3VpdC1zdGF5cy1ydWxpbmctYWdhaW5zdC1jYWxpZm9ybm=
+lhLWJhbi1vbi1hc3NhdWx0LXdlYXBvbnMtcGVuZGluZy1hcHBlYWw_dXRtX21lZGl1bT1lbWF=
+pbCZ1dG1fc291cmNlPWdvdmRlbGl2ZXJ5IiwiYnVsbGV0aW5faWQiOiIyMDIzMTEwNS44NTE4=
+NjI4MSJ9.USXy8O2f0YoU75V-k4Y1j6R_sXZIqbfRRXPyS961QXY/s/2145798483/br/2300=
+27852294-l" target=3D"_blank" title=3D"https://www.latimes.com/california=
+/story/2023-10-30/9th-circuit-stays-ruling-against-california-ban-on-assa=
+ult-weapons-pending-appeal" rel=3D"noopener" style=3D"-webkit-text-size-a=
+djust: 100%; -ms-text-size-adjust: 100%; color: #ffeaaf;">9th Circuit sta=
+ys ruling against California assault weapons ban, pending appeal</a></p>
+<p style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; l=
+ine-height: 1.4; font-family: helvetica; font-size: 17px; color: #ffffff;=
+ margin: 0 0 10px;"><strong>The Pride LA:=C2=A0</strong><a href=3D"https:=
+//lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJidWxsZXRpbl9saW5rX2lkIjoxNTgsInVyaSI6=
+ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8vdGhlcHJpZGVsYS5jb20vMjAyMy8xMS9jYWxpZ=
+m9ybmlhLWF0dG9ybmV5LWdlbmVyYWwtYWRkcmVzc2VzLWxnYnRxLWRvbWVzdGljLXZpb2xlbm=
+NlLWlzc3Vlcy8_dXRtX21lZGl1bT1lbWFpbCZ1dG1fc291cmNlPWdvdmRlbGl2ZXJ5IiwiYnV=
+sbGV0aW5faWQiOiIyMDIzMTEwNS44NTE4NjI4MSJ9.lT6Pdr2MTfYusfzdR5ju1YqO5YloGdg=
+wzWu8Bfgw38A/s/2145798483/br/230027852294-l" target=3D"_blank" title=3D"h=
+ttps://thepridela.com/2023/11/california-attorney-general-addresses-lgbtq=
+-domestic-violence-issues/" rel=3D"noopener" style=3D"-webkit-text-size-a=
+djust: 100%; -ms-text-size-adjust: 100%; color: #ffeaaf;">California Atto=
+rney General Addresses LGBTQ+ Domestic Violence Issues</a></p>
+</td>
+    </tr>
+  </table>
+</div>
+<!--[if (gte mso 9)|(IE)]>
+  </td>
+<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+  </tr>
+  </table>
+<![endif]-->
+      </td>
+    </tr>
+  </table>
+</div>
+<!--[if (gte mso 9)|(IE)]>
+      </td>
+    </tr>
+  </table>
+<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+  <table width=3D"600" align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0">
+    <tr>
+      <td>
+<![endif]-->
+<div class=3D"abe-section-block" data-block-type=3D"FancyBlockSection" da=
+ta-block-id=3D"103179279">
+  <table class=3D"abe-section-table" width=3D"100%" align=3D"center" bord=
+er=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D=
+"max-width: 600px; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: =
+100%; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+    <tr id=3D"abe-section-row-ee0f5ea9-3d20-462e-9354-cc9833d9d899" class=
+=3D"abe-section-row" style=3D"background-color: #434959;" bgcolor=3D"#434=
+959">
+      <td style=3D"text-align: center; vertical-align: top; font-size: 0;=
+ -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-ls=
+pace: 0pt; mso-table-rspace: 0pt;" align=3D"center" valign=3D"top">
+        <!--[if (gte mso 9)|(IE)]>
+  <table width=3D"100%" align=3D"center" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-a=
+djust: 100%; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: =
+0pt;">
+    <tr>
+<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+  <td width=3D"600" valign=3D"top" id=3D"abe-column-block-8b1dd3cb-34f3-4=
+7ef-aac8-31759dc3e69e-outlook-only" class=3D"abe-column-block-outlook-onl=
+y" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; m=
+so-table-lspace: 0pt; mso-table-rspace: 0pt;">
+<![endif]-->
+<div id=3D"abe-column-block-8b1dd3cb-34f3-47ef-aac8-31759dc3e69e" class=3D=
+"abe-column-block" data-block-type=3D"FancyBlockColumn" data-block-id=3D"=
+103179280" style=3D"width: 100%; box-sizing: border-box; display: inline-=
+block; font-size: 16px; vertical-align: top;">
+  <table width=3D"100%" align=3D"center" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" role=3D"presentation" style=3D"table-layout: fixed; over=
+flow-wrap: break-word; word-wrap: break-word; text-align: left; -webkit-t=
+ext-size-adjust: 100%; -ms-text-size-adjust: 100%; border-spacing: 0; mso=
+-table-lspace: 0pt; mso-table-rspace: 0pt;">
+    <tr>
+      <td class=3D"abe-column-block-padding" id=3D"abe-column-block-8b1dd=
+3cb-34f3-47ef-aac8-31759dc3e69e-padding" style=3D"-webkit-text-size-adjus=
+t: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rsp=
+ace: 0pt; padding: 15px;">
+<h2 style=3D"line-height: 1.2; font-family: helvetica; font-size: 24px; c=
+olor: #ffffff; text-align: center; margin: 0 0 10px;" align=3D"center"><s=
+trong>Join Us for Our Next Event</strong></h2>
+<p style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; l=
+ine-height: 1.4; font-family: helvetica; font-size: 17px; color: #ffffff;=
+ margin: 0 0 10px;">Join us Wednesday, November 15 at 10 a.m. for our nex=
+t Demystifying the DOJ event! Learn about the how our Housing Justice Tea=
+m is tackling California's housing crisis by advancing housing access, af=
+fordability, and equity throughout the state. Register today!</p>
+<a href=3D"https://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJidWxsZXRpbl9saW5rX2l=
+kIjoxNTksInVyaSI6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8vZG9qLWNhLnpvb21nb3Yu=
+Y29tL3dlYmluYXIvcmVnaXN0ZXIvV05fbWZ3d25hNFRROS1vOEdqMmJCR2d0QT91dG1fbWVka=
+XVtPWVtYWlsJnV0bV9zb3VyY2U9Z292ZGVsaXZlcnkjL3JlZ2lzdHJhdGlvbiIsImJ1bGxldG=
+luX2lkIjoiMjAyMzExMDUuODUxODYyODEifQ.mw3YiIhmCOzpKGMkMXxien5IzegTLoeEp5oJ=
+TD3Amvg/s/2145798483/br/230027852294-l" target=3D"_blank" rel=3D"noopener=
+ noreferrer" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjus=
+t: 100%;"><img class=3D"govd_template_image" src=3D"https://content.govde=
+livery.com/attachments/fancy_images/CAOAG/2023/11/8482672/5072401/demysti=
+fying-flier-091823-social_crop.jpg" style=3D"width: 571px; height: auto; =
+-ms-interpolation-mode: bicubic; line-height: 1; outline: none; text-deco=
+ration: none; max-width: 100%; border: none;" alt=3D"Demystifying the DOJ=
+" width=3D"571" height=3D"714"></a><table class=3D"govd_button" width=3D"=
+100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"-webkit-t=
+ext-size-adjust: 100%; -ms-text-size-adjust: 100%; border-spacing: 0; mso=
+-table-lspace: 0pt; mso-table-rspace: 0pt;"><tbody><tr><td style=3D"-webk=
+it-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: =
+0pt; mso-table-rspace: 0pt; padding-bottom: 15px;"><table border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" style=3D"-webkit-text-size-adjust: 100%=
+; -ms-text-size-adjust: 100%; border-spacing: 0; mso-table-lspace: 0pt; m=
+so-table-rspace: 0pt; margin: 0 auto;" align=3D"center"><tbody><tr><td cl=
+ass=3D"govd_button" style=3D"-webkit-text-size-adjust: 100%; -ms-text-siz=
+e-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-=
+color: #434959; border-radius: 0px; text-align: center; display: inline-b=
+lock; overflow-wrap: break-word; word-wrap: break-word; -ms-word-break: b=
+reak-all; word-break: break-word; padding: 10px; border: 2px solid #fffff=
+f;" align=3D"center" bgcolor=3D"#434959"><a href=3D"https://lnks.gd/l/eyJ=
+hbGciOiJIUzI1NiJ9.eyJidWxsZXRpbl9saW5rX2lkIjoxNjAsInVyaSI6ImJwMjpjbGljayI=
+sInVybCI6Imh0dHBzOi8vZG9qLWNhLnpvb21nb3YuY29tL3dlYmluYXIvcmVnaXN0ZXIvV05f=
+bWZ3d25hNFRROS1vOEdqMmJCR2d0QT91dG1fbWVkaXVtPWVtYWlsJnV0bV9zb3VyY2U9Z292Z=
+GVsaXZlcnkjL3JlZ2lzdHJhdGlvbiIsImJ1bGxldGluX2lkIjoiMjAyMzExMDUuODUxODYyOD=
+EifQ.HUZ0kvQ7uFl6PaBtxuEG0WHQBf3W400iOmZz_P45ukw/s/2145798483/br/23002785=
+2294-l" target=3D"_blank" rel=3D"noopener noreferrer" style=3D"-webkit-te=
+xt-size-adjust: 100%; -ms-text-size-adjust: 100%; text-decoration: none !=
+important;"><strong style=3D"font-family: helvetica; font-size: 18px; col=
+or: #FFFFFF; text-decoration: none;">RSVP TODAY =E2=86=92</strong></a></t=
+d></tr></tbody></table></td></tr></tbody></table>
+</td>
+    </tr>
+  </table>
+</div>
+<!--[if (gte mso 9)|(IE)]>
+  </td>
+<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+  </tr>
+  </table>
+<![endif]-->
+      </td>
+    </tr>
+  </table>
+</div>
+<!--[if (gte mso 9)|(IE)]>
+      </td>
+    </tr>
+  </table>
+<![endif]-->
+</td>
+    <td style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 10=
+0%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;"></td>
+  </tr>
+</table>
+</td></tr></table>
+ =20
+
+
+<div id=3D"mail_footer">
+    <hr>
+<p style=3D"margin-bottom: 1em;">Update your subscriptions, modify your p=
+assword or email address, or unsubscribe using the=C2=A0<a href=3D"https:=
+//lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJidWxsZXRpbl9saW5rX2lkIjoxNjEsInVyaSI6=
+ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8vcHVibGljLmdvdmRlbGl2ZXJ5LmNvbS9hY2Nvd=
+W50cy9DQU9BRy9zdWJzY3JpYmVyL25ldz9wcmVmZXJlbmNlcz10cnVlIiwiYnVsbGV0aW5faW=
+QiOiIyMDIzMTEwNS44NTE4NjI4MSJ9.RrIXTRfWKVbFMDutPxswuFdZNrzGxPhTbpwgovMqOZ=
+4/s/2145798483/br/230027852294-l">Subscriber Preferences Page</a>. You wi=
+ll need to use your email address to log in. If you have questions or pro=
+blems with the subscription service, please visit <a href=3D"https://lnks=
+.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJidWxsZXRpbl9saW5rX2lkIjoxNjIsInVyaSI6ImJwMj=
+pjbGljayIsInVybCI6Imh0dHBzOi8vc3Vic2NyaWJlcmhlbHAuZ292ZGVsaXZlcnkuY29tLyI=
+sImJ1bGxldGluX2lkIjoiMjAyMzExMDUuODUxODYyODEifQ.ggro4oBQGHLb90MgK6Zse4Uf-=
+ELJDviRM5FSDxK1mtA/s/2145798483/br/230027852294-l">subscriberhelp.govdeli=
+very.com</a>.</p>
+<p style=3D"margin-bottom: 1em;">This service is provided to you at no ch=
+arge by <a href=3D"https://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJidWxsZXRpbl9=
+saW5rX2lkIjoxNjMsInVyaSI6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8vb2FnLmNhLmdv=
+di8_dXRtX21lZGl1bT1lbWFpbCZ1dG1fc291cmNlPWdvdmRlbGl2ZXJ5IiwiYnVsbGV0aW5fa=
+WQiOiIyMDIzMTEwNS44NTE4NjI4MSJ9.C9Sr3V_zu-6Nlh3rHW3kEitBfHq4A1z92WN24DShz=
+NU/s/2145798483/br/230027852294-l">California Department of Justice</a>.<=
+/p>
+
+</div>
+<div id=3D"tagline">
+    <table style=3D"border-collapse: collapse; margin: 0px auto; width: 1=
+00%;" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+<tbody>
+<tr>
+<td style=3D"padding: 0 10px 0 10px;" valign=3D"top">
+<table class=3D"mobile-tagline" style=3D"border-collapse: collapse; margi=
+n: 0px auto; width: 100%;" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0" align=3D"right">
+<tbody>
+<tr>
+<td style=3D"padding: 10px 0 0 0;" colspan=3D"2" valign=3D"top"><hr></td>=
+
+</tr>
+<tr>
+<td style=3D"padding: 10px 5px 10px 0;" align=3D"left" valign=3D"top"><sp=
+an style=3D"color: #757575; font-size: 10px; font-family: arial, helvetic=
+a, sans-serif;">This email was sent to lytommy321@gmail.com using govDeli=
+very Communications Cloud on behalf of: California Department of Justice =
+- Office of the Attorney General =C2=B7 P.O. Box 944255 =C2=B7 Sacramento=
+, CA 94244-2550</span></td>
+<td style=3D"width: 95px; padding-top: 10px;" align=3D"right" valign=3D"t=
+op" width=3D"95"><a href=3D"https://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJidW=
+xsZXRpbl9saW5rX2lkIjoxNjQsInVyaSI6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8vc3V=
+ic2NyaWJlcmhlbHAuZ3JhbmljdXMuY29tLz91dG1fbWVkaXVtPWVtYWlsJnV0bV9zb3VyY2U9=
+Z292ZGVsaXZlcnkiLCJidWxsZXRpbl9pZCI6IjIwMjMxMTA1Ljg1MTg2MjgxIn0.dEB3y5mRj=
+BCq8kuE5zE1MvC-D9DTxuiu1NC-UqCAXKc/s/2145798483/br/230027852294-l" target=
+=3D"_blank" rel=3D"noopener"> <img src=3D"https://content.govdelivery.com=
+/images/govd-logo-dark.png" border=3D"0" alt=3D"GovDelivery logo" width=3D=
+"95" height=3D"27" align=3D"right"> </a></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+<IMG SRC=3D"https://links.govdelivery.com/track?enid=3DZWFzPTEmYnVsbGV0aW=
+5yZWNpcGllbnRpZD0yMzAwMjc4NTIyOTQtbCZzdWJzY3JpYmVyaWQ9MjE0NTc5ODQ4MyZtc2l=
+kPSZhdWlkPSZtYWlsaW5naWQ9MjAyMzExMDUuODUxODYyODEmbWVzc2FnZWlkPU1EQi1QUkQt=
+QlVMLTIwMjMxMTA1Ljg1MTg2MjgxJmRhdGFiYXNlaWQ9MTAwMSZ0eXBlPW9wZW4mc2VyaWFsP=
+TE2ODgxNzkzJmVtYWlsaWQ9bHl0b21teTMyMUBnbWFpbC5jb20mdXNlcmlkPWx5dG9tbXkzMj=
+FAZ21haWwuY29tJnRhcmdldGlkPSZmbD0mbXZpZD0mZXh0cmE9JiYm" WIDTH=3D"1" HEIGH=
+T=3D"1" STYLE=3D"border-width:0; border-style:hidden;" ALT=3D""/></body>
+</html>
+=0A
+------=_NextPart_72A_3204_0AF192E2.6A0C7CA4--
+

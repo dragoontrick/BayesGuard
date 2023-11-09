@@ -1,0 +1,862 @@
+Delivered-To: mrstupindous@gmail.com
+Received: by 2002:a05:7011:1c93:b0:379:a160:7fd with SMTP id ra19csp626828mdb;
+        Tue, 7 Nov 2023 18:49:37 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFCF5dDKa9tFZ88l5HXCylljPAP5tppxcJrPOxI73VWkBd2Bpk3Pk1HilMOvUS8Mgf4HOav
+X-Received: by 2002:a17:903:41d2:b0:1c9:9fa6:ce5b with SMTP id u18-20020a17090341d200b001c99fa6ce5bmr950150ple.16.1699411777430;
+        Tue, 07 Nov 2023 18:49:37 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1699411777; cv=none;
+        d=google.com; s=arc-20160816;
+        b=DN3Wy9avv1BrLKy0AIBtb7+KmAP5cHZIGiAuBYwDxw6HYSejQaXAXBy415Stv7ojBh
+         WPEwS3Qg0cPMDs2Zx/NWYVDwoUWw7YawhSHanffrHV/K148Wp5b0QvnH2IEA7F/QLafa
+         eKwIAZLUNlB7TvAYfsCAbOcYCoCL3iNGoDB7PYCzfHiDTsMEA+vg5LHgcefQvsdo6lQN
+         xxRBksGnbT7niKtOJQODlVgj6ZUxRJCvZVBSCjw3nZvVepT5/nbXI1EbVRXsR2FumYn6
+         u9tF0FF/YGPb6t4LzCc9Z6W7BFM3MjU8KL66yBBqbysnGPgZ5jaysvbN2/YR89aCCR0g
+         eGfA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:reply-to:subject:message-id:mime-version:from:date
+         :dkim-signature:dkim-signature;
+        bh=r9kJBkOGcUHs3U8zKV5UdLBoRiz/aeP1hz3dTJqzikw=;
+        fh=dpA4BpfiHAiZj5JR1Ynyc97q05ct6Zzj5Du/mL7pZcA=;
+        b=wYD4n2hvtFQivFIX0xaorBM64dIa+tsWVfUBAEq7y0R6s22J4ROC6Bg+URq9IDfhBN
+         lXzCXyGCKqW9RuqI1F0WZ1jrp6w+rELqHVB/geYceM+GFEE18vxFO3rfsh4uFLzGIXFx
+         EXf5c066o33jzMUtMsVLJSMTmhhx3IxYhY6hGT0J9bSoDdem5BMjQawv0jbaQo0iy2hr
+         MXROoi+1NuBULE6EvX2gFJ+euKEJqNk3sIZNWPftgdANpW+qKEp40+IzDHwGPLYl5S1J
+         f6PJom5cwyrMKRG+OzLD3Xiu5O/NV1CY2HvxNyz+k3vD8+6vWFzATUFd4Ggii7H1Geh7
+         tfMQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@alerts.parkmobile.io header.s=s1 header.b=GnJnxJo9;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=jiPX2ISX;
+       spf=pass (google.com: domain of bounces+10326341-ba20-mrstupindous=gmail.com@abmail.alerts.parkmobile.io designates 149.72.177.76 as permitted sender) smtp.mailfrom="bounces+10326341-ba20-mrstupindous=gmail.com@abmail.alerts.parkmobile.io";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=parkmobile.io
+Return-Path: <bounces+10326341-ba20-mrstupindous=gmail.com@abmail.alerts.parkmobile.io>
+Received: from o2135.abmail.alerts.parkmobile.io (o2135.abmail.alerts.parkmobile.io. [149.72.177.76])
+        by mx.google.com with ESMTPS id u18-20020a170902e5d200b001ccbfb42dc2si1303510plf.480.2023.11.07.18.49.36
+        for <mrstupindous@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 07 Nov 2023 18:49:37 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounces+10326341-ba20-mrstupindous=gmail.com@abmail.alerts.parkmobile.io designates 149.72.177.76 as permitted sender) client-ip=149.72.177.76;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@alerts.parkmobile.io header.s=s1 header.b=GnJnxJo9;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=jiPX2ISX;
+       spf=pass (google.com: domain of bounces+10326341-ba20-mrstupindous=gmail.com@abmail.alerts.parkmobile.io designates 149.72.177.76 as permitted sender) smtp.mailfrom="bounces+10326341-ba20-mrstupindous=gmail.com@abmail.alerts.parkmobile.io";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=parkmobile.io
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alerts.parkmobile.io;
+	h=content-type:from:mime-version:subject:reply-to:x-feedback-id:to:cc:
+	content-type:from:subject:to;
+	s=s1; bh=r9kJBkOGcUHs3U8zKV5UdLBoRiz/aeP1hz3dTJqzikw=;
+	b=GnJnxJo9DUFFL6HpCLfb+qXE9eBSZ9Vw0p8kCg8YmXVO0crTcseLWOT02uNDKvO6Gq8O
+	LkO3URcolEgkOGn/AVsNky1k/EgcaX/1JvQlEt+3ZW4cDY2/m9j+fjsNtxHx+5Q4yMliV2
+	5DQ6QXFO9nAvaExcSd7DzGVVYH6dI7sb7MX3YOseCkWFIU0xeapSqLGu5ozjrEEsPFzBmP
+	FgSC25qzwwWpriXLHomYKw5ZHBo7slJNEZfbBCiG+dZ/0gXo4+/5FU2ljg4LkQAATn8cO1
+	EsBH7bkY4XObz3wMqzf1F5vGhDF1jNr1pOfsNzKc0wcp8oWU9bx+Lb6b8OcqpuxQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info;
+	h=content-type:from:mime-version:subject:reply-to:x-feedback-id:to:cc:
+	content-type:from:subject:to;
+	s=smtpapi; bh=r9kJBkOGcUHs3U8zKV5UdLBoRiz/aeP1hz3dTJqzikw=;
+	b=jiPX2ISXEPq57xW/uJRGLwf1iEkuZFMs/iQMzKBMTNijhviJE2JtLwmcHFbUCeiyW7ca
+	oYrARGYks0zJeUuJeeGcYIjboOKkuyiJrAS2C1WzDHHgKEHMOUrxMjmRaJxthb63lqi6Rj
+	duoyX2sem9QCqVv21Z0M5Ew2bzOYngER0=
+Received: by filterdrecv-bfb84544f-26qp2 with SMTP id filterdrecv-bfb84544f-26qp2-1-654AF73F-20
+        2023-11-08 02:49:35.556649544 +0000 UTC m=+1843701.349629250
+Received: from MTAzMjYzNDE (unknown)
+	by geopod-ismtpd-33 (SG) with HTTP
+	id Fz3rOqQtTEKQjCvDIF-tAw
+	Wed, 08 Nov 2023 02:49:35.401 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=983238d976a4bbbf974b99aabb4b00c83bfb1708d17658d44442789c2db7
+Date: Wed, 08 Nov 2023 02:49:35 +0000 (UTC)
+From: ParkMobile <noreply@alerts.parkmobile.io>
+Mime-Version: 1.0
+Message-ID: <Fz3rOqQtTEKQjCvDIF-tAw@geopod-ismtpd-33>
+Subject: Your Parking is About to Expire
+Reply-To: noreply@mail.parkmobile.io
+X-Feedback-ID: 10326341:SG
+X-SG-EID: 
+ =?us-ascii?Q?+ClSzGswMFdGZB=2FE4p7FZVQ5X81nUIGDfELYZk1ejiKPO4onhBJ7MRKQGSm=2Fsi?=
+ =?us-ascii?Q?ec+P4voxn5USCWxrAxLFhzKG1P9jvV4mo4wF3U7?=
+ =?us-ascii?Q?G=2F6n1eALHvxeBPQJhA9+cj1QcjVm6MUxzJRCyVJ?=
+ =?us-ascii?Q?fIdtsswszDmVvM=2Fts1mhO3l6PQjhwz+yJcYJwEn?=
+ =?us-ascii?Q?eqTUSyYLbziuQwBI=2FdEtPWz1EHvXqfTlSu7QuR+?=
+ =?us-ascii?Q?5ZGut06Wyrb7603EPKEx7smKVOK9g0tkMzWli57?=
+ =?us-ascii?Q?NuPLfq8Ksc62SQq=2FzIe0Q=3D=3D?=
+X-SG-ID: 
+ =?us-ascii?Q?N2C25iY2uzGMFz6rgvQsb8raWjw0ZPf1VmjsCkspi=2FKvUYPFb2vwyNNeBc9bJi?=
+ =?us-ascii?Q?Ch=2FuaWW0vNJD7HcyycWOajGflEGrvGWpFGfOCC3?=
+ =?us-ascii?Q?fabyFITPA2A+ms3vITm7q749HmMpB8qGp2E+ehy?=
+ =?us-ascii?Q?IF4LhFAI4TAVYe+CqShqAmOrVfqe3dXeEl1babi?=
+ =?us-ascii?Q?+nnZC6M1yiAUgMrbQDA=2F7IxSBSR4Sz7j0fbvcDX?=
+ =?us-ascii?Q?U5TrASoF2lhION2wnJnPzYxhLh9qI7MmSXfPQbH?=
+ =?us-ascii?Q?nQb4mKYG=2FNKMvhKsLOIiyI2PbiuZ49=2FoDJwXr+H?=
+ =?us-ascii?Q?esJBm3UlUWX2eemq0tFns8qhl=2Fs5kd7JSg9ZcK=2F?=
+ =?us-ascii?Q?Uu1dgD3lFEkNPDyzVORRX3qN6c9d=2FZ0vCRcxwam?=
+ =?us-ascii?Q?a=2Fci+VznTTVLJURlQbdIf+Y8PJnAjQOeG5DjeXz?=
+ =?us-ascii?Q?9hiDdRp4l2vBkO=2FS8fhgKKvxR1iVtkLrpjB8Btr?=
+ =?us-ascii?Q?nNSb2=2FecwvmgbKQLwkZQZD2XQYkNgIP+BM1gslV?=
+ =?us-ascii?Q?4BjyhCrUe=2Fw2xtqEnd0Qa?=
+To: mrstupindous@gmail.com
+X-Entity-ID: RNWFk+iWGumMoxOooVyVnQ==
+
+--983238d976a4bbbf974b99aabb4b00c83bfb1708d17658d44442789c2db7
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=iso-8859-1
+Mime-Version: 1.0
+
+ParkMobile A Smarter Way to Park=20
+( https://u10326341.ct.sendgrid.net/ls/click?upn=3DaGpKXncN785cP1R-2F9NmBvB=
+iGACpEe80HG24gtJQB2vo-3DMZQz_wMdcri1574w3WOagkizcopB6HVc4r186vS-2BAqcwU2kcG=
+7fki12UeWh1mVnd86RsYrC28uFeDcm24GC-2BFQoqkTSbIEBFZj2QbGXpShV5RpXeWmnf1m6yfC=
+0NP-2B21UPC3LWOX8MlJip1J5Rqhd8IwuMzUdWz2XKYND8g6eR4OCbevFWn9pdSEMmfjgKrtzZF=
+U5ZZVhBuDLyT53m-2FSfpVDA-2BlGF46q282wsorVQ9uQ-2F5a5F2kNu8C2h7JCQotbZ-2F6OG2=
+7QZ1x8L0fn3pbUpGoU23UcWdOkCgjQpNUzCsBZxZeIE-2BR8EuUsYH0PFhVj-2B-2FwJdW6OAXD=
+rxfxfTXLVq9brGAiXLecJYVJfBCqc7pjY2kzJhIM2d1pUAcCZmybpdQLcwfq249mJJToTZvfS8D=
+tzAnPfKOjx-2BzkQswegBbTgRomrrpG9FhJVnUiQi0VN3FinWFu0js5G9AdWUyrmRpv6dZxV-2F=
+4hKnhhnhUg3lE3qdyrjb-2BuI2NHKpLGlI-2FCEQDbxJJW-2B1wtawINwOgFvPlgcWulHXWa5zN=
+gymbGwPC9I-2BHuFZ4EqHM5MbLa-2BnHJkn1-2BMH65sw5lvI9wdxgwSAhjJITG0mQtW9CA9duA=
+ZL-2Fgp-2FkG3cdsKWOck-2B8PeZckSeChH4xnYpTVqhuZaeS7raMAEKLMN3PhrkksBNnN-2Byp=
+8P5KHA-3D )
+Heads up! Your session is expiring. Your parking
+session is about to reach the maximum allotted time and will end
+in 15 minutes.    Parking Session
+Details Started    11/7/2023 5:04 PM
+Ends
+11/7/2023 7:04 PM
+Zone
+1674
+Location      CSUF - Eastside South - Hourly
+Space     N/A      License
+CA: 8V64938 Extend Time=20
+( https://u10326341.ct.sendgrid.net/ls/click?upn=3DaGpKXncN785cP1R-2F9NmBvC=
+XzDk1XQ5kqs5lWO-2BHPIEcC16v0iaPw2a4GmWMs6XR6-2F-2BeTQV-2BF2M8lUHVdWowJSg-3D=
+-3DLJDF_wMdcri1574w3WOagkizcopB6HVc4r186vS-2BAqcwU2kcG7fki12UeWh1mVnd86RsYr=
+C28uFeDcm24GC-2BFQoqkTSbIEBFZj2QbGXpShV5RpXeWmnf1m6yfC0NP-2B21UPC3LWOX8MlJi=
+p1J5Rqhd8IwuMzUdWz2XKYND8g6eR4OCbevFWn9pdSEMmfjgKrtzZFU5ZZVhBuDLyT53m-2FSfp=
+VDA-2BlGF46q282wsorVQ9uQ-2F5a5F2kNu8C2h7JCQotbZ-2F6OG27QZ1x8L0fn3pbUpGoU23U=
+cWdOkCgjQpNUzCsBZxZeIE-2BR8EuUsYH0PFhVj-2B-2FwJdW6OAXDrxfxfTXLVq9brGAiXLecJ=
+YVJfBCqc7pjY2kzJhIM2d1pUAcCZmybpdQLcwfq249mJJToTZvfS8DtzAnPfKOjx-2BzkQswegB=
+bTgRomrrpG9FhJVnUiQi0VN3FinWFu0js5G9AdWUyrmRpv6dZxV-2F4hKnhhnhUg3lE3qdyrjb-=
+2BuI2NHKpLGlI-2FCEQDbxJJW-2B1wtawINwOgFvPlgcWuvLwbHFUdZR10BRjZUUSxLuC-2B1sv=
+25cAh5OgE4Ak-2Bhj77y-2Fmv4skMMecNcnUTbzXreQEzXDMnOXLUZ0FZQVgCEbnfpwDvNtBqtq=
+j9eEYbpeybBYQiFDmkDbNECagyotrNgWNQyl76YPbnPELiyFlEgY-3D )  For
+questions about your parking session, submit a support ticket to
+our Member Services Team here=20
+( https://u10326341.ct.sendgrid.net/ls/click?upn=3DaGpKXncN785cP1R-2F9NmBvF=
+-2FcJfrIlOPqMU5OcdXaAEc7n7LK-2BAUyN-2Baxaby2N3Qq4Gbxhh8f-2FUd-2BAjSYqTpOIg-=
+3D-3DXk6J_wMdcri1574w3WOagkizcopB6HVc4r186vS-2BAqcwU2kcG7fki12UeWh1mVnd86Rs=
+YrC28uFeDcm24GC-2BFQoqkTSbIEBFZj2QbGXpShV5RpXeWmnf1m6yfC0NP-2B21UPC3LWOX8Ml=
+Jip1J5Rqhd8IwuMzUdWz2XKYND8g6eR4OCbevFWn9pdSEMmfjgKrtzZFU5ZZVhBuDLyT53m-2FS=
+fpVDA-2BlGF46q282wsorVQ9uQ-2F5a5F2kNu8C2h7JCQotbZ-2F6OG27QZ1x8L0fn3pbUpGoU2=
+3UcWdOkCgjQpNUzCsBZxZeIE-2BR8EuUsYH0PFhVj-2B-2FwJdW6OAXDrxfxfTXLVq9brGAiXLe=
+cJYVJfBCqc7pjY2kzJhIM2d1pUAcCZmybpdQLcwfq249mJJToTZvfS8DtzAnPfKOjx-2BzkQswe=
+gBbTgRomrrpG9FhJVnUiQi0VN3FinWFu0js5G9AdWUyrmRpv6dZxV-2F4hKnhhnhUg3lE3qdyrj=
+b-2BuI2NHKpLGlI-2FCEQDbxJJW-2B1wtawINwOgFvPlgcWuhwi5sCOss5q7dL9aSSdzoozU1cS=
+4pBZfNNbiTltuKa0LgWR21m07Pyl6E8yYXpT2YTSDEFe3TiIgeR9sksUfDN-2B6skUtcQUkT-2B=
+S5kdxSSInQLwgVuXXMFxbJHwc4k0KHMakN6RHcNdtHjyel5TaaZ0-3D ), and
+include the transaction details listed above.
+ParkMobile ( https://u10326341.ct.sendgrid.net/ls/click?upn=3DaGpKXncN785cP=
+1R-2F9NmBvBiGACpEe80HG24gtJQB2vo-3Dwn1O_wMdcri1574w3WOagkizcopB6HVc4r186vS-=
+2BAqcwU2kcG7fki12UeWh1mVnd86RsYrC28uFeDcm24GC-2BFQoqkTSbIEBFZj2QbGXpShV5RpX=
+eWmnf1m6yfC0NP-2B21UPC3LWOX8MlJip1J5Rqhd8IwuMzUdWz2XKYND8g6eR4OCbevFWn9pdSE=
+MmfjgKrtzZFU5ZZVhBuDLyT53m-2FSfpVDA-2BlGF46q282wsorVQ9uQ-2F5a5F2kNu8C2h7JCQ=
+otbZ-2F6OG27QZ1x8L0fn3pbUpGoU23UcWdOkCgjQpNUzCsBZxZeIE-2BR8EuUsYH0PFhVj-2B-=
+2FwJdW6OAXDrxfxfTXLVq9brGAiXLecJYVJfBCqc7pjY2kzJhIM2d1pUAcCZmybpdQLcwfq249m=
+JJToTZvfS8DtzAnPfKOjx-2BzkQswegBbTgRomrrpG9FhJVnUiQi0VN3FinWFu0js5G9AdWUyrm=
+Rpv6dZxV-2F4hKnhhnhUg3lE3qdyrjb-2BuI2NHKpLGlI-2FCEQDbxJJW-2B1wtawINwOgFvPlg=
+cWuqOAQIPOyvqL6WueXEwwMrCdrZ9yb5pcq7YH6FvEEZdT3zFAD-2BH6wal8tWCPy6g-2F9yBUO=
+1cf3Dj27JW-2BIdFksfmLwg6rJ1Z0l37jg6oAXBZPAE22cT077ewA9JV1lujwgIimGiHhlcs0RR=
+63kVoE2Ss-3D ) =A9
+2023 ParkMobile, LLC All Rights
+Reserved
+1100 Spring St. NW, Suite 200, Atlanta, GA 30309
+Terms of Use ( https://u10326341.ct.sendgrid.net/ls/click?upn=3DaGpKXncN785=
+cP1R-2F9NmBvIs8OuAoOtGgZp0lkbLh9ZIkKZtkijBK3gHXIitAPpkoi6a6_wMdcri1574w3WOa=
+gkizcopB6HVc4r186vS-2BAqcwU2kcG7fki12UeWh1mVnd86RsYrC28uFeDcm24GC-2BFQoqkTS=
+bIEBFZj2QbGXpShV5RpXeWmnf1m6yfC0NP-2B21UPC3LWOX8MlJip1J5Rqhd8IwuMzUdWz2XKYN=
+D8g6eR4OCbevFWn9pdSEMmfjgKrtzZFU5ZZVhBuDLyT53m-2FSfpVDA-2BlGF46q282wsorVQ9u=
+Q-2F5a5F2kNu8C2h7JCQotbZ-2F6OG27QZ1x8L0fn3pbUpGoU23UcWdOkCgjQpNUzCsBZxZeIE-=
+2BR8EuUsYH0PFhVj-2B-2FwJdW6OAXDrxfxfTXLVq9brGAiXLecJYVJfBCqc7pjY2kzJhIM2d1p=
+UAcCZmybpdQLcwfq249mJJToTZvfS8DtzAnPfKOjx-2BzkQswegBbTgRomrrpG9FhJVnUiQi0VN=
+3FinWFu0js5G9AdWUyrmRpv6dZxV-2F4hKnhhnhUg3lE3qdyrjb-2BuI2NHKpLGlI-2FCEQDbxJ=
+JW-2B1wtawINwOgFvPlgcWujqatNtZEAszQzjiD0FGjL5f04dY587AZebHj2WNRCbq-2FhjgiXw=
+rVrRX7cDcCd-2FHXhrraLEl2dw2uRyKUX9Nqj7KnIhiYd9xmeFaWmKHxJKs2-2F7fV3Qo-2Fmvd=
+o5pjjTJB-2F-2FDMKi9zAapphtiaS0UR6DU-3D ) | Contact
+Us ( https://u10326341.ct.sendgrid.net/ls/click?upn=3DaGpKXncN785cP1R-2F9Nm=
+BvEx0s-2B9dNvwidZFYRi-2BS51HZEMQx977hTlYQa5aoCdLHraIR_wMdcri1574w3WOagkizco=
+pB6HVc4r186vS-2BAqcwU2kcG7fki12UeWh1mVnd86RsYrC28uFeDcm24GC-2BFQoqkTSbIEBFZ=
+j2QbGXpShV5RpXeWmnf1m6yfC0NP-2B21UPC3LWOX8MlJip1J5Rqhd8IwuMzUdWz2XKYND8g6eR=
+4OCbevFWn9pdSEMmfjgKrtzZFU5ZZVhBuDLyT53m-2FSfpVDA-2BlGF46q282wsorVQ9uQ-2F5a=
+5F2kNu8C2h7JCQotbZ-2F6OG27QZ1x8L0fn3pbUpGoU23UcWdOkCgjQpNUzCsBZxZeIE-2BR8Eu=
+UsYH0PFhVj-2B-2FwJdW6OAXDrxfxfTXLVq9brGAiXLecJYVJfBCqc7pjY2kzJhIM2d1pUAcCZm=
+ybpdQLcwfq249mJJToTZvfS8DtzAnPfKOjx-2BzkQswegBbTgRomrrpG9FhJVnUiQi0VN3FinWF=
+u0js5G9AdWUyrmRpv6dZxV-2F4hKnhhnhUg3lE3qdyrjb-2BuI2NHKpLGlI-2FCEQDbxJJW-2B1=
+wtawINwOgFvPlgcWusizdclThVlZvHAQyZP9wdSkSBRLeBd7WeHWLr6noF-2F71QeyFe-2BQvRb=
+P4gdfdGuJnOzKBiARmLE5RPgSX3-2BmhjIQUXj1nRq65GPzu9LixRhHpDSnu2oDKn9dVQyd2UG8=
+3yFig8dvQExMQZ6VJ9-2FAfT8-3D ) | Unsubscribe From
+This List ( https://u10326341.ct.sendgrid.net/ls/click?upn=3DaGpKXncN785cP1=
+R-2F9NmBvIQ9pPOa1kYMoEyjBxjpu7zJclpSzQYmjrtGNEE1VcSsl1x0ExH82aZxk3kPp9S3E8n=
+bwZG3vjx-2BYQ9bDNqwkyHB7DO8AN4OXViWBpEwY-2FX05GwhbcyBXJJKsmZ0s8oP-2FuWtp-2B=
+gBU2c-2FD7lvp2ybq0vAgpnextdEtaMOxXkTQI05ADTRP8i7-2B5mXtpYMn7Q2vI9NFiJkQXTxT=
+QJZqVRBCoM0Oi4v4JfRgJDlX1Zbe7rwRiCZ_wMdcri1574w3WOagkizcopB6HVc4r186vS-2BAq=
+cwU2kcG7fki12UeWh1mVnd86RsYrC28uFeDcm24GC-2BFQoqkTSbIEBFZj2QbGXpShV5RpXeWmn=
+f1m6yfC0NP-2B21UPC3LWOX8MlJip1J5Rqhd8IwuMzUdWz2XKYND8g6eR4OCbevFWn9pdSEMmfj=
+gKrtzZFU5ZZVhBuDLyT53m-2FSfpVDA-2BlGF46q282wsorVQ9uQ-2F5a5F2kNu8C2h7JCQotbZ=
+-2F6OG27QZ1x8L0fn3pbUpGoU23UcWdOkCgjQpNUzCsBZxZeIE-2BR8EuUsYH0PFhVj-2B-2FwJ=
+dW6OAXDrxfxfTXLVq9brGAiXLecJYVJfBCqc7pjY2kzJhIM2d1pUAcCZmybpdQLcwfq249mJJTo=
+TZvfS8DtzAnPfKOjx-2BzkQswegBbTgRomrrpG9FhJVnUiQi0VN3FinWFu0js5G9AdWUyrmRpv6=
+dZxV-2F4hKnhhnhUg3lE3qdyrjb-2BuI2NHKpLGlI-2FCEQDbxJJW-2B1wtawINwOgFvPlgcWus=
+ac2ej-2BCo1OyTN5KRCeKHzbNcvRTfz3f6FJZc0tJJzoYIwugD98jOyV3G6EzvuMSoPI7gcbPm3=
+XyjaPDGGxM2cjjdhslQWb9tGYYVmWZwzvLqxqsG3BizJ6RTn0PRvWwxnVpz0JayCHF6wInogtAq=
+I-3D )
+--983238d976a4bbbf974b99aabb4b00c83bfb1708d17658d44442789c2db7
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=iso-8859-1
+Mime-Version: 1.0
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns=3D"http://www.w3.org/199=
+9/xhtml" xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-m=
+icrosoft-com:office:office">
+<head>
+<!--[if gte mso 9]><xml>
+<o:OfficeDocumentSettings>
+<o:AllowPNG/>
+<o:PixelsPerInch>96</o:PixelsPerInch>
+</o:OfficeDocumentSettings>
+</xml><![endif]-->
+<title>ParkMobile</title>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8" />
+<meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge" />
+<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1.=
+0 " />
+<meta name=3D"format-detection" content=3D"telephone=3Dno" />
+
+<style>body {
+margin: 0 auto; padding: 0; -webkit-text-size-adjust: 100% !important; -ms-=
+text-size-adjust: 100% !important; -webkit-font-smoothing: antialiased !imp=
+ortant;
+}
+img {
+border: 0 !important; outline: none !important;
+}
+@media only screen and (max-width:667px) {
+  .em_main_table {
+    width: 100% !important;
+  }
+  .em_wrapper {
+    width: 100% !important;
+  }
+  .em_hide {
+    display: none !important;
+  }
+  .em_full_img img {
+    width: 100% !important; height: auto !important;
+  }
+  .em_center {
+    text-align: center !important;
+  }
+  .em_side10 {
+    width: 10px !important;
+  }
+  .em_aside10 {
+    padding-left: 15px !important;
+  }
+  .em_side15 {
+    width: 15px !important;
+  }
+  .em_aside15 {
+    padding: 0px 15px !important;
+  }
+  .em_ptop {
+    padding-top: 20px !important;
+  }
+  .em_pbottom {
+    padding-bottom: 20px !important;
+  }
+  .em_h20 {
+    height: 20px !important; font-size: 1px !important; line-height: 1px !i=
+mportant;
+  }
+  .em_h30 {
+    height: 30px !important;
+  }
+  .em_mob_block {
+    display: block !important;
+  }
+  .em_pad0 {
+    padding: 0px 0px !important;
+  }
+  .em_hauto {
+    height: auto !important;
+  }
+  .em_clear {
+    clear: both !important; width: 100% !important; display: block !importa=
+nt;
+  }
+  u + .em_body .em_full_wrap {
+    width: 100vw !important;
+  }
+}
+</style></head>
+
+<body class=3D"em_body" style=3D"-webkit-text-size-adjust: 100% !important;=
+ -ms-text-size-adjust: 100% !important; -webkit-font-smoothing: antialiased=
+ !important; margin: 0px auto; padding: 0px;" bgcolor=3D"#ffffff">
+<!-- =3D=3D Header Section =3D=3D -->
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" clas=
+s=3D"em_full_wrap" bgcolor=3D"#ffffff" style=3D"border-collapse: collapse; =
+mso-table-lspace: 0px; mso-table-rspace: 0px;">
+  <tr>
+    <td align=3D"center" valign=3D"top" style=3D"border-collapse: collapse;=
+ mso-line-height-rule: exactly;">
+      <table align=3D"center" width=3D"700" border=3D"0" cellspacing=3D"0" =
+cellpadding=3D"0" class=3D"em_main_table" style=3D"width: 700px; border-col=
+lapse: collapse; mso-table-lspace: 0px; mso-table-rspace: 0px;">
+        <tr>
+          <td align=3D"center" valign=3D"top" style=3D"border-collapse: col=
+lapse; mso-line-height-rule: exactly;">
+            <table align=3D"center" cellpadding=3D"0" cellspacing=3D"0" bor=
+der=3D"0" width=3D"700" style=3D"width: 700px; border-collapse: collapse; m=
+so-table-lspace: 0px; mso-table-rspace: 0px;" class=3D"em_wrapper">
+              <tr>
+                <td width=3D"50" style=3D"width: 50px; border-collapse: col=
+lapse; mso-line-height-rule: exactly;" class=3D"em_side15">&nbsp;</td>
+                <td align=3D"center" valign=3D"top" style=3D"border-collaps=
+e: collapse; mso-line-height-rule: exactly;">
+                  <table align=3D"center" cellpadding=3D"0" cellspacing=3D"=
+0" border=3D"0" width=3D"100%" style=3D"border-collapse: collapse; mso-tabl=
+e-lspace: 0px; mso-table-rspace: 0px;">
+                    <tr>
+                      <td height=3D"25" style=3D"height: 25px; border-colla=
+pse: collapse; mso-line-height-rule: exactly;" class=3D"em_h20">&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td align=3D"left" valign=3D"top" class=3D"em_full_im=
+g" style=3D"border-collapse: collapse; mso-line-height-rule: exactly;">
+                        <a href=3D"https://u10326341.ct.sendgrid.net/ls/cli=
+ck?upn=3DaGpKXncN785cP1R-2F9NmBvBiGACpEe80HG24gtJQB2vo-3D-OiB_wMdcri1574w3W=
+OagkizcopB6HVc4r186vS-2BAqcwU2kcG7fki12UeWh1mVnd86RsYrC28uFeDcm24GC-2BFQoqk=
+TSbIEBFZj2QbGXpShV5RpXeWmnf1m6yfC0NP-2B21UPC3LWOX8MlJip1J5Rqhd8IwuMzUdWz2XK=
+YND8g6eR4OCbevFWn9pdSEMmfjgKrtzZFU5ZZVhBuDLyT53m-2FSfpVDA-2BlGF46q282wsorVQ=
+9uQ-2F5a5F2kNu8C2h7JCQotbZ-2F6OG27QZ1x8L0fn3pbUpGoU23UcWdOkCgjQpNUzCsBZxZeI=
+E-2BR8EuUsYH0PFhVj-2B-2FwJdW6OAXDrxfxfTXLVq9brGAiXLecJYVJfBCqc7pjY2kzJhIM2d=
+1pUAcCZmybpdQLcwfq249mJJToTZvfS8DtzAnPfKOjx-2BzkQswegBbTgRomrrpG9FhJVnUiQi0=
+VN3FinWFu0js5G9AdWUyrmRpv6dZxV-2F4hKnhhnhUg3lE3qdyrjb-2BuI2NHKpLGlI-2FCEQDb=
+xJJW-2B1wtawINwOgFvPlgcWuq4jBabBogW5ZOKcKBzMK5yWezN-2B7LH3gQz7ixhp4ToUHAZCB=
+Yp-2Fb-2FxqyI9X4kx-2FROxK5u0kUCFtE49d-2FGgv1CG0i9JAEomgMSlq-2B3Jbfz4gviswez=
+sXeAvSmQ2OCsBgiZ0RKrzcmkiD7tiysdyhFwE-3D" target=3D"_blank" style=3D"text-d=
+ecoration: none; border-collapse: collapse; mso-line-height-rule: exactly;"=
+>
+                          <img src=3D"https://marketingemail.parkmobile.io/=
+Transactional%20Emails%20V2/PM_Logo_Byline_Container.png" width=3D"217" alt=
+=3D"ParkMobile A Smarter Way to Park" border=3D"0" style=3D"font-family: Ar=
+ial, sans-serif; font-size: 16px; line-height: 19px; color: #000000; max-wi=
+dth: 217px; display: block; outline: none !important; border: 0;" />
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td height=3D"22" style=3D"height: 22px; line-height:=
+ 1px; font-size: 1px; border-collapse: collapse; mso-line-height-rule: exac=
+tly;" class=3D"em_h20">&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td align=3D"center" valign=3D"top" class=3D"em_full_=
+img" style=3D"border-collapse: collapse; mso-line-height-rule: exactly;">
+                        <img src=3D"https://marketingemail.parkmobile.io/Tr=
+ansactional%20Emails%20V2/Hero/Session_Expiring.png" width=3D"225" alt=3D""=
+ border=3D"0" style=3D"font-family: Arial, sans-serif; font-size: 16px; lin=
+e-height: 19px; color: #000000; max-width: 225px; display: block; outline: =
+none !important; border: 0;" />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td height=3D"34" style=3D"height: 34px; border-colla=
+pse: collapse; mso-line-height-rule: exactly;" class=3D"em_h20">&nbsp;</td>
+                    </tr>
+                  </table>
+                </td>
+                <td width=3D"50" style=3D"width: 50px; border-collapse: col=
+lapse; mso-line-height-rule: exactly;" class=3D"em_side15">&nbsp;</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- =3D=3D //Header Section =3D=3D -->=20
+<!-- =3D=3D Body Section =3D=3D -->
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" clas=
+s=3D"em_full_wrap" bgcolor=3D"#ffffff" style=3D"table-layout: fixed; border=
+-collapse: collapse; mso-table-lspace: 0px; mso-table-rspace: 0px;">
+  <tr>
+    <td align=3D"center" valign=3D"top" style=3D"border-collapse: collapse;=
+ mso-line-height-rule: exactly;">
+      <table align=3D"center" width=3D"700" border=3D"0" cellspacing=3D"0" =
+cellpadding=3D"0" class=3D"em_main_table" style=3D"width: 700px; table-layo=
+ut: fixed; border-collapse: collapse; mso-table-lspace: 0px; mso-table-rspa=
+ce: 0px;" bgcolor=3D"#ffffff">
+        <tr>
+          <td align=3D"center" valign=3D"top" bgcolor=3D"#ffffff" style=3D"=
+border-collapse: collapse; mso-line-height-rule: exactly;">
+            <table width=3D"700" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" align=3D"center" style=3D"width: 700px; border-collapse: collapse; m=
+so-table-lspace: 0px; mso-table-rspace: 0px;" class=3D"em_wrapper">
+              <tr>
+                <td width=3D"75" style=3D"width: 75px; border-collapse: col=
+lapse; mso-line-height-rule: exactly;" class=3D"em_side15">&nbsp;</td>
+                <td align=3D"center" valign=3D"top" style=3D"border-collaps=
+e: collapse; mso-line-height-rule: exactly;">
+                  <table width=3D"100%" border=3D"0" cellspacing=3D"0" cell=
+padding=3D"0" align=3D"center" style=3D"border-collapse: collapse; mso-tabl=
+e-lspace: 0px; mso-table-rspace: 0px;">
+                    <tr>
+                      <td align=3D"left" valign=3D"top" style=3D"font-famil=
+y: inter, sans-serif; font-size: 24px; line-height: 22px; color: #1FA846; f=
+ont-weight: 800; border-collapse: collapse; mso-line-height-rule: exactly;"=
+>Heads up!</td>
+                    </tr>
+                    <tr>
+                      <td height=3D"9" style=3D"height: 9px; line-height: 1=
+px; font-size: 1px; border-collapse: collapse; mso-line-height-rule: exactl=
+y;" class=3D"em_h20">&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td align=3D"left" valign=3D"top" style=3D"font-famil=
+y: inter, sans-serif; font-size: 38px; line-height: 40px; color: #000000; f=
+ont-weight: 400; border-collapse: collapse; mso-line-height-rule: exactly;"=
+>Your session is expiring.</td>
+                    </tr>
+                    <tr>
+                      <td height=3D"12" style=3D"height: 12px; line-height:=
+ 1px; font-size: 1px; border-collapse: collapse; mso-line-height-rule: exac=
+tly;" class=3D"em_h20">&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td align=3D"left" valign=3D"top" style=3D"font-famil=
+y: inter, sans-serif; font-size: 16px; line-height: 25px; color: #212121; f=
+ont-weight: 400; border-collapse: collapse; mso-line-height-rule: exactly;"=
+>Your parking session is about to reach the maximum allotted time and will =
+end in 15 minutes.</td>
+                    </tr>
+                    <tr>
+                      <td height=3D"43" style=3D"height: 43px; border-colla=
+pse: collapse; mso-line-height-rule: exactly;" class=3D"em_h20">&nbsp;</td>
+                    </tr>
+                  </table>
+                </td>
+                <td width=3D"75" style=3D"width: 75px; border-collapse: col=
+lapse; mso-line-height-rule: exactly;" class=3D"em_side15">&nbsp;</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" clas=
+s=3D"em_full_wrap" bgcolor=3D"#ffffff" style=3D"table-layout: fixed; border=
+-collapse: collapse; mso-table-lspace: 0px; mso-table-rspace: 0px;">
+  <tr>
+    <td align=3D"center" valign=3D"top" style=3D"border-collapse: collapse;=
+ mso-line-height-rule: exactly;">
+      <table align=3D"center" width=3D"700" border=3D"0" cellspacing=3D"0" =
+cellpadding=3D"0" class=3D"em_main_table" style=3D"width: 700px; table-layo=
+ut: fixed; border-collapse: collapse; mso-table-lspace: 0px; mso-table-rspa=
+ce: 0px;" bgcolor=3D"#ffffff">
+        <tr>
+          <td align=3D"center" valign=3D"top" bgcolor=3D"#ffffff" style=3D"=
+border-collapse: collapse; mso-line-height-rule: exactly;">
+            <table width=3D"700" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" align=3D"center" style=3D"width: 700px; border-collapse: collapse; m=
+so-table-lspace: 0px; mso-table-rspace: 0px;" class=3D"em_wrapper" bgcolor=
+=3D"#F4F4F4">
+              <tr>
+                <td width=3D"75" style=3D"width: 75px; border-collapse: col=
+lapse; mso-line-height-rule: exactly;" class=3D"em_side15">&nbsp;</td>
+                <td align=3D"center" valign=3D"top" style=3D"border-collaps=
+e: collapse; mso-line-height-rule: exactly;">
+                  <table width=3D"100%" border=3D"0" cellspacing=3D"0" cell=
+padding=3D"0" align=3D"center" style=3D"border-collapse: collapse; mso-tabl=
+e-lspace: 0px; mso-table-rspace: 0px;">
+                    <tr>
+                      <td height=3D"46" style=3D"height: 46px; border-colla=
+pse: collapse; mso-line-height-rule: exactly;" class=3D"em_h20">&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td align=3D"left" valign=3D"top" style=3D"font-famil=
+y: inter, sans-serif; font-size: 24px; line-height: 22px; color: #1FA846; f=
+ont-weight: 800; border-collapse: collapse; mso-line-height-rule: exactly;"=
+>Parking Session Details</td>
+                    </tr>
+                    <tr>
+                      <td height=3D"32" style=3D"height: 32px; border-colla=
+pse: collapse; mso-line-height-rule: exactly;" class=3D"em_h20">&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td align=3D"center" valign=3D"top" style=3D"border-c=
+ollapse: collapse; mso-line-height-rule: exactly;">
+                        <table align=3D"center" width=3D"100%" border=3D"0"=
+ cellspacing=3D"0" cellpadding=3D"0" style=3D"border-collapse: collapse; ms=
+o-table-lspace: 0px; mso-table-rspace: 0px;">
+                          <tr>
+                            <td align=3D"left" valign=3D"top" style=3D"bord=
+er-collapse: collapse; mso-line-height-rule: exactly;">
+                              <table align=3D"left" width=3D"100%" border=
+=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"border-collapse: collap=
+se; mso-table-lspace: 0px; mso-table-rspace: 0px;">
+                                <tr>
+                                  <td align=3D"left" valign=3D"top" style=
+=3D"font-family: inter, sans-serif; font-size: 16px; line-height: 25px; col=
+or: #212121; font-weight: 600; border-collapse: collapse; mso-line-height-r=
+ule: exactly;">Started</td>
+                                </tr>
+                              </table>
+                            </td>
+                            <td align=3D"right" valign=3D"top" style=3D"fon=
+t-family: inter, sans-serif; font-size: 16px; line-height: 25px; color: #21=
+2121; font-weight: 400; border-collapse: collapse; mso-line-height-rule: ex=
+actly;">11/7/2023 5:04 PM</td>
+                          </tr>
+                          <tr>
+                            <td align=3D"left" valign=3D"top" style=3D"bord=
+er-collapse: collapse; mso-line-height-rule: exactly;">
+                              <table align=3D"left" width=3D"100%" border=
+=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"border-collapse: collap=
+se; mso-table-lspace: 0px; mso-table-rspace: 0px;">
+                                <tr>
+                                  <td align=3D"left" valign=3D"top" style=
+=3D"font-family: inter, sans-serif; font-size: 16px; line-height: 25px; col=
+or: #212121; font-weight: 600; border-collapse: collapse; mso-line-height-r=
+ule: exactly;">
+                                    Ends<br />
+                                    </td>
+                                </tr>
+                              </table>
+                            </td>
+                            <td align=3D"right" valign=3D"top" style=3D"fon=
+t-family: inter, sans-serif; font-size: 16px; line-height: 25px; color: #21=
+2121; font-weight: 400; border-collapse: collapse; mso-line-height-rule: ex=
+actly;">
+                              11/7/2023 7:04 PM<br />
+                              </td>
+                          </tr>
+                          <tr>
+                            <td align=3D"left" valign=3D"top" style=3D"bord=
+er-collapse: collapse; mso-line-height-rule: exactly;">
+                              <table align=3D"left" width=3D"100%" border=
+=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"border-collapse: collap=
+se; mso-table-lspace: 0px; mso-table-rspace: 0px;">
+                                <tr>
+                                  <td align=3D"left" valign=3D"top" style=
+=3D"font-family: inter, sans-serif; font-size: 16px; line-height: 25px; col=
+or: #212121; font-weight: 600; border-collapse: collapse; mso-line-height-r=
+ule: exactly;">
+                                    Zone<br />
+                                    </td>
+                                </tr>
+                              </table>
+                            </td>
+                            <td align=3D"right" valign=3D"top" style=3D"fon=
+t-family: inter, sans-serif; font-size: 16px; line-height: 25px; color: #21=
+2121; font-weight: 400; border-collapse: collapse; mso-line-height-rule: ex=
+actly;">
+                              1674<br />
+                              </td>
+                          </tr>
+                          <tr>
+                            <td align=3D"left" valign=3D"top" style=3D"bord=
+er-collapse: collapse; mso-line-height-rule: exactly;">
+                              <table align=3D"left" width=3D"100%" border=
+=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"border-collapse: collap=
+se; mso-table-lspace: 0px; mso-table-rspace: 0px;">
+                                <tr>
+                                  <td align=3D"left" valign=3D"top" style=
+=3D"font-family: inter, sans-serif; font-size: 16px; line-height: 25px; col=
+or: #212121; font-weight: 600; border-collapse: collapse; mso-line-height-r=
+ule: exactly;">
+                                    Location
+                                    </td>
+                                </tr>
+                              </table>
+                            </td>
+                            <td align=3D"right" valign=3D"top" style=3D"fon=
+t-family: inter, sans-serif; font-size: 16px; line-height: 25px; color: #21=
+2121; font-weight: 400; border-collapse: collapse; mso-line-height-rule: ex=
+actly;">
+                              CSUF - Eastside South - Hourly
+                             </td>
+                          </tr>
+                          <tr>
+                            <td align=3D"left" valign=3D"top" style=3D"bord=
+er-collapse: collapse; mso-line-height-rule: exactly;">
+                              <table align=3D"left" width=3D"100%" border=
+=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"border-collapse: collap=
+se; mso-table-lspace: 0px; mso-table-rspace: 0px;">
+                                <tr>
+                                  <td align=3D"left" valign=3D"top" style=
+=3D"font-family: inter, sans-serif; font-size: 16px; line-height: 25px; col=
+or: #212121; font-weight: 600; border-collapse: collapse; mso-line-height-r=
+ule: exactly;">
+                                    Space</td>
+                                </tr>
+                              </table>
+                            </td>
+                            <td align=3D"right" valign=3D"top" style=3D"fon=
+t-family: inter, sans-serif; font-size: 16px; line-height: 25px; color: #21=
+2121; font-weight: 400; border-collapse: collapse; mso-line-height-rule: ex=
+actly;">
+                              N/A</td>
+                          </tr>
+                          <tr>
+                            <td align=3D"left" valign=3D"top" style=3D"bord=
+er-collapse: collapse; mso-line-height-rule: exactly;">
+                              <table align=3D"left" width=3D"100%" border=
+=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"border-collapse: collap=
+se; mso-table-lspace: 0px; mso-table-rspace: 0px;">
+                                <tr>
+                                  <td align=3D"left" valign=3D"top" style=
+=3D"font-family: inter, sans-serif; font-size: 16px; line-height: 25px; col=
+or: #212121; font-weight: 600; border-collapse: collapse; mso-line-height-r=
+ule: exactly;">License</td>
+                                </tr>
+                              </table>
+                            </td>
+                            <td align=3D"right" valign=3D"top" style=3D"fon=
+t-family: inter, sans-serif; font-size: 16px; line-height: 25px; color: #21=
+2121; font-weight: 400; border-collapse: collapse; mso-line-height-rule: ex=
+actly;">
+                              CA: 8V64938</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td height=3D"29" style=3D"height: 29px; border-colla=
+pse: collapse; mso-line-height-rule: exactly;" class=3D"em_h20">&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td align=3D"center" valign=3D"top" style=3D"border-c=
+ollapse: collapse; mso-line-height-rule: exactly;">
+                        <table width=3D"245" border=3D"0" cellspacing=3D"0"=
+ cellpadding=3D"0" align=3D"center" style=3D"width: 245px; max-width: 245px=
+; border-radius: 8px; border-collapse: collapse; mso-table-lspace: 0px; mso=
+-table-rspace: 0px;" bgcolor=3D"#1FA846" class=3D"em_wrapper">
+                          <tr>
+                            <td height=3D"47" style=3D"height: 47px; color:=
+ #ffffff; font-family: 'Neue Haas Grotesk Display Pro', Arial, sans-serif; =
+font-size: 16px; font-weight: 800; border-collapse: collapse; mso-line-heig=
+ht-rule: exactly;" align=3D"center" valign=3D"middle">
+                              <a href=3D"https://u10326341.ct.sendgrid.net/=
+ls/click?upn=3DaGpKXncN785cP1R-2F9NmBvCXzDk1XQ5kqs5lWO-2BHPIEcC16v0iaPw2a4G=
+mWMs6XR6-2F-2BeTQV-2BF2M8lUHVdWowJSg-3D-3DHEPp_wMdcri1574w3WOagkizcopB6HVc4=
+r186vS-2BAqcwU2kcG7fki12UeWh1mVnd86RsYrC28uFeDcm24GC-2BFQoqkTSbIEBFZj2QbGXp=
+ShV5RpXeWmnf1m6yfC0NP-2B21UPC3LWOX8MlJip1J5Rqhd8IwuMzUdWz2XKYND8g6eR4OCbevF=
+Wn9pdSEMmfjgKrtzZFU5ZZVhBuDLyT53m-2FSfpVDA-2BlGF46q282wsorVQ9uQ-2F5a5F2kNu8=
+C2h7JCQotbZ-2F6OG27QZ1x8L0fn3pbUpGoU23UcWdOkCgjQpNUzCsBZxZeIE-2BR8EuUsYH0PF=
+hVj-2B-2FwJdW6OAXDrxfxfTXLVq9brGAiXLecJYVJfBCqc7pjY2kzJhIM2d1pUAcCZmybpdQLc=
+wfq249mJJToTZvfS8DtzAnPfKOjx-2BzkQswegBbTgRomrrpG9FhJVnUiQi0VN3FinWFu0js5G9=
+AdWUyrmRpv6dZxV-2F4hKnhhnhUg3lE3qdyrjb-2BuI2NHKpLGlI-2FCEQDbxJJW-2B1wtawINw=
+OgFvPlgcWul7j83Tw5hVZpNAg5juwysVxTvKY7AOOT-2BwY5dGuIr40KjWf59-2B9QiXeuYdSuO=
+waeOWr13YRUwNycq876-2BFL33aGtDdYShvGyJA0DUiWxJFK1KVdkepIqXc5d9eIPt3eptV-2Be=
+AOAyghcxqhKVVKV1ac-3D" style=3D"text-decoration: none; color: #ffffff; disp=
+lay: block; line-height: 47px; border-collapse: collapse; mso-line-height-r=
+ule: exactly;">Extend Time</a>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td height=3D"40" style=3D"height: 40px; border-colla=
+pse: collapse; mso-line-height-rule: exactly;" class=3D"em_h20">&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td height=3D"2" style=3D"height: 2px; font-size: 0px=
+; line-height: 0px; border-collapse: collapse; mso-line-height-rule: exactl=
+y;" bgcolor=3D"#1FA846"></td>
+                    </tr>
+                    <tr>
+                      <td height=3D"27" style=3D"height: 27px; border-colla=
+pse: collapse; mso-line-height-rule: exactly;" class=3D"em_h20">&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td align=3D"left" valign=3D"top" style=3D"font-famil=
+y: inter, sans-serif; font-size: 16px; line-height: 25px; color: #212121; f=
+ont-weight: 400; border-collapse: collapse; mso-line-height-rule: exactly;"=
+>For questions about your parking session, submit a support ticket to our M=
+ember Services Team <a href=3D"https://u10326341.ct.sendgrid.net/ls/click?u=
+pn=3DaGpKXncN785cP1R-2F9NmBvF-2FcJfrIlOPqMU5OcdXaAEc7n7LK-2BAUyN-2Baxaby2N3=
+Qq4Gbxhh8f-2FUd-2BAjSYqTpOIg-3D-3DHxU8_wMdcri1574w3WOagkizcopB6HVc4r186vS-2=
+BAqcwU2kcG7fki12UeWh1mVnd86RsYrC28uFeDcm24GC-2BFQoqkTSbIEBFZj2QbGXpShV5RpXe=
+Wmnf1m6yfC0NP-2B21UPC3LWOX8MlJip1J5Rqhd8IwuMzUdWz2XKYND8g6eR4OCbevFWn9pdSEM=
+mfjgKrtzZFU5ZZVhBuDLyT53m-2FSfpVDA-2BlGF46q282wsorVQ9uQ-2F5a5F2kNu8C2h7JCQo=
+tbZ-2F6OG27QZ1x8L0fn3pbUpGoU23UcWdOkCgjQpNUzCsBZxZeIE-2BR8EuUsYH0PFhVj-2B-2=
+FwJdW6OAXDrxfxfTXLVq9brGAiXLecJYVJfBCqc7pjY2kzJhIM2d1pUAcCZmybpdQLcwfq249mJ=
+JToTZvfS8DtzAnPfKOjx-2BzkQswegBbTgRomrrpG9FhJVnUiQi0VN3FinWFu0js5G9AdWUyrmR=
+pv6dZxV-2F4hKnhhnhUg3lE3qdyrjb-2BuI2NHKpLGlI-2FCEQDbxJJW-2B1wtawINwOgFvPlgc=
+Wunmb9kDo81TUQcpRlpyH-2BjZhOqsndM5fHvQSNJcFY0D6-2Bqhj6-2BZJv598GAWE3QUJYaRD=
+6MqMbPQLr5a3j2EzQcX2oKCpakAiTX7tLriJXlJLyJKyc0G5iaP5T5rKygp231ib-2BwTCuBcGg=
+PjFHljZOBI-3D" style=3D"text-decoration: none; color: #1FA846; border-colla=
+pse: collapse; mso-line-height-rule: exactly;"><span style=3D"color: #1FA84=
+6; font-weight: 600; border-collapse: collapse; mso-line-height-rule: exact=
+ly;">here</span></a>, and include the transaction details listed above.</td=
+>
+                    </tr>
+                    <tr>
+                      <td height=3D"40" style=3D"height: 40px; border-colla=
+pse: collapse; mso-line-height-rule: exactly;" class=3D"em_h20">&nbsp;</td>
+                    </tr>
+                  </table>
+                </td>
+                <td width=3D"75" style=3D"width: 75px; border-collapse: col=
+lapse; mso-line-height-rule: exactly;" class=3D"em_side15">&nbsp;</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- =3D=3D //Body Section =3D=3D -->=20
+<!-- =3D=3D Footer Section =3D=3D -->
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" clas=
+s=3D"em_full_wrap" bgcolor=3D"#ffffff" style=3D"table-layout: fixed; border=
+-collapse: collapse; mso-table-lspace: 0px; mso-table-rspace: 0px;">
+  <tr>
+    <td align=3D"center" valign=3D"top" style=3D"border-collapse: collapse;=
+ mso-line-height-rule: exactly;">
+      <table align=3D"center" width=3D"700" border=3D"0" cellspacing=3D"0" =
+cellpadding=3D"0" class=3D"em_main_table" style=3D"width: 700px; table-layo=
+ut: fixed; border-collapse: collapse; mso-table-lspace: 0px; mso-table-rspa=
+ce: 0px;" bgcolor=3D"#1E7E55">
+        <tr>
+          <td align=3D"center" valign=3D"top" bgcolor=3D"#1E7E55" style=3D"=
+border-collapse: collapse; mso-line-height-rule: exactly;">
+            <table width=3D"700" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" align=3D"center" style=3D"width: 700px; border-collapse: collapse; m=
+so-table-lspace: 0px; mso-table-rspace: 0px;" class=3D"em_wrapper">
+              <tr>
+                <td class=3D"em_aside15" align=3D"center" valign=3D"top" st=
+yle=3D"border-collapse: collapse; mso-line-height-rule: exactly;">
+                  <table width=3D"100%" border=3D"0" cellspacing=3D"0" cell=
+padding=3D"0" align=3D"center" style=3D"border-collapse: collapse; mso-tabl=
+e-lspace: 0px; mso-table-rspace: 0px;">
+                    <tr>
+                      <td height=3D"37" style=3D"height: 37px; border-colla=
+pse: collapse; mso-line-height-rule: exactly;" class=3D"em_h20">&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td align=3D"center" valign=3D"top" class=3D"em_full_=
+img" style=3D"border-collapse: collapse; mso-line-height-rule: exactly;">
+                        <a href=3D"https://u10326341.ct.sendgrid.net/ls/cli=
+ck?upn=3DaGpKXncN785cP1R-2F9NmBvBiGACpEe80HG24gtJQB2vo-3Dp2z9_wMdcri1574w3W=
+OagkizcopB6HVc4r186vS-2BAqcwU2kcG7fki12UeWh1mVnd86RsYrC28uFeDcm24GC-2BFQoqk=
+TSbIEBFZj2QbGXpShV5RpXeWmnf1m6yfC0NP-2B21UPC3LWOX8MlJip1J5Rqhd8IwuMzUdWz2XK=
+YND8g6eR4OCbevFWn9pdSEMmfjgKrtzZFU5ZZVhBuDLyT53m-2FSfpVDA-2BlGF46q282wsorVQ=
+9uQ-2F5a5F2kNu8C2h7JCQotbZ-2F6OG27QZ1x8L0fn3pbUpGoU23UcWdOkCgjQpNUzCsBZxZeI=
+E-2BR8EuUsYH0PFhVj-2B-2FwJdW6OAXDrxfxfTXLVq9brGAiXLecJYVJfBCqc7pjY2kzJhIM2d=
+1pUAcCZmybpdQLcwfq249mJJToTZvfS8DtzAnPfKOjx-2BzkQswegBbTgRomrrpG9FhJVnUiQi0=
+VN3FinWFu0js5G9AdWUyrmRpv6dZxV-2F4hKnhhnhUg3lE3qdyrjb-2BuI2NHKpLGlI-2FCEQDb=
+xJJW-2B1wtawINwOgFvPlgcWukycVDE7pZT5YOTCSPMgVUBmzXcN0Wb8o-2BDgQjtvEQQcm8Bfq=
+inSd8q-2FYV2aWatckklVsCANJh31VS2Scn0nc6lT0uPFEMfPCArwY1w9QYdr1xSQrYDSvqfYNv=
+SwU8QgIFR5aD-2BpdHC45Xyzy1Jie4g-3D" target=3D"_blank" style=3D"text-decorat=
+ion: none; border-collapse: collapse; mso-line-height-rule: exactly;">
+                          <img src=3D"https://marketingemail.parkmobile.io/=
+Transactional%20Emails%20V2/PM_Logo_Byline_Container.png" width=3D"150" alt=
+=3D"ParkMobile" border=3D"0" style=3D"font-family: Arial, sans-serif; font-=
+size: 16px; line-height: 19px; color: #000000; max-width: 150px; display: b=
+lock; outline: none !important; border: 0;" />
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td height=3D"19" style=3D"height: 19px; line-height:=
+ 1px; font-size: 1px; border-collapse: collapse; mso-line-height-rule: exac=
+tly;" class=3D"em_h20">&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td align=3D"center" valign=3D"top" style=3D"font-fam=
+ily: inter, sans-serif; font-size: 12px; line-height: 20px; color: #ffffff;=
+ font-weight: 400; padding-bottom: 35px; border-collapse: collapse; mso-lin=
+e-height-rule: exactly;">=A9 2023 ParkMobile, LLC All Rights Reserved <br /=
+>
+                        1100 Spring St. NW, Suite 200, Atlanta, GA 30309 <b=
+r />
+                        <a href=3D"https://u10326341.ct.sendgrid.net/ls/cli=
+ck?upn=3DaGpKXncN785cP1R-2F9NmBvIs8OuAoOtGgZp0lkbLh9ZIkKZtkijBK3gHXIitAPpko=
+Ql7D_wMdcri1574w3WOagkizcopB6HVc4r186vS-2BAqcwU2kcG7fki12UeWh1mVnd86RsYrC28=
+uFeDcm24GC-2BFQoqkTSbIEBFZj2QbGXpShV5RpXeWmnf1m6yfC0NP-2B21UPC3LWOX8MlJip1J=
+5Rqhd8IwuMzUdWz2XKYND8g6eR4OCbevFWn9pdSEMmfjgKrtzZFU5ZZVhBuDLyT53m-2FSfpVDA=
+-2BlGF46q282wsorVQ9uQ-2F5a5F2kNu8C2h7JCQotbZ-2F6OG27QZ1x8L0fn3pbUpGoU23UcWd=
+OkCgjQpNUzCsBZxZeIE-2BR8EuUsYH0PFhVj-2B-2FwJdW6OAXDrxfxfTXLVq9brGAiXLecJYVJ=
+fBCqc7pjY2kzJhIM2d1pUAcCZmybpdQLcwfq249mJJToTZvfS8DtzAnPfKOjx-2BzkQswegBbTg=
+RomrrpG9FhJVnUiQi0VN3FinWFu0js5G9AdWUyrmRpv6dZxV-2F4hKnhhnhUg3lE3qdyrjb-2Bu=
+I2NHKpLGlI-2FCEQDbxJJW-2B1wtawINwOgFvPlgcWuvYeQGuYFCg-2FPPeypD844OSCwoY-2Fe=
+nTF5FDjbN7ZWiUTW33uNWPO4-2FwKPNEcmYSUwhn-2Fs51-2Fh-2BhXmROsTc-2BEJgUKG07OnT=
+czY4pAgijjl-2FGRJGlqswpAy-2B04xoOoPXWKE71CBHPqI-2Bq3ANKwudktdAs-3D" target=
+=3D"_blank" style=3D"text-decoration: underline; color: #ffffff; border-col=
+lapse: collapse; mso-line-height-rule: exactly;">Terms of Use</a> &nbsp;|&n=
+bsp; <a href=3D"https://u10326341.ct.sendgrid.net/ls/click?upn=3DaGpKXncN78=
+5cP1R-2F9NmBvEx0s-2B9dNvwidZFYRi-2BS51HZEMQx977hTlYQa5aoCdLHzRBW_wMdcri1574=
+w3WOagkizcopB6HVc4r186vS-2BAqcwU2kcG7fki12UeWh1mVnd86RsYrC28uFeDcm24GC-2BFQ=
+oqkTSbIEBFZj2QbGXpShV5RpXeWmnf1m6yfC0NP-2B21UPC3LWOX8MlJip1J5Rqhd8IwuMzUdWz=
+2XKYND8g6eR4OCbevFWn9pdSEMmfjgKrtzZFU5ZZVhBuDLyT53m-2FSfpVDA-2BlGF46q282wso=
+rVQ9uQ-2F5a5F2kNu8C2h7JCQotbZ-2F6OG27QZ1x8L0fn3pbUpGoU23UcWdOkCgjQpNUzCsBZx=
+ZeIE-2BR8EuUsYH0PFhVj-2B-2FwJdW6OAXDrxfxfTXLVq9brGAiXLecJYVJfBCqc7pjY2kzJhI=
+M2d1pUAcCZmybpdQLcwfq249mJJToTZvfS8DtzAnPfKOjx-2BzkQswegBbTgRomrrpG9FhJVnUi=
+Qi0VN3FinWFu0js5G9AdWUyrmRpv6dZxV-2F4hKnhhnhUg3lE3qdyrjb-2BuI2NHKpLGlI-2FCE=
+QDbxJJW-2B1wtawINwOgFvPlgcWulSMK3SHEsHjQeQbkHF5mu-2B-2FMGFIZioSHZBoso-2FK4K=
+hmDcmsvJhAfk24oHk3KS9MBHfm5r3AY0InSyE1dqeSbC8TU-2F0CPOBWFHn8WRFx6h-2BnY21EY=
+33BTfxNc-2BC11FiHPh7wlGIQ2NAnZyQ17MqCltE-3D" target=3D"_blank" style=3D"tex=
+t-decoration: underline; color: #ffffff; border-collapse: collapse; mso-lin=
+e-height-rule: exactly;">Contact Us</a> &nbsp;|&nbsp; <a href=3D"https://u1=
+0326341.ct.sendgrid.net/ls/click?upn=3DaGpKXncN785cP1R-2F9NmBvIQ9pPOa1kYMoE=
+yjBxjpu7zJclpSzQYmjrtGNEE1VcSsl1x0ExH82aZxk3kPp9S3E8nbwZG3vjx-2BYQ9bDNqwkyH=
+B7DO8AN4OXViWBpEwY-2FX05GwhbcyBXJJKsmZ0s8oP-2FuWtp-2BgBU2c-2FD7lvp2ybq0vAgp=
+nextdEtaMOxXkTQI05ADTRP8i7-2B5mXtpYMn7Q2vI9NFiJkQXTxTQJZqVRBCoM0Oi4v4JfRgJD=
+lX1Zbe7rwYWLd_wMdcri1574w3WOagkizcopB6HVc4r186vS-2BAqcwU2kcG7fki12UeWh1mVnd=
+86RsYrC28uFeDcm24GC-2BFQoqkTSbIEBFZj2QbGXpShV5RpXeWmnf1m6yfC0NP-2B21UPC3LWO=
+X8MlJip1J5Rqhd8IwuMzUdWz2XKYND8g6eR4OCbevFWn9pdSEMmfjgKrtzZFU5ZZVhBuDLyT53m=
+-2FSfpVDA-2BlGF46q282wsorVQ9uQ-2F5a5F2kNu8C2h7JCQotbZ-2F6OG27QZ1x8L0fn3pbUp=
+GoU23UcWdOkCgjQpNUzCsBZxZeIE-2BR8EuUsYH0PFhVj-2B-2FwJdW6OAXDrxfxfTXLVq9brGA=
+iXLecJYVJfBCqc7pjY2kzJhIM2d1pUAcCZmybpdQLcwfq249mJJToTZvfS8DtzAnPfKOjx-2Bzk=
+QswegBbTgRomrrpG9FhJVnUiQi0VN3FinWFu0js5G9AdWUyrmRpv6dZxV-2F4hKnhhnhUg3lE3q=
+dyrjb-2BuI2NHKpLGlI-2FCEQDbxJJW-2B1wtawINwOgFvPlgcWuvL7FkAMst-2Fe9ISONGjKlt=
+JAPx2Sw9qL2S-2FVIz-2FfKzbc3HzzC5pmnBbBySuuSrGrXKTfOuVfkL8QAsnvhfZlMjuiFjr7e=
+Yi-2Fl0pEDDFPBXvPPieGX0L0P9jabZ0Xx64f9FTUfrSxn6RDTJWl73y4i80-3D" target=3D"=
+_blank" style=3D"text-decoration: underline; color: #ffffff; border-collaps=
+e: collapse; mso-line-height-rule: exactly;">Unsubscribe From This List</a>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- =3D=3D //Footer Section =3D=3D -->
+<img src=3D"https://u10326341.ct.sendgrid.net/wf/open?upn=3DVR9qayAbTRW3cfb=
+-2FH6dOrZz5rlmvbU3gsbwZVZuW93Rkzosf3Pea8UEcdVlwAcPxgDvUs-2F61p2qmQ6731Gvboo=
+-2BaBeeQ665MfGRSyEJ37dB3sqXDqgxrbPQYqXpfpYWTaIPpGXi2srgVG4BfUPkPVa2Ifk3bcnI=
+Yz8FXUtMERdEvCFSwBaaUiHgbdnSfGELDamezHFtw6KBDRpVDsN8N35Pwn9CKEpBXfxQ1nj9v0w=
+lVvWxGFQ2ZI9Ze4U8mUOaJPNyFmjbGpwIE3CkPzn09KOYfJL7eBX7iVB7-2FZq16ycl0gMmghbh=
+LHTEdb3J2GqGGzGT4fYFmnDUnzYcTV0VVPnUdcy5oXtrfgSQ5AMrFTYqbUAc3QJ-2F-2FTJrYBm=
+4wda4MLIzGjUqQ3JRbdiUyl2YZniCQizdd5-2F3Sr6J74-2BYzUV4VNNgrV3zY28QlBueZpXPi9=
+3KK9wMY8dVSO2KhyKAvnnCEHol0f5GjGCY1b-2Btmgqj9Mct-2FABnZN8mCNVct24YYxtNpQ9UT=
+3yP-2B0XF4AJjO4pDktQeqX4n5FAHEjiPMG81W8YlQ0jpS0Vb4JMqHwFIHo77faszKJjq8Fy5v-=
+2B9cZhfqViLn2prUiAeRcV1OMKr21rqKArhM9GyEXg0qz-2Bm3cOUYJEa2gdmAtX1VT22m6EibI=
+09YIaAi5MyU-2FZ4VoPg4-3D" alt=3D"" width=3D"1" height=3D"1" border=3D"0" st=
+yle=3D"height:1px !important;width:1px !important;border-width:0 !important=
+;margin-top:0 !important;margin-bottom:0 !important;margin-right:0 !importa=
+nt;margin-left:0 !important;padding-top:0 !important;padding-bottom:0 !impo=
+rtant;padding-right:0 !important;padding-left:0 !important;"/></body>
+</html>
+
+--983238d976a4bbbf974b99aabb4b00c83bfb1708d17658d44442789c2db7--

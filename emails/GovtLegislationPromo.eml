@@ -1,0 +1,651 @@
+Delivered-To: lytommy321@gmail.com
+Received: by 2002:a05:6a06:120c:b0:66b:7215:ed40 with SMTP id k12csp1833811piq;
+        Sat, 14 Oct 2023 12:05:54 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHKWGjMf9B97hGR8Zk9tW0S6fmsNisci2FHmCdgPa41fbX60pvef4XW2dBh4XBIXW0Re+XA
+X-Received: by 2002:a05:6870:1105:b0:1e9:c974:5f7e with SMTP id 5-20020a056870110500b001e9c9745f7emr6162660oaf.40.1697310353838;
+        Sat, 14 Oct 2023 12:05:53 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1697310353; cv=none;
+        d=google.com; s=arc-20160816;
+        b=iUySS5C0yKrxCuEu8TnMqsryicaJJDatacsj8L5iRE/55SyM8Qm4paWTIsFMwh9aM6
+         siUF5gDhNuqOM0BXzEd8HfmBHmvLPASWg+rVGmWHbQzSL17ybiyNx1nFPpmip7Mfnp1n
+         IV5Pq9K6x89Uvg6WagTbyECCoLx37v2QQmxPna4ybcMTLQp9CJehsDO0vDi+piyjfEQi
+         0fQE/Ykw2EkbC4HcHvLJz3lj7KOtKKUKsZBEoSf+ZDAdjUVXV6S+NLvHFTPkxzPr6Iqc
+         V6t78/wAav+jS7IDvIZk+yHZxzKNjccKSmeJTPvgD4z7iulD+qLSvj5hYao47vgfrkR4
+         2gug==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=list-id:list-unsubscribe:feedback-id:subject:from:reply-to
+         :mime-version:date:message-id:to:content-transfer-encoding
+         :dkim-signature;
+        bh=VTt8RX9gtf07uSJaBpV5Ke9/RceYiZ44GN3V3uZGDSE=;
+        fh=iVykr6ectPKh6oKwne7VlbFwbTSACP1jZJc7s5RSkg4=;
+        b=N4jFH+xefg15WbPJFdVOTSiJOv5Qa/szauEJtUPi1jldVMJXKLd0S8pwKWqYgeRfKS
+         J3dzn164ujXVTRzIQAQYHPlwcWu6A8kUmToLg3+wdNzxwrAIyxv8agbx7IjfUyiHNjOB
+         NO+Uy20O4rXmvbYIhbdamRQ/iNQGB7qoARY/BywZuoZ9LxWlmjzZuz5MxfMnbtSMdxBA
+         rotroS5cl7VhiBMW9j+lVW2EYo5M3BKgxvFGQHy8brhZMTwG6hzGYIoZ3WStRIigHtMV
+         i2cfSNijHka2+2TPKr+ghtw+35rMh1N1FEiJk2OUAvIpeO1laZfJPKGZhiOvAONXGtFJ
+         GksA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@mail8.housecommunications.gov header.s=scph1121 header.b=iTeR95qf;
+       spf=pass (google.com: domain of msprvs1=19651d3hqlwmp=bounces-308938-46@bounce.mail8.housecommunications.gov designates 192.174.81.87 as permitted sender) smtp.mailfrom="msprvs1=19651D3hQLwmp=bounces-308938-46@bounce.mail8.housecommunications.gov";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=housecommunications.gov
+Return-Path: <msprvs1=19651D3hQLwmp=bounces-308938-46@bounce.mail8.housecommunications.gov>
+Received: from mta-174-81-87.sparkpostmail.com (mta-174-81-87.sparkpostmail.com. [192.174.81.87])
+        by mx.google.com with ESMTPS id r20-20020a6560d4000000b0059b70e69eddsi7003307pgv.300.2023.10.14.12.05.53
+        for <lytommy321@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sat, 14 Oct 2023 12:05:53 -0700 (PDT)
+Received-SPF: pass (google.com: domain of msprvs1=19651d3hqlwmp=bounces-308938-46@bounce.mail8.housecommunications.gov designates 192.174.81.87 as permitted sender) client-ip=192.174.81.87;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@mail8.housecommunications.gov header.s=scph1121 header.b=iTeR95qf;
+       spf=pass (google.com: domain of msprvs1=19651d3hqlwmp=bounces-308938-46@bounce.mail8.housecommunications.gov designates 192.174.81.87 as permitted sender) smtp.mailfrom="msprvs1=19651D3hQLwmp=bounces-308938-46@bounce.mail8.housecommunications.gov";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=housecommunications.gov
+X-MSFBL: +F3gKJupgwJay1tJa975ApIyH2YKQ86kKKylsNQnR0I=|eyJtZXNzYWdlX2lkIjo
+	iNjUyMDkxZTYyYTY1MTUwYzQ5NmMiLCJyIjoibHl0b21teTMyMUBnbWFpbC5jb20
+	iLCJzdWJhY2NvdW50X2lkIjoiNDYiLCJjdXN0b21lcl9pZCI6IjMwODkzOCIsInR
+	lbmFudF9pZCI6InNwYyJ9
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=mail8.housecommunications.gov; s=scph1121; t=1697310353;
+	i=@mail8.housecommunications.gov;
+	bh=VTt8RX9gtf07uSJaBpV5Ke9/RceYiZ44GN3V3uZGDSE=;
+	h=Content-Type:To:Message-ID:Date:From:Subject:List-Unsubscribe:
+	 From:To:Cc:Subject;
+	b=iTeR95qfQk9Oe0DBvdEXTJdZeovaafZluZXb78YcVQ9t9u8ZgWof5U7R/JXTt/tMk
+	 bZCuyNTnUSCTXjmusZcnppRhgh47mPCwkHX8JdcFi7vQvRd3omdIAoxbVBW/8PYOLJ
+	 c3+bakkXFLzctgQklc4rawzkaIeI3ax7JVwZ2TP8=
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset="UTF-8"
+To: "Tommy Ly" <lytommy321@gmail.com>
+Message-ID: <94.C6.47198.196EA256@gm.mta1vrest.cc.prd.sparkpost>
+Date: Sat, 14 Oct 2023 19:05:52 +0000
+MIME-Version: 1.0
+Reply-To: repcorrea+newsletter@mail8.housecommunications.gov
+From: "Rep. Lou Correa" <repcorrea@mail8.housecommunications.gov>
+Subject: Should Congress pass legislation to eliminate junk fees?
+Feedback-ID: bulk_54937:repcorrea:Indigov
+List-Unsubscribe: <mailto:unsubscribe@unsub.spmta.com?subject=unsubscribe:ZAPwke5WQSnou_khqXkRBqSs8z0E3wI0oaDNbg8CrHQ~|eyAicmNwdF90byI6ICJseXRvbW15MzIxQGdtYWlsLmNvbSIsICJ0ZW5hbnRfaWQiOiAic3BjIiwgImN1c3RvbWVyX2lkIjogIjMwODkzOCIsICJtZXNzYWdlX2lkIjogIjY1MjA5MWU2MmE2NTE1MGM0OTZjIiwgInN1YmFjY291bnRfaWQiOiAiNDYiIH0~>
+List-Id: <spc.308938.46.sparkpostmail.com>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www=
+.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html xmlns=3D"http://www.=
+w3.org/1999/xhtml"xmlns:v=3D"urn:schemas-microsoft-com:vml"xmlns:o=3D"urn:s=
+chemas-microsoft-com:office:office"> <head> <!--[if gte mso 9]>=0A<xml>=0A =
+ <o:OfficeDocumentSettings>=0A    <o:AllowPNG/>=0A    <o:PixelsPerInch>96</=
+o:PixelsPerInch>=0A  </o:OfficeDocumentSettings>=0A</xml>=0A<![endif]--> <m=
+eta http-equiv=3D"Content-Type"content=3D"text/html; charset=3DUTF-8"> <met=
+a name=3D"viewport"content=3D"width=3Ddevice-width,initial-scale=3D1"> <met=
+a name=3D"x-apple-disable-message-reformatting"> <!--[if !mso]><!--><meta h=
+ttp-equiv=3D"X-UA-Compatible"content=3D"IE=3Dedge"><!--<![endif]--> <title>=
+</title> <style type=3D"text/css">@media only screen and (min-width:660px){=
+.u-row{width:640px!important}.u-row .u-col{vertical-align:top}.u-row .u-co=
+l-50{width:320px!important}.u-row .u-col-100{width:640px!important}}@media =
+(max-width:660px){.u-row-container{max-width:100%!important;padding-left:0!=
+important;padding-right:0!important}.u-row .u-col{min-width:320px!important=
+;max-width:100%!important;display:block!important}.u-row{width:100%!importa=
+nt}.u-col{width:100%!important}.u-col>div{margin:0 auto}}body{margin:0;padd=
+ing:0}table,td,tr{vertical-align:top;border-collapse:collapse}p{margin:0}.i=
+e-container table,.mso-container table{table-layout:fixed}*{line-height:inh=
+erit}a[x-apple-data-detectors=3Dtrue]{color:inherit!important;text-decorati=
+on:none!important}table,td{color:#000}#u_body a{color:#f68920;text-decorati=
+on:underline}</style> <!--[if !mso]><!--><link href=3D"https://fonts.google=
+apis.com/css2=3Ffamily=3DRoboto:ital,wght@0,400;0,700;1,400;1,700"rel=3D"st=
+ylesheet"type=3D"text/css"><!--<![endif]--> </head> <body class=3D"clean-bo=
+dy u_body"style=3D"margin:0;padding:0;-webkit-text-size-adjust:100%;backgro=
+und-color:#fff;color:#000">=0D=0A<div style=3D"color:transparent;visibility=
+:hidden;opacity:0;font-size:0px;border:0;max-height:1px;width:1px;margin:0p=
+x;padding:0px;border-width:0px!important;display:none!important;line-height=
+:0px!important;"><img border=3D"0" width=3D"1" height=3D"1" src=3D"http://e=
+ngagement.mail8.housecommunications.gov/q/xoAaVcpm3JRdmfnCvfzkow~~/AAS2ygA~=
+/RgRnDWuQPVcDc3BjQgplIJHmKmUVDElsUhRseXRvbW15MzIxQGdtYWlsLmNvbVgEAAAALg~~" =
+alt=3D""/></div>=0D=0A <!--[if IE]><div class=3D"ie-container"><![endif]-->=
+ <!--[if mso]><div class=3D"mso-container"><![endif]--> <table id=3D"u_body=
+"style=3D"border-collapse:collapse;table-layout:fixed;border-spacing:0;mso-=
+table-lspace:0;mso-table-rspace:0;vertical-align:top;min-width:320px;Margin=
+:0 auto;background-color:#fff;width:100%"cellpadding=3D"0"cellspacing=3D"0"=
+> <tbody> <tr style=3D"vertical-align:top"> <td style=3D"word-break:break-w=
+ord;border-collapse:collapse!important;vertical-align:top"> <!--[if (mso)|(=
+IE)]><table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0"=
+><tr><td align=3D"center" style=3D"background-color: #FFF;"><![endif]--> <d=
+iv class=3D"u-row-container"style=3D"padding:0;background-color:transparent=
+"> <div class=3D"u-row"style=3D"margin:0 auto;min-width:320px;max-width:640=
+px;overflow-wrap:break-word;word-wrap:break-word;word-break:break-word;back=
+ground-color:transparent"> <div style=3D"border-collapse:collapse;display:t=
+able;width:100%;height:100%;background-color:transparent"> <!--[if (mso)|(I=
+E)]><table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0">=
+<tr><td style=3D"padding: 0px;background-color: transparent;" align=3D"cent=
+er"><table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"width:=
+640px;"><tr style=3D"background-color: transparent;"><![endif]--> <!--[if (=
+mso)|(IE)]><td align=3D"center" width=3D"640" style=3D"width: 640px;padding=
+: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;=
+border-right: 0px solid transparent;border-bottom: 0px solid transparent;" =
+valign=3D"top"><![endif]--> <div class=3D"u-col u-col-100"style=3D"max-widt=
+h:320px;min-width:640px;display:table-cell;vertical-align:top"> <div style=
+=3D"height:100%;width:100%!important"> <!--[if (!mso)&(!IE)]><!--><div styl=
+e=3D"box-sizing:border-box;height:100%;padding:0;border-top:0 solid transpa=
+rent;border-left:0 solid transparent;border-right:0 solid transparent;borde=
+r-bottom:0 solid transparent"><!--<![endif]--> <table style=3D"font-family:=
+Roboto"role=3D"presentation"cellpadding=3D"0"cellspacing=3D"0"width=3D"100%=
+"border=3D"0"> <tbody> <tr> <td style=3D"overflow-wrap:break-word;word-brea=
+k:break-word;padding:10px;font-family:Roboto"align=3D"left"> <table width=
+=3D"100%"cellpadding=3D"0"cellspacing=3D"0"border=3D"0"> <tr> <td style=3D"=
+padding-right:0;padding-left:0"align=3D"center"> <img align=3D"center"borde=
+r=3D"0"src=3D"https://images.unlayer.com/projects%2F27642%2F1640375204497-C=
+A46_RepCorrea_default.png"alt=3D"Rep. Lou Correa banner"title=3D"Rep. Lou C=
+orrea banner"style=3D"outline:0;text-decoration:none;-ms-interpolation-mode=
+:bicubic;clear:both;display:inline-block!important;border:none;height:auto;=
+float:none;width:100%;max-width:620px"width=3D"620"> </td> </tr> </table> <=
+/td> </tr> </tbody> </table> <!--[if (!mso)&(!IE)]><!--></div><!--<![endif]=
+--> </div> </div> <!--[if (mso)|(IE)]></td><![endif]--> <!--[if (mso)|(IE)]=
+></tr></table></td></tr></table><![endif]--> </div> </div> </div> <div clas=
+s=3D"u-row-container"style=3D"padding:0;background-color:transparent"> <div=
+ class=3D"u-row"style=3D"margin:0 auto;min-width:320px;max-width:640px;over=
+flow-wrap:break-word;word-wrap:break-word;word-break:break-word;background-=
+color:transparent"> <div style=3D"border-collapse:collapse;display:table;wi=
+dth:100%;height:100%;background-color:transparent"> <!--[if (mso)|(IE)]><ta=
+ble width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0"><tr><td=
+ style=3D"padding: 0px;background-color: transparent;" align=3D"center"><ta=
+ble cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"width:640px;"=
+><tr style=3D"background-color: transparent;"><![endif]--> <!--[if (mso)|(I=
+E)]><td align=3D"center" width=3D"640" style=3D"width: 640px;padding: 0px;b=
+order-top: 0px solid transparent;border-left: 0px solid transparent;border-=
+right: 0px solid transparent;border-bottom: 0px solid transparent;border-ra=
+dius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;" valign=3D"t=
+op"><![endif]--> <div class=3D"u-col u-col-100"style=3D"max-width:320px;min=
+-width:640px;display:table-cell;vertical-align:top"> <div style=3D"height:1=
+00%;width:100%!important;border-radius:0;-webkit-border-radius:0;-moz-borde=
+r-radius:0"> <!--[if (!mso)&(!IE)]><!--><div style=3D"box-sizing:border-box=
+;height:100%;padding:0;border-top:0 solid transparent;border-left:0 solid t=
+ransparent;border-right:0 solid transparent;border-bottom:0 solid transpare=
+nt;border-radius:0;-webkit-border-radius:0;-moz-border-radius:0"><!--<![end=
+if]--> <table style=3D"font-family:Roboto"role=3D"presentation"cellpadding=
+=3D"0"cellspacing=3D"0"width=3D"100%"border=3D"0"> <tbody> <tr> <td style=
+=3D"overflow-wrap:break-word;word-break:break-word;padding:10px;font-family=
+:Roboto"align=3D"left"> <div style=3D"font-size:14px;line-height:140%;text-=
+align:left;word-wrap:break-word"> <p style=3D"font-size:14px;line-height:14=
+0%">Dear Mr.Ly,</p> <p style=3D"line-height:140%">=C2=A0</p> <p style=3D"li=
+ne-height:140%"><strong>We=E2=80=99ve all been scammed or have had to pay e=
+xtra in bogus fees. Junk fees like these only show up at the end and are un=
+necessary and uncalled for.</strong> They hurt consumers and inhibit compet=
+ition, making it difficult for American families to compare prices and hurt=
+ing small businesses=E2=80=99 ability to innovate and compete.</p> <p style=
+=3D"line-height:140%">=C2=A0</p> <p style=3D"line-height:140%">The Biden Ad=
+ministration <a href=3D"http://engagement.mail8.housecommunications.gov/f/a=
+/LVCJab2yHj8m3Xy9TNxRhw~~/AAS2ygA~/RgRnDWuQP0SwaHR0cHM6Ly93d3cud2hpdGVob3Vz=
+ZS5nb3YvYnJpZWZpbmctcm9vbS9zdGF0ZW1lbnRzLXJlbGVhc2VzLzIwMjMvMTAvMTEvYmlkZW4=
+taGFycmlzLWFkbWluaXN0cmF0aW9uLWFubm91bmNlcy1icm9hZC1uZXctYWN0aW9ucy10by1wcm=
+90ZWN0LWNvbnN1bWVycy1mcm9tLWJpbGxpb25zLWluLWp1bmstZmVlcy9XA3NwY0IKZSCR5iplF=
+QxJbFIUbHl0b21teTMyMUBnbWFpbC5jb21YBAAAAC4~">announced</a> that the Federal=
+ Trade Commission (FTC) and the Consumer Financial Protection Bureau (CFPB)=
+ will take new steps to address these junk fees=E2=80=94including requiring=
+ businesses to show the full price up front and provide refunds for mislead=
+ing customers. <strong>These rules will keep costs low for consumers, wheth=
+er you=E2=80=99re buying a concert ticket, renting a car, or checking your =
+bank account balance.</strong></p> <p style=3D"line-height:140%"><br><stron=
+g>Hidden and bogus fees have affected competition and innovation in the mar=
+ketplace by misleading and overcharging consumers.</strong> The FTC and CFP=
+B are taking important steps to protect customers from these harmful practi=
+ces. As we consider these issues in Congress, I want to hear from you.</p> =
+</div> </td> </tr> </tbody> </table> <table style=3D"font-family:Roboto"rol=
+e=3D"presentation"cellpadding=3D"0"cellspacing=3D"0"width=3D"100%"border=3D=
+"0"> <tbody> <tr> <td style=3D"overflow-wrap:break-word;word-break:break-wo=
+rd;padding:10px;font-family:Roboto"align=3D"left"> <div style=3D"font-famil=
+y:system-ui,-apple-system,BlinkMacSystemFont,Roboto,Oxygen-Sans,Ubuntu,Cant=
+arell,Arial,sans-serif;background-color:#f8f8f8;padding:32px"><div style=3D=
+"font-weight:500;margin-bottom:8px;text-transform:uppercase;font-family:Rob=
+oto;font-size:14px;color:#626262;text-align:left">I WANT YOUR OPINION:</div=
+><div style=3D"font-family:Roboto;font-size:22px;color:#000;text-align:left=
+">Should Congress pass legislation to eliminate junk fees=3F</div><table ce=
+llpadding=3D"0"cellspacing=3D"0"role=3D"presentation"style=3D"border:0;bord=
+er-collapse:separate;border-spacing:0 8px;padding:8px 0;width:100%;font-fam=
+ily:Roboto;font-size:16px;color:#000;text-align:left"><tbody><tr style=3D"w=
+idth:100%"><td style=3D"width:32px;vertical-align:middle"><a href=3D"http:/=
+/engagement.mail8.housecommunications.gov/f/a/OO9_Tp0Gpi1uW_rNzDfCjQ~~/AAS2=
+ygA~/RgRnDWuQP4RVAWh0dHBzOi8vc3VydmV5cy5pbmRpZ292LnVzL3N1cnZleXMvNTIyNmU2Zj=
+QtYzRjYS00YTQwLWJjZGUtNTVjZmZlOTFhYWJmP3Q9ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y=
+0NJNklrcFhWQ0o5LmV5SjZhV1FpT2pVd01UY3dNREE1TWpnM09EZ3NJbWxrSWpvaU5USXlObVUy=
+WmpRdFl6UmpZUzAwWVRRd0xXSmpaR1V0TlRWalptWmxPVEZoWVdKbUlpd2ljU0k2SW5GZk5USXl=
+ObVUyWmpRdFl6UmpZUzAwWVRRd0xXSmpaR1V0TlRWalptWmxPVEZoWVdKbVh6SXdOamMxSWl3aW=
+RpSTZNQ3dpYVdGMElqb3hOamszTXpFd016VXlmUS5QeGk0VmhjNUhXX3JJMjZfcElkSk9ja01DU=
+Gt3Ym5JRlRKZWloWkFCb19nVwNzcGNCCmUgkeYqZRUMSWxSFGx5dG9tbXkzMjFAZ21haWwuY29t=
+WAQAAAAu"target=3D"_blank"><div style=3D"border-radius:50%;border:2px solid=
+ #7a7a7a;background-color:#fff;height:20px;width:20px"></div></a></td><td s=
+tyle=3D"vertical-align:middle"><a href=3D"http://engagement.mail8.housecomm=
+unications.gov/f/a/OO9_Tp0Gpi1uW_rNzDfCjQ~~/AAS2ygA~/RgRnDWuQP4RVAWh0dHBzOi=
+8vc3VydmV5cy5pbmRpZ292LnVzL3N1cnZleXMvNTIyNmU2ZjQtYzRjYS00YTQwLWJjZGUtNTVjZ=
+mZlOTFhYWJmP3Q9ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SjZhV1Fp=
+T2pVd01UY3dNREE1TWpnM09EZ3NJbWxrSWpvaU5USXlObVUyWmpRdFl6UmpZUzAwWVRRd0xXSmp=
+aR1V0TlRWalptWmxPVEZoWVdKbUlpd2ljU0k2SW5GZk5USXlObVUyWmpRdFl6UmpZUzAwWVRRd0=
+xXSmpaR1V0TlRWalptWmxPVEZoWVdKbVh6SXdOamMxSWl3aWRpSTZNQ3dpYVdGMElqb3hOamszT=
+XpFd016VXlmUS5QeGk0VmhjNUhXX3JJMjZfcElkSk9ja01DUGt3Ym5JRlRKZWloWkFCb19nVwNz=
+cGNCCmUgkeYqZRUMSWxSFGx5dG9tbXkzMjFAZ21haWwuY29tWAQAAAAu"target=3D"_blank"s=
+tyle=3D"color:#000;text-decoration:none">Yes</a></td></tr><tr style=3D"widt=
+h:100%"><td style=3D"width:32px;vertical-align:middle"><a href=3D"http://en=
+gagement.mail8.housecommunications.gov/f/a/k1t-_Vo4rNXEpnYCZbAoDg~~/AAS2ygA=
+~/RgRnDWuQP4RVAWh0dHBzOi8vc3VydmV5cy5pbmRpZ292LnVzL3N1cnZleXMvNTIyNmU2ZjQtY=
+zRjYS00YTQwLWJjZGUtNTVjZmZlOTFhYWJmP3Q9ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJ=
+NklrcFhWQ0o5LmV5SjZhV1FpT2pVd01UY3dNREE1TWpnM09EZ3NJbWxrSWpvaU5USXlObVUyWmp=
+RdFl6UmpZUzAwWVRRd0xXSmpaR1V0TlRWalptWmxPVEZoWVdKbUlpd2ljU0k2SW5GZk5USXlObV=
+UyWmpRdFl6UmpZUzAwWVRRd0xXSmpaR1V0TlRWalptWmxPVEZoWVdKbVh6SXdOamMxSWl3aWRpS=
+TZNU3dpYVdGMElqb3hOamszTXpFd016VXlmUS51Y2tEa1RyUWM1dUNXMGROU1FoejRoUG0yQnhS=
+R1YxY29fUDFzeEp5Q01vVwNzcGNCCmUgkeYqZRUMSWxSFGx5dG9tbXkzMjFAZ21haWwuY29tWAQ=
+AAAAu"target=3D"_blank"><div style=3D"border-radius:50%;border:2px solid #7=
+a7a7a;background-color:#fff;height:20px;width:20px"></div></a></td><td styl=
+e=3D"vertical-align:middle"><a href=3D"http://engagement.mail8.housecommuni=
+cations.gov/f/a/k1t-_Vo4rNXEpnYCZbAoDg~~/AAS2ygA~/RgRnDWuQP4RVAWh0dHBzOi8vc=
+3VydmV5cy5pbmRpZ292LnVzL3N1cnZleXMvNTIyNmU2ZjQtYzRjYS00YTQwLWJjZGUtNTVjZmZl=
+OTFhYWJmP3Q9ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SjZhV1FpT2p=
+Vd01UY3dNREE1TWpnM09EZ3NJbWxrSWpvaU5USXlObVUyWmpRdFl6UmpZUzAwWVRRd0xXSmpaR1=
+V0TlRWalptWmxPVEZoWVdKbUlpd2ljU0k2SW5GZk5USXlObVUyWmpRdFl6UmpZUzAwWVRRd0xXS=
+mpaR1V0TlRWalptWmxPVEZoWVdKbVh6SXdOamMxSWl3aWRpSTZNU3dpYVdGMElqb3hOamszTXpF=
+d016VXlmUS51Y2tEa1RyUWM1dUNXMGROU1FoejRoUG0yQnhSR1YxY29fUDFzeEp5Q01vVwNzcGN=
+CCmUgkeYqZRUMSWxSFGx5dG9tbXkzMjFAZ21haWwuY29tWAQAAAAu"target=3D"_blank"styl=
+e=3D"color:#000;text-decoration:none">No</a></td></tr></tbody></table><div =
+style=3D"letter-spacing:.02em;font-family:Roboto;font-size:12px;color:#4949=
+49;text-align:left">Taking this survey will sign you up for future news and=
+ updates from my office.</div></div> </td> </tr> </tbody> </table> <!--[if =
+(!mso)&(!IE)]><!--></div><!--<![endif]--> </div> </div> <!--[if (mso)|(IE)]=
+></td><![endif]--> <!--[if (mso)|(IE)]></tr></table></td></tr></table><![en=
+dif]--> </div> </div> </div> <div class=3D"u-row-container"style=3D"padding=
+:0;background-color:transparent"> <div class=3D"u-row"style=3D"margin:0 aut=
+o;min-width:320px;max-width:640px;overflow-wrap:break-word;word-wrap:break-=
+word;word-break:break-word;background-color:transparent"> <div style=3D"bor=
+der-collapse:collapse;display:table;width:100%;height:100%;background-color=
+:transparent"> <!--[if (mso)|(IE)]><table width=3D"100%" cellpadding=3D"0" =
+cellspacing=3D"0" border=3D"0"><tr><td style=3D"padding: 0px;background-col=
+or: transparent;" align=3D"center"><table cellpadding=3D"0" cellspacing=3D"=
+0" border=3D"0" style=3D"width:640px;"><tr style=3D"background-color: trans=
+parent;"><![endif]--> <!--[if (mso)|(IE)]><td align=3D"center" width=3D"640=
+" style=3D"width: 640px;padding: 0px;border-top: 0px solid transparent;bord=
+er-left: 0px solid transparent;border-right: 0px solid transparent;border-b=
+ottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px;=
+ -moz-border-radius: 0px;" valign=3D"top"><![endif]--> <div class=3D"u-col =
+u-col-100"style=3D"max-width:320px;min-width:640px;display:table-cell;verti=
+cal-align:top"> <div style=3D"height:100%;width:100%!important;border-radiu=
+s:0;-webkit-border-radius:0;-moz-border-radius:0"> <!--[if (!mso)&(!IE)]><!=
+--><div style=3D"box-sizing:border-box;height:100%;padding:0;border-top:0 s=
+olid transparent;border-left:0 solid transparent;border-right:0 solid trans=
+parent;border-bottom:0 solid transparent;border-radius:0;-webkit-border-rad=
+ius:0;-moz-border-radius:0"><!--<![endif]--> <table style=3D"font-family:Ro=
+boto"role=3D"presentation"cellpadding=3D"0"cellspacing=3D"0"width=3D"100%"b=
+order=3D"0"> <tbody> <tr> <td style=3D"overflow-wrap:break-word;word-break:=
+break-word;padding:0 10px;font-family:Roboto"align=3D"left"> <div style=3D"=
+font-size:14px;line-height:140%;text-align:left;word-wrap:break-word"> <p s=
+tyle=3D"line-height:140%"><strong>As my colleagues and I work across the ai=
+sle to eliminate junk fees,</strong> I will keep your thoughts in mind. My =
+job is to bring your voice to Washington, and I want to continue hearing fr=
+om you as Congress considers taking action.</p> <p style=3D"font-size:14px;=
+line-height:140%">=C2=A0</p> <p style=3D"font-size:14px;line-height:140%">S=
+incerely,</p> </div> </td> </tr> </tbody> </table> <!--[if (!mso)&(!IE)]><!=
+--></div><!--<![endif]--> </div> </div> <!--[if (mso)|(IE)]></td><![endif]-=
+-> <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]--> </div> <=
+/div> </div> <div class=3D"u-row-container"style=3D"padding:0;background-co=
+lor:transparent"> <div class=3D"u-row"style=3D"margin:0 auto;min-width:320p=
+x;max-width:640px;overflow-wrap:break-word;word-wrap:break-word;word-break:=
+break-word;background-color:transparent"> <div style=3D"border-collapse:col=
+lapse;display:table;width:100%;height:100%;background-color:transparent"> <=
+!--[if (mso)|(IE)]><table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0=
+" border=3D"0"><tr><td style=3D"padding: 0px;background-color: transparent;=
+" align=3D"center"><table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" =
+style=3D"width:640px;"><tr style=3D"background-color: transparent;"><![endi=
+f]--> <!--[if (mso)|(IE)]><td align=3D"center" width=3D"640" style=3D"width=
+: 640px;padding: 0px;border-top: 0px solid transparent;border-left: 0px sol=
+id transparent;border-right: 0px solid transparent;border-bottom: 0px solid=
+ transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-rad=
+ius: 0px;" valign=3D"top"><![endif]--> <div class=3D"u-col u-col-100"style=
+=3D"max-width:320px;min-width:640px;display:table-cell;vertical-align:top">=
+ <div style=3D"height:100%;width:100%!important;border-radius:0;-webkit-bor=
+der-radius:0;-moz-border-radius:0"> <!--[if (!mso)&(!IE)]><!--><div style=
+=3D"box-sizing:border-box;height:100%;padding:0;border-top:0 solid transpar=
+ent;border-left:0 solid transparent;border-right:0 solid transparent;border=
+-bottom:0 solid transparent;border-radius:0;-webkit-border-radius:0;-moz-bo=
+rder-radius:0"><!--<![endif]--> <table style=3D"font-family:Roboto"role=3D"=
+presentation"cellpadding=3D"0"cellspacing=3D"0"width=3D"100%"border=3D"0"> =
+<tbody> <tr> <td style=3D"overflow-wrap:break-word;word-break:break-word;pa=
+dding:10px;font-family:Roboto"align=3D"left"> <table width=3D"100%"cellpadd=
+ing=3D"0"cellspacing=3D"0"border=3D"0"> <tr> <td style=3D"padding-right:0;p=
+adding-left:0"align=3D"left"> <img align=3D"left"border=3D"0"src=3D"https:/=
+/images.unlayer.com/projects%2F27642%2F1640375245219-correa+sig.jpeg"alt=3D=
+"Rep. Lou Correa signature"title=3D"Rep. Lou Correa signature"style=3D"outl=
+ine:0;text-decoration:none;-ms-interpolation-mode:bicubic;clear:both;displa=
+y:inline-block!important;border:none;height:auto;float:none;width:32%;max-w=
+idth:198.4px"width=3D"198.4"> </td> </tr> </table> </td> </tr> </tbody> </t=
+able> <!--[if (!mso)&(!IE)]><!--></div><!--<![endif]--> </div> </div> <!--[=
+if (mso)|(IE)]></td><![endif]--> <!--[if (mso)|(IE)]></tr></table></td></tr=
+></table><![endif]--> </div> </div> </div> <div class=3D"u-row-container"st=
+yle=3D"padding:0;background-color:transparent"> <div class=3D"u-row"style=
+=3D"margin:0 auto;min-width:320px;max-width:640px;overflow-wrap:break-word;=
+word-wrap:break-word;word-break:break-word;background-color:transparent"> <=
+div style=3D"border-collapse:collapse;display:table;width:100%;height:100%;=
+background-color:transparent"> <!--[if (mso)|(IE)]><table width=3D"100%" ce=
+llpadding=3D"0" cellspacing=3D"0" border=3D"0"><tr><td style=3D"padding: 0p=
+x;background-color: transparent;" align=3D"center"><table cellpadding=3D"0"=
+ cellspacing=3D"0" border=3D"0" style=3D"width:640px;"><tr style=3D"backgro=
+und-color: transparent;"><![endif]--> <!--[if (mso)|(IE)]><td align=3D"cent=
+er" width=3D"640" style=3D"width: 640px;padding: 0px;border-top: 0px solid =
+transparent;border-left: 0px solid transparent;border-right: 0px solid tran=
+sparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-bor=
+der-radius: 0px; -moz-border-radius: 0px;" valign=3D"top"><![endif]--> <div=
+ class=3D"u-col u-col-100"style=3D"max-width:320px;min-width:640px;display:=
+table-cell;vertical-align:top"> <div style=3D"height:100%;width:100%!import=
+ant;border-radius:0;-webkit-border-radius:0;-moz-border-radius:0"> <!--[if =
+(!mso)&(!IE)]><!--><div style=3D"box-sizing:border-box;height:100%;padding:=
+0;border-top:0 solid transparent;border-left:0 solid transparent;border-rig=
+ht:0 solid transparent;border-bottom:0 solid transparent;border-radius:0;-w=
+ebkit-border-radius:0;-moz-border-radius:0"><!--<![endif]--> <table style=
+=3D"font-family:Roboto"role=3D"presentation"cellpadding=3D"0"cellspacing=3D=
+"0"width=3D"100%"border=3D"0"> <tbody> <tr> <td style=3D"overflow-wrap:brea=
+k-word;word-break:break-word;padding:0 10px 10px;font-family:Roboto"align=
+=3D"left"> <div style=3D"font-size:14px;line-height:140%;text-align:left;wo=
+rd-wrap:break-word"> <p style=3D"font-size:14px;line-height:140%"><strong>R=
+ep. Lou Correa</strong></p> <p style=3D"font-size:14px;line-height:140%"><s=
+trong>Member of Congress</strong></p> </div> </td> </tr> </tbody> </table> =
+<!--[if (!mso)&(!IE)]><!--></div><!--<![endif]--> </div> </div> <!--[if (ms=
+o)|(IE)]></td><![endif]--> <!--[if (mso)|(IE)]></tr></table></td></tr></tab=
+le><![endif]--> </div> </div> </div> <div class=3D"u-row-container"style=3D=
+"padding:0;background-color:transparent"> <div class=3D"u-row"style=3D"marg=
+in:0 auto;min-width:320px;max-width:640px;overflow-wrap:break-word;word-wra=
+p:break-word;word-break:break-word;background-color:#e7e7e7"> <div style=3D=
+"border-collapse:collapse;display:table;width:100%;height:100%;background-c=
+olor:transparent"> <!--[if (mso)|(IE)]><table width=3D"100%" cellpadding=3D=
+"0" cellspacing=3D"0" border=3D"0"><tr><td style=3D"padding: 0px;background=
+-color: transparent;" align=3D"center"><table cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0" style=3D"width:640px;"><tr style=3D"background-color: #=
+e7e7e7;"><![endif]--> <!--[if (mso)|(IE)]><td align=3D"center" width=3D"640=
+" style=3D"width: 640px;padding: 0px;border-top: 0px solid transparent;bord=
+er-left: 0px solid transparent;border-right: 0px solid transparent;border-b=
+ottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px;=
+ -moz-border-radius: 0px;" valign=3D"top"><![endif]--> <div class=3D"u-col =
+u-col-100"style=3D"max-width:320px;min-width:640px;display:table-cell;verti=
+cal-align:top"> <div style=3D"height:100%;width:100%!important;border-radiu=
+s:0;-webkit-border-radius:0;-moz-border-radius:0"> <!--[if (!mso)&(!IE)]><!=
+--><div style=3D"box-sizing:border-box;height:100%;padding:0;border-top:0 s=
+olid transparent;border-left:0 solid transparent;border-right:0 solid trans=
+parent;border-bottom:0 solid transparent;border-radius:0;-webkit-border-rad=
+ius:0;-moz-border-radius:0"><!--<![endif]--> <table style=3D"font-family:Ro=
+boto"role=3D"presentation"cellpadding=3D"0"cellspacing=3D"0"width=3D"100%"b=
+order=3D"0"> <tbody> <tr> <td style=3D"overflow-wrap:break-word;word-break:=
+break-word;padding:10px;font-family:Roboto"align=3D"left"> <div style=3D"fo=
+nt-size:14px;line-height:140%;text-align:left;word-wrap:break-word"> <p sty=
+le=3D"font-size:14px;line-height:140%;text-align:center">Sign up for my new=
+sletter to get updates on this issue and others!</p> </div> </td> </tr> </t=
+body> </table> <table style=3D"font-family:Roboto"role=3D"presentation"cell=
+padding=3D"0"cellspacing=3D"0"width=3D"100%"border=3D"0"> <tbody> <tr> <td =
+style=3D"overflow-wrap:break-word;word-break:break-word;padding:10px;font-f=
+amily:Roboto"align=3D"left"> <!--[if mso]><style>.v-button {background: tra=
+nsparent !important;}</style><![endif]--> <div align=3D"center"> <!--[if ms=
+o]><v:roundrect xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:w=3D"urn:sc=
+hemas-microsoft-com:office:word" href=3D"https://correa.house.gov/services/=
+newsletter-sign-up" style=3D"height:37px; v-text-anchor:middle; width:360px=
+;" arcsize=3D"11%"  stroke=3D"f" fillcolor=3D"#f68920"><w:anchorlock/><cent=
+er style=3D"color:#FFFFFF;"><![endif]--> <a href=3D"http://engagement.mail8=
+.housecommunications.gov/f/a/C7bl5MzPnLPFivf7NXi3tw~~/AAS2ygA~/RgRnDWuQP0Q=
+0aHR0cHM6Ly9jb3JyZWEuaG91c2UuZ292L3NlcnZpY2VzL25ld3NsZXR0ZXItc2lnbi11cFcDc3=
+BjQgplIJHmKmUVDElsUhRseXRvbW15MzIxQGdtYWlsLmNvbVgEAAAALg~~"target=3D"_blank=
+"class=3D"v-button"style=3D"box-sizing:border-box;display:inline-block;text=
+-decoration:none;-webkit-text-size-adjust:none;text-align:center;color:#fff=
+;background-color:#f68920;border-radius:4px;-webkit-border-radius:4px;-moz-=
+border-radius:4px;width:75%;max-width:100%;overflow-wrap:break-word;word-br=
+eak:break-word;word-wrap:break-word;mso-border-alt:none;font-size:14px"> <s=
+pan style=3D"display:block;padding:10px 20px;line-height:120%"><strong><spa=
+n style=3D"font-size:14px;line-height:16.8px">Sign Up!</span></strong></spa=
+n> </a> <!--[if mso]></center></v:roundrect><![endif]--> </div> </td> </tr>=
+ </tbody> </table> <!--[if (!mso)&(!IE)]><!--></div><!--<![endif]--> </div>=
+ </div> <!--[if (mso)|(IE)]></td><![endif]--> <!--[if (mso)|(IE)]></tr></ta=
+ble></td></tr></table><![endif]--> </div> </div> </div> <div class=3D"u-row=
+-container"style=3D"padding:0;background-color:transparent"> <div class=3D"=
+u-row"style=3D"margin:0 auto;min-width:320px;max-width:640px;overflow-wrap:=
+break-word;word-wrap:break-word;word-break:break-word;background-color:tran=
+sparent"> <div style=3D"border-collapse:collapse;display:table;width:100%;h=
+eight:100%;background-color:transparent"> <!--[if (mso)|(IE)]><table width=
+=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0"><tr><td style=3D=
+"padding: 0px;background-color: transparent;" align=3D"center"><table cellp=
+adding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"width:640px;"><tr styl=
+e=3D"background-color: transparent;"><![endif]--> <!--[if (mso)|(IE)]><td a=
+lign=3D"center" width=3D"640" style=3D"width: 640px;padding: 0px;border-top=
+: 0px solid transparent;border-left: 0px solid transparent;border-right: 0p=
+x solid transparent;border-bottom: 0px solid transparent;border-radius: 0px=
+;-webkit-border-radius: 0px; -moz-border-radius: 0px;" valign=3D"top"><![en=
+dif]--> <div class=3D"u-col u-col-100"style=3D"max-width:320px;min-width:64=
+0px;display:table-cell;vertical-align:top"> <div style=3D"height:100%;width=
+:100%!important;border-radius:0;-webkit-border-radius:0;-moz-border-radius:=
+0"> <!--[if (!mso)&(!IE)]><!--><div style=3D"box-sizing:border-box;height:1=
+00%;padding:0;border-top:0 solid transparent;border-left:0 solid transparen=
+t;border-right:0 solid transparent;border-bottom:0 solid transparent;border=
+-radius:0;-webkit-border-radius:0;-moz-border-radius:0"><!--<![endif]--> <t=
+able style=3D"font-family:Roboto"role=3D"presentation"cellpadding=3D"0"cell=
+spacing=3D"0"width=3D"100%"border=3D"0"> <tbody> <tr> <td style=3D"overflow=
+-wrap:break-word;word-break:break-word;padding:10px;font-family:Roboto"alig=
+n=3D"left"> <div align=3D"center"> <div style=3D"display:table;max-width:14=
+7px"> <!--[if (mso)|(IE)]><table width=3D"147" cellpadding=3D"0" cellspacin=
+g=3D"0" border=3D"0"><tr><td style=3D"border-collapse:collapse;" align=3D"c=
+enter"><table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"=
+0" style=3D"border-collapse:collapse; mso-table-lspace: 0pt;mso-table-rspac=
+e: 0pt; width:147px;"><tr><![endif]--> <!--[if (mso)|(IE)]><td width=3D"32"=
+ style=3D"width:32px; padding-right: 5px;" valign=3D"top"><![endif]--> <tab=
+le align=3D"left"border=3D"0"cellspacing=3D"0"cellpadding=3D"0"width=3D"32"=
+height=3D"32"style=3D"width:32px!important;height:32px!important;display:in=
+line-block;border-collapse:collapse;table-layout:fixed;border-spacing:0;mso=
+-table-lspace:0;mso-table-rspace:0;vertical-align:top;margin-right:5px"> <t=
+body><tr style=3D"vertical-align:top"><td align=3D"left"valign=3D"middle"st=
+yle=3D"word-break:break-word;border-collapse:collapse!important;vertical-al=
+ign:top"> <a href=3D"http://engagement.mail8.housecommunications.gov/f/a/is=
+FrooGSMXcTRAZx1JlC5g~~/AAS2ygA~/RgRnDWuQP0QmaHR0cHM6Ly93d3cuZmFjZWJvb2suY29=
+tL1JlcExvdUNvcnJlYS9XA3NwY0IKZSCR5iplFQxJbFIUbHl0b21teTMyMUBnbWFpbC5jb21YBA=
+AAAC4~"title=3D"Facebook"target=3D"_blank"> <img src=3D"https://cdn.tools.u=
+nlayer.com/social/icons/circle-black/facebook.png"alt=3D"Facebook"title=3D"=
+Facebook"width=3D"32"style=3D"outline:0;text-decoration:none;-ms-interpolat=
+ion-mode:bicubic;clear:both;display:block!important;border:none;height:auto=
+;float:none;max-width:32px!important"> </a> </td></tr> </tbody></table> <!-=
+-[if (mso)|(IE)]></td><![endif]--> <!--[if (mso)|(IE)]><td width=3D"32" sty=
+le=3D"width:32px; padding-right: 5px;" valign=3D"top"><![endif]--> <table a=
+lign=3D"left"border=3D"0"cellspacing=3D"0"cellpadding=3D"0"width=3D"32"heig=
+ht=3D"32"style=3D"width:32px!important;height:32px!important;display:inline=
+-block;border-collapse:collapse;table-layout:fixed;border-spacing:0;mso-tab=
+le-lspace:0;mso-table-rspace:0;vertical-align:top;margin-right:5px"> <tbody=
+><tr style=3D"vertical-align:top"><td align=3D"left"valign=3D"middle"style=
+=3D"word-break:break-word;border-collapse:collapse!important;vertical-align=
+:top"> <a href=3D"http://engagement.mail8.housecommunications.gov/f/a/QVCNA=
+MQb5HIRS880kp1pJA~~/AAS2ygA~/RgRnDWuQP0QoaHR0cHM6Ly90d2l0dGVyLmNvbS9yZXBsb3=
+Vjb3JyZWE_bGFuZz1lblcDc3BjQgplIJHmKmUVDElsUhRseXRvbW15MzIxQGdtYWlsLmNvbVgEA=
+AAALg~~"title=3D"Twitter"target=3D"_blank"> <img src=3D"https://cdn.tools.u=
+nlayer.com/social/icons/circle-black/twitter.png"alt=3D"Twitter"title=3D"Tw=
+itter"width=3D"32"style=3D"outline:0;text-decoration:none;-ms-interpolation=
+-mode:bicubic;clear:both;display:block!important;border:none;height:auto;fl=
+oat:none;max-width:32px!important"> </a> </td></tr> </tbody></table> <!--[i=
+f (mso)|(IE)]></td><![endif]--> <!--[if (mso)|(IE)]><td width=3D"32" style=
+=3D"width:32px; padding-right: 5px;" valign=3D"top"><![endif]--> <table ali=
+gn=3D"left"border=3D"0"cellspacing=3D"0"cellpadding=3D"0"width=3D"32"height=
+=3D"32"style=3D"width:32px!important;height:32px!important;display:inline-b=
+lock;border-collapse:collapse;table-layout:fixed;border-spacing:0;mso-table=
+-lspace:0;mso-table-rspace:0;vertical-align:top;margin-right:5px"> <tbody><=
+tr style=3D"vertical-align:top"><td align=3D"left"valign=3D"middle"style=3D=
+"word-break:break-word;border-collapse:collapse!important;vertical-align:to=
+p"> <a href=3D"http://engagement.mail8.housecommunications.gov/f/a/TEOUukek=
+_S24CP7-ogXBPA~~/AAS2ygA~/RgRnDWuQP0QtaHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS9yZ=
+XBsb3Vjb3JyZWEvP2hsPWVuVwNzcGNCCmUgkeYqZRUMSWxSFGx5dG9tbXkzMjFAZ21haWwuY29t=
+WAQAAAAu"title=3D"Instagram"target=3D"_blank"> <img src=3D"https://cdn.tool=
+s.unlayer.com/social/icons/circle-black/instagram.png"alt=3D"Instagram"titl=
+e=3D"Instagram"width=3D"32"style=3D"outline:0;text-decoration:none;-ms-inte=
+rpolation-mode:bicubic;clear:both;display:block!important;border:none;heigh=
+t:auto;float:none;max-width:32px!important"> </a> </td></tr> </tbody></tabl=
+e> <!--[if (mso)|(IE)]></td><![endif]--> <!--[if (mso)|(IE)]><td width=3D"3=
+2" style=3D"width:32px; padding-right: 0px;" valign=3D"top"><![endif]--> <t=
+able align=3D"left"border=3D"0"cellspacing=3D"0"cellpadding=3D"0"width=3D"3=
+2"height=3D"32"style=3D"width:32px!important;height:32px!important;display:=
+inline-block;border-collapse:collapse;table-layout:fixed;border-spacing:0;m=
+so-table-lspace:0;mso-table-rspace:0;vertical-align:top;margin-right:0"> <t=
+body><tr style=3D"vertical-align:top"><td align=3D"left"valign=3D"middle"st=
+yle=3D"word-break:break-word;border-collapse:collapse!important;vertical-al=
+ign:top"> <a href=3D"http://engagement.mail8.housecommunications.gov/f/a/t6=
+vWihIgPhtvXZg0jv8JqA~~/AAS2ygA~/RgRnDWuQP0Q4aHR0cHM6Ly93d3cueW91dHViZS5jb20=
+vY2hhbm5lbC9VQ0lLSkpwNFFKSURqbmpvZGMyM3FLa3dXA3NwY0IKZSCR5iplFQxJbFIUbHl0b2=
+1teTMyMUBnbWFpbC5jb21YBAAAAC4~"title=3D"YouTube"target=3D"_blank"> <img src=
+=3D"https://cdn.tools.unlayer.com/social/icons/circle-black/youtube.png"alt=
+=3D"YouTube"title=3D"YouTube"width=3D"32"style=3D"outline:0;text-decoration=
+:none;-ms-interpolation-mode:bicubic;clear:both;display:block!important;bor=
+der:none;height:auto;float:none;max-width:32px!important"> </a> </td></tr> =
+</tbody></table> <!--[if (mso)|(IE)]></td><![endif]--> <!--[if (mso)|(IE)]>=
+</tr></table></td></tr></table><![endif]--> </div> </div> </td> </tr> </tbo=
+dy> </table> <!--[if (!mso)&(!IE)]><!--></div><!--<![endif]--> </div> </div=
+> <!--[if (mso)|(IE)]></td><![endif]--> <!--[if (mso)|(IE)]></tr></table></=
+td></tr></table><![endif]--> </div> </div> </div> <div class=3D"u-row-conta=
+iner"style=3D"padding:0;background-color:transparent"> <div class=3D"u-row"=
+style=3D"margin:0 auto;min-width:320px;max-width:640px;overflow-wrap:break-=
+word;word-wrap:break-word;word-break:break-word;background-color:transparen=
+t"> <div style=3D"border-collapse:collapse;display:table;width:100%;height:=
+100%;background-color:transparent"> <!--[if (mso)|(IE)]><table width=3D"100=
+%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0"><tr><td style=3D"paddin=
+g: 0px;background-color: transparent;" align=3D"center"><table cellpadding=
+=3D"0" cellspacing=3D"0" border=3D"0" style=3D"width:640px;"><tr style=3D"b=
+ackground-color: transparent;"><![endif]--> <!--[if (mso)|(IE)]><td align=
+=3D"center" width=3D"640" style=3D"width: 640px;padding: 0px;border-top: 0p=
+x solid transparent;border-left: 0px solid transparent;border-right: 0px so=
+lid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-we=
+bkit-border-radius: 0px; -moz-border-radius: 0px;" valign=3D"top"><![endif]=
+--> <div class=3D"u-col u-col-100"style=3D"max-width:320px;min-width:640px;=
+display:table-cell;vertical-align:top"> <div style=3D"height:100%;width:100=
+%!important;border-radius:0;-webkit-border-radius:0;-moz-border-radius:0"> =
+<!--[if (!mso)&(!IE)]><!--><div style=3D"box-sizing:border-box;height:100%;=
+padding:0;border-top:0 solid transparent;border-left:0 solid transparent;bo=
+rder-right:0 solid transparent;border-bottom:0 solid transparent;border-rad=
+ius:0;-webkit-border-radius:0;-moz-border-radius:0"><!--<![endif]--> <table=
+ style=3D"font-family:Roboto"role=3D"presentation"cellpadding=3D"0"cellspac=
+ing=3D"0"width=3D"100%"border=3D"0"> <tbody> <tr> <td style=3D"overflow-wra=
+p:break-word;word-break:break-word;padding:10px;font-family:Roboto"align=3D=
+"left"> <div style=3D"font-size:14px;line-height:140%;text-align:left;word-=
+wrap:break-word"> <p style=3D"font-size:14px;line-height:140%;text-align:ce=
+nter">Visit my website to learn more!<br><a rel=3D"noopener"href=3D"http://=
+engagement.mail8.housecommunications.gov/f/a/ujOZr8l2oBElf2GFUNXkbg~~/AAS2y=
+gA~/RgRnDWuQP0QZaHR0cHM6Ly9jb3JyZWEuaG91c2UuZ292L1cDc3BjQgplIJHmKmUVDElsUhR=
+seXRvbW15MzIxQGdtYWlsLmNvbVgEAAAALg~~"target=3D"_blank">correa.house.gov</a=
+></p> </div> </td> </tr> </tbody> </table> <!--[if (!mso)&(!IE)]><!--></div=
+><!--<![endif]--> </div> </div> <!--[if (mso)|(IE)]></td><![endif]--> <!--[=
+if (mso)|(IE)]></tr></table></td></tr></table><![endif]--> </div> </div> </=
+div> <div class=3D"u-row-container"style=3D"padding:0;background-color:tran=
+sparent"> <div class=3D"u-row"style=3D"margin:0 auto;min-width:320px;max-wi=
+dth:640px;overflow-wrap:break-word;word-wrap:break-word;word-break:break-wo=
+rd;background-color:transparent"> <div style=3D"border-collapse:collapse;di=
+splay:table;width:100%;height:100%;background-color:transparent"> <!--[if (=
+mso)|(IE)]><table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=
+=3D"0"><tr><td style=3D"padding: 0px;background-color: transparent;" align=
+=3D"center"><table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=
+=3D"width:640px;"><tr style=3D"background-color: transparent;"><![endif]-->=
+ <!--[if (mso)|(IE)]><td align=3D"center" width=3D"640" style=3D"width: 640=
+px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid tr=
+ansparent;border-right: 0px solid transparent;border-bottom: 0px solid tran=
+sparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: =
+0px;" valign=3D"top"><![endif]--> <div class=3D"u-col u-col-100"style=3D"ma=
+x-width:320px;min-width:640px;display:table-cell;vertical-align:top"> <div =
+style=3D"height:100%;width:100%!important;border-radius:0;-webkit-border-ra=
+dius:0;-moz-border-radius:0"> <!--[if (!mso)&(!IE)]><!--><div style=3D"box-=
+sizing:border-box;height:100%;padding:0;border-top:0 solid transparent;bord=
+er-left:0 solid transparent;border-right:0 solid transparent;border-bottom:=
+0 solid transparent;border-radius:0;-webkit-border-radius:0;-moz-border-rad=
+ius:0"><!--<![endif]--> <table style=3D"font-family:Roboto"role=3D"presenta=
+tion"cellpadding=3D"0"cellspacing=3D"0"width=3D"100%"border=3D"0"> <tbody> =
+<tr> <td style=3D"overflow-wrap:break-word;word-break:break-word;padding:10=
+px;font-family:Roboto"align=3D"left"> <div style=3D"font-size:14px;line-hei=
+ght:140%;text-align:left;word-wrap:break-word"> <p style=3D"font-size:14px;=
+line-height:140%;text-align:center"><strong>Contact Me</strong></p> </div> =
+</td> </tr> </tbody> </table> <!--[if (!mso)&(!IE)]><!--></div><!--<![endif=
+]--> </div> </div> <!--[if (mso)|(IE)]></td><![endif]--> <!--[if (mso)|(IE)=
+]></tr></table></td></tr></table><![endif]--> </div> </div> </div> <div cla=
+ss=3D"u-row-container"style=3D"padding:0;background-color:transparent"> <di=
+v class=3D"u-row"style=3D"margin:0 auto;min-width:320px;max-width:640px;ove=
+rflow-wrap:break-word;word-wrap:break-word;word-break:break-word;background=
+-color:transparent"> <div style=3D"border-collapse:collapse;display:table;w=
+idth:100%;height:100%;background-color:transparent"> <!--[if (mso)|(IE)]><t=
+able width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0"><tr><t=
+d style=3D"padding: 0px;background-color: transparent;" align=3D"center"><t=
+able cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"width:640px;=
+"><tr style=3D"background-color: transparent;"><![endif]--> <!--[if (mso)|(=
+IE)]><td align=3D"center" width=3D"320" style=3D"width: 320px;padding: 0px;=
+border-top: 0px solid transparent;border-left: 0px solid transparent;border=
+-right: 0px solid transparent;border-bottom: 0px solid transparent;border-r=
+adius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;" valign=3D"=
+top"><![endif]--> <div class=3D"u-col u-col-50"style=3D"max-width:320px;min=
+-width:320px;display:table-cell;vertical-align:top"> <div style=3D"height:1=
+00%;width:100%!important;border-radius:0;-webkit-border-radius:0;-moz-borde=
+r-radius:0"> <!--[if (!mso)&(!IE)]><!--><div style=3D"box-sizing:border-box=
+;height:100%;padding:0;border-top:0 solid transparent;border-left:0 solid t=
+ransparent;border-right:0 solid transparent;border-bottom:0 solid transpare=
+nt;border-radius:0;-webkit-border-radius:0;-moz-border-radius:0"><!--<![end=
+if]--> <table style=3D"font-family:Roboto"role=3D"presentation"cellpadding=
+=3D"0"cellspacing=3D"0"width=3D"100%"border=3D"0"> <tbody> <tr> <td style=
+=3D"overflow-wrap:break-word;word-break:break-word;padding:10px;font-family=
+:Roboto"align=3D"left"> <div style=3D"font-size:14px;line-height:140%;text-=
+align:left;word-wrap:break-word"> <p style=3D"font-size:14px;line-height:14=
+0%;text-align:center">Washington D.C.</p> <p style=3D"font-size:14px;line-h=
+eight:140%;text-align:center">2301 Rayburn House<br>Office Building<br>Wash=
+ington, DC 20515<br>(202) 225-2965</p> </div> </td> </tr> </tbody> </table>=
+ <!--[if (!mso)&(!IE)]><!--></div><!--<![endif]--> </div> </div> <!--[if (m=
+so)|(IE)]></td><![endif]--> <!--[if (mso)|(IE)]><td align=3D"center" width=
+=3D"320" style=3D"width: 320px;padding: 0px;border-top: 0px solid transpare=
+nt;border-left: 0px solid transparent;border-right: 0px solid transparent;b=
+order-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radiu=
+s: 0px; -moz-border-radius: 0px;" valign=3D"top"><![endif]--> <div class=3D=
+"u-col u-col-50"style=3D"max-width:320px;min-width:320px;display:table-cell=
+;vertical-align:top"> <div style=3D"height:100%;width:100%!important;border=
+-radius:0;-webkit-border-radius:0;-moz-border-radius:0"> <!--[if (!mso)&(!I=
+E)]><!--><div style=3D"box-sizing:border-box;height:100%;padding:0;border-t=
+op:0 solid transparent;border-left:0 solid transparent;border-right:0 solid=
+ transparent;border-bottom:0 solid transparent;border-radius:0;-webkit-bord=
+er-radius:0;-moz-border-radius:0"><!--<![endif]--> <table style=3D"font-fam=
+ily:Roboto"role=3D"presentation"cellpadding=3D"0"cellspacing=3D"0"width=3D"=
+100%"border=3D"0"> <tbody> <tr> <td style=3D"overflow-wrap:break-word;word-=
+break:break-word;padding:10px;font-family:Roboto"align=3D"left"> <div style=
+=3D"font-size:14px;line-height:140%;text-align:left;word-wrap:break-word"> =
+<p style=3D"font-size:14px;line-height:140%;text-align:center">Santa Ana</p=
+> <p style=3D"font-size:14px;line-height:140%;text-align:center">Rancho San=
+tiago<br>Community College Building<br>2323 N. Broadway, Suite 319<br>Santa=
+ Ana, CA 92706<br>(714) 559-6190</p> </div> </td> </tr> </tbody> </table> <=
+!--[if (!mso)&(!IE)]><!--></div><!--<![endif]--> </div> </div> <!--[if (mso=
+)|(IE)]></td><![endif]--> <!--[if (mso)|(IE)]></tr></table></td></tr></tabl=
+e><![endif]--> </div> </div> </div> <div class=3D"u-row-container"style=3D"=
+padding:0;background-color:#222"> <div class=3D"u-row"style=3D"margin:0 aut=
+o;min-width:320px;max-width:640px;overflow-wrap:break-word;word-wrap:break-=
+word;word-break:break-word;background-color:#222"> <div style=3D"border-col=
+lapse:collapse;display:table;width:100%;height:100%;background-color:transp=
+arent"> <!--[if (mso)|(IE)]><table width=3D"100%" cellpadding=3D"0" cellspa=
+cing=3D"0" border=3D"0"><tr><td style=3D"padding: 0px;background-color: #22=
+2222;" align=3D"center"><table cellpadding=3D"0" cellspacing=3D"0" border=
+=3D"0" style=3D"width:640px;"><tr style=3D"background-color: #222222;"><![e=
+ndif]--> <!--[if (mso)|(IE)]><td align=3D"center" width=3D"640" style=3D"ba=
+ckground-color: #222222;width: 640px;padding: 0px;border-top: 0px solid tra=
+nsparent;border-left: 0px solid transparent;border-right: 0px solid transpa=
+rent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border=
+-radius: 0px; -moz-border-radius: 0px;" valign=3D"top"><![endif]--> <div cl=
+ass=3D"u-col u-col-100"style=3D"max-width:320px;min-width:640px;display:tab=
+le-cell;vertical-align:top"> <div style=3D"background-color:#222;height:100=
+%;width:100%!important;border-radius:0;-webkit-border-radius:0;-moz-border-=
+radius:0"> <!--[if (!mso)&(!IE)]><!--><div style=3D"box-sizing:border-box;h=
+eight:100%;padding:0;border-top:0 solid transparent;border-left:0 solid tra=
+nsparent;border-right:0 solid transparent;border-bottom:0 solid transparent=
+;border-radius:0;-webkit-border-radius:0;-moz-border-radius:0"><!--<![endif=
+]--> <table style=3D"font-family:Roboto"role=3D"presentation"cellpadding=3D=
+"0"cellspacing=3D"0"width=3D"100%"border=3D"0"> <tbody> <tr> <td style=3D"o=
+verflow-wrap:break-word;word-break:break-word;padding:10px;font-family:Robo=
+to"align=3D"left"> <div style=3D"font-size:14px;line-height:140%;text-align=
+:left;word-wrap:break-word"> <p style=3D"font-size:14px;line-height:140%"><=
+span style=3D"color:#222;font-size:14px;line-height:19.6px">.</span></p> </=
+div> </td> </tr> </tbody> </table> <!--[if (!mso)&(!IE)]><!--></div><!--<![=
+endif]--> </div> </div> <!--[if (mso)|(IE)]></td><![endif]--> <!--[if (mso)=
+|(IE)]></tr></table></td></tr></table><![endif]--> </div> </div> </div> <!-=
+-[if (mso)|(IE)]></td></tr></table><![endif]--> </td> </tr> </tbody> </tabl=
+e> <!--[if mso]></div><![endif]--> <!--[if IE]></div><![endif]--> </body> <=
+/html>=0A=0A<div style=3D'=0A        font-family: system-ui, -apple-system,=
+ BlinkMacSystemFont, Roboto,=0A          Oxygen-Sans, Ubuntu, Cantarell, Ar=
+ial, sans-serif;=0A        background-color: #f8f8f8;=0A        padding: 32=
+px;=0A      '>=0A  <br/>=0A  <p style=3D'margin: 0; font-size: 12px; line-h=
+eight: 16px; letter-spacing: 0.02em; color: #626262 !important; text-align:=
+ center;'>=0A    <a href=3D"http://engagement.mail8.housecommunications.gov=
+/f/a/KpAuhj1ByA-tplC-a4_zuw~~/AAS2ygA~/RgRnDWuQP0TuaHR0cHM6Ly9tYWlsLmdvdm1h=
+aWx1bnN1YnNjcmliZS5jb20vbWFpbGVycy9zdWJzY3JpcHRpb25zP2p3dD1leUpoYkdjaU9pSkl=
+VekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKNmFXUWlPaUkxTURFM01EQXdPVEk0TnpnNElpd2=
+lhV1FpT2lJMU5Ea3pOeUlzSW5OMVlpSTZJbkpsY0dOdmNuSmxZU0lzSW1saGRDSTZNVFk1TnpNe=
+E1ETTFNbjAuWENweFNNRTVOSWxrSzdNOVB0SnVONTBjNjRoYVpzaU9CZl9velBDYXkxVVcDc3Bj=
+QgplIJHmKmUVDElsUhRseXRvbW15MzIxQGdtYWlsLmNvbVgEAAAALg~~">Unsubscribe from =
+future messages.</a>=0A  </p>=0A  <br/>=0A</div>=0D=0A<img border=3D"0" wid=
+th=3D"1" height=3D"1" alt=3D"" src=3D"http://engagement.mail8.housecommunic=
+ations.gov/q/K67ne1DbFmggeDhzAeZcKA~~/AAS2ygA~/RgRnDWuQPlcDc3BjQgplIJHmKmUV=
+DElsUhRseXRvbW15MzIxQGdtYWlsLmNvbVgEAAAALg~~">=0D=0A
+

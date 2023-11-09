@@ -1,0 +1,499 @@
+Delivered-To: lytommy321@gmail.com
+Received: by 2002:ac4:c8da:0:b0:66b:7215:ed40 with SMTP id e26csp144983pim;
+        Thu, 2 Nov 2023 18:02:30 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHLiMCAJmlcPLiUYCGBWdI+yk4vwijJyurzl2YvjqO+0v+IfroFGiqeMVTuibXoMBKklAA2
+X-Received: by 2002:a05:620a:408b:b0:76c:adb5:108d with SMTP id f11-20020a05620a408b00b0076cadb5108dmr23905506qko.31.1698973350082;
+        Thu, 02 Nov 2023 18:02:30 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1698973350; cv=none;
+        d=google.com; s=arc-20160816;
+        b=fd4XWcyAP84lX9S/L6tIholNsc3yqrUPlVJVZZum6GoAshORgIsiozSq9FJ25cruIE
+         psB+/A4RkmpIz8094/IX7pBV0HS6ggbLO7REW4Xxs2Za55yEOaS8XU0brp+H4SCfa8hD
+         GxTs9MauEl3oZj/W8ze4oV+UMnSrqN+GLvksZQes9/Uc/+ePn+1lt9misMGEGWjAmELm
+         mgr6y1bmi1jDIEMdkQHGhf4zpowszNe6oeB4AbGkRKzgPAXrC7CqQMGkfu//8Wf78vyk
+         Ok9jX0NtmXFOa/C7Sbm6OvS1EeD5hJ7uReRSThIgWNKBRdYFD8+oQ36Uvhq+WFlx3gqF
+         mhXw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=from:reply-to:to:date:subject:message-id:mime-version:errors-to
+         :content-transfer-encoding:dkim-signature;
+        bh=osJsT8R/3SZ07YgHCLPNP6iC05qcWgn9mLL1GjsNhCg=;
+        fh=IT3edqKCdtDLXaIMwYfaNWMty2FMAp5aTwwhDcOGAyI=;
+        b=RLOb2nASh33EDp61aGirBA/phjt3U6z9dCapNJaIx/qaicKSIvZsa8m2GdXTjdlh3r
+         wkd27mSQk2TcD/+PKRe8/LQFuMANqNSDUl56d8hl+xgOQmztJ4OM0HFwMlHnexigvYSU
+         OWWXDGzxVGv5QcbhsZ2j9JIj6P28ZzqX5FKs+Fs1N+to9LS+jW54aUsXFhDzcE+zTRux
+         YKo/5LK4zO7EbDjDfKaQA/ANiriDxugAAKezbWnPIVddwBS7RHkBPzGG/nQ+f2+El9Py
+         +ORHxRmwjcB6/dpr4kKpSIVS0pZON2AJtS0MLcgTjZ7K5+hPpg//ykTbJMhwykhYh/Zw
+         mHEQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@ocgov.info header.s=14q3 header.b=EYhTyTt5;
+       spf=pass (google.com: domain of messages@ocgov.info designates 69.5.87.122 as permitted sender) smtp.mailfrom=messages@ocgov.info
+Return-Path: <messages@ocgov.info>
+Received: from mailer087122.service.govdelivery.com (mailer087122.service.govdelivery.com. [69.5.87.122])
+        by mx.google.com with ESMTPS id h19-20020a05620a245300b007625731b2acsi617541qkn.636.2023.11.02.18.02.29
+        for <lytommy321@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 02 Nov 2023 18:02:30 -0700 (PDT)
+Received-SPF: pass (google.com: domain of messages@ocgov.info designates 69.5.87.122 as permitted sender) client-ip=69.5.87.122;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@ocgov.info header.s=14q3 header.b=EYhTyTt5;
+       spf=pass (google.com: domain of messages@ocgov.info designates 69.5.87.122 as permitted sender) smtp.mailfrom=messages@ocgov.info
+Received: from gasdp-smeds14-2.systems.dc.gdi ([10.1.36.89])
+	by mailer087122.service.govdelivery.com (-); Fri, 03 Nov 2023 01:02:05 +0000
+X-VirtualServer: VSG001, mailer087122.service.govdelivery.com, 10.1.37.46
+X-VirtualServerGroup: VSG001
+X-MailingID: 16833902::20231103.85076841::1001::MDB-PRD-BUL-20231103.85076841::lytommy321@gmail.com::62623_0_0
+X-SMHeaderMap: mid="X-MailingID"
+X-Destination-ID: lytommy321@gmail.com
+X-SMFBL: bHl0b21teTMyMUBnbWFpbC5jb20=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=ocgov.info; s=14q3; i=@ocgov.info; h=Content-Transfer-Encoding:
+	Content-Type:x-subscriber:X-Accountcode:Errors-To:MIME-Version:
+	Message-ID:X-ReportingKey:Subject:Date:To:Reply-To:From; bh=osJs
+	T8R/3SZ07YgHCLPNP6iC05qcWgn9mLL1GjsNhCg=; b=EYhTyTt5OGPhGPHoKsfD
+	hmPTe7+ClEo/V80dti2wFkITo5zfZe5H3MFqHQFKyYWa6c2XeJHd4uH5+qDiksh0
+	IyLV71kHKb/uHobzbOsyouZmwKxXa9yKMypJmygSFFmQZ3yzOdhisGMCf3r15h6H
+	62HlnaAbAueiAY9lPwcAQlfZGS7QMgGlNLr8+skYAImPiVpdY9yeRhLe7NkdZRgg
+	PqBBBpnHTesQ+QcRvr3qmAZLJ+NHSAJVJYvkJDOHlrpJYCOQ7uKM40GU1mDnJgus
+	3GvnddU/W35zxO2gZOcx9sAwTN9gcLGJ2H4sRPRWAZrRR7UrsqdZX/XLDsYCM/NF
+	dg==
+Content-Transfer-Encoding: 7bit
+Content-Type: multipart/alternative;
+	boundary="----=_NextPart_479_E08C_384F34C8.18D40AF0"
+x-subscriber: 3.Ndf0VTjVYQJH9EqLmurWA4xaBTU4sjuKuowPV51H0ym+pLuDPksXiQ7tpNeg9PJ7fxAVVBsa192QVdcHGrPwKydGKW6EqBuiZNaK0eDEDat+ucHufnAccad+4hFyli04POCaDD7PISf+ovyKfRIeIA==
+X-Accountcode: CAORANGE
+Errors-To: messages@ocgov.info
+MIME-Version: 1.0
+Message-ID: <16833902.62623@ocgov.info>
+X-ReportingKey: MJJJ2EWJK850SJJ928_JJJ::lytommy321@gmail.com::lytommy321@gmail.com
+Subject: =?US-ASCII?Q?Legislative_Bulletin?=
+Date: Fri, 03 Nov 2023 01:01:49 +0000
+To: lytommy321@gmail.com
+Reply-To: Vicente.Sarmiento@ocgov.info
+From: "=?US-ASCII?Q?Supervisor_Vicente_Sarmiento?=" <Vicente.Sarmiento@ocgov.info>
+
+
+------=_NextPart_479_E08C_384F34C8.18D40AF0
+Content-Type: text/plain;
+	charset="Cp1252"
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+@import url('https://fonts.cdnfonts.com/css/eagle-book'); p img { max-wid=
+th: 660px; height: auto; } figure { display: table; position: relative; t=
+op: 5px; margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-ri=
+ght: 0px; width: 0; } figure img { display: table-caption; max-width: 660=
+px; max-height: 2000px; } figure.image figcaption, figure.image div { mar=
+gin: 6px 8px 6px 8px; text-align: center; font-family: Tahoma; font-size:=
+ 12px; color: #39434d; text-align: center; } .floright { float: right; pa=
+dding: 10px; } .floleft { float: left; padding: 10px; }=20
+
+OC Supervisor Vicente Sarmiento, 2nd District=20
+
+Legislative Bulletin
+
+=20
+
+ [ http://bos.ocgov.com/legacy2vs/newsletters/Legislative%20Bulletin_sp_1=
+10223.html ]
+
+Several legislative bills I advocated for that support working-class fami=
+lies and communities were signed into law by Governor Gavin Newsom. The f=
+ollowing are a few legislative victories:=A0
+
+AB 1261: [ https://a54.asmdc.org/press-releases/20231010-governor-newsom-=
+signs-assembly-member-santiagos-immigrant-rights-act ]=A0 *Immigrant Righ=
+ts Act*
+
+
+  * The goal of this law is to provide pathways for undocumented crime vi=
+ctims and witnesses to seek justice and feel safe coming forward without =
+risking deportation.=A0=20
+
+SB 567: [ https://sd26.senate.ca.gov/news/homelessness-prevention ]=A0=A0=
+*Homelessness Prevention Act*
+
+
+  * The law aims to ensure that there are no wrongful evictions that can =
+lead to families losing their home by addressing loopholes and unforeseen=
+ flaws in the Tenants Protection Act=92s cause provisions.=A0=20
+
+AB 28: [ https://www.gov.ca.gov/2023/09/26/governor-newsom-strengthens-ca=
+lifornias-nation-leading-gun-safety-laws/ ]=A0 *Gun Violence Prevention, =
+Healing, and Recovery Act*
+
+
+  * This law aims to generate about $160 million annually to support cruc=
+ial violence prevention programs that will improve school safety programs=
+ and protect our communities by imposing a 11% excise tax on firearms and=
+ ammunition.=20
+
+AB 600 - Criminal Procedure: [ https://ncip.org/wp-content/uploads/2023/0=
+3/AB-600-Ting-Equity-in-Resentencing-Fact-Sheet.pdf ]=A0 *Equity in Resen=
+tencing Act*
+
+
+  * This law will allow the court to recall or reduce the sentence length=
+ of a defendant's term and remedy discriminative practices in the crimina=
+l justice system.=20
+
+In addition to these four bills, Governor Newsom signed into law *SB 616*=
+, which will guarantee workers at least five paid sick days per year. Thi=
+s will help mitigate workers having to make the difficult decision of goi=
+ng to work sick and having the ability to make ends meet.=A0=A0
+
+=A0
+
+Sincerely,
+*Vicente Sarmiento
+Board of Supervisors, Second District
+County of Orange*=20
+
+Facebook  [ https://www.facebook.com/profile.php?id=3D100089873575116 ] =A0=
+=A0 Instagram  [ https://www.instagram.com/ocsupsarmiento/ ]
+
+=A0
+
+=20
+=20
+________________________________________________________________________
+
+Orange County Logo [ http://www.ocgov.com ] Questions? Contact Us [ http:=
+//ocgov.com/contact/ ] =20
+
+Connect with OC [ http://ocgov.com/contact/connect ]=20
+
+SUBSCRIBER SERVICES:=20
+Manage Preferences [ https://public.govdelivery.com/accounts/CAORANGE/sub=
+scriber/new?preferences=3Dtrue ]=A0=A0|=A0=A0Unsubscribe [ https://public=
+.govdelivery.com/accounts/CAORANGE/subscriber/one_click_unsubscribe?verif=
+ication=3D5.68fe90810cf7ac69a60880c431754d60&destination=3Dlytommy321%40g=
+mail.com ]=A0=A0|=A0=A0Help [ https://subscriberhelp.govdelivery.com/ ]
+
+________________________________________________________________________
+
+This email was sent to lytommy321@gmail.com using GovDelivery Communicati=
+ons Cloud on behalf of: County of Orange, California =B7 333 West Santa A=
+na Blvd =B7 Santa Ana, CA 92701 =B7 855-886-5400 GovDelivery logo [ https=
+://subscriberhelp.granicus.com/ ]=20
+body .abe-column-block {min-height: 5px;}
+=0A
+------=_NextPart_479_E08C_384F34C8.18D40AF0
+Content-Type: text/html;
+	charset="Cp1252"
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml" xml:lang=3D"en" lang=3D"en">=
+
+<head>
+<title>    Legislative Bulletin
+</title>
+
+
+</head>
+<body style=3D"">
+
+
+<!--[if (gte mso 9)|(IE)]>
+  <table style=3D"display:none"><tr><td><a name=3D"gd_top" id=3D"gd_top">=
+</a></td></tr></table>
+<![endif]-->
+<a name=3D"gd_top" id=3D"gd_top"></a>
+
+ =20
+
+
+
+ =20
+  <style>
+    @import url('https://fonts.cdnfonts.com/css/eagle-book');
+
+    p img {
+        max-width: 660px;
+        height: auto;
+    }
+
+    figure {
+        display: table;
+        position: relative;
+        top: 5px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+        margin-right: 0px;
+        width: 0;
+    }
+
+    figure img {
+        display: table-caption;
+        max-width: 660px;
+        max-height: 2000px;
+    }
+
+    figure.image figcaption,
+    figure.image div {
+        margin: 6px 8px 6px 8px;
+        text-align: center;
+        font-family: Tahoma;
+        font-size: 12px;
+        color: #39434d;
+        text-align: center;
+    }
+
+    .floright {
+        float: right;
+        padding: 10px;
+    }
+
+    .floleft {
+        float: left;
+        padding: 10px;
+    }
+</style>
+<table border=3D"1" width=3D"670" cellspacing=3D"0" cellpadding=3D"10" al=
+ign=3D"center">
+<tbody>
+<tr>
+<td>
+<!--Main Table Starts-->
+<table border=3D"0" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0">
+<tbody>
+<tr>
+<td>
+<img src=3D"https://newsbuilder.ocgov.com/previews/D2/graphics/header2023=
+.png" alt=3D"OC Supervisor Vicente Sarmiento, 2nd District" width=3D"650"=
+ height=3D"253">
+<table border=3D"0" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0">
+<tbody>
+<tr>
+<td style=3D"background-color: #273884; min-height: 100px; padding: 20px =
+10px 20px 10px;" width=3D"650">
+<p style=3D"color: white; font-weight: bold; text-align: center; margin: =
+0; font-family: 'Eagle Book', sans-serif; font-size: 30px; padding: 30px;=
+ text-transform: uppercase;">Legislative Bulletin</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p align=3D"center"><span style=3D"font-size: 14pt;"><a href=3D"https://l=
+nks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJidWxsZXRpbl9saW5rX2lkIjoxMDAsInVyaSI6ImJ=
+wMjpjbGljayIsInVybCI6Imh0dHA6Ly9ib3Mub2Nnb3YuY29tL2xlZ2FjeTJ2cy9uZXdzbGV0=
+dGVycy9MZWdpc2xhdGl2ZSUyMEJ1bGxldGluX3NwXzExMDIyMy5odG1sIiwiYnVsbGV0aW5fa=
+WQiOiIyMDIzMTEwMy44NTA3Njg0MSJ9.Y9QYmN6HFhwJGLW157ia7of3XxHzOGBtIcLqdjYRT=
+8s/s/1295216181/br/229892061637-l" target=3D"_blank" rel=3D"noopener"><im=
+g src=3D"http://bos.ocgov.com/legacy2vs/newsletters/images/click-here-for=
+-spanish-button-v2.png" border=3D"0" width=3D"306" height=3D"48"></a></sp=
+an></p>
+<p><span style=3D"font-size: 14pt;" data-contrast=3D"auto">Several legisl=
+ative bills I advocated for that support working-class families and commu=
+nities were signed into law by Governor Gavin Newsom. The following are a=
+ few legislative victories:=A0</span></p>
+<p><span style=3D"font-size: 14pt;"><a href=3D"https://lnks.gd/l/eyJhbGci=
+OiJIUzI1NiJ9.eyJidWxsZXRpbl9saW5rX2lkIjoxMDEsInVyaSI6ImJwMjpjbGljayIsInVy=
+bCI6Imh0dHBzOi8vYTU0LmFzbWRjLm9yZy9wcmVzcy1yZWxlYXNlcy8yMDIzMTAxMC1nb3Zlc=
+m5vci1uZXdzb20tc2lnbnMtYXNzZW1ibHktbWVtYmVyLXNhbnRpYWdvcy1pbW1pZ3JhbnQtcm=
+lnaHRzLWFjdCIsImJ1bGxldGluX2lkIjoiMjAyMzExMDMuODUwNzY4NDEifQ.rzq_7Vz1Czh-=
+6ikV-WZQ8UT-pQ7QDsiFKgHlWpcWUvk/s/1295216181/br/229892061637-l">AB 1261:<=
+/a>=A0 <strong>Immigrant Rights Act</strong></span></p>
+<ul>
+<li data-leveltext=3D"-" data-font=3D"Calibri" data-listid=3D"2" data-lis=
+t-defn-props=3D'{"335551671":0,"335552541":1,"335559684":-2,"335559685":7=
+20,"335559991":360,"469769226":"Calibri","469769242":[8226],"469777803":"=
+left","469777804":"-","469777815":"hybridMultilevel"}' aria-setsize=3D"-1=
+" data-aria-posinset=3D"0" data-aria-level=3D"1"><span style=3D"font-size=
+: 14pt;">The goal of this law is to provide pathways for undocumented cri=
+me victims and witnesses to seek justice and feel safe coming forward wit=
+hout risking deportation.=A0</span></li>
+</ul>
+<p><span style=3D"font-size: 14pt;"><a href=3D"https://lnks.gd/l/eyJhbGci=
+OiJIUzI1NiJ9.eyJidWxsZXRpbl9saW5rX2lkIjoxMDIsInVyaSI6ImJwMjpjbGljayIsInVy=
+bCI6Imh0dHBzOi8vc2QyNi5zZW5hdGUuY2EuZ292L25ld3MvaG9tZWxlc3NuZXNzLXByZXZlb=
+nRpb24iLCJidWxsZXRpbl9pZCI6IjIwMjMxMTAzLjg1MDc2ODQxIn0.YT3FGmVPtY14di3gqJ=
+CYlBYjgx4xOSIGI8TOeZwj3xA/s/1295216181/br/229892061637-l">SB 567:</a>=A0<=
+/span><span style=3D"font-size: 14pt;">=A0<strong>Homelessness Prevention=
+ Act</strong></span></p>
+<ul>
+<li data-leveltext=3D"-" data-font=3D"Calibri" data-listid=3D"2" data-lis=
+t-defn-props=3D'{"335551671":0,"335552541":1,"335559684":-2,"335559685":7=
+20,"335559991":360,"469769226":"Calibri","469769242":[8226],"469777803":"=
+left","469777804":"-","469777815":"hybridMultilevel"}' aria-setsize=3D"-1=
+" data-aria-posinset=3D"0" data-aria-level=3D"1"><span style=3D"font-size=
+: 14pt;">The law aims to ensure that there are no wrongful evictions that=
+ can lead to families losing their home by addressing loopholes and unfor=
+eseen flaws in the Tenants Protection Act=92s cause provisions.=A0</span>=
+</li>
+</ul>
+<p><span style=3D"font-size: 14pt;"><a href=3D"https://lnks.gd/l/eyJhbGci=
+OiJIUzI1NiJ9.eyJidWxsZXRpbl9saW5rX2lkIjoxMDMsInVyaSI6ImJwMjpjbGljayIsInVy=
+bCI6Imh0dHBzOi8vd3d3Lmdvdi5jYS5nb3YvMjAyMy8wOS8yNi9nb3Zlcm5vci1uZXdzb20tc=
+3RyZW5ndGhlbnMtY2FsaWZvcm5pYXMtbmF0aW9uLWxlYWRpbmctZ3VuLXNhZmV0eS1sYXdzLy=
+IsImJ1bGxldGluX2lkIjoiMjAyMzExMDMuODUwNzY4NDEifQ.SwR9Y4ZV9lT-5m0Iye1RCZBm=
+poSx49mA9YjByFDA6aE/s/1295216181/br/229892061637-l">AB 28:</a>=A0 <strong=
+>Gun Violence Prevention, Healing, and Recovery Act</strong></span></p>
+<ul>
+<li data-leveltext=3D"-" data-font=3D"Calibri" data-listid=3D"2" data-lis=
+t-defn-props=3D'{"335551671":0,"335552541":1,"335559684":-2,"335559685":7=
+20,"335559991":360,"469769226":"Calibri","469769242":[8226],"469777803":"=
+left","469777804":"-","469777815":"hybridMultilevel"}' aria-setsize=3D"-1=
+" data-aria-posinset=3D"0" data-aria-level=3D"1"><span style=3D"font-size=
+: 14pt;">This law aims to generate about $160 million annually to support=
+ crucial violence prevention programs that will improve school safety pro=
+grams and protect our communities by imposing a 11% excise tax on firearm=
+s and ammunition. </span></li>
+</ul>
+<p><span style=3D"font-size: 14pt;"><a href=3D"https://lnks.gd/l/eyJhbGci=
+OiJIUzI1NiJ9.eyJidWxsZXRpbl9saW5rX2lkIjoxMDQsInVyaSI6ImJwMjpjbGljayIsInVy=
+bCI6Imh0dHBzOi8vbmNpcC5vcmcvd3AtY29udGVudC91cGxvYWRzLzIwMjMvMDMvQUItNjAwL=
+VRpbmctRXF1aXR5LWluLVJlc2VudGVuY2luZy1GYWN0LVNoZWV0LnBkZiIsImJ1bGxldGluX2=
+lkIjoiMjAyMzExMDMuODUwNzY4NDEifQ.Yhz9t_xHLSoVtC8u2if7pvNNTOV_kMia_F_GB300=
+eBU/s/1295216181/br/229892061637-l">AB 600 - Criminal Procedure:</a>=A0 <=
+strong>Equity in Resentencing Act</strong></span></p>
+<ul>
+<li data-leveltext=3D"-" data-font=3D"Calibri" data-listid=3D"2" data-lis=
+t-defn-props=3D'{"335551671":0,"335552541":1,"335559684":-2,"335559685":7=
+20,"335559991":360,"469769226":"Calibri","469769242":[8226],"469777803":"=
+left","469777804":"-","469777815":"hybridMultilevel"}' aria-setsize=3D"-1=
+" data-aria-posinset=3D"0" data-aria-level=3D"1"><span style=3D"font-size=
+: 14pt;">This law will allow the court to recall or reduce the sentence l=
+ength of a defendant's term and remedy discriminative practices in the cr=
+iminal justice system. </span></li>
+</ul>
+<p><span style=3D"font-size: 14pt;">In addition to these four bills, Gove=
+rnor Newsom signed into law <strong>SB 616</strong>, which will guarantee=
+ workers at least five paid sick days per year. This will help mitigate w=
+orkers having to make the difficult decision of going to work sick and ha=
+ving the ability to make ends meet.=A0=A0</span></p>
+<p><span data-ccp-props=3D'{"201341983":0,"335559739":240,"335559740":259=
+}'><span style=3D"font-size: 14pt;">=A0</span><img src=3D"http://newsbuil=
+der.ocgov.com/previews/D2/Legislative%20Bulletin_October272023/images/D2-=
+SupSarmiento-signature.png" alt=3D"" width=3D"310" height=3D"107"></span>=
+</p>
+<p><font face=3D"Arial, Helvetica, sans-serif" size=3D"3"><br><br>Sincere=
+ly,<br><strong>Vicente Sarmiento<br>Board of Supervisors, Second District=
+<br>County of Orange</strong> </font></p>
+<!-- Social Icons -->
+<p style=3D"margin-bottom: -15px;" align=3D"right"><a><!-- Dont delete me=
+ --></a> <a href=3D"https://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJidWxsZXRpbl=
+9saW5rX2lkIjoxMDUsInVyaSI6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8vd3d3LmZhY2V=
+ib29rLmNvbS9wcm9maWxlLnBocD9pZD0xMDAwODk4NzM1NzUxMTYiLCJidWxsZXRpbl9pZCI6=
+IjIwMjMxMTAzLjg1MDc2ODQxIn0.KaAdBLRAeVTgC6fdPqL5Ee3KeeY3goESpY5GNKMrqzY/s=
+/1295216181/br/229892061637-l" target=3D"_blank" style=3D"text-decoration=
+: none;" rel=3D"noopener"> <img src=3D"http://newsbuilder.ocgov.com/previ=
+ews/D2/graphics/icon_share_facebook.gif" border=3D"0" alt=3D"Facebook" wi=
+dth=3D"30" height=3D"30" align=3D"absmiddle"> </a> =A0=A0 <a href=3D"http=
+s://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJidWxsZXRpbl9saW5rX2lkIjoxMDYsInVyaS=
+I6ImJwMjpjbGljayIsInVybCI6Imh0dHBzOi8vd3d3Lmluc3RhZ3JhbS5jb20vb2NzdXBzYXJ=
+taWVudG8vIiwiYnVsbGV0aW5faWQiOiIyMDIzMTEwMy44NTA3Njg0MSJ9.mliXw4XP8zRugfL=
+7M0cBTYA5KgTFcGMjU9RUI-MkQKY/s/1295216181/br/229892061637-l" target=3D"_b=
+lank" style=3D"text-decoration: none;" rel=3D"noopener"> <img src=3D"http=
+://newsbuilder.ocgov.com/previews/D2/graphics/icon_share_instagram.gif" b=
+order=3D"0" alt=3D"Instagram" width=3D"30" height=3D"30" align=3D"absmidd=
+le"> </a></p>
+<p>=A0</p>
+</td>
+</tr>
+</tbody>
+</table>
+<!--Main Table Ends-->
+</td>
+</tr>
+</tbody>
+</table>
+ =20
+
+
+<div id=3D"mail_footer">
+    <hr>
+<table border=3D"0" width=3D"330" cellspacing=3D"0" cellpadding=3D"0">
+<tbody>
+<tr>
+<td width=3D"102"><a href=3D"https://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJid=
+WxsZXRpbl9saW5rX2lkIjoxMDcsInVyaSI6ImJwMjpjbGljayIsInVybCI6Imh0dHA6Ly93d3=
+cub2Nnb3YuY29tIiwiYnVsbGV0aW5faWQiOiIyMDIzMTEwMy44NTA3Njg0MSJ9.BD3m7NreTX=
+xcQ_6_Nx5EYJALtw1b9uar7l3Himg_h6c/s/1295216181/br/229892061637-l" target=3D=
+"_blank" rel=3D"noopener"><img src=3D"https://admin.govdelivery.com/syste=
+m/images/18226/original/CAORANGE_logo.jpg" border=3D"0" alt=3D"Orange Cou=
+nty Logo" width=3D"90" height=3D"90"></a></td>
+<td style=3D"font-family: Arial, Helvetica, sans-serif; color: #666666; f=
+ont-size: 12px;" width=3D"228">Questions? <a href=3D"https://lnks.gd/l/ey=
+JhbGciOiJIUzI1NiJ9.eyJidWxsZXRpbl9saW5rX2lkIjoxMDgsInVyaSI6ImJwMjpjbGljay=
+IsInVybCI6Imh0dHA6Ly9vY2dvdi5jb20vY29udGFjdC8iLCJidWxsZXRpbl9pZCI6IjIwMjM=
+xMTAzLjg1MDc2ODQxIn0.c-YABFtZUM-FnMbfAy4lOvMvKLgwnWWB0LlGQeOo7BQ/s/129521=
+6181/br/229892061637-l" target=3D"_blank" rel=3D"noopener">Contact Us</a>=
+
+</td>
+</tr>
+</tbody>
+</table>
+<table border=3D"0" width=3D"200" cellspacing=3D"0" cellpadding=3D"0">
+<tbody>
+<tr>
+<td style=3D"padding-top: 10px;" width=3D"198" height=3D"26"><a href=3D"h=
+ttps://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9.eyJidWxsZXRpbl9saW5rX2lkIjoxMDksInV=
+yaSI6ImJwMjpjbGljayIsInVybCI6Imh0dHA6Ly9vY2dvdi5jb20vY29udGFjdC9jb25uZWN0=
+IiwiYnVsbGV0aW5faWQiOiIyMDIzMTEwMy44NTA3Njg0MSJ9.9L_kInjTkGENCUoXqT4kzIIs=
+PY-POMoLjUPt5Jgt9Sg/s/1295216181/br/229892061637-l" target=3D"_blank" rel=
+=3D"noopener"><img src=3D"https://admin.govdelivery.com/system/images/182=
+25/original/connect.jpg" border=3D"0" alt=3D"Connect with OC" width=3D"19=
+6" height=3D"65"></a></td>
+</tr>
+</tbody>
+</table>
+<p><span style=3D"font-family: Arial, Verdana, sans-serif; color: #666666=
+; font-size: 12px;">SUBSCRIBER SERVICES: <br><a href=3D"https://lnks.gd/l=
+/eyJhbGciOiJIUzI1NiJ9.eyJidWxsZXRpbl9saW5rX2lkIjoxMTAsInVyaSI6ImJwMjpjbGl=
+jayIsInVybCI6Imh0dHBzOi8vcHVibGljLmdvdmRlbGl2ZXJ5LmNvbS9hY2NvdW50cy9DQU9S=
+QU5HRS9zdWJzY3JpYmVyL25ldz9wcmVmZXJlbmNlcz10cnVlIiwiYnVsbGV0aW5faWQiOiIyM=
+DIzMTEwMy44NTA3Njg0MSJ9.D5PSe08v9wymRtm2kp0zNC6MP778Jg4roMpUBdHbQTM/s/129=
+5216181/br/229892061637-l" target=3D"_blank" rel=3D"noopener">Manage Pref=
+erences</a>=A0=A0|=A0=A0<a href=3D"https://lnks.gd/l/eyJhbGciOiJIUzI1NiJ9=
+.eyJxdWVyeV9wYXJhbXMiOlsidmVyaWZpY2F0aW9uIiwiZGVzdGluYXRpb24iXSwiYnVsbGV0=
+aW5fbGlua19pZCI6MTExLCJ1cmkiOiJicDI6Y2xpY2siLCJ1cmwiOiJodHRwczovL3B1YmxpY=
+y5nb3ZkZWxpdmVyeS5jb20vYWNjb3VudHMvQ0FPUkFOR0Uvc3Vic2NyaWJlci9vbmVfY2xpY2=
+tfdW5zdWJzY3JpYmUiLCJidWxsZXRpbl9pZCI6IjIwMjMxMTAzLjg1MDc2ODQxIn0.elMZVVI=
+a8ri5Sdq9DCmeqvMdWnrOv9W8W1SilGIB4qo/s/1295216181/br/229892061637-l?verif=
+ication=3D5.68fe90810cf7ac69a60880c431754d60&destination=3Dlytommy321%40g=
+mail.com">Unsubscribe</a>=A0=A0|=A0=A0<a href=3D"https://lnks.gd/l/eyJhbG=
+ciOiJIUzI1NiJ9.eyJidWxsZXRpbl9saW5rX2lkIjoxMTIsInVyaSI6ImJwMjpjbGljayIsIn=
+VybCI6Imh0dHBzOi8vc3Vic2NyaWJlcmhlbHAuZ292ZGVsaXZlcnkuY29tLyIsImJ1bGxldGl=
+uX2lkIjoiMjAyMzExMDMuODUwNzY4NDEifQ.2D5QHEN_RCOhiaCtvevTnNEAlZs_ntVUrgvyd=
+HywsVg/s/1295216181/br/229892061637-l">Help</a></span></p>
+
+</div>
+<div id=3D"tagline">
+    <hr>
+<table style=3D"width: 100%;" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0">
+<tbody>
+<tr>
+<td style=3D"color: #757575; font-size: 10px; font-family: Arial;" width=3D=
+"89%">This email was sent to lytommy321@gmail.com using GovDelivery Commu=
+nications Cloud on behalf of: County of Orange, California =B7 333 West S=
+anta Ana Blvd =B7 Santa Ana, CA 92701 =B7 855-886-5400</td>
+<td align=3D"right" width=3D"11%"><a href=3D"https://lnks.gd/l/eyJhbGciOi=
+JIUzI1NiJ9.eyJidWxsZXRpbl9saW5rX2lkIjoxMTMsInVyaSI6ImJwMjpjbGljayIsInVybC=
+I6Imh0dHBzOi8vc3Vic2NyaWJlcmhlbHAuZ3JhbmljdXMuY29tLyIsImJ1bGxldGluX2lkIjo=
+iMjAyMzExMDMuODUwNzY4NDEifQ.cohz28MqNm7ME38d6JeQSbkqiHcedfB9RtJ3qx7k1ic/s=
+/1295216181/br/229892061637-l" target=3D"_blank" rel=3D"noopener"><img sr=
+c=3D"https://content.govdelivery.com/images/govd-logo-dark.png" border=3D=
+"0" alt=3D"GovDelivery logo" width=3D"115"></a></td>
+</tr>
+</tbody>
+</table>
+<style type=3D"text/css">body .abe-column-block {min-height: 5px;}</style=
+>
+
+</div>
+
+<IMG SRC=3D"https://links.govdelivery.com/track?enid=3DZWFzPTEmYnVsbGV0aW=
+5yZWNpcGllbnRpZD0yMjk4OTIwNjE2MzctbCZzdWJzY3JpYmVyaWQ9MTI5NTIxNjE4MSZtc2l=
+kPSZhdWlkPSZtYWlsaW5naWQ9MjAyMzExMDMuODUwNzY4NDEmbWVzc2FnZWlkPU1EQi1QUkQt=
+QlVMLTIwMjMxMTAzLjg1MDc2ODQxJmRhdGFiYXNlaWQ9MTAwMSZ0eXBlPW9wZW4mc2VyaWFsP=
+TE2ODMzOTAyJmVtYWlsaWQ9bHl0b21teTMyMUBnbWFpbC5jb20mdXNlcmlkPWx5dG9tbXkzMj=
+FAZ21haWwuY29tJnRhcmdldGlkPSZmbD0mbXZpZD0mZXh0cmE9JiYm" WIDTH=3D"1" HEIGH=
+T=3D"1" STYLE=3D"border-width:0; border-style:hidden;" ALT=3D""/></body>
+</html>
+=0A
+------=_NextPart_479_E08C_384F34C8.18D40AF0--
+

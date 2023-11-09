@@ -1,0 +1,121 @@
+Delivered-To: lytommy321@gmail.com
+Received: by 2002:ac4:c8da:0:b0:66b:7215:ed40 with SMTP id e26csp756358pim;
+        Fri, 3 Nov 2023 15:13:59 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEDxdJtqNKaITtfvXB9+mVVH+kpHLOMcUVkTV3NoZW4IfKx9f25qCdPZWeAKzprIAnl/R7b
+X-Received: by 2002:a05:6870:7996:b0:1e9:8ab9:e20 with SMTP id he22-20020a056870799600b001e98ab90e20mr28460744oab.58.1699049639661;
+        Fri, 03 Nov 2023 15:13:59 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1699049639; cv=none;
+        d=google.com; s=arc-20160816;
+        b=qho5VU6ExqlInE3pfdCtUtrxYrMvx2DlgiFY0N0h1afd0tJOq/qhv7NDeBd1IK/Anp
+         phaa66E/irGmWRuHJHfygDNPSMJ0I1heDCVuiE+xmakBQ1guBwYjUFZjXiJkvsYSpggK
+         aTOIlKrgIkiYYsbyz51QUrQyJdMtBeqEROxuzTlAuZ9v5d2vbo7v/cVsQEXUIUmCPiKb
+         fYm6QH0SgzgnvTCdlA/it88jRyfY6T4sgPNOZdmgLu6FGL+AVKOQWgW+DFzPOOZan8i3
+         xqQUbUOMJtnbVv2OHbPwveoHLxAn4+rw/yXiJLgwzvWKAuw+jo7v8A61uksF1UYRWaRY
+         QXUw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:mime-version:subject:message-id:reply-to
+         :from:date:dkim-signature;
+        bh=rd7XwZhr/vJqrFR+taGXi280L28Zj0mHCfNAONHkm4g=;
+        fh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
+        b=H+6cGxyJHT1luPPYdtjImGotV6OHpPyBK6qHtTLDvdIQHljvOlhqapLD1/3a45NUwr
+         TYyilEOOwKgz/eRuII5UoBI80WPTT3Jq/jPLzEvfwqBuMLkOhlQ2Pl9rad/VjGu4r+5Q
+         18fTMjl52ELoOw3cY81acDBl/RIa2qvmA+bcO3D2g9Ff3DtXURJQ0ejKcmekcnTSwODj
+         nVQ996qmYnFeSaFS2QMT4WtESqoL5vMcjD+nZ1ZBD1sXOzlQFrYnQfhRPili/Y0aWehb
+         GkGUACnrqSus0o7I4nnTXPfjUVRYHasrm1rxjaoAo5Uuy8jVvEZgqP2/Kcua6KmRlVtl
+         kXfg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass (test mode) header.i=@outreach.assembly.ca.gov header.s=OutreachAssemblyCaGov-20150709 header.b=h45Jw6vl;
+       spf=pass (google.com: domain of assemblymember.ta@outreach.assembly.ca.gov designates 165.107.12.82 as permitted sender) smtp.mailfrom=Assemblymember.Ta@outreach.assembly.ca.gov;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=outreach.assembly.ca.gov
+Return-Path: <Assemblymember.Ta@outreach.assembly.ca.gov>
+Received: from smtp04.lc.ca.gov (smtp04.lc.ca.gov. [165.107.12.82])
+        by mx.google.com with ESMTP id a190-20020a6390c7000000b005b7160263f2si2273691pge.154.2023.11.03.15.13.59
+        for <lytommy321@gmail.com>;
+        Fri, 03 Nov 2023 15:13:59 -0700 (PDT)
+Received-SPF: pass (google.com: domain of assemblymember.ta@outreach.assembly.ca.gov designates 165.107.12.82 as permitted sender) client-ip=165.107.12.82;
+Authentication-Results: mx.google.com;
+       dkim=pass (test mode) header.i=@outreach.assembly.ca.gov header.s=OutreachAssemblyCaGov-20150709 header.b=h45Jw6vl;
+       spf=pass (google.com: domain of assemblymember.ta@outreach.assembly.ca.gov designates 165.107.12.82 as permitted sender) smtp.mailfrom=Assemblymember.Ta@outreach.assembly.ca.gov;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=outreach.assembly.ca.gov
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=outreach.assembly.ca.gov; i=@outreach.assembly.ca.gov;
+  q=dns/txt; s=OutreachAssemblyCaGov-20150709;
+  t=1699049640; x=1730585640;
+  h=date:from:reply-to:message-id:subject:mime-version:
+   content-transfer-encoding;
+  bh=XiAH0uNAQqxXbzMKY/3EYX+YN/IeozslI3s8zWRiD9Q=;
+  b=h45Jw6vlR+8l/yFvTeRZHYYb0SpOGXVUHhvrn+p38VlS8o4kuyUlVIav
+   K5FQ7WPN8ExCJgut+4zbyT2OfWlBvRrQroy1vh4QVqlSHf0cdGiWDKcVs
+   E15+2/LVJEs9QEnUTtVhtV2YA1uKNXvv1jCVuGDFrjfojjplf+0x87q6e
+   M=;
+X-IronPort-AV: E=Sophos;i="6.03,275,1694761200"; 
+   d="scan'208,217";a="217390537"
+Received: from unknown (HELO asmlcmsapp1.calegis.net) ([10.10.1.6])
+  by smtp1001.lc.ca.gov with ESMTP; 03 Nov 2023 15:13:58 -0700
+Date: Fri, 3 Nov 2023 15:13:57 -0700 (PDT)
+From: Assemblymember.Ta@Outreach.assembly.ca.gov
+Reply-To: Assemblymember.Ta@assembly.ca.gov
+Message-ID: <710178174.1101290.1699049637171@asmlcmsapp1.calegis.net>
+Subject: Join Me on November 14 for a FREE First Time Homebuyer Workshop
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: 7bit
+X-TransId: 70C527454876
+
+<SPAN><BR><BR></SPAN>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+ <head> 
+  <title> First Time Homebuyer </title> 
+  <style type="text/css">.center{margin:auto;width:60%;}#navbarContent ul li a:hover,#linksContent ul li a:hover   {background-color: #369;color: #fff;}#navbarContent ul ,#linksContent ul {padding-left: 0;margin-left: 0;background-color: #036;margin-top:0;color: White;float: left;width: 100%;}#navbarContent ul li,#linksContent ul li {display:inline;text-decoration: none;}#navbarContent ul li a ,#linksContent ul li a {padding-top: 3px ;padding-right:15px;padding-left:15px;padding-bottom:3px;color: White;text-decoration: none;border-right: 1px solid #fff;border-right-color: white;}</style> 
+ </head> 
+ <body> 
+  <table align="center" width="625" border="0"> 
+   <tbody> 
+    <tr> 
+     <td> 
+      <div class="layout-section" id="mandatoryLinks" style=""> 
+       <div style="margin-right: auto; margin-left: auto; background-color: #ECF3FD; text-align: right; font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #000 !important; padding: 5px 0px 5px 0;"> 
+        <a href="https://lcmspubcontact.lc.ca.gov/PublicLCMS/LinkTracking.php?id=808784&amp;eaid=80738&amp;url=https%3A%2F%2Flcmspubcontact.lc.ca.gov%2FPublicLCMS%2Ftemplates%2FAD70_First+Time+Homebuyer.htm&amp;tid=AD70C527454876">Display errors? Click here to view in browser.</a> 
+       </div> 
+      </div> 
+      <div class="content-holder" id="bannerContent"> 
+       <img src="https://lcmspubcontact.lc.ca.gov/PublicLCMS/images/AD70/images/LCMS%20Banner.jpg" width="625" alt="Banner Image" /> 
+      </div> 
+      <div style="text-align:left;word-wrap;break-word;"> 
+       <p><br /> <img alt="" height="624" src="https://lcmspubcontact.lc.ca.gov/PublicLCMS/images/AD70/images/First Time Homebuyer.jpg" width="590" /><br /> <br /> <span style="font-size:22px;">Dear friends and neighbors,<br /> &nbsp;<br /> If you or anyone you know is thinking about purchasing their first home, I know the process can seem overwhelming.&nbsp; California has a variety of programs to assist first time homebuyers, including down payment assistance and many don't know where to start.&nbsp;&nbsp;<br /> <br /> That's why I'm hosting a First Time Homebuyer Workshop in partnership with the California Housing Finance Agency and Garden Grove Unified School District Trustee Lan Q. Nguyen, Esq.&nbsp; Please find details below:&nbsp;</span><br /> &nbsp;</p> 
+       <p style="text-align: center;"><span style="font-size:22px;"><strong>First Time Homebuyer Workshop<br /> Tuesday, November 14, 2023<br /> 5:30-7PM</strong><br /> <strong>Pacifica High School<br /> 6851 Lampson Ave | Garden Grove, CA 92845<br /> <a href="https://lcmspubcontact.lc.ca.gov/PublicLCMS/LinkTracking.php?id=808785&amp;eaid=80738&amp;url=https%3A%2F%2Flcmspubcontact.lc.ca.gov%2FPublicLCMS%2Frsvp_main.php%3Fdistrict%3DAD70%26rsvp%3D1519&amp;tid=AD70C527454876">RSVP Here</a></strong></span></p> 
+       <p><span style="font-size:22px;">&#x200b;<br /> I hope to see you November 14.&nbsp; Please do not hesitate to contact my office if I can ever be of assistance.&nbsp;</span></p> 
+       <span style="font-size:22px;">Sincerely,&nbsp;</span> 
+       <br /> 
+       <br /> 
+       <img alt="" height="84" src="https://lcmspubcontact.lc.ca.gov/PublicLCMS/images/AD70/images/Tri Ta Signature.jpg" width="366" /> 
+       <br /> 
+       <br /> 
+       <span style="font-size:22px;"><strong>TRI TA</strong><br /> Assemblyman, 70th District</span> 
+       <br /> 
+       <br /> &nbsp; 
+      </div> 
+      <div style="word-wrap: break-word;text-align:left;"> 
+       <h4 style="text-align: center;"><a href="https://lcmspubcontact.lc.ca.gov/PublicLCMS/LinkTracking.php?id=808786&amp;eaid=80738&amp;url=http%3A%2F%2Ffacebook.com%2Ftrita4ca&amp;tid=AD70C527454876"><img alt="" height="50" src="https://lcmspubcontact.lc.ca.gov/PublicLCMS/images/icons/Facebook_Signature.png" width="50" /></a>&nbsp;<a href="https://lcmspubcontact.lc.ca.gov/PublicLCMS/LinkTracking.php?id=808787&amp;eaid=80738&amp;url=http%3A%2F%2Finstagram.com%2Ftrita4ca&amp;tid=AD70C527454876"><img alt="" height="50" src="https://lcmspubcontact.lc.ca.gov/PublicLCMS/images/icons/Instagram_Signature.png" width="50" />&nbsp;</a>&nbsp;<a href="https://lcmspubcontact.lc.ca.gov/PublicLCMS/LinkTracking.php?id=808788&amp;eaid=80738&amp;url=http%3A%2F%2Ftwitter.com%2Ftrita4ca&amp;tid=AD70C527454876"><img alt="" height="50" src="https://lcmspubcontact.lc.ca.gov/PublicLCMS/images/icons/Twitters_Square_Signature.png" width="50" /></a></h4> 
+      </div> 
+      <div style="color:#000; margin:0; text-align:center;font-size:16px; font-family: &quot;Times New Roman&quot;, Times, serif;">
+        Website:&nbsp; 
+       <a target="_blank" href="https://lcmspubcontact.lc.ca.gov/PublicLCMS/LinkTracking.php?id=808789&amp;eaid=80738&amp;url=www.asm.ca.gov%2Fta&amp;tid=AD70C527454876" title="Website">www.asm.ca.gov/ta</a> 
+      </div><br /> 
+      <div style="color:#000; margin:0;text-align:center;font-size:16px; font-family: &quot;Times New Roman&quot;, Times, serif;">
+        Email:&nbsp; 
+       <a target="_blank" title="Email" href="https://lcmspubcontact.lc.ca.gov/PublicLCMS/LinkTracking.php?id=808790&amp;eaid=80738&amp;url=mailto%3AAssemblymember.ta%40assmebly.ca.gov&amp;tid=AD70C527454876">Assemblymember.Ta@assembly.ca.gov</a> 
+      </div><br /> 
+      <table width="100%" align="center"> 
+       <tbody> 
+        <tr> 
+         <td align="center"><label id="name"><strong>District Office</strong></label><br /><label id="line1">14361 Beach Blvd Suite 211</label><br /> <label id="line2">Westminster, CA 92683</label><br /><label id="phone">(714) 379-0970</label><br /></td> 
+        </tr> 
+       </tbody> 
+      </table></td> 
+    </tr><tr><td><br/><img src='https://lcmspubcontact.lc.ca.gov/img/u/AD70C527454876/unsub_head.png' alt='Unsubscribe' /> </td></tr><tr><td style='font-size: 12px;'>Click here to <a style='color: #000000;' href='https://lcmspubcontact.lc.ca.gov/PublicLCMS/EmailUpdate.php?type=u&d=ADNzAxODkxMDg2M0M=&hh=1&eid=AD70C527454876'>unsubscribe</a> or <a style='color: #000000;' href='https://lcmspubcontact.lc.ca.gov/PublicLCMS/EmailUpdate.php?type=c&d=ADNzAxODkxMDg2M0M=&hh=1&eid=AD70C527454876'>update</a> your email address.</td></tr> 
+   </tbody> 
+  </table>  
+ </body>
+</html>
