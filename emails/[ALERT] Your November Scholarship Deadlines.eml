@@ -1,0 +1,4904 @@
+Delivered-To: alpha1.liz56@gmail.com
+Received: by 2002:a05:612c:2575:b0:417:fa31:15a0 with SMTP id hf53csp2868931vqb;
+        Mon, 6 Nov 2023 09:12:40 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFRrwzC2QZlkHXNmogzScemf7nIx0UHyi4Rt4YWawNXqQF5+i9HL5ObepSiEckwEvrqwrVN
+X-Received: by 2002:a05:690c:12:b0:5a7:db09:5067 with SMTP id bc18-20020a05690c001200b005a7db095067mr11365602ywb.20.1699290760166;
+        Mon, 06 Nov 2023 09:12:40 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1699290760; cv=none;
+        d=google.com; s=arc-20160816;
+        b=aLyeFSIRL/GnSF0k9OQIrZOa9IFuuZ/rmIBYqB35ym9uEh6LW3qzB0TN3Q7hdXho9o
+         26e5fFPtqDDK6SDd9XAHVdXN6fDA6Bz/An5LALus3l+AAV2fXkLy4B9pYyBzxLobw7hL
+         dCYrvp6mlGM3zGiYXjjiNdsl63ocxyPac4uzyVD64UMkLcQDhqzAyGI7vrNRzP9JV8l0
+         cMvj/+nnVmm+bX7tGmRXixpcntTcZlCdyHXomPDNYjGE2fkgV+TyR7jepP1muqaNp92C
+         +/+JhXHWR4FR4JjKJfS6tBEJjuCX795zyIbTMAaTKjatPUL+4Cy2oOUlRbmzCMuSgAcL
+         LWCA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=list-unsubscribe:content-transfer-encoding:mime-version:subject
+         :message-id:to:from:date:dkim-signature:domainkey-signature:comment;
+        bh=VeHs5I09uwH8onu55P6ONj/WEcdObKd1JefoECB4fSU=;
+        fh=fcigEnBxMbMxpT+5SU++uHdMJjsDhaLio/R/m4pX5wA=;
+        b=Cu+lZQWyy+1qTBU0lBFKYHedQym5kg3gKpEOcG0AbnMZW1VDMRUhH2xjLotlVakbdR
+         bH1w9T5A5un1aITquesFjZP5cTQfsm8+luakuveZd+6lwTsAXPQUO3vXgRYUlJtC1Nfy
+         UV8yhtslKEmWBrvtW03monq/BA4ww0/ZHQFVSuA+dJD0yuV6qbUKmCZOOYEa8ZQhI1LU
+         owxKCmGkvt1M3h69RCN/OP8u/BViZti0gz1u8y7xFLaNTAq00wvMof8YH49V+GTZZ6wE
+         A65tBkBFA/hXLlGXl5arrWPNzLRMN5HEzPOwKspaeE/TMS/Js7yJd5D983QqtPKsM8Qy
+         x+7A==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@fastweb.com header.s=mail header.b=HDZR7NCi;
+       spf=pass (google.com: domain of webmaster@fastweb.com designates 208.71.198.42 as permitted sender) smtp.mailfrom=webmaster@fastweb.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=fastweb.com
+Return-Path: <webmaster@fastweb.com>
+Received: from mailman316-q0.sb.monster.com (mailman316-q0.sb.monster.com. [208.71.198.42])
+        by mx.google.com with ESMTPS id y4-20020a0dd604000000b005adfb212f35si5198165ywd.335.2023.11.06.09.12.39
+        for <alpha1.liz56@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 06 Nov 2023 09:12:40 -0800 (PST)
+Received-SPF: pass (google.com: domain of webmaster@fastweb.com designates 208.71.198.42 as permitted sender) client-ip=208.71.198.42;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@fastweb.com header.s=mail header.b=HDZR7NCi;
+       spf=pass (google.com: domain of webmaster@fastweb.com designates 208.71.198.42 as permitted sender) smtp.mailfrom=webmaster@fastweb.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=fastweb.com
+Comment: DomainKeys? See http://domainkeys.sourceforge.net/
+DomainKey-Signature: a=rsa-sha1; q=dns; c=nofws;
+  s=mail; d=fastweb.com;
+  b=S21+vracUgv2ujp3lu6PpEY/Uyx2HuedkgEFY8wNJLAm+M8fjLrSNBt2KMlO6DXoximVhz/0pXhWsxyfKWUsQe+tyCJudHwN05ne9d3zkVwf9v37eETibpGhKD7ZbYaSGzfYaGTaKOz5DzAhFxmqlPvqybuJY8lD+eabsJx/X8E=;
+  h=Received:Received:Received:Date:From:To:Message-ID:Subject:Mime-Version:Content-Type:Content-Transfer-Encoding:List-Unsubscribe:X-rpcampaign;
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed; d=fastweb.com; h=date:from
+	:to:message-id:subject:mime-version:content-type
+	:content-transfer-encoding:list-unsubscribe; s=mail; bh=8W26Igwc
+	EOxIckZb5SNa6zgRYy0=; b=HDZR7NCiHoENqhIFNLwETnHA6DdAScV6Ik5XRbxX
+	NJIdXyuiiotalpPSMKwfVZCoXQVDvA3jKoqzVJ39iUn0wHJIPz/EP7Ej1AUbLwVe
+	sRgicUBhuyoYVL3UpwMGoeNLgDSTg+KB9KC4N7bp2CmTe8ulqJxV0yN44PMQRwv5
+	jQs=
+Received: (qmail 78127 invoked from network); 6 Nov 2023 16:01:52 -0000
+Received: from unknown (HELO affprodvm333.sb.monster.com) (10.20.199.242)
+  by mailman316-q0.sb.monster.com with SMTP; 6 Nov 2023 16:01:52 -0000
+Received: from localhost.localdomain (localhost [IPv6:::1])
+	by affprodvm333.sb.monster.com (Postfix) with ESMTP id 634E7753FD318
+	for <alpha1.liz56@gmail.com>; Mon,  6 Nov 2023 08:01:52 -0800 (PST)
+Date: Mon, 06 Nov 2023 08:01:52 -0800
+From: Fastweb Reminder <webmaster@fastweb.com>
+To: alpha1.liz56@gmail.com
+Message-ID: <65490df05d72e_1c1869119454440@affprodvm333.sb.monster.com.mail>
+Subject: [ALERT] Your November Scholarship Deadlines
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_65490df05bae6_1c186911945433";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+List-Unsubscribe: <mailto:list-unsubscribe@fastweb.com?subject=unsubscribe>,
+ <https://www.fastweb.com/auto_unsubscribe?email_list_id=11&ee=842EEE6E54A43EF62807FE56295F5AB222FB9B9F01176B6CFCDB2D75EF0D99C5>
+X-rpcampaign: fastwebAwardDeadline20231106004652
+
+
+----==_mimepart_65490df05bae6_1c186911945433
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+[Alert] Your Scholarship Is Due November 10, 2023=0D
+=0D
+Hello Fastweb Member,=0D
+=0D
+Your college scholarship applications are due ASAP!  Take a look at your =
+17 upcoming scholarship deadlines and apply. Don't miss out on these oppo=
+rtunities to pay for school.=0D
+=0D
+You can see all of your scholarship deadlines here >>=0D
+https://www.fastweb.com/college-scholarships/scholarships/calendar?utm_co=
+ntent=3Ddeadline&utm_medium=3Demail&utm_source=3Daward=0D
+=0D
+Good luck!=0D
+The Fastweb Team=0D
+=0D
+P.S. Don't forget to apply for this month's easy-to-apply featured schola=
+rships. =0D
+https://www.fastweb.com/college-scholarships/featured-scholarships?utm_ca=
+mpaign=3Dscholarship&utm_medium=3Demail&utm_source=3Daward=0D
+=0D
+----------------------------------------------------------------------=0D=
+
+Subscription Information=0D
+This message was sent to alpha1.liz56@gmail.com.=0D
+Please add webmaster@fastweb.com to your Address Book/safe senders list t=
+o ensure that you continue to receive Fastweb scholarship notifications. =
+=0D
+=0D
+My Profile=0D
+https://www.fastweb.com/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB=
+222FB9B9F01176B6CFCDB2D75EF0D99C5&landing_page=3Dhttps%3A%2F%2Fwww.fastwe=
+b.com%2Faccount%2Faccount_settings%3Futm_campaign%3Ddeadline%26utm_medium=
+%3Demail%26utm_source%3Daward&original_send_date=3D2023_11_05&source=3DAw=
+ardNotificationSend&version=3DAwardDeadline=0D
+=0D
+Unsubscribe=0D
+https://www.fastweb.com/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB=
+222FB9B9F01176B6CFCDB2D75EF0D99C5&landing_page=3Dhttps%3A%2F%2Fwww.fastwe=
+b.com%2Funsubscribe%3Fee%3D842EEE6E54A43EF62807FE56295F5AB222FB9B9F01176B=
+6CFCDB2D75EF0D99C5%26email_list_id%3D11%26utm_campaign%3Ddeadline%26utm_m=
+edium%3Demail%26utm_source%3Daward&original_send_date=3D2023_11_05&source=
+=3DAwardNotificationSend&version=3DAwardDeadline=0D
+Please allow 5-10 business days for your unsubscribe request to be proces=
+sed.=0D
+=0D
+Privacy Policy=0D
+https://www.fastweb.com/privacy?utm_content=3Ddeadline&utm_medium=3Demail=
+&utm_source=3Daward=0D
+=0D
+Fastweb, LLC | 133 Boston Post Rd | Weston, MA 02493 =0D
+=0D
+Copyright =C2=A9 2023. All rights reserved.  A Monster Company.=
+
+----==_mimepart_65490df05bae6_1c186911945433
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>=0D
+<html xmlns=3D"https://www.w3.org/1999/xhtml">=0D
+<head>=0D
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8">=
+=0D
+<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D=
+1">=0D
+<title>Fastweb</title>=0D
+<style>=0D
+a {color: #0099cc; text-decoration: none;}=0D
+body, table, td {font-family: Arial, Helvetica, sans-serif !important;}=0D=
+
+	.btn a:hover {border-color: #0099cc !important;background-color: #0099cc=
+ !important; color: #ffffff !important;}=0D
+	.btn2 a:hover {border-color: #ffa825 !important; background-color: #ffa8=
+25 !important; color: #ffffff !important;}=0D
+	.awardlink a {color:#0099cc; text-decoration:none !important;}=0D
+	.awardlink a:hover {text-decoration: underline !important;}=0D
+@media screen and (max-width: 600px){=0D
+	.hrheight {border-top: 15px solid #e1f3ff !important;}=0D
+	.hrheight2 {height: 8px !important; background-color: #cedbe4 !important=
+;}=0D
+	.header {width:100% !important; height:auto !important;}	=0D
+	.btn  {width:100% !important;}=0D
+	.btn2 {width:100% !important; padding-top: 25px !important; padding-bott=
+om: 25px !important;}	=0D
+	=0D
+	.bottomad {width: 300px !important;}  =0D
+ 	.awardlink {font-size: 16px !important;} =0D
+		.subhead {font-size: 16px !important;} =0D
+	.topside {width: 30px !important;} =0D
+	=0D
+	}=0D
+</style>=0D
+</head>=0D
+<body bgcolor=3D"#e1f3ff" style=3D"background-color: #e1f3ff; margin: 0; =
+padding: 0;">=0D
+   <div style=3D"background-color: #e1f3ff; width: 100%;">=0D
+   =0D
+    <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+" bgcolor=3D"#e1f3ff">=0D
+    <tr>=0D
+    <td>=0D
+    =0D
+    =0D
+    <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+">=0D
+  =0D
+  =0D
+   <tr>=0D
+   =0D
+   =0D
+      <td align=3D"center"><table width=3D"600" border=3D"0" cellspacing=3D=
+"0" cellpadding=3D"0" align=3D"center" bgcolor=3D"#e1f3ff" style=3D"backg=
+round-color: #e1f3ff;" class=3D"header">=0D
+      =0D
+   <tr>=0D
+<td width=3D"20"></td>=0D
+   =0D
+   <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+<tr><td height=3D"10"></td></tr>=0D
+  =0D
+ <tr>=0D
+<td style=3D"font-family: Helvetica, Arial, sans-serif; color: #9ca0a4; f=
+ont-size: 16px;" align=3D"center">Apply ASAP: <a href=3D"https://www.fast=
+web.com/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB222FB9B9F01176B6=
+CFCDB2D75EF0D99C5&amp;landing_page=3Dhttp%3A%2F%2Fwww.fastweb.com%2F%2Fco=
+llege-scholarships%2Fscholarships%2F180536-jump-into-stem-competition%3Fu=
+tm_campaign%3Ddeadline%26utm_medium%3Demail%26utm_source%3Daward&amp;orig=
+inal_send_date=3D2023_11_05&amp;source=3DAwardNotificationSend&amp;versio=
+n=3DAwardDeadline" style=3D"color: #0099cc; text-decoration: none;" targe=
+t=3D"_blank">Your scholarship is due November 10, 2023</a>.=0D
+</td>=0D
+    </tr>=0D
+    =0D
+    <tr><td height=3D"15"></td></tr>=0D
+    =0D
+  =0D
+</table>=0D
+</td>=0D
+   =0D
+   =0D
+  <td width=3D"20"></td>=0D
+      =0D
+  	=0D
+    =0D
+    =0D
+    </tr>=0D
+</table></td>=0D
+    </tr>=0D
+    =0D
+     <tr>=0D
+      <td bgcolor=3D"#00334b" align=3D"center"><table width=3D"600" borde=
+r=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center" bgcolor=3D"#=
+00334" style=3D"background-color: #00334b;" class=3D"header">=0D
+  <tr>=0D
+    <td style=3D"text-align: center;" align=3D"center"><img src=3D"https:=
+//www.fastweb.com/nfs/fastweb/static/2019/notifications/upcoming-deadline=
+s@2x_1200x270.gif" width=3D"600" style=3D"width: 100%; max-width: 600px; =
+display: block; border: 0px; color: #ffffff; font-family: Helvetica, Aria=
+l, sans-serif; font-size: 36px; line-height:80px; text-align: center !imp=
+ortant;" border=3D"0" alt=3D"Upcoming Deadlines" class=3D"header"></td>=0D=
+
+</tr>=0D
+</table></td>=0D
+    </tr>=0D
+    =0D
+=0D
+=0D
+=0D
+=0D
+=0D
+=0D
+=0D
+    <tr>=0D
+      <td bgcolor=3D"#e3f3fe" align=3D"center">=0D
+      =0D
+      <table width=3D"600" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0" align=3D"center" bgcolor=3D"#e1f3ff" style=3D"background-color: #fffff=
+f;" class=3D"header">=0D
+          =0D
+          =0D
+          =0D
+          =0D
+              <tr><td height=3D"20"></td></tr>=0D
+    =0D
+ <tr><td height=3D"25">=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td width=3D"50" class=3D"topside"></td>=0D
+      <td align=3D"center" style=3D"font-family: Helvetica, Arial, Gotham=
+, sans-serif; font-size: 20px; color: #006699; font-weight:bold" class=3D=
+"subhead">Your scholarship deadlines are approaching fast - apply ASAP!</=
+td>=0D
+      <td width=3D"50"></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+</td></tr>=0D
+ =0D
+ =0D
+ =0D
+    <tr><td height=3D"20"></td></tr>=0D
+		  =0D
+		    <tr>=0D
+      <td bgcolor=3D"#d5e6f1" height=3D"1" class=3D"hrheight2"></td>=0D
+    </tr>=0D
+          =0D
+          =0D
+          =0D
+          =0D
+          =0D
+          =0D
+          =0D
+<!-- group awards by deadline and then sort by amount -->     =0D
+=0D
+=0D
+  =0D
+  =0D
+     =0D
+     <!-- Award #1 Start -->=0D
+         =0D
+  <tr>=0D
+    <td>=0D
+    =0D
+    <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+" class=3D"header">=0D
+   =0D
+    <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td width=3D"20"></td>=0D
+        =0D
+        =0D
+        =0D
+        =0D
+      <td align=3D"left">=0D
+        =0D
+        <table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0">=0D
+<td align=3D"left">=0D
+      =0D
+      <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0">=0D
+  =0D
+=0D
+<!-- chiclets start -->=0D
+<tr>=0D
+<td height=3D"15">=0D
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D
+<tbody>=0D
+<tr>=0D
+ =0D
+  =0D
+</tr>=0D
+</tbody>=0D
+</table>=0D
+</td> =0D
+</tr>=0D
+<!-- chiclets end -->=0D
+=0D
+=0D
+=0D
+<tr><td height=3D"6"></td></tr>=0D
+=0D
+    <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 28px; font-weight:bold;"><a href=3D"https://www.fastweb.c=
+om/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB222FB9B9F01176B6CFCDB=
+2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fastweb.com%2F%2Fcolleg=
+e-scholarships%2Fscholarships%2F180536-jump-into-stem-competition%3Futm_c=
+ampaign%3Ddeadline%26utm_medium%3Demail%26utm_source%3Daward&amp;original=
+_send_date=3D2023_11_05&amp;source=3DAwardNotificationSend&amp;version=3D=
+AwardDeadline" style=3D"color: #00334c ; text-decoration: none;" target=3D=
+"_blank">Amount Varies</a></td>=0D
+    </tr>=0D
+    =0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    =0D
+    <tr><td height=3D"4"></td></tr>=0D
+    =0D
+     <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0099=
+cc ; font-size: 18px; font-weight:bold;" class=3D"awardlink"><a href=3D"h=
+ttps://www.fastweb.com/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB2=
+22FB9B9F01176B6CFCDB2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fas=
+tweb.com%2F%2Fcollege-scholarships%2Fscholarships%2F180536-jump-into-stem=
+-competition%3Futm_campaign%3Ddeadline%26utm_medium%3Demail%26utm_source%=
+3Daward&amp;original_send_date=3D2023_11_05&amp;source=3DAwardNotificatio=
+nSend&amp;version=3DAwardDeadline" target=3D"_blank" style=3D"color: #009=
+9cc ;">Jump Into STEM Competition</a></td>=0D
+    </tr> =0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    =0D
+    =0D
+    <tr>=0D
+      <td>=0D
+      =0D
+ <table width=3D"170" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" al=
+ign=3D"left">=0D
+  =0D
+    <tr>=0D
+      <td><table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"13"></td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #9999=
+99; font-size: 11px; font-weight:bold;">DEADLINE</td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"9"></td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 16px; font-weight: bold;">November 10, 2023</td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+  =0D
+</table></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+      =0D
+       <table width=3D"250" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0" align=3D"left">=0D
+  =0D
+    <tr>=0D
+      <td><table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"13"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #9999=
+99; font-size: 11px; font-weight:bold;">PROVIDER</td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"9"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 16px; font-weight: bold;">U. S. Department of Energy</td>=
+=0D
+    </tr>=0D
+  =0D
+</table></td>=0D
+    </tr>=0D
+=0D
+</table>=0D
+      =0D
+      </td>=0D
+    </tr>=0D
+    =0D
+    <tr><td>=0D
+    =0D
+    <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"20"></td>=0D
+    </tr>=0D
+=0D
+</table>=0D
+=0D
+</td></tr>=0D
+=0D
+=0D
+<!-- Apply now button begin -->=0D
+=0D
+<tr>=0D
+     <td>=0D
+     =0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+    =0D
+      <td>=0D
+      =0D
+     <table border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D
+        <tr>=0D
+          <td align=3D"center" style=3D"-webkit-border-radius: 5px; -moz-=
+border-radius: 5px; border-radius: 5px;" bgcolor=3D"#ffffff"><a href=3D"h=
+ttps://www.fastweb.com/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB2=
+22FB9B9F01176B6CFCDB2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fas=
+tweb.com%2F%2Fcollege-scholarships%2Fscholarships%2F180536-jump-into-stem=
+-competition%3Futm_campaign%3Ddeadline%26utm_medium%3Demail%26utm_source%=
+3Daward&amp;original_send_date=3D2023_11_05&amp;source=3DAwardNotificatio=
+nSend&amp;version=3DAwardDeadline" target=3D"_blank" style=3D"font-size: =
+14px; font-family: Helvetica, Arial, sans-serif; color: #0099cc; text-dec=
+oration: none; text-decoration: none; -webkit-border-radius: 5px; -moz-bo=
+rder-radius: 5px; border-radius: 5px; padding: 17px 18px; border: 1px sol=
+id #0099cc; display: inline-block; width: 150px;" class=3D"btn3"><strong>=
+=0D
+I WILL APPLY=0D
+</strong></a></td>=0D
+        </tr>=0D
+      </table>=0D
+=0D
+</td>=0D
+=0D
+    </tr>=0D
+  =0D
+</table>=0D
+    </td>=0D
+</tr>=0D
+=0D
+<!-- Apply now button end -->=0D
+  =0D
+</table>=0D
+      =0D
+      </td>=0D
+</table>=0D
+        =0D
+        =0D
+        =0D
+        </td>=0D
+        =0D
+        =0D
+        =0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td bgcolor=3D"#d5e6f1" height=3D"1" class=3D"hrheight2"></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+    =0D
+    </td>=0D
+</tr>=0D
+    =0D
+      <!-- Award #1 End -->=0D
+  =0D
+   =0D
+=0D
+  =0D
+  =0D
+     =0D
+     <!-- Award #1 Start -->=0D
+         =0D
+  <tr>=0D
+    <td>=0D
+    =0D
+    <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+" class=3D"header">=0D
+   =0D
+    <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td width=3D"20"></td>=0D
+        =0D
+        =0D
+        =0D
+        =0D
+      <td align=3D"left">=0D
+        =0D
+        <table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0">=0D
+<td align=3D"left">=0D
+      =0D
+      <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0">=0D
+  =0D
+=0D
+<!-- chiclets start -->=0D
+<tr>=0D
+<td height=3D"15">=0D
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D
+<tbody>=0D
+<tr>=0D
+ =0D
+  =0D
+</tr>=0D
+</tbody>=0D
+</table>=0D
+</td> =0D
+</tr>=0D
+<!-- chiclets end -->=0D
+=0D
+=0D
+=0D
+<tr><td height=3D"6"></td></tr>=0D
+=0D
+    <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 28px; font-weight:bold;"><a href=3D"https://www.fastweb.c=
+om/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB222FB9B9F01176B6CFCDB=
+2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fastweb.com%2F%2Fcolleg=
+e-scholarships%2Fscholarships%2F156542-odenza-marketing-scholarship%3Futm=
+_campaign%3Ddeadline%26utm_medium%3Demail%26utm_source%3Daward&amp;origin=
+al_send_date=3D2023_11_05&amp;source=3DAwardNotificationSend&amp;version=3D=
+AwardDeadline" style=3D"color: #00334c ; text-decoration: none;" target=3D=
+"_blank">$500</a></td>=0D
+    </tr>=0D
+    =0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    =0D
+    <tr><td height=3D"4"></td></tr>=0D
+    =0D
+     <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0099=
+cc ; font-size: 18px; font-weight:bold;" class=3D"awardlink"><a href=3D"h=
+ttps://www.fastweb.com/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB2=
+22FB9B9F01176B6CFCDB2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fas=
+tweb.com%2F%2Fcollege-scholarships%2Fscholarships%2F156542-odenza-marketi=
+ng-scholarship%3Futm_campaign%3Ddeadline%26utm_medium%3Demail%26utm_sourc=
+e%3Daward&amp;original_send_date=3D2023_11_05&amp;source=3DAwardNotificat=
+ionSend&amp;version=3DAwardDeadline" target=3D"_blank" style=3D"color: #0=
+099cc ;">Odenza Marketing Scholarship</a></td>=0D
+    </tr> =0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    =0D
+    =0D
+    <tr>=0D
+      <td>=0D
+      =0D
+ <table width=3D"170" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" al=
+ign=3D"left">=0D
+  =0D
+    <tr>=0D
+      <td><table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"13"></td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #9999=
+99; font-size: 11px; font-weight:bold;">DEADLINE</td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"9"></td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 16px; font-weight: bold;">November 15, 2023</td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+  =0D
+</table></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+      =0D
+       <table width=3D"250" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0" align=3D"left">=0D
+  =0D
+    <tr>=0D
+      <td><table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"13"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #9999=
+99; font-size: 11px; font-weight:bold;">PROVIDER</td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"9"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 16px; font-weight: bold;">Odenza Marketing Group, Inc.</t=
+d>=0D
+    </tr>=0D
+  =0D
+</table></td>=0D
+    </tr>=0D
+=0D
+</table>=0D
+      =0D
+      </td>=0D
+    </tr>=0D
+    =0D
+    <tr><td>=0D
+    =0D
+    <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"20"></td>=0D
+    </tr>=0D
+=0D
+</table>=0D
+=0D
+</td></tr>=0D
+=0D
+=0D
+<!-- Apply now button begin -->=0D
+=0D
+<tr>=0D
+     <td>=0D
+     =0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+    =0D
+      <td>=0D
+      =0D
+     <table border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D
+        <tr>=0D
+          <td align=3D"center" style=3D"-webkit-border-radius: 5px; -moz-=
+border-radius: 5px; border-radius: 5px;" bgcolor=3D"#ffffff"><a href=3D"h=
+ttps://www.fastweb.com/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB2=
+22FB9B9F01176B6CFCDB2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fas=
+tweb.com%2F%2Fcollege-scholarships%2Fscholarships%2F156542-odenza-marketi=
+ng-scholarship%3Futm_campaign%3Ddeadline%26utm_medium%3Demail%26utm_sourc=
+e%3Daward&amp;original_send_date=3D2023_11_05&amp;source=3DAwardNotificat=
+ionSend&amp;version=3DAwardDeadline" target=3D"_blank" style=3D"font-size=
+: 14px; font-family: Helvetica, Arial, sans-serif; color: #0099cc; text-d=
+ecoration: none; text-decoration: none; -webkit-border-radius: 5px; -moz-=
+border-radius: 5px; border-radius: 5px; padding: 17px 18px; border: 1px s=
+olid #0099cc; display: inline-block; width: 150px;" class=3D"btn3"><stron=
+g>=0D
+I WILL APPLY=0D
+</strong></a></td>=0D
+        </tr>=0D
+      </table>=0D
+=0D
+</td>=0D
+=0D
+    </tr>=0D
+  =0D
+</table>=0D
+    </td>=0D
+</tr>=0D
+=0D
+<!-- Apply now button end -->=0D
+  =0D
+</table>=0D
+      =0D
+      </td>=0D
+</table>=0D
+        =0D
+        =0D
+        =0D
+        </td>=0D
+        =0D
+        =0D
+        =0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td bgcolor=3D"#d5e6f1" height=3D"1" class=3D"hrheight2"></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+    =0D
+    </td>=0D
+</tr>=0D
+    =0D
+      <!-- Award #1 End -->=0D
+  =0D
+   =0D
+=0D
+  =0D
+  =0D
+     =0D
+     <!-- Award #1 Start -->=0D
+         =0D
+  <tr>=0D
+    <td>=0D
+    =0D
+    <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+" class=3D"header">=0D
+   =0D
+    <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td width=3D"20"></td>=0D
+        =0D
+        =0D
+        =0D
+        =0D
+      <td align=3D"left">=0D
+        =0D
+        <table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0">=0D
+<td align=3D"left">=0D
+      =0D
+      <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0">=0D
+  =0D
+=0D
+<!-- chiclets start -->=0D
+<tr>=0D
+<td height=3D"15">=0D
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D
+<tbody>=0D
+<tr>=0D
+ =0D
+  =0D
+</tr>=0D
+</tbody>=0D
+</table>=0D
+</td> =0D
+</tr>=0D
+<!-- chiclets end -->=0D
+=0D
+=0D
+=0D
+<tr><td height=3D"6"></td></tr>=0D
+=0D
+    <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 28px; font-weight:bold;"><a href=3D"https://www.fastweb.c=
+om/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB222FB9B9F01176B6CFCDB=
+2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fastweb.com%2F%2Fcolleg=
+e-scholarships%2Fscholarships%2F179263-future-of-connectivity-essay-schol=
+arship%3Futm_campaign%3Ddeadline%26utm_medium%3Demail%26utm_source%3Dawar=
+d&amp;original_send_date=3D2023_11_05&amp;source=3DAwardNotificationSend&=
+amp;version=3DAwardDeadline" style=3D"color: #00334c ; text-decoration: n=
+one;" target=3D"_blank">$2,500</a></td>=0D
+    </tr>=0D
+    =0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    =0D
+    <tr><td height=3D"4"></td></tr>=0D
+    =0D
+     <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0099=
+cc ; font-size: 18px; font-weight:bold;" class=3D"awardlink"><a href=3D"h=
+ttps://www.fastweb.com/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB2=
+22FB9B9F01176B6CFCDB2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fas=
+tweb.com%2F%2Fcollege-scholarships%2Fscholarships%2F179263-future-of-conn=
+ectivity-essay-scholarship%3Futm_campaign%3Ddeadline%26utm_medium%3Demail=
+%26utm_source%3Daward&amp;original_send_date=3D2023_11_05&amp;source=3DAw=
+ardNotificationSend&amp;version=3DAwardDeadline" target=3D"_blank" style=3D=
+"color: #0099cc ;">Future of Connectivity Essay Scholarship</a></td>=0D
+    </tr> =0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    =0D
+    =0D
+    <tr>=0D
+      <td>=0D
+      =0D
+ <table width=3D"170" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" al=
+ign=3D"left">=0D
+  =0D
+    <tr>=0D
+      <td><table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"13"></td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #9999=
+99; font-size: 11px; font-weight:bold;">DEADLINE</td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"9"></td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 16px; font-weight: bold;">November 25, 2023</td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+  =0D
+</table></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+      =0D
+       <table width=3D"250" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0" align=3D"left">=0D
+  =0D
+    <tr>=0D
+      <td><table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"13"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #9999=
+99; font-size: 11px; font-weight:bold;">PROVIDER</td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"9"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 16px; font-weight: bold;">Zipit Wireliess, Inc.</td>=0D
+    </tr>=0D
+  =0D
+</table></td>=0D
+    </tr>=0D
+=0D
+</table>=0D
+      =0D
+      </td>=0D
+    </tr>=0D
+    =0D
+    <tr><td>=0D
+    =0D
+    <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"20"></td>=0D
+    </tr>=0D
+=0D
+</table>=0D
+=0D
+</td></tr>=0D
+=0D
+=0D
+<!-- Apply now button begin -->=0D
+=0D
+<tr>=0D
+     <td>=0D
+     =0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+    =0D
+      <td>=0D
+      =0D
+     <table border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D
+        <tr>=0D
+          <td align=3D"center" style=3D"-webkit-border-radius: 5px; -moz-=
+border-radius: 5px; border-radius: 5px;" bgcolor=3D"#ffffff"><a href=3D"h=
+ttps://www.fastweb.com/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB2=
+22FB9B9F01176B6CFCDB2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fas=
+tweb.com%2F%2Fcollege-scholarships%2Fscholarships%2F179263-future-of-conn=
+ectivity-essay-scholarship%3Futm_campaign%3Ddeadline%26utm_medium%3Demail=
+%26utm_source%3Daward&amp;original_send_date=3D2023_11_05&amp;source=3DAw=
+ardNotificationSend&amp;version=3DAwardDeadline" target=3D"_blank" style=3D=
+"font-size: 14px; font-family: Helvetica, Arial, sans-serif; color: #0099=
+cc; text-decoration: none; text-decoration: none; -webkit-border-radius: =
+5px; -moz-border-radius: 5px; border-radius: 5px; padding: 17px 18px; bor=
+der: 1px solid #0099cc; display: inline-block; width: 150px;" class=3D"bt=
+n3"><strong>=0D
+I WILL APPLY=0D
+</strong></a></td>=0D
+        </tr>=0D
+      </table>=0D
+=0D
+</td>=0D
+=0D
+    </tr>=0D
+  =0D
+</table>=0D
+    </td>=0D
+</tr>=0D
+=0D
+<!-- Apply now button end -->=0D
+  =0D
+</table>=0D
+      =0D
+      </td>=0D
+</table>=0D
+        =0D
+        =0D
+        =0D
+        </td>=0D
+        =0D
+        =0D
+        =0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td bgcolor=3D"#d5e6f1" height=3D"1" class=3D"hrheight2"></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+    =0D
+    </td>=0D
+</tr>=0D
+    =0D
+      <!-- Award #1 End -->=0D
+  =0D
+   =0D
+=0D
+  =0D
+  =0D
+     =0D
+     <!-- Award #1 Start -->=0D
+         =0D
+  <tr>=0D
+    <td>=0D
+    =0D
+    <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+" class=3D"header">=0D
+   =0D
+    <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td width=3D"20"></td>=0D
+        =0D
+        =0D
+        =0D
+        =0D
+      <td align=3D"left">=0D
+        =0D
+        <table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0">=0D
+<td align=3D"left">=0D
+      =0D
+      <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0">=0D
+  =0D
+=0D
+<!-- chiclets start -->=0D
+<tr>=0D
+<td height=3D"15">=0D
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D
+<tbody>=0D
+<tr>=0D
+ =0D
+  =0D
+</tr>=0D
+</tbody>=0D
+</table>=0D
+</td> =0D
+</tr>=0D
+<!-- chiclets end -->=0D
+=0D
+=0D
+=0D
+<tr><td height=3D"6"></td></tr>=0D
+=0D
+    <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 28px; font-weight:bold;"><a href=3D"https://www.fastweb.c=
+om/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB222FB9B9F01176B6CFCDB=
+2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fastweb.com%2F%2Fcolleg=
+e-scholarships%2Fscholarships%2F181198-servicescape-scholarship%3Futm_cam=
+paign%3Ddeadline%26utm_medium%3Demail%26utm_source%3Daward&amp;original_s=
+end_date=3D2023_11_05&amp;source=3DAwardNotificationSend&amp;version=3DAw=
+ardDeadline" style=3D"color: #00334c ; text-decoration: none;" target=3D"=
+_blank">$1,000</a></td>=0D
+    </tr>=0D
+    =0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    =0D
+    <tr><td height=3D"4"></td></tr>=0D
+    =0D
+     <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0099=
+cc ; font-size: 18px; font-weight:bold;" class=3D"awardlink"><a href=3D"h=
+ttps://www.fastweb.com/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB2=
+22FB9B9F01176B6CFCDB2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fas=
+tweb.com%2F%2Fcollege-scholarships%2Fscholarships%2F181198-servicescape-s=
+cholarship%3Futm_campaign%3Ddeadline%26utm_medium%3Demail%26utm_source%3D=
+award&amp;original_send_date=3D2023_11_05&amp;source=3DAwardNotificationS=
+end&amp;version=3DAwardDeadline" target=3D"_blank" style=3D"color: #0099c=
+c ;">ServiceScape Scholarship</a></td>=0D
+    </tr> =0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    =0D
+    =0D
+    <tr>=0D
+      <td>=0D
+      =0D
+ <table width=3D"170" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" al=
+ign=3D"left">=0D
+  =0D
+    <tr>=0D
+      <td><table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"13"></td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #9999=
+99; font-size: 11px; font-weight:bold;">DEADLINE</td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"9"></td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 16px; font-weight: bold;">November 29, 2023</td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+  =0D
+</table></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+      =0D
+       <table width=3D"250" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0" align=3D"left">=0D
+  =0D
+    <tr>=0D
+      <td><table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"13"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #9999=
+99; font-size: 11px; font-weight:bold;">PROVIDER</td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"9"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 16px; font-weight: bold;">ServiceScape</td>=0D
+    </tr>=0D
+  =0D
+</table></td>=0D
+    </tr>=0D
+=0D
+</table>=0D
+      =0D
+      </td>=0D
+    </tr>=0D
+    =0D
+    <tr><td>=0D
+    =0D
+    <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"20"></td>=0D
+    </tr>=0D
+=0D
+</table>=0D
+=0D
+</td></tr>=0D
+=0D
+=0D
+<!-- Apply now button begin -->=0D
+=0D
+<tr>=0D
+     <td>=0D
+     =0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+    =0D
+      <td>=0D
+      =0D
+     <table border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D
+        <tr>=0D
+          <td align=3D"center" style=3D"-webkit-border-radius: 5px; -moz-=
+border-radius: 5px; border-radius: 5px;" bgcolor=3D"#ffffff"><a href=3D"h=
+ttps://www.fastweb.com/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB2=
+22FB9B9F01176B6CFCDB2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fas=
+tweb.com%2F%2Fcollege-scholarships%2Fscholarships%2F181198-servicescape-s=
+cholarship%3Futm_campaign%3Ddeadline%26utm_medium%3Demail%26utm_source%3D=
+award&amp;original_send_date=3D2023_11_05&amp;source=3DAwardNotificationS=
+end&amp;version=3DAwardDeadline" target=3D"_blank" style=3D"font-size: 14=
+px; font-family: Helvetica, Arial, sans-serif; color: #0099cc; text-decor=
+ation: none; text-decoration: none; -webkit-border-radius: 5px; -moz-bord=
+er-radius: 5px; border-radius: 5px; padding: 17px 18px; border: 1px solid=
+ #0099cc; display: inline-block; width: 150px;" class=3D"btn3"><strong>=0D=
+
+I WILL APPLY=0D
+</strong></a></td>=0D
+        </tr>=0D
+      </table>=0D
+=0D
+</td>=0D
+=0D
+    </tr>=0D
+  =0D
+</table>=0D
+    </td>=0D
+</tr>=0D
+=0D
+<!-- Apply now button end -->=0D
+  =0D
+</table>=0D
+      =0D
+      </td>=0D
+</table>=0D
+        =0D
+        =0D
+        =0D
+        </td>=0D
+        =0D
+        =0D
+        =0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td bgcolor=3D"#d5e6f1" height=3D"1" class=3D"hrheight2"></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+    =0D
+    </td>=0D
+</tr>=0D
+    =0D
+      <!-- Award #1 End -->=0D
+  =0D
+   =0D
+=0D
+  =0D
+  =0D
+     =0D
+     <!-- Award #1 Start -->=0D
+         =0D
+  <tr>=0D
+    <td>=0D
+    =0D
+    <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+" class=3D"header">=0D
+   =0D
+    <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td width=3D"20"></td>=0D
+        =0D
+        =0D
+        =0D
+        =0D
+      <td align=3D"left">=0D
+        =0D
+        <table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0">=0D
+<td align=3D"left">=0D
+      =0D
+      <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0">=0D
+  =0D
+=0D
+<!-- chiclets start -->=0D
+<tr>=0D
+<td height=3D"15">=0D
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D
+<tbody>=0D
+<tr>=0D
+ =0D
+  =0D
+</tr>=0D
+</tbody>=0D
+</table>=0D
+</td> =0D
+</tr>=0D
+<!-- chiclets end -->=0D
+=0D
+=0D
+=0D
+<tr><td height=3D"6"></td></tr>=0D
+=0D
+    <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 28px; font-weight:bold;"><a href=3D"https://www.fastweb.c=
+om/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB222FB9B9F01176B6CFCDB=
+2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fastweb.com%2F%2Fcolleg=
+e-scholarships%2Fscholarships%2F176769-nncc-career-mobility-scholarships%=
+3Futm_campaign%3Ddeadline%26utm_medium%3Demail%26utm_source%3Daward&amp;o=
+riginal_send_date=3D2023_11_05&amp;source=3DAwardNotificationSend&amp;ver=
+sion=3DAwardDeadline" style=3D"color: #00334c ; text-decoration: none;" t=
+arget=3D"_blank">$5,000</a></td>=0D
+    </tr>=0D
+    =0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    =0D
+    <tr><td height=3D"4"></td></tr>=0D
+    =0D
+     <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0099=
+cc ; font-size: 18px; font-weight:bold;" class=3D"awardlink"><a href=3D"h=
+ttps://www.fastweb.com/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB2=
+22FB9B9F01176B6CFCDB2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fas=
+tweb.com%2F%2Fcollege-scholarships%2Fscholarships%2F176769-nncc-career-mo=
+bility-scholarships%3Futm_campaign%3Ddeadline%26utm_medium%3Demail%26utm_=
+source%3Daward&amp;original_send_date=3D2023_11_05&amp;source=3DAwardNoti=
+ficationSend&amp;version=3DAwardDeadline" target=3D"_blank" style=3D"colo=
+r: #0099cc ;">NNCC Career Mobility Scholarships</a></td>=0D
+    </tr> =0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    =0D
+    =0D
+    <tr>=0D
+      <td>=0D
+      =0D
+ <table width=3D"170" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" al=
+ign=3D"left">=0D
+  =0D
+    <tr>=0D
+      <td><table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"13"></td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #9999=
+99; font-size: 11px; font-weight:bold;">DEADLINE</td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"9"></td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 16px; font-weight: bold;">November 30, 2023</td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+  =0D
+</table></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+      =0D
+       <table width=3D"250" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0" align=3D"left">=0D
+  =0D
+    <tr>=0D
+      <td><table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"13"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #9999=
+99; font-size: 11px; font-weight:bold;">PROVIDER</td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"9"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 16px; font-weight: bold;">American Nephrology Nurses Asso=
+ciation</td>=0D
+    </tr>=0D
+  =0D
+</table></td>=0D
+    </tr>=0D
+=0D
+</table>=0D
+      =0D
+      </td>=0D
+    </tr>=0D
+    =0D
+    <tr><td>=0D
+    =0D
+    <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"20"></td>=0D
+    </tr>=0D
+=0D
+</table>=0D
+=0D
+</td></tr>=0D
+=0D
+=0D
+<!-- Apply now button begin -->=0D
+=0D
+<tr>=0D
+     <td>=0D
+     =0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+    =0D
+      <td>=0D
+      =0D
+     <table border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D
+        <tr>=0D
+          <td align=3D"center" style=3D"-webkit-border-radius: 5px; -moz-=
+border-radius: 5px; border-radius: 5px;" bgcolor=3D"#ffffff"><a href=3D"h=
+ttps://www.fastweb.com/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB2=
+22FB9B9F01176B6CFCDB2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fas=
+tweb.com%2F%2Fcollege-scholarships%2Fscholarships%2F176769-nncc-career-mo=
+bility-scholarships%3Futm_campaign%3Ddeadline%26utm_medium%3Demail%26utm_=
+source%3Daward&amp;original_send_date=3D2023_11_05&amp;source=3DAwardNoti=
+ficationSend&amp;version=3DAwardDeadline" target=3D"_blank" style=3D"font=
+-size: 14px; font-family: Helvetica, Arial, sans-serif; color: #0099cc; t=
+ext-decoration: none; text-decoration: none; -webkit-border-radius: 5px; =
+-moz-border-radius: 5px; border-radius: 5px; padding: 17px 18px; border: =
+1px solid #0099cc; display: inline-block; width: 150px;" class=3D"btn3"><=
+strong>=0D
+I WILL APPLY=0D
+</strong></a></td>=0D
+        </tr>=0D
+      </table>=0D
+=0D
+</td>=0D
+=0D
+    </tr>=0D
+  =0D
+</table>=0D
+    </td>=0D
+</tr>=0D
+=0D
+<!-- Apply now button end -->=0D
+  =0D
+</table>=0D
+      =0D
+      </td>=0D
+</table>=0D
+        =0D
+        =0D
+        =0D
+        </td>=0D
+        =0D
+        =0D
+        =0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td bgcolor=3D"#d5e6f1" height=3D"1" class=3D"hrheight2"></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+    =0D
+    </td>=0D
+</tr>=0D
+    =0D
+      <!-- Award #1 End -->=0D
+  =0D
+   =0D
+     =0D
+     <!-- Award #1 Start -->=0D
+         =0D
+  <tr>=0D
+    <td>=0D
+    =0D
+    <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+" class=3D"header">=0D
+   =0D
+    <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td width=3D"20"></td>=0D
+        =0D
+        =0D
+        =0D
+        =0D
+      <td align=3D"left">=0D
+        =0D
+        <table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0">=0D
+<td align=3D"left">=0D
+      =0D
+      <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0">=0D
+  =0D
+=0D
+<!-- chiclets start -->=0D
+<tr>=0D
+<td height=3D"15">=0D
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D
+<tbody>=0D
+<tr>=0D
+ =0D
+  =0D
+</tr>=0D
+</tbody>=0D
+</table>=0D
+</td> =0D
+</tr>=0D
+<!-- chiclets end -->=0D
+=0D
+=0D
+=0D
+<tr><td height=3D"6"></td></tr>=0D
+=0D
+    <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 28px; font-weight:bold;"><a href=3D"https://www.fastweb.c=
+om/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB222FB9B9F01176B6CFCDB=
+2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fastweb.com%2F%2Fcolleg=
+e-scholarships%2Fscholarships%2F167824-driver-education-initiative-award-=
+in-the-driver-s-seat%3Futm_campaign%3Ddeadline%26utm_medium%3Demail%26utm=
+_source%3Daward&amp;original_send_date=3D2023_11_05&amp;source=3DAwardNot=
+ificationSend&amp;version=3DAwardDeadline" style=3D"color: #00334c ; text=
+-decoration: none;" target=3D"_blank">$3,000</a></td>=0D
+    </tr>=0D
+    =0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    =0D
+    <tr><td height=3D"4"></td></tr>=0D
+    =0D
+     <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0099=
+cc ; font-size: 18px; font-weight:bold;" class=3D"awardlink"><a href=3D"h=
+ttps://www.fastweb.com/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB2=
+22FB9B9F01176B6CFCDB2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fas=
+tweb.com%2F%2Fcollege-scholarships%2Fscholarships%2F167824-driver-educati=
+on-initiative-award-in-the-driver-s-seat%3Futm_campaign%3Ddeadline%26utm_=
+medium%3Demail%26utm_source%3Daward&amp;original_send_date=3D2023_11_05&a=
+mp;source=3DAwardNotificationSend&amp;version=3DAwardDeadline" target=3D"=
+_blank" style=3D"color: #0099cc ;">Driver Education Initiative Award: In =
+the Driver's Seat</a></td>=0D
+    </tr> =0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    =0D
+    =0D
+    <tr>=0D
+      <td>=0D
+      =0D
+ <table width=3D"170" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" al=
+ign=3D"left">=0D
+  =0D
+    <tr>=0D
+      <td><table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"13"></td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #9999=
+99; font-size: 11px; font-weight:bold;">DEADLINE</td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"9"></td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 16px; font-weight: bold;">November 30, 2023</td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+  =0D
+</table></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+      =0D
+       <table width=3D"250" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0" align=3D"left">=0D
+  =0D
+    <tr>=0D
+      <td><table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"13"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #9999=
+99; font-size: 11px; font-weight:bold;">PROVIDER</td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"9"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 16px; font-weight: bold;">National Driving and Traffic Sc=
+hool</td>=0D
+    </tr>=0D
+  =0D
+</table></td>=0D
+    </tr>=0D
+=0D
+</table>=0D
+      =0D
+      </td>=0D
+    </tr>=0D
+    =0D
+    <tr><td>=0D
+    =0D
+    <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"20"></td>=0D
+    </tr>=0D
+=0D
+</table>=0D
+=0D
+</td></tr>=0D
+=0D
+=0D
+<!-- Apply now button begin -->=0D
+=0D
+<tr>=0D
+     <td>=0D
+     =0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+    =0D
+      <td>=0D
+      =0D
+     <table border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D
+        <tr>=0D
+          <td align=3D"center" style=3D"-webkit-border-radius: 5px; -moz-=
+border-radius: 5px; border-radius: 5px;" bgcolor=3D"#ffffff"><a href=3D"h=
+ttps://www.fastweb.com/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB2=
+22FB9B9F01176B6CFCDB2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fas=
+tweb.com%2F%2Fcollege-scholarships%2Fscholarships%2F167824-driver-educati=
+on-initiative-award-in-the-driver-s-seat%3Futm_campaign%3Ddeadline%26utm_=
+medium%3Demail%26utm_source%3Daward&amp;original_send_date=3D2023_11_05&a=
+mp;source=3DAwardNotificationSend&amp;version=3DAwardDeadline" target=3D"=
+_blank" style=3D"font-size: 14px; font-family: Helvetica, Arial, sans-ser=
+if; color: #0099cc; text-decoration: none; text-decoration: none; -webkit=
+-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; padding=
+: 17px 18px; border: 1px solid #0099cc; display: inline-block; width: 150=
+px;" class=3D"btn3"><strong>=0D
+I WILL APPLY=0D
+</strong></a></td>=0D
+        </tr>=0D
+      </table>=0D
+=0D
+</td>=0D
+=0D
+    </tr>=0D
+  =0D
+</table>=0D
+    </td>=0D
+</tr>=0D
+=0D
+<!-- Apply now button end -->=0D
+  =0D
+</table>=0D
+      =0D
+      </td>=0D
+</table>=0D
+        =0D
+        =0D
+        =0D
+        </td>=0D
+        =0D
+        =0D
+        =0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td bgcolor=3D"#d5e6f1" height=3D"1" class=3D"hrheight2"></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+    =0D
+    </td>=0D
+</tr>=0D
+    =0D
+      <!-- Award #1 End -->=0D
+  =0D
+   =0D
+     =0D
+     <!-- Award #1 Start -->=0D
+         =0D
+  <tr>=0D
+    <td>=0D
+    =0D
+    <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+" class=3D"header">=0D
+   =0D
+    <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td width=3D"20"></td>=0D
+        =0D
+        =0D
+        =0D
+        =0D
+      <td align=3D"left">=0D
+        =0D
+        <table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0">=0D
+<td align=3D"left">=0D
+      =0D
+      <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0">=0D
+  =0D
+=0D
+<!-- chiclets start -->=0D
+<tr>=0D
+<td height=3D"15">=0D
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D
+<tbody>=0D
+<tr>=0D
+ =0D
+  =0D
+</tr>=0D
+</tbody>=0D
+</table>=0D
+</td> =0D
+</tr>=0D
+<!-- chiclets end -->=0D
+=0D
+=0D
+=0D
+<tr><td height=3D"6"></td></tr>=0D
+=0D
+    <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 28px; font-weight:bold;"><a href=3D"https://www.fastweb.c=
+om/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB222FB9B9F01176B6CFCDB=
+2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fastweb.com%2F%2Fcolleg=
+e-scholarships%2Fscholarships%2F186076-bcg-impact-scholarship%3Futm_campa=
+ign%3Ddeadline%26utm_medium%3Demail%26utm_source%3Daward&amp;original_sen=
+d_date=3D2023_11_05&amp;source=3DAwardNotificationSend&amp;version=3DAwar=
+dDeadline" style=3D"color: #00334c ; text-decoration: none;" target=3D"_b=
+lank">$2,500</a></td>=0D
+    </tr>=0D
+    =0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    =0D
+    <tr><td height=3D"4"></td></tr>=0D
+    =0D
+     <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0099=
+cc ; font-size: 18px; font-weight:bold;" class=3D"awardlink"><a href=3D"h=
+ttps://www.fastweb.com/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB2=
+22FB9B9F01176B6CFCDB2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fas=
+tweb.com%2F%2Fcollege-scholarships%2Fscholarships%2F186076-bcg-impact-sch=
+olarship%3Futm_campaign%3Ddeadline%26utm_medium%3Demail%26utm_source%3Daw=
+ard&amp;original_send_date=3D2023_11_05&amp;source=3DAwardNotificationSen=
+d&amp;version=3DAwardDeadline" target=3D"_blank" style=3D"color: #0099cc =
+;">BCG Impact Scholarship</a></td>=0D
+    </tr> =0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    =0D
+    =0D
+    <tr>=0D
+      <td>=0D
+      =0D
+ <table width=3D"170" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" al=
+ign=3D"left">=0D
+  =0D
+    <tr>=0D
+      <td><table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"13"></td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #9999=
+99; font-size: 11px; font-weight:bold;">DEADLINE</td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"9"></td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 16px; font-weight: bold;">November 30, 2023</td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+  =0D
+</table></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+      =0D
+       <table width=3D"250" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0" align=3D"left">=0D
+  =0D
+    <tr>=0D
+      <td><table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"13"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #9999=
+99; font-size: 11px; font-weight:bold;">PROVIDER</td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"9"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 16px; font-weight: bold;">Biddle Consulting Group</td>=0D=
+
+    </tr>=0D
+  =0D
+</table></td>=0D
+    </tr>=0D
+=0D
+</table>=0D
+      =0D
+      </td>=0D
+    </tr>=0D
+    =0D
+    <tr><td>=0D
+    =0D
+    <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"20"></td>=0D
+    </tr>=0D
+=0D
+</table>=0D
+=0D
+</td></tr>=0D
+=0D
+=0D
+<!-- Apply now button begin -->=0D
+=0D
+<tr>=0D
+     <td>=0D
+     =0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+    =0D
+      <td>=0D
+      =0D
+     <table border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D
+        <tr>=0D
+          <td align=3D"center" style=3D"-webkit-border-radius: 5px; -moz-=
+border-radius: 5px; border-radius: 5px;" bgcolor=3D"#ffffff"><a href=3D"h=
+ttps://www.fastweb.com/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB2=
+22FB9B9F01176B6CFCDB2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fas=
+tweb.com%2F%2Fcollege-scholarships%2Fscholarships%2F186076-bcg-impact-sch=
+olarship%3Futm_campaign%3Ddeadline%26utm_medium%3Demail%26utm_source%3Daw=
+ard&amp;original_send_date=3D2023_11_05&amp;source=3DAwardNotificationSen=
+d&amp;version=3DAwardDeadline" target=3D"_blank" style=3D"font-size: 14px=
+; font-family: Helvetica, Arial, sans-serif; color: #0099cc; text-decorat=
+ion: none; text-decoration: none; -webkit-border-radius: 5px; -moz-border=
+-radius: 5px; border-radius: 5px; padding: 17px 18px; border: 1px solid #=
+0099cc; display: inline-block; width: 150px;" class=3D"btn3"><strong>=0D
+I WILL APPLY=0D
+</strong></a></td>=0D
+        </tr>=0D
+      </table>=0D
+=0D
+</td>=0D
+=0D
+    </tr>=0D
+  =0D
+</table>=0D
+    </td>=0D
+</tr>=0D
+=0D
+<!-- Apply now button end -->=0D
+  =0D
+</table>=0D
+      =0D
+      </td>=0D
+</table>=0D
+        =0D
+        =0D
+        =0D
+        </td>=0D
+        =0D
+        =0D
+        =0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td bgcolor=3D"#d5e6f1" height=3D"1" class=3D"hrheight2"></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+    =0D
+    </td>=0D
+</tr>=0D
+    =0D
+      <!-- Award #1 End -->=0D
+  =0D
+   =0D
+     =0D
+     <!-- Award #1 Start -->=0D
+         =0D
+  <tr>=0D
+    <td>=0D
+    =0D
+    <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+" class=3D"header">=0D
+   =0D
+    <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td width=3D"20"></td>=0D
+        =0D
+        =0D
+        =0D
+        =0D
+      <td align=3D"left">=0D
+        =0D
+        <table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0">=0D
+<td align=3D"left">=0D
+      =0D
+      <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0">=0D
+  =0D
+=0D
+<!-- chiclets start -->=0D
+<tr>=0D
+<td height=3D"15">=0D
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D
+<tbody>=0D
+<tr>=0D
+ =0D
+  =0D
+</tr>=0D
+</tbody>=0D
+</table>=0D
+</td> =0D
+</tr>=0D
+<!-- chiclets end -->=0D
+=0D
+=0D
+=0D
+<tr><td height=3D"6"></td></tr>=0D
+=0D
+    <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 28px; font-weight:bold;"><a href=3D"https://www.fastweb.c=
+om/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB222FB9B9F01176B6CFCDB=
+2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fastweb.com%2F%2Fcolleg=
+e-scholarships%2Fscholarships%2F183902-captrust-scholarship%3Futm_campaig=
+n%3Ddeadline%26utm_medium%3Demail%26utm_source%3Daward&amp;original_send_=
+date=3D2023_11_05&amp;source=3DAwardNotificationSend&amp;version=3DAwardD=
+eadline" style=3D"color: #00334c ; text-decoration: none;" target=3D"_bla=
+nk">$2,000</a></td>=0D
+    </tr>=0D
+    =0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    =0D
+    <tr><td height=3D"4"></td></tr>=0D
+    =0D
+     <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0099=
+cc ; font-size: 18px; font-weight:bold;" class=3D"awardlink"><a href=3D"h=
+ttps://www.fastweb.com/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB2=
+22FB9B9F01176B6CFCDB2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fas=
+tweb.com%2F%2Fcollege-scholarships%2Fscholarships%2F183902-captrust-schol=
+arship%3Futm_campaign%3Ddeadline%26utm_medium%3Demail%26utm_source%3Dawar=
+d&amp;original_send_date=3D2023_11_05&amp;source=3DAwardNotificationSend&=
+amp;version=3DAwardDeadline" target=3D"_blank" style=3D"color: #0099cc ;"=
+>CAPTRUST Scholarship </a></td>=0D
+    </tr> =0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    =0D
+    =0D
+    <tr>=0D
+      <td>=0D
+      =0D
+ <table width=3D"170" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" al=
+ign=3D"left">=0D
+  =0D
+    <tr>=0D
+      <td><table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"13"></td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #9999=
+99; font-size: 11px; font-weight:bold;">DEADLINE</td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"9"></td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 16px; font-weight: bold;">November 30, 2023</td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+  =0D
+</table></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+      =0D
+       <table width=3D"250" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0" align=3D"left">=0D
+  =0D
+    <tr>=0D
+      <td><table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"13"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #9999=
+99; font-size: 11px; font-weight:bold;">PROVIDER</td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"9"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 16px; font-weight: bold;">CAPTRUST</td>=0D
+    </tr>=0D
+  =0D
+</table></td>=0D
+    </tr>=0D
+=0D
+</table>=0D
+      =0D
+      </td>=0D
+    </tr>=0D
+    =0D
+    <tr><td>=0D
+    =0D
+    <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"20"></td>=0D
+    </tr>=0D
+=0D
+</table>=0D
+=0D
+</td></tr>=0D
+=0D
+=0D
+<!-- Apply now button begin -->=0D
+=0D
+<tr>=0D
+     <td>=0D
+     =0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+    =0D
+      <td>=0D
+      =0D
+     <table border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D
+        <tr>=0D
+          <td align=3D"center" style=3D"-webkit-border-radius: 5px; -moz-=
+border-radius: 5px; border-radius: 5px;" bgcolor=3D"#ffffff"><a href=3D"h=
+ttps://www.fastweb.com/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB2=
+22FB9B9F01176B6CFCDB2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fas=
+tweb.com%2F%2Fcollege-scholarships%2Fscholarships%2F183902-captrust-schol=
+arship%3Futm_campaign%3Ddeadline%26utm_medium%3Demail%26utm_source%3Dawar=
+d&amp;original_send_date=3D2023_11_05&amp;source=3DAwardNotificationSend&=
+amp;version=3DAwardDeadline" target=3D"_blank" style=3D"font-size: 14px; =
+font-family: Helvetica, Arial, sans-serif; color: #0099cc; text-decoratio=
+n: none; text-decoration: none; -webkit-border-radius: 5px; -moz-border-r=
+adius: 5px; border-radius: 5px; padding: 17px 18px; border: 1px solid #00=
+99cc; display: inline-block; width: 150px;" class=3D"btn3"><strong>=0D
+I WILL APPLY=0D
+</strong></a></td>=0D
+        </tr>=0D
+      </table>=0D
+=0D
+</td>=0D
+=0D
+    </tr>=0D
+  =0D
+</table>=0D
+    </td>=0D
+</tr>=0D
+=0D
+<!-- Apply now button end -->=0D
+  =0D
+</table>=0D
+      =0D
+      </td>=0D
+</table>=0D
+        =0D
+        =0D
+        =0D
+        </td>=0D
+        =0D
+        =0D
+        =0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td bgcolor=3D"#d5e6f1" height=3D"1" class=3D"hrheight2"></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+    =0D
+    </td>=0D
+</tr>=0D
+    =0D
+      <!-- Award #1 End -->=0D
+  =0D
+   =0D
+     =0D
+     <!-- Award #1 Start -->=0D
+         =0D
+  <tr>=0D
+    <td>=0D
+    =0D
+    <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+" class=3D"header">=0D
+   =0D
+    <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td width=3D"20"></td>=0D
+        =0D
+        =0D
+        =0D
+        =0D
+      <td align=3D"left">=0D
+        =0D
+        <table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0">=0D
+<td align=3D"left">=0D
+      =0D
+      <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0">=0D
+  =0D
+=0D
+<!-- chiclets start -->=0D
+<tr>=0D
+<td height=3D"15">=0D
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D
+<tbody>=0D
+<tr>=0D
+ =0D
+  =0D
+</tr>=0D
+</tbody>=0D
+</table>=0D
+</td> =0D
+</tr>=0D
+<!-- chiclets end -->=0D
+=0D
+=0D
+=0D
+<tr><td height=3D"6"></td></tr>=0D
+=0D
+    <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 28px; font-weight:bold;"><a href=3D"https://www.fastweb.c=
+om/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB222FB9B9F01176B6CFCDB=
+2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fastweb.com%2F%2Fcolleg=
+e-scholarships%2Fscholarships%2F185744-daniel-j-and-robert-e-klein-schola=
+rship%3Futm_campaign%3Ddeadline%26utm_medium%3Demail%26utm_source%3Daward=
+&amp;original_send_date=3D2023_11_05&amp;source=3DAwardNotificationSend&a=
+mp;version=3DAwardDeadline" style=3D"color: #00334c ; text-decoration: no=
+ne;" target=3D"_blank">$1,000</a></td>=0D
+    </tr>=0D
+    =0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    =0D
+    <tr><td height=3D"4"></td></tr>=0D
+    =0D
+     <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0099=
+cc ; font-size: 18px; font-weight:bold;" class=3D"awardlink"><a href=3D"h=
+ttps://www.fastweb.com/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB2=
+22FB9B9F01176B6CFCDB2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fas=
+tweb.com%2F%2Fcollege-scholarships%2Fscholarships%2F185744-daniel-j-and-r=
+obert-e-klein-scholarship%3Futm_campaign%3Ddeadline%26utm_medium%3Demail%=
+26utm_source%3Daward&amp;original_send_date=3D2023_11_05&amp;source=3DAwa=
+rdNotificationSend&amp;version=3DAwardDeadline" target=3D"_blank" style=3D=
+"color: #0099cc ;">Daniel J. and Robert E. Klein Scholarship</a></td>=0D
+    </tr> =0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    =0D
+    =0D
+    <tr>=0D
+      <td>=0D
+      =0D
+ <table width=3D"170" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" al=
+ign=3D"left">=0D
+  =0D
+    <tr>=0D
+      <td><table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"13"></td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #9999=
+99; font-size: 11px; font-weight:bold;">DEADLINE</td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"9"></td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 16px; font-weight: bold;">November 30, 2023</td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+  =0D
+</table></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+      =0D
+       <table width=3D"250" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0" align=3D"left">=0D
+  =0D
+    <tr>=0D
+      <td><table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"13"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #9999=
+99; font-size: 11px; font-weight:bold;">PROVIDER</td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"9"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 16px; font-weight: bold;">National Pest Management Associ=
+ation (NPMA)</td>=0D
+    </tr>=0D
+  =0D
+</table></td>=0D
+    </tr>=0D
+=0D
+</table>=0D
+      =0D
+      </td>=0D
+    </tr>=0D
+    =0D
+    <tr><td>=0D
+    =0D
+    <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"20"></td>=0D
+    </tr>=0D
+=0D
+</table>=0D
+=0D
+</td></tr>=0D
+=0D
+=0D
+<!-- Apply now button begin -->=0D
+=0D
+<tr>=0D
+     <td>=0D
+     =0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+    =0D
+      <td>=0D
+      =0D
+     <table border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D
+        <tr>=0D
+          <td align=3D"center" style=3D"-webkit-border-radius: 5px; -moz-=
+border-radius: 5px; border-radius: 5px;" bgcolor=3D"#ffffff"><a href=3D"h=
+ttps://www.fastweb.com/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB2=
+22FB9B9F01176B6CFCDB2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fas=
+tweb.com%2F%2Fcollege-scholarships%2Fscholarships%2F185744-daniel-j-and-r=
+obert-e-klein-scholarship%3Futm_campaign%3Ddeadline%26utm_medium%3Demail%=
+26utm_source%3Daward&amp;original_send_date=3D2023_11_05&amp;source=3DAwa=
+rdNotificationSend&amp;version=3DAwardDeadline" target=3D"_blank" style=3D=
+"font-size: 14px; font-family: Helvetica, Arial, sans-serif; color: #0099=
+cc; text-decoration: none; text-decoration: none; -webkit-border-radius: =
+5px; -moz-border-radius: 5px; border-radius: 5px; padding: 17px 18px; bor=
+der: 1px solid #0099cc; display: inline-block; width: 150px;" class=3D"bt=
+n3"><strong>=0D
+I WILL APPLY=0D
+</strong></a></td>=0D
+        </tr>=0D
+      </table>=0D
+=0D
+</td>=0D
+=0D
+    </tr>=0D
+  =0D
+</table>=0D
+    </td>=0D
+</tr>=0D
+=0D
+<!-- Apply now button end -->=0D
+  =0D
+</table>=0D
+      =0D
+      </td>=0D
+</table>=0D
+        =0D
+        =0D
+        =0D
+        </td>=0D
+        =0D
+        =0D
+        =0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td bgcolor=3D"#d5e6f1" height=3D"1" class=3D"hrheight2"></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+    =0D
+    </td>=0D
+</tr>=0D
+    =0D
+      <!-- Award #1 End -->=0D
+  =0D
+   =0D
+     =0D
+     <!-- Award #1 Start -->=0D
+         =0D
+  <tr>=0D
+    <td>=0D
+    =0D
+    <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+" class=3D"header">=0D
+   =0D
+    <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td width=3D"20"></td>=0D
+        =0D
+        =0D
+        =0D
+        =0D
+      <td align=3D"left">=0D
+        =0D
+        <table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0">=0D
+<td align=3D"left">=0D
+      =0D
+      <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0">=0D
+  =0D
+=0D
+<!-- chiclets start -->=0D
+<tr>=0D
+<td height=3D"15">=0D
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D
+<tbody>=0D
+<tr>=0D
+ =0D
+  =0D
+</tr>=0D
+</tbody>=0D
+</table>=0D
+</td> =0D
+</tr>=0D
+<!-- chiclets end -->=0D
+=0D
+=0D
+=0D
+<tr><td height=3D"6"></td></tr>=0D
+=0D
+    <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 28px; font-weight:bold;"><a href=3D"https://www.fastweb.c=
+om/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB222FB9B9F01176B6CFCDB=
+2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fastweb.com%2F%2Fcolleg=
+e-scholarships%2Fscholarships%2F166140-andrew-flusche-scholarship-contest=
+%3Futm_campaign%3Ddeadline%26utm_medium%3Demail%26utm_source%3Daward&amp;=
+original_send_date=3D2023_11_05&amp;source=3DAwardNotificationSend&amp;ve=
+rsion=3DAwardDeadline" style=3D"color: #00334c ; text-decoration: none;" =
+target=3D"_blank">$500</a></td>=0D
+    </tr>=0D
+    =0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    =0D
+    <tr><td height=3D"4"></td></tr>=0D
+    =0D
+     <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0099=
+cc ; font-size: 18px; font-weight:bold;" class=3D"awardlink"><a href=3D"h=
+ttps://www.fastweb.com/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB2=
+22FB9B9F01176B6CFCDB2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fas=
+tweb.com%2F%2Fcollege-scholarships%2Fscholarships%2F166140-andrew-flusche=
+-scholarship-contest%3Futm_campaign%3Ddeadline%26utm_medium%3Demail%26utm=
+_source%3Daward&amp;original_send_date=3D2023_11_05&amp;source=3DAwardNot=
+ificationSend&amp;version=3DAwardDeadline" target=3D"_blank" style=3D"col=
+or: #0099cc ;">Andrew Flusche Scholarship Contest</a></td>=0D
+    </tr> =0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    =0D
+    =0D
+    <tr>=0D
+      <td>=0D
+      =0D
+ <table width=3D"170" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" al=
+ign=3D"left">=0D
+  =0D
+    <tr>=0D
+      <td><table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"13"></td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #9999=
+99; font-size: 11px; font-weight:bold;">DEADLINE</td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"9"></td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 16px; font-weight: bold;">November 30, 2023</td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+  =0D
+</table></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+      =0D
+       <table width=3D"250" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0" align=3D"left">=0D
+  =0D
+    <tr>=0D
+      <td><table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"13"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #9999=
+99; font-size: 11px; font-weight:bold;">PROVIDER</td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"9"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 16px; font-weight: bold;">Andrew Flusche, PLC</td>=0D
+    </tr>=0D
+  =0D
+</table></td>=0D
+    </tr>=0D
+=0D
+</table>=0D
+      =0D
+      </td>=0D
+    </tr>=0D
+    =0D
+    <tr><td>=0D
+    =0D
+    <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"20"></td>=0D
+    </tr>=0D
+=0D
+</table>=0D
+=0D
+</td></tr>=0D
+=0D
+=0D
+<!-- Apply now button begin -->=0D
+=0D
+<tr>=0D
+     <td>=0D
+     =0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+    =0D
+      <td>=0D
+      =0D
+     <table border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D
+        <tr>=0D
+          <td align=3D"center" style=3D"-webkit-border-radius: 5px; -moz-=
+border-radius: 5px; border-radius: 5px;" bgcolor=3D"#ffffff"><a href=3D"h=
+ttps://www.fastweb.com/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB2=
+22FB9B9F01176B6CFCDB2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fas=
+tweb.com%2F%2Fcollege-scholarships%2Fscholarships%2F166140-andrew-flusche=
+-scholarship-contest%3Futm_campaign%3Ddeadline%26utm_medium%3Demail%26utm=
+_source%3Daward&amp;original_send_date=3D2023_11_05&amp;source=3DAwardNot=
+ificationSend&amp;version=3DAwardDeadline" target=3D"_blank" style=3D"fon=
+t-size: 14px; font-family: Helvetica, Arial, sans-serif; color: #0099cc; =
+text-decoration: none; text-decoration: none; -webkit-border-radius: 5px;=
+ -moz-border-radius: 5px; border-radius: 5px; padding: 17px 18px; border:=
+ 1px solid #0099cc; display: inline-block; width: 150px;" class=3D"btn3">=
+<strong>=0D
+I WILL APPLY=0D
+</strong></a></td>=0D
+        </tr>=0D
+      </table>=0D
+=0D
+</td>=0D
+=0D
+    </tr>=0D
+  =0D
+</table>=0D
+    </td>=0D
+</tr>=0D
+=0D
+<!-- Apply now button end -->=0D
+  =0D
+</table>=0D
+      =0D
+      </td>=0D
+</table>=0D
+        =0D
+        =0D
+        =0D
+        </td>=0D
+        =0D
+        =0D
+        =0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td bgcolor=3D"#d5e6f1" height=3D"1" class=3D"hrheight2"></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+    =0D
+    </td>=0D
+</tr>=0D
+    =0D
+      <!-- Award #1 End -->=0D
+  =0D
+   =0D
+     =0D
+     <!-- Award #1 Start -->=0D
+         =0D
+  <tr>=0D
+    <td>=0D
+    =0D
+    <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+" class=3D"header">=0D
+   =0D
+    <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td width=3D"20"></td>=0D
+        =0D
+        =0D
+        =0D
+        =0D
+      <td align=3D"left">=0D
+        =0D
+        <table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0">=0D
+<td align=3D"left">=0D
+      =0D
+      <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0">=0D
+  =0D
+=0D
+<!-- chiclets start -->=0D
+<tr>=0D
+<td height=3D"15">=0D
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D
+<tbody>=0D
+<tr>=0D
+ =0D
+  =0D
+</tr>=0D
+</tbody>=0D
+</table>=0D
+</td> =0D
+</tr>=0D
+<!-- chiclets end -->=0D
+=0D
+=0D
+=0D
+<tr><td height=3D"6"></td></tr>=0D
+=0D
+    <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 28px; font-weight:bold;"><a href=3D"https://www.fastweb.c=
+om/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB222FB9B9F01176B6CFCDB=
+2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fastweb.com%2F%2Fcareer=
+-planning%2Finternships%2F168765-world-wide-technology-inc-internship%3Fu=
+tm_campaign%3Ddeadline%26utm_medium%3Demail%26utm_source%3Daward&amp;orig=
+inal_send_date=3D2023_11_05&amp;source=3DAwardNotificationSend&amp;versio=
+n=3DAwardDeadline" style=3D"color: #00334c ; text-decoration: none;" targ=
+et=3D"_blank">Amount Varies</a></td>=0D
+    </tr>=0D
+    =0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    =0D
+    <tr><td height=3D"4"></td></tr>=0D
+    =0D
+     <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0099=
+cc ; font-size: 18px; font-weight:bold;" class=3D"awardlink"><a href=3D"h=
+ttps://www.fastweb.com/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB2=
+22FB9B9F01176B6CFCDB2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fas=
+tweb.com%2F%2Fcareer-planning%2Finternships%2F168765-world-wide-technolog=
+y-inc-internship%3Futm_campaign%3Ddeadline%26utm_medium%3Demail%26utm_sou=
+rce%3Daward&amp;original_send_date=3D2023_11_05&amp;source=3DAwardNotific=
+ationSend&amp;version=3DAwardDeadline" target=3D"_blank" style=3D"color: =
+#0099cc ;">World Wide Technology Inc. Internship</a></td>=0D
+    </tr> =0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    =0D
+    =0D
+    <tr>=0D
+      <td>=0D
+      =0D
+ <table width=3D"170" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" al=
+ign=3D"left">=0D
+  =0D
+    <tr>=0D
+      <td><table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"13"></td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #9999=
+99; font-size: 11px; font-weight:bold;">DEADLINE</td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"9"></td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 16px; font-weight: bold;">November 30, 2023</td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+  =0D
+</table></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+      =0D
+       <table width=3D"250" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0" align=3D"left">=0D
+  =0D
+    <tr>=0D
+      <td><table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"13"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #9999=
+99; font-size: 11px; font-weight:bold;">PROVIDER</td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"9"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 16px; font-weight: bold;">World Wide Technology Inc.</td>=
+=0D
+    </tr>=0D
+  =0D
+</table></td>=0D
+    </tr>=0D
+=0D
+</table>=0D
+      =0D
+      </td>=0D
+    </tr>=0D
+    =0D
+    <tr><td>=0D
+    =0D
+    <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"20"></td>=0D
+    </tr>=0D
+=0D
+</table>=0D
+=0D
+</td></tr>=0D
+=0D
+=0D
+<!-- Apply now button begin -->=0D
+=0D
+<tr>=0D
+     <td>=0D
+     =0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+    =0D
+      <td>=0D
+      =0D
+     <table border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D
+        <tr>=0D
+          <td align=3D"center" style=3D"-webkit-border-radius: 5px; -moz-=
+border-radius: 5px; border-radius: 5px;" bgcolor=3D"#ffffff"><a href=3D"h=
+ttps://www.fastweb.com/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB2=
+22FB9B9F01176B6CFCDB2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fas=
+tweb.com%2F%2Fcareer-planning%2Finternships%2F168765-world-wide-technolog=
+y-inc-internship%3Futm_campaign%3Ddeadline%26utm_medium%3Demail%26utm_sou=
+rce%3Daward&amp;original_send_date=3D2023_11_05&amp;source=3DAwardNotific=
+ationSend&amp;version=3DAwardDeadline" target=3D"_blank" style=3D"font-si=
+ze: 14px; font-family: Helvetica, Arial, sans-serif; color: #0099cc; text=
+-decoration: none; text-decoration: none; -webkit-border-radius: 5px; -mo=
+z-border-radius: 5px; border-radius: 5px; padding: 17px 18px; border: 1px=
+ solid #0099cc; display: inline-block; width: 150px;" class=3D"btn3"><str=
+ong>=0D
+I WILL APPLY=0D
+</strong></a></td>=0D
+        </tr>=0D
+      </table>=0D
+=0D
+</td>=0D
+=0D
+    </tr>=0D
+  =0D
+</table>=0D
+    </td>=0D
+</tr>=0D
+=0D
+<!-- Apply now button end -->=0D
+  =0D
+</table>=0D
+      =0D
+      </td>=0D
+</table>=0D
+        =0D
+        =0D
+        =0D
+        </td>=0D
+        =0D
+        =0D
+        =0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td bgcolor=3D"#d5e6f1" height=3D"1" class=3D"hrheight2"></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+    =0D
+    </td>=0D
+</tr>=0D
+    =0D
+      <!-- Award #1 End -->=0D
+  =0D
+   =0D
+=0D
+  =0D
+  =0D
+     =0D
+     <!-- Award #1 Start -->=0D
+         =0D
+  <tr>=0D
+    <td>=0D
+    =0D
+    <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+" class=3D"header">=0D
+   =0D
+    <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td width=3D"20"></td>=0D
+        =0D
+        =0D
+        =0D
+        =0D
+      <td align=3D"left">=0D
+        =0D
+        <table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0">=0D
+<td align=3D"left">=0D
+      =0D
+      <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0">=0D
+  =0D
+=0D
+<!-- chiclets start -->=0D
+<tr>=0D
+<td height=3D"15">=0D
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D
+<tbody>=0D
+<tr>=0D
+ =0D
+ =0D
+<td>=0D
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" bgcolor=3D"#ff990=
+0">=0D
+<tr>=0D
+<td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+<tr>=0D
+<td width=3D"8"></td>=0D
+<td height=3D"20" style=3D"font-family:sans-serif;font-size:9px;line-heig=
+ht:18px;text-align:center; color: #FFFFFF;" valign=3D"middle">Top Scholar=
+ship</td>=0D
+<td width=3D"8"></td>=0D
+</tr>=0D
+</table> =0D
+</td>=0D
+</tr>=0D
+</table>=0D
+</td>=0D
+<td width=3D"10"> </td>=0D
+  =0D
+</tr>=0D
+</tbody>=0D
+</table>=0D
+</td> =0D
+</tr>=0D
+<!-- chiclets end -->=0D
+=0D
+=0D
+=0D
+<tr><td height=3D"6"></td></tr>=0D
+=0D
+    <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 28px; font-weight:bold;"><a href=3D"https://www.fastweb.c=
+om/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB222FB9B9F01176B6CFCDB=
+2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fastweb.com%2F%2Fcolleg=
+e-scholarships%2Fscholarships%2F172534-smart-scholarship%3Futm_campaign%3=
+Ddeadline%26utm_medium%3Demail%26utm_source%3Daward&amp;original_send_dat=
+e=3D2023_11_05&amp;source=3DAwardNotificationSend&amp;version=3DAwardDead=
+line" style=3D"color: #00334c ; text-decoration: none;" target=3D"_blank"=
+>$38,000</a></td>=0D
+    </tr>=0D
+    =0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    =0D
+    <tr><td height=3D"4"></td></tr>=0D
+    =0D
+     <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0099=
+cc ; font-size: 18px; font-weight:bold;" class=3D"awardlink"><a href=3D"h=
+ttps://www.fastweb.com/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB2=
+22FB9B9F01176B6CFCDB2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fas=
+tweb.com%2F%2Fcollege-scholarships%2Fscholarships%2F172534-smart-scholars=
+hip%3Futm_campaign%3Ddeadline%26utm_medium%3Demail%26utm_source%3Daward&a=
+mp;original_send_date=3D2023_11_05&amp;source=3DAwardNotificationSend&amp=
+;version=3DAwardDeadline" target=3D"_blank" style=3D"color: #0099cc ;">SM=
+ART Scholarship</a></td>=0D
+    </tr> =0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    =0D
+    =0D
+    <tr>=0D
+      <td>=0D
+      =0D
+ <table width=3D"170" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" al=
+ign=3D"left">=0D
+  =0D
+    <tr>=0D
+      <td><table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"13"></td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #9999=
+99; font-size: 11px; font-weight:bold;">DEADLINE</td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"9"></td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 16px; font-weight: bold;">December 1, 2023</td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+  =0D
+</table></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+      =0D
+       <table width=3D"250" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0" align=3D"left">=0D
+  =0D
+    <tr>=0D
+      <td><table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"13"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #9999=
+99; font-size: 11px; font-weight:bold;">PROVIDER</td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"9"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 16px; font-weight: bold;">United States Department of Def=
+ense (DoD)</td>=0D
+    </tr>=0D
+  =0D
+</table></td>=0D
+    </tr>=0D
+=0D
+</table>=0D
+      =0D
+      </td>=0D
+    </tr>=0D
+    =0D
+    <tr><td>=0D
+    =0D
+    <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"20"></td>=0D
+    </tr>=0D
+=0D
+</table>=0D
+=0D
+</td></tr>=0D
+=0D
+=0D
+<!-- Apply now button begin -->=0D
+=0D
+<tr>=0D
+     <td>=0D
+     =0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+    =0D
+      <td>=0D
+      =0D
+     <table border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D
+        <tr>=0D
+          <td align=3D"center" style=3D"-webkit-border-radius: 5px; -moz-=
+border-radius: 5px; border-radius: 5px;" bgcolor=3D"#ffffff"><a href=3D"h=
+ttps://www.fastweb.com/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB2=
+22FB9B9F01176B6CFCDB2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fas=
+tweb.com%2F%2Fcollege-scholarships%2Fscholarships%2F172534-smart-scholars=
+hip%3Futm_campaign%3Ddeadline%26utm_medium%3Demail%26utm_source%3Daward&a=
+mp;original_send_date=3D2023_11_05&amp;source=3DAwardNotificationSend&amp=
+;version=3DAwardDeadline" target=3D"_blank" style=3D"font-size: 14px; fon=
+t-family: Helvetica, Arial, sans-serif; color: #0099cc; text-decoration: =
+none; text-decoration: none; -webkit-border-radius: 5px; -moz-border-radi=
+us: 5px; border-radius: 5px; padding: 17px 18px; border: 1px solid #0099c=
+c; display: inline-block; width: 150px;" class=3D"btn3"><strong>=0D
+I WILL APPLY=0D
+</strong></a></td>=0D
+        </tr>=0D
+      </table>=0D
+=0D
+</td>=0D
+=0D
+    </tr>=0D
+  =0D
+</table>=0D
+    </td>=0D
+</tr>=0D
+=0D
+<!-- Apply now button end -->=0D
+  =0D
+</table>=0D
+      =0D
+      </td>=0D
+</table>=0D
+        =0D
+        =0D
+        =0D
+        </td>=0D
+        =0D
+        =0D
+        =0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td bgcolor=3D"#d5e6f1" height=3D"1" class=3D"hrheight2"></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+    =0D
+    </td>=0D
+</tr>=0D
+    =0D
+      <!-- Award #1 End -->=0D
+  =0D
+   =0D
+     =0D
+     <!-- Award #1 Start -->=0D
+         =0D
+  <tr>=0D
+    <td>=0D
+    =0D
+    <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+" class=3D"header">=0D
+   =0D
+    <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td width=3D"20"></td>=0D
+        =0D
+        =0D
+        =0D
+        =0D
+      <td align=3D"left">=0D
+        =0D
+        <table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0">=0D
+<td align=3D"left">=0D
+      =0D
+      <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0">=0D
+  =0D
+=0D
+<!-- chiclets start -->=0D
+<tr>=0D
+<td height=3D"15">=0D
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D
+<tbody>=0D
+<tr>=0D
+ =0D
+ =0D
+<td>=0D
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" bgcolor=3D"#ff990=
+0">=0D
+<tr>=0D
+<td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+<tr>=0D
+<td width=3D"8"></td>=0D
+<td height=3D"20" style=3D"font-family:sans-serif;font-size:9px;line-heig=
+ht:18px;text-align:center; color: #FFFFFF;" valign=3D"middle">Top Scholar=
+ship</td>=0D
+<td width=3D"8"></td>=0D
+</tr>=0D
+</table> =0D
+</td>=0D
+</tr>=0D
+</table>=0D
+</td>=0D
+<td width=3D"10"> </td>=0D
+  =0D
+</tr>=0D
+</tbody>=0D
+</table>=0D
+</td> =0D
+</tr>=0D
+<!-- chiclets end -->=0D
+=0D
+=0D
+=0D
+<tr><td height=3D"6"></td></tr>=0D
+=0D
+    <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 28px; font-weight:bold;"><a href=3D"https://www.fastweb.c=
+om/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB222FB9B9F01176B6CFCDB=
+2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fastweb.com%2F%2Fcolleg=
+e-scholarships%2Fscholarships%2F151611-connect-future-leaders-in-technolo=
+gy-scholarship%3Futm_campaign%3Ddeadline%26utm_medium%3Demail%26utm_sourc=
+e%3Daward&amp;original_send_date=3D2023_11_05&amp;source=3DAwardNotificat=
+ionSend&amp;version=3DAwardDeadline" style=3D"color: #00334c ; text-decor=
+ation: none;" target=3D"_blank">$2,000</a></td>=0D
+    </tr>=0D
+    =0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    =0D
+    <tr><td height=3D"4"></td></tr>=0D
+    =0D
+     <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0099=
+cc ; font-size: 18px; font-weight:bold;" class=3D"awardlink"><a href=3D"h=
+ttps://www.fastweb.com/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB2=
+22FB9B9F01176B6CFCDB2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fas=
+tweb.com%2F%2Fcollege-scholarships%2Fscholarships%2F151611-connect-future=
+-leaders-in-technology-scholarship%3Futm_campaign%3Ddeadline%26utm_medium=
+%3Demail%26utm_source%3Daward&amp;original_send_date=3D2023_11_05&amp;sou=
+rce=3DAwardNotificationSend&amp;version=3DAwardDeadline" target=3D"_blank=
+" style=3D"color: #0099cc ;">Connect Future Leaders in Technology Scholar=
+ship </a></td>=0D
+    </tr> =0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    =0D
+    =0D
+    <tr>=0D
+      <td>=0D
+      =0D
+ <table width=3D"170" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" al=
+ign=3D"left">=0D
+  =0D
+    <tr>=0D
+      <td><table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"13"></td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #9999=
+99; font-size: 11px; font-weight:bold;">DEADLINE</td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"9"></td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 16px; font-weight: bold;">December 1, 2023</td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+  =0D
+</table></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+      =0D
+       <table width=3D"250" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0" align=3D"left">=0D
+  =0D
+    <tr>=0D
+      <td><table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"13"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #9999=
+99; font-size: 11px; font-weight:bold;">PROVIDER</td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"9"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 16px; font-weight: bold;">Connect Worldwide, Inc. </td>=0D=
+
+    </tr>=0D
+  =0D
+</table></td>=0D
+    </tr>=0D
+=0D
+</table>=0D
+      =0D
+      </td>=0D
+    </tr>=0D
+    =0D
+    <tr><td>=0D
+    =0D
+    <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"20"></td>=0D
+    </tr>=0D
+=0D
+</table>=0D
+=0D
+</td></tr>=0D
+=0D
+=0D
+<!-- Apply now button begin -->=0D
+=0D
+<tr>=0D
+     <td>=0D
+     =0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+    =0D
+      <td>=0D
+      =0D
+     <table border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D
+        <tr>=0D
+          <td align=3D"center" style=3D"-webkit-border-radius: 5px; -moz-=
+border-radius: 5px; border-radius: 5px;" bgcolor=3D"#ffffff"><a href=3D"h=
+ttps://www.fastweb.com/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB2=
+22FB9B9F01176B6CFCDB2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fas=
+tweb.com%2F%2Fcollege-scholarships%2Fscholarships%2F151611-connect-future=
+-leaders-in-technology-scholarship%3Futm_campaign%3Ddeadline%26utm_medium=
+%3Demail%26utm_source%3Daward&amp;original_send_date=3D2023_11_05&amp;sou=
+rce=3DAwardNotificationSend&amp;version=3DAwardDeadline" target=3D"_blank=
+" style=3D"font-size: 14px; font-family: Helvetica, Arial, sans-serif; co=
+lor: #0099cc; text-decoration: none; text-decoration: none; -webkit-borde=
+r-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; padding: 17px=
+ 18px; border: 1px solid #0099cc; display: inline-block; width: 150px;" c=
+lass=3D"btn3"><strong>=0D
+I WILL APPLY=0D
+</strong></a></td>=0D
+        </tr>=0D
+      </table>=0D
+=0D
+</td>=0D
+=0D
+    </tr>=0D
+  =0D
+</table>=0D
+    </td>=0D
+</tr>=0D
+=0D
+<!-- Apply now button end -->=0D
+  =0D
+</table>=0D
+      =0D
+      </td>=0D
+</table>=0D
+        =0D
+        =0D
+        =0D
+        </td>=0D
+        =0D
+        =0D
+        =0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td bgcolor=3D"#d5e6f1" height=3D"1" class=3D"hrheight2"></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+    =0D
+    </td>=0D
+</tr>=0D
+    =0D
+      <!-- Award #1 End -->=0D
+  =0D
+   =0D
+     =0D
+     <!-- Award #1 Start -->=0D
+         =0D
+  <tr>=0D
+    <td>=0D
+    =0D
+    <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+" class=3D"header">=0D
+   =0D
+    <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td width=3D"20"></td>=0D
+        =0D
+        =0D
+        =0D
+        =0D
+      <td align=3D"left">=0D
+        =0D
+        <table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0">=0D
+<td align=3D"left">=0D
+      =0D
+      <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0">=0D
+  =0D
+=0D
+<!-- chiclets start -->=0D
+<tr>=0D
+<td height=3D"15">=0D
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D
+<tbody>=0D
+<tr>=0D
+ =0D
+  =0D
+</tr>=0D
+</tbody>=0D
+</table>=0D
+</td> =0D
+</tr>=0D
+<!-- chiclets end -->=0D
+=0D
+=0D
+=0D
+<tr><td height=3D"6"></td></tr>=0D
+=0D
+    <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 28px; font-weight:bold;"><a href=3D"https://www.fastweb.c=
+om/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB222FB9B9F01176B6CFCDB=
+2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fastweb.com%2F%2Fcolleg=
+e-scholarships%2Fscholarships%2F166244-lamber-and-goodnow-injury-law-team=
+-college-scholarship%3Futm_campaign%3Ddeadline%26utm_medium%3Demail%26utm=
+_source%3Daward&amp;original_send_date=3D2023_11_05&amp;source=3DAwardNot=
+ificationSend&amp;version=3DAwardDeadline" style=3D"color: #00334c ; text=
+-decoration: none;" target=3D"_blank">$1,000</a></td>=0D
+    </tr>=0D
+    =0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    =0D
+    <tr><td height=3D"4"></td></tr>=0D
+    =0D
+     <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0099=
+cc ; font-size: 18px; font-weight:bold;" class=3D"awardlink"><a href=3D"h=
+ttps://www.fastweb.com/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB2=
+22FB9B9F01176B6CFCDB2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fas=
+tweb.com%2F%2Fcollege-scholarships%2Fscholarships%2F166244-lamber-and-goo=
+dnow-injury-law-team-college-scholarship%3Futm_campaign%3Ddeadline%26utm_=
+medium%3Demail%26utm_source%3Daward&amp;original_send_date=3D2023_11_05&a=
+mp;source=3DAwardNotificationSend&amp;version=3DAwardDeadline" target=3D"=
+_blank" style=3D"color: #0099cc ;">Lamber and Goodnow Injury Law Team Col=
+lege Scholarship</a></td>=0D
+    </tr> =0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    =0D
+    =0D
+    <tr>=0D
+      <td>=0D
+      =0D
+ <table width=3D"170" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" al=
+ign=3D"left">=0D
+  =0D
+    <tr>=0D
+      <td><table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"13"></td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #9999=
+99; font-size: 11px; font-weight:bold;">DEADLINE</td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"9"></td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 16px; font-weight: bold;">December 1, 2023</td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+  =0D
+</table></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+      =0D
+       <table width=3D"250" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0" align=3D"left">=0D
+  =0D
+    <tr>=0D
+      <td><table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"13"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #9999=
+99; font-size: 11px; font-weight:bold;">PROVIDER</td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"9"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 16px; font-weight: bold;">Lamber &amp; Goodnow Injury Law=
+ Team</td>=0D
+    </tr>=0D
+  =0D
+</table></td>=0D
+    </tr>=0D
+=0D
+</table>=0D
+      =0D
+      </td>=0D
+    </tr>=0D
+    =0D
+    <tr><td>=0D
+    =0D
+    <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"20"></td>=0D
+    </tr>=0D
+=0D
+</table>=0D
+=0D
+</td></tr>=0D
+=0D
+=0D
+<!-- Apply now button begin -->=0D
+=0D
+<tr>=0D
+     <td>=0D
+     =0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+    =0D
+      <td>=0D
+      =0D
+     <table border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D
+        <tr>=0D
+          <td align=3D"center" style=3D"-webkit-border-radius: 5px; -moz-=
+border-radius: 5px; border-radius: 5px;" bgcolor=3D"#ffffff"><a href=3D"h=
+ttps://www.fastweb.com/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB2=
+22FB9B9F01176B6CFCDB2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fas=
+tweb.com%2F%2Fcollege-scholarships%2Fscholarships%2F166244-lamber-and-goo=
+dnow-injury-law-team-college-scholarship%3Futm_campaign%3Ddeadline%26utm_=
+medium%3Demail%26utm_source%3Daward&amp;original_send_date=3D2023_11_05&a=
+mp;source=3DAwardNotificationSend&amp;version=3DAwardDeadline" target=3D"=
+_blank" style=3D"font-size: 14px; font-family: Helvetica, Arial, sans-ser=
+if; color: #0099cc; text-decoration: none; text-decoration: none; -webkit=
+-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; padding=
+: 17px 18px; border: 1px solid #0099cc; display: inline-block; width: 150=
+px;" class=3D"btn3"><strong>=0D
+I WILL APPLY=0D
+</strong></a></td>=0D
+        </tr>=0D
+      </table>=0D
+=0D
+</td>=0D
+=0D
+    </tr>=0D
+  =0D
+</table>=0D
+    </td>=0D
+</tr>=0D
+=0D
+<!-- Apply now button end -->=0D
+  =0D
+</table>=0D
+      =0D
+      </td>=0D
+</table>=0D
+        =0D
+        =0D
+        =0D
+        </td>=0D
+        =0D
+        =0D
+        =0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td bgcolor=3D"#d5e6f1" height=3D"1" class=3D"hrheight2"></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+    =0D
+    </td>=0D
+</tr>=0D
+    =0D
+      <!-- Award #1 End -->=0D
+  =0D
+   =0D
+     =0D
+     <!-- Award #1 Start -->=0D
+         =0D
+  <tr>=0D
+    <td>=0D
+    =0D
+    <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+" class=3D"header">=0D
+   =0D
+    <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td width=3D"20"></td>=0D
+        =0D
+        =0D
+        =0D
+        =0D
+      <td align=3D"left">=0D
+        =0D
+        <table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0">=0D
+<td align=3D"left">=0D
+      =0D
+      <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0">=0D
+  =0D
+=0D
+<!-- chiclets start -->=0D
+<tr>=0D
+<td height=3D"15">=0D
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D
+<tbody>=0D
+<tr>=0D
+ =0D
+  =0D
+</tr>=0D
+</tbody>=0D
+</table>=0D
+</td> =0D
+</tr>=0D
+<!-- chiclets end -->=0D
+=0D
+=0D
+=0D
+<tr><td height=3D"6"></td></tr>=0D
+=0D
+    <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 28px; font-weight:bold;"><a href=3D"https://www.fastweb.c=
+om/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB222FB9B9F01176B6CFCDB=
+2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fastweb.com%2F%2Fcolleg=
+e-scholarships%2Fscholarships%2F166168-look-twice-save-a-life-scholarship=
+%3Futm_campaign%3Ddeadline%26utm_medium%3Demail%26utm_source%3Daward&amp;=
+original_send_date=3D2023_11_05&amp;source=3DAwardNotificationSend&amp;ve=
+rsion=3DAwardDeadline" style=3D"color: #00334c ; text-decoration: none;" =
+target=3D"_blank">$1,000</a></td>=0D
+    </tr>=0D
+    =0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    =0D
+    <tr><td height=3D"4"></td></tr>=0D
+    =0D
+     <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0099=
+cc ; font-size: 18px; font-weight:bold;" class=3D"awardlink"><a href=3D"h=
+ttps://www.fastweb.com/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB2=
+22FB9B9F01176B6CFCDB2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fas=
+tweb.com%2F%2Fcollege-scholarships%2Fscholarships%2F166168-look-twice-sav=
+e-a-life-scholarship%3Futm_campaign%3Ddeadline%26utm_medium%3Demail%26utm=
+_source%3Daward&amp;original_send_date=3D2023_11_05&amp;source=3DAwardNot=
+ificationSend&amp;version=3DAwardDeadline" target=3D"_blank" style=3D"col=
+or: #0099cc ;">Look Twice, Save A Life Scholarship</a></td>=0D
+    </tr> =0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    =0D
+    =0D
+    <tr>=0D
+      <td>=0D
+      =0D
+ <table width=3D"170" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" al=
+ign=3D"left">=0D
+  =0D
+    <tr>=0D
+      <td><table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"13"></td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #9999=
+99; font-size: 11px; font-weight:bold;">DEADLINE</td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"9"></td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 16px; font-weight: bold;">December 1, 2023</td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+  =0D
+</table></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+      =0D
+       <table width=3D"250" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0" align=3D"left">=0D
+  =0D
+    <tr>=0D
+      <td><table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"13"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #9999=
+99; font-size: 11px; font-weight:bold;">PROVIDER</td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"9"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 16px; font-weight: bold;">InsuranceProviders.com</td>=0D
+    </tr>=0D
+  =0D
+</table></td>=0D
+    </tr>=0D
+=0D
+</table>=0D
+      =0D
+      </td>=0D
+    </tr>=0D
+    =0D
+    <tr><td>=0D
+    =0D
+    <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"20"></td>=0D
+    </tr>=0D
+=0D
+</table>=0D
+=0D
+</td></tr>=0D
+=0D
+=0D
+<!-- Apply now button begin -->=0D
+=0D
+<tr>=0D
+     <td>=0D
+     =0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+    =0D
+      <td>=0D
+      =0D
+     <table border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D
+        <tr>=0D
+          <td align=3D"center" style=3D"-webkit-border-radius: 5px; -moz-=
+border-radius: 5px; border-radius: 5px;" bgcolor=3D"#ffffff"><a href=3D"h=
+ttps://www.fastweb.com/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB2=
+22FB9B9F01176B6CFCDB2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fas=
+tweb.com%2F%2Fcollege-scholarships%2Fscholarships%2F166168-look-twice-sav=
+e-a-life-scholarship%3Futm_campaign%3Ddeadline%26utm_medium%3Demail%26utm=
+_source%3Daward&amp;original_send_date=3D2023_11_05&amp;source=3DAwardNot=
+ificationSend&amp;version=3DAwardDeadline" target=3D"_blank" style=3D"fon=
+t-size: 14px; font-family: Helvetica, Arial, sans-serif; color: #0099cc; =
+text-decoration: none; text-decoration: none; -webkit-border-radius: 5px;=
+ -moz-border-radius: 5px; border-radius: 5px; padding: 17px 18px; border:=
+ 1px solid #0099cc; display: inline-block; width: 150px;" class=3D"btn3">=
+<strong>=0D
+I WILL APPLY=0D
+</strong></a></td>=0D
+        </tr>=0D
+      </table>=0D
+=0D
+</td>=0D
+=0D
+    </tr>=0D
+  =0D
+</table>=0D
+    </td>=0D
+</tr>=0D
+=0D
+<!-- Apply now button end -->=0D
+  =0D
+</table>=0D
+      =0D
+      </td>=0D
+</table>=0D
+        =0D
+        =0D
+        =0D
+        </td>=0D
+        =0D
+        =0D
+        =0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td bgcolor=3D"#d5e6f1" height=3D"1" class=3D"hrheight2"></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+    =0D
+    </td>=0D
+</tr>=0D
+    =0D
+      <!-- Award #1 End -->=0D
+  =0D
+   =0D
+     =0D
+     <!-- Award #1 Start -->=0D
+         =0D
+  <tr>=0D
+    <td>=0D
+    =0D
+    <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+" class=3D"header">=0D
+   =0D
+    <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td width=3D"20"></td>=0D
+        =0D
+        =0D
+        =0D
+        =0D
+      <td align=3D"left">=0D
+        =0D
+        <table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0">=0D
+<td align=3D"left">=0D
+      =0D
+      <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0">=0D
+  =0D
+=0D
+<!-- chiclets start -->=0D
+<tr>=0D
+<td height=3D"15">=0D
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D
+<tbody>=0D
+<tr>=0D
+ =0D
+  =0D
+</tr>=0D
+</tbody>=0D
+</table>=0D
+</td> =0D
+</tr>=0D
+<!-- chiclets end -->=0D
+=0D
+=0D
+=0D
+<tr><td height=3D"6"></td></tr>=0D
+=0D
+    <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 28px; font-weight:bold;"><a href=3D"https://www.fastweb.c=
+om/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB222FB9B9F01176B6CFCDB=
+2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fastweb.com%2F%2Fcolleg=
+e-scholarships%2Fscholarships%2F185096-ronald-v-dellums-memorial-smart-sc=
+holarship%3Futm_campaign%3Ddeadline%26utm_medium%3Demail%26utm_source%3Da=
+ward&amp;original_send_date=3D2023_11_05&amp;source=3DAwardNotificationSe=
+nd&amp;version=3DAwardDeadline" style=3D"color: #00334c ; text-decoration=
+: none;" target=3D"_blank">Amount Varies</a></td>=0D
+    </tr>=0D
+    =0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    =0D
+    <tr><td height=3D"4"></td></tr>=0D
+    =0D
+     <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0099=
+cc ; font-size: 18px; font-weight:bold;" class=3D"awardlink"><a href=3D"h=
+ttps://www.fastweb.com/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB2=
+22FB9B9F01176B6CFCDB2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fas=
+tweb.com%2F%2Fcollege-scholarships%2Fscholarships%2F185096-ronald-v-dellu=
+ms-memorial-smart-scholarship%3Futm_campaign%3Ddeadline%26utm_medium%3Dem=
+ail%26utm_source%3Daward&amp;original_send_date=3D2023_11_05&amp;source=3D=
+AwardNotificationSend&amp;version=3DAwardDeadline" target=3D"_blank" styl=
+e=3D"color: #0099cc ;">Ronald V. Dellums Memorial SMART Scholarship</a></=
+td>=0D
+    </tr> =0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    =0D
+    =0D
+    <tr>=0D
+      <td>=0D
+      =0D
+ <table width=3D"170" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" al=
+ign=3D"left">=0D
+  =0D
+    <tr>=0D
+      <td><table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"13"></td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #9999=
+99; font-size: 11px; font-weight:bold;">DEADLINE</td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"9"></td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 16px; font-weight: bold;">December 1, 2023</td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+  =0D
+</table></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+      =0D
+       <table width=3D"250" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0" align=3D"left">=0D
+  =0D
+    <tr>=0D
+      <td><table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"13"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #9999=
+99; font-size: 11px; font-weight:bold;">PROVIDER</td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"9"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 16px; font-weight: bold;">United States Department of Def=
+ense (DoD)</td>=0D
+    </tr>=0D
+  =0D
+</table></td>=0D
+    </tr>=0D
+=0D
+</table>=0D
+      =0D
+      </td>=0D
+    </tr>=0D
+    =0D
+    <tr><td>=0D
+    =0D
+    <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"20"></td>=0D
+    </tr>=0D
+=0D
+</table>=0D
+=0D
+</td></tr>=0D
+=0D
+=0D
+<!-- Apply now button begin -->=0D
+=0D
+<tr>=0D
+     <td>=0D
+     =0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+    =0D
+      <td>=0D
+      =0D
+     <table border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D
+        <tr>=0D
+          <td align=3D"center" style=3D"-webkit-border-radius: 5px; -moz-=
+border-radius: 5px; border-radius: 5px;" bgcolor=3D"#ffffff"><a href=3D"h=
+ttps://www.fastweb.com/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB2=
+22FB9B9F01176B6CFCDB2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fas=
+tweb.com%2F%2Fcollege-scholarships%2Fscholarships%2F185096-ronald-v-dellu=
+ms-memorial-smart-scholarship%3Futm_campaign%3Ddeadline%26utm_medium%3Dem=
+ail%26utm_source%3Daward&amp;original_send_date=3D2023_11_05&amp;source=3D=
+AwardNotificationSend&amp;version=3DAwardDeadline" target=3D"_blank" styl=
+e=3D"font-size: 14px; font-family: Helvetica, Arial, sans-serif; color: #=
+0099cc; text-decoration: none; text-decoration: none; -webkit-border-radi=
+us: 5px; -moz-border-radius: 5px; border-radius: 5px; padding: 17px 18px;=
+ border: 1px solid #0099cc; display: inline-block; width: 150px;" class=3D=
+"btn3"><strong>=0D
+I WILL APPLY=0D
+</strong></a></td>=0D
+        </tr>=0D
+      </table>=0D
+=0D
+</td>=0D
+=0D
+    </tr>=0D
+  =0D
+</table>=0D
+    </td>=0D
+</tr>=0D
+=0D
+<!-- Apply now button end -->=0D
+  =0D
+</table>=0D
+      =0D
+      </td>=0D
+</table>=0D
+        =0D
+        =0D
+        =0D
+        </td>=0D
+        =0D
+        =0D
+        =0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td bgcolor=3D"#d5e6f1" height=3D"1" class=3D"hrheight2"></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+    =0D
+    </td>=0D
+</tr>=0D
+    =0D
+      <!-- Award #1 End -->=0D
+  =0D
+   =0D
+=0D
+  =0D
+  =0D
+     =0D
+     <!-- Award #1 Start -->=0D
+         =0D
+  <tr>=0D
+    <td>=0D
+    =0D
+    <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+" class=3D"header">=0D
+   =0D
+    <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td width=3D"20"></td>=0D
+        =0D
+        =0D
+        =0D
+        =0D
+      <td align=3D"left">=0D
+        =0D
+        <table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0">=0D
+<td align=3D"left">=0D
+      =0D
+      <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0">=0D
+  =0D
+=0D
+<!-- chiclets start -->=0D
+<tr>=0D
+<td height=3D"15">=0D
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D
+<tbody>=0D
+<tr>=0D
+ =0D
+ =0D
+<td>=0D
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" bgcolor=3D"#ff990=
+0">=0D
+<tr>=0D
+<td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+<tr>=0D
+<td width=3D"8"></td>=0D
+<td height=3D"20" style=3D"font-family:sans-serif;font-size:9px;line-heig=
+ht:18px;text-align:center; color: #FFFFFF;" valign=3D"middle">Top Scholar=
+ship</td>=0D
+<td width=3D"8"></td>=0D
+</tr>=0D
+</table> =0D
+</td>=0D
+</tr>=0D
+</table>=0D
+</td>=0D
+<td width=3D"10"> </td>=0D
+  =0D
+</tr>=0D
+</tbody>=0D
+</table>=0D
+</td> =0D
+</tr>=0D
+<!-- chiclets end -->=0D
+=0D
+=0D
+=0D
+<tr><td height=3D"6"></td></tr>=0D
+=0D
+    <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 28px; font-weight:bold;"><a href=3D"https://www.fastweb.c=
+om/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB222FB9B9F01176B6CFCDB=
+2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fastweb.com%2F%2Fcolleg=
+e-scholarships%2Fscholarships%2F164621-national-space-club-keynote-schola=
+rship%3Futm_campaign%3Ddeadline%26utm_medium%3Demail%26utm_source%3Daward=
+&amp;original_send_date=3D2023_11_05&amp;source=3DAwardNotificationSend&a=
+mp;version=3DAwardDeadline" style=3D"color: #00334c ; text-decoration: no=
+ne;" target=3D"_blank">$15,000</a></td>=0D
+    </tr>=0D
+    =0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    =0D
+    <tr><td height=3D"4"></td></tr>=0D
+    =0D
+     <tr>=0D
+      <td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0099=
+cc ; font-size: 18px; font-weight:bold;" class=3D"awardlink"><a href=3D"h=
+ttps://www.fastweb.com/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB2=
+22FB9B9F01176B6CFCDB2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fas=
+tweb.com%2F%2Fcollege-scholarships%2Fscholarships%2F164621-national-space=
+-club-keynote-scholarship%3Futm_campaign%3Ddeadline%26utm_medium%3Demail%=
+26utm_source%3Daward&amp;original_send_date=3D2023_11_05&amp;source=3DAwa=
+rdNotificationSend&amp;version=3DAwardDeadline" target=3D"_blank" style=3D=
+"color: #0099cc ;">National Space Club Keynote Scholarship</a></td>=0D
+    </tr> =0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    =0D
+    =0D
+    <tr>=0D
+      <td>=0D
+      =0D
+ <table width=3D"170" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" al=
+ign=3D"left">=0D
+  =0D
+    <tr>=0D
+      <td><table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"13"></td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #9999=
+99; font-size: 11px; font-weight:bold;">DEADLINE</td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"9"></td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 16px; font-weight: bold;">December 4, 2023</td>=0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+  =0D
+</table></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+      =0D
+       <table width=3D"250" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0" align=3D"left">=0D
+  =0D
+    <tr>=0D
+      <td><table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"13"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #9999=
+99; font-size: 11px; font-weight:bold;">PROVIDER</td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"9"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td style=3D"font-family:Helvetica, Arial, sans-serif; color: #0033=
+4c ; font-size: 16px; font-weight: bold;">National Space Club</td>=0D
+    </tr>=0D
+  =0D
+</table></td>=0D
+    </tr>=0D
+=0D
+</table>=0D
+      =0D
+      </td>=0D
+    </tr>=0D
+    =0D
+    <tr><td>=0D
+    =0D
+    <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+">=0D
+  =0D
+    <tr>=0D
+      <td height=3D"20"></td>=0D
+    </tr>=0D
+=0D
+</table>=0D
+=0D
+</td></tr>=0D
+=0D
+=0D
+<!-- Apply now button begin -->=0D
+=0D
+<tr>=0D
+     <td>=0D
+     =0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+    =0D
+      <td>=0D
+      =0D
+     <table border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D
+        <tr>=0D
+          <td align=3D"center" style=3D"-webkit-border-radius: 5px; -moz-=
+border-radius: 5px; border-radius: 5px;" bgcolor=3D"#ffffff"><a href=3D"h=
+ttps://www.fastweb.com/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB2=
+22FB9B9F01176B6CFCDB2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fas=
+tweb.com%2F%2Fcollege-scholarships%2Fscholarships%2F164621-national-space=
+-club-keynote-scholarship%3Futm_campaign%3Ddeadline%26utm_medium%3Demail%=
+26utm_source%3Daward&amp;original_send_date=3D2023_11_05&amp;source=3DAwa=
+rdNotificationSend&amp;version=3DAwardDeadline" target=3D"_blank" style=3D=
+"font-size: 14px; font-family: Helvetica, Arial, sans-serif; color: #0099=
+cc; text-decoration: none; text-decoration: none; -webkit-border-radius: =
+5px; -moz-border-radius: 5px; border-radius: 5px; padding: 17px 18px; bor=
+der: 1px solid #0099cc; display: inline-block; width: 150px;" class=3D"bt=
+n3"><strong>=0D
+I WILL APPLY=0D
+</strong></a></td>=0D
+        </tr>=0D
+      </table>=0D
+=0D
+</td>=0D
+=0D
+    </tr>=0D
+  =0D
+</table>=0D
+    </td>=0D
+</tr>=0D
+=0D
+<!-- Apply now button end -->=0D
+  =0D
+</table>=0D
+      =0D
+      </td>=0D
+</table>=0D
+        =0D
+        =0D
+        =0D
+        </td>=0D
+        =0D
+        =0D
+        =0D
+      <td width=3D"20"></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+</td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td height=3D"20"></td>=0D
+    </tr>=0D
+    <tr>=0D
+      <td bgcolor=3D"#d5e6f1" height=3D"1" class=3D"hrheight2"></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+    =0D
+    </td>=0D
+</tr>=0D
+    =0D
+      <!-- Award #1 End -->=0D
+  =0D
+   =0D
+ <!-- close group awards by deadline and then sort by amount -->=0D
+=0D
+=0D
+  =0D
+    =0D
+=0D
+    <tr><td height=3D"20"></td></tr>=0D
+    =0D
+    <!-- Big Button Start -->=0D
+ =0D
+     <tr>=0D
+     <td>=0D
+     =0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+    <tr>=0D
+    =0D
+      <td width=3D"20"></td>=0D
+      =0D
+      =0D
+      =0D
+      <td>=0D
+      =0D
+      =0D
+      =0D
+      =0D
+ <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  <tr>=0D
+    <td align=3D"center">=0D
+      <table border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D
+        <tr>=0D
+          <td align=3D"center" style=3D"-webkit-border-radius: 5px; -moz-=
+border-radius: 5px; border-radius: 5px;" bgcolor=3D"#ff9900"><a href=3D"h=
+ttps://www.fastweb.com/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB2=
+22FB9B9F01176B6CFCDB2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fas=
+tweb.com%2Fcollege-scholarships%2Fscholarships%3Futm_campaign%3Ddeadline%=
+26utm_medium%3Demail%26utm_source%3Daward&amp;original_send_date=3D2023_1=
+1_05&amp;source=3DAwardNotificationSend&amp;version=3DAwardDeadline" targ=
+et=3D"_blank" style=3D"font-size: 16px; font-family: Helvetica, Arial, sa=
+ns-serif; color: #ffffff; text-decoration: none; text-decoration: none; -=
+webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; p=
+adding-top: 25px; padding-bottom: 25px; border: 1px solid #ff9900; displa=
+y: inline-block; width: 280px;"><strong>SEE ALL DEADLINES</strong></a></t=
+d>=0D
+        </tr>=0D
+      </table>=0D
+    </td>=0D
+  </tr>=0D
+</table>=0D
+=0D
+=0D
+=0D
+ =0D
+=0D
+=0D
+=0D
+=0D
+=0D
+</td>=0D
+=0D
+      <td width=3D"20"></td>=0D
+      =0D
+    </tr>=0D
+  =0D
+</table>=0D
+    </td>=0D
+</tr>=0D
+    =0D
+       <!-- Big Button End -->=0D
+       =0D
+       =0D
+    <tr><td height=3D"35"></td></tr>=0D
+    =0D
+    =0D
+    =0D
+      <tr>=0D
+    <td align=3D"center">=0D
+    =0D
+    <!-- 300x250 ad begin -->=0D
+=0D
+    <a href=3D"https://lax1-ib.adnxs.com/click2?e=3DwqT_3QKYAfCBmAAAAAMAx=
+BkFAQjim6SqBhCVpoiE3pm8tjAY--yp7qTgq9pnIISTzwcoxRswxRs4AkCKqZykAUjP4VlQAF=
+oDVVNEYgNVU0RoAXABeM6nTYAB7e4FiAEBkAECmAEDoAECqQFHrMWnAAA0QLEBR6zFpwAANEC=
+5AQAAAAAAAOA_wQFHrAkUPMkBR6zFpwAANEDYAQDgAQA./s=3D42dbcb0bd52080aa3d1a964=
+da66b5a6521dec98a/bcr=3DAAAAAAAA8D8=3D/pp=3D%24%7BAUCTION_PRICE%7D/cnd=3D=
+%21bxHo3Qj7tZMaEIqpnKQBGM_hWSAEKAAxAAAAAAAANEA6CUxBWDE6NTk0OED0REkAAAAAAA=
+DwP1EAAAAAAAAAAFkAAAAAAAAAAGEAAAAAAAAAAGkAAAAAAAAAAHEAAAAAAAAAAHgAiQEAAAA=
+AAADwPw../cca=3DMzUyNSNMQVgxOjU5NDg=3D/bn=3D96109/clickenc=3Dhttps%3A%2F%=
+2Fsecure.adnxs.com%2Fclktrb%3Fid%3D785370%26cachebuster%3D169928649923035=
+1890%26referrer%3Dfastweb.com"><img src=3D"http://crcdn01.adnxs-simple.co=
+m/creative20/p/3525/2023/10/2/50701732/210f47e5-3c66-42fc-a8ab-015c345090=
+0e.jpg" width=3D"300" height=3D"250"></a>=0D
+    =0D
+    <!-- 300x250 ad end -->=0D
+ =0D
+    =0D
+    =0D
+    </td>=0D
+  </tr>=0D
+  =0D
+  =0D
+  =0D
+  <tr><td height=3D"25"></td></tr>=0D
+  =0D
+  =0D
+    </table>=0D
+    </td>=0D
+    </tr>=0D
+    =0D
+    =0D
+    =0D
+  <tr>=0D
+      <td align=3D"center"><table width=3D"600" border=3D"0" cellspacing=3D=
+"0" cellpadding=3D"0" align=3D"center" bgcolor=3D"#e1f3ff" style=3D"backg=
+round-color: #e1f3ff;" class=3D"header">=0D
+      =0D
+<tr>=0D
+<td width=3D"20"></td>=0D
+=0D
+<td>=0D
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0D=
+
+  =0D
+          <tr><td height=3D"20"></td></tr>=0D
+      =0D
+      <tr><td align=3D"center">=0D
+      =0D
+      <table border=3D"0" cellspacing=3D"0" cellpadding=3D"10">=0D
+  =0D
+    <tr>=0D
+      <td align=3D"center"><a href=3D"https://www.fastweb.com/tracking/ex=
+t?ee=3D842EEE6E54A43EF62807FE56295F5AB222FB9B9F01176B6CFCDB2D75EF0D99C5&a=
+mp;landing_page=3Dhttps%3A%2F%2Fwww.facebook.com%2Fpayingforschool%3Futm_=
+campaign%3Ddeadline%26utm_medium%3Demail%26utm_source%3Daward&amp;origina=
+l_send_date=3D2023_11_05&amp;source=3DAwardNotificationSend&amp;version=3D=
+AwardDeadline" target=3D"_blank"><img src=3D"https://www.fastweb.com/nfs/=
+fastweb/static/2017/notifications/facebook.png" width=3D"30" height=3D"30=
+" alt=3D"facebook" border=3D"0"></a></td>=0D
+      <td align=3D"center"><a href=3D"https://www.fastweb.com/tracking/ex=
+t?ee=3D842EEE6E54A43EF62807FE56295F5AB222FB9B9F01176B6CFCDB2D75EF0D99C5&a=
+mp;landing_page=3Dhttps%3A%2F%2Fwww.twitter.com%2Fpayingforschool%3Futm_c=
+ampaign%3Ddeadline%26utm_medium%3Demail%26utm_source%3Daward&amp;original=
+_send_date=3D2023_11_05&amp;source=3DAwardNotificationSend&amp;version=3D=
+AwardDeadline" target=3D"_blank"><img src=3D"https://www.fastweb.com/nfs/=
+fastweb/static/2017/notifications/twitter.png" width=3D"30" height=3D"30"=
+ alt=3D"twitter" border=3D"0"></a></td>=0D
+      =0D
+      <td align=3D"center"><a href=3D"https://www.fastweb.com/tracking/ex=
+t?ee=3D842EEE6E54A43EF62807FE56295F5AB222FB9B9F01176B6CFCDB2D75EF0D99C5&a=
+mp;landing_page=3Dhttps%3A%2F%2Fwww.pinterest.com%2FPayingForSchool%3Futm=
+_campaign%3Ddeadline%26utm_medium%3Demail%26utm_source%3Daward&amp;origin=
+al_send_date=3D2023_11_05&amp;source=3DAwardNotificationSend&amp;version=3D=
+AwardDeadline" target=3D"_blank"><img src=3D"https://www.fastweb.com/nfs/=
+fastweb/static/2017/notifications/pinterest.png" width=3D"30" height=3D"3=
+0" alt=3D"pinterest" border=3D"0"></a></td>=0D
+      <td align=3D"center"><a href=3D"https://www.instagram.com/payingfor=
+school/" target=3D"_blank"><img src=3D"https://www.fastweb.com/nfs/fastwe=
+b/static/2017/notifications/instagram.png" width=3D"30" height=3D"30" alt=
+=3D"instagram" border=3D"0"></a></td>=0D
+      =0D
+    </tr>=0D
+=0D
+</table>=0D
+      =0D
+      =0D
+      </td></tr>=0D
+      =0D
+      <tr><td height=3D"14"></td></tr>=0D
+      =0D
+      =0D
+      =0D
+      =0D
+      =0D
+  <tr>=0D
+    <td align=3D"center" style=3D"font-family: Helvetica, Arial, sans-ser=
+if; color: #9ca0a4 ; font-size: 11px; line-height: 1.5em;">This email was=
+ sent to <a href=3D"mailto:alpha1.liz56@gmail.com" style=3D"color: #9ca0a=
+4; text-decoration: none;">alpha1.liz56@gmail.com</a>.<br><br><a href=3D"=
+https://www.fastweb.com/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB=
+222FB9B9F01176B6CFCDB2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fa=
+stweb.com%2Fcollege-scholarships%2Fscholarships%3Futm_campaign%3D2019%26u=
+tm_campaign%3Ddeadline%26utm_content%3Dmyscholarships%26utm_medium%3Demai=
+l%26utm_medium%3Demail%26utm_source%3Daward%26utm_source%3Ddeadline-notif=
+ication&amp;original_send_date=3D2023_11_05&amp;source=3DAwardNotificatio=
+nSend&amp;version=3DAwardDeadline" style=3D"color: #0099cc; text-decorati=
+on: none;" target=3D"_blank" xt=3D"SPCLICK" name=3D"footer_solo_edit">Acc=
+ess My Scholarships</a><br><br><a href=3D"https://www.fastweb.com/trackin=
+g/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB222FB9B9F01176B6CFCDB2D75EF0D99=
+C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fastweb.com%2Faccount%2Faccount_s=
+ettings%3Futm_campaign%3Ddeadline%26utm_medium%3Demail%26utm_source%3Dawa=
+rd&amp;original_send_date=3D2023_11_05&amp;source=3DAwardNotificationSend=
+&amp;version=3DAwardDeadline" style=3D"color: #0099cc ; text-decoration: =
+none;" target=3D"_blank">My Profile</a> | <a href=3D"https://www.fastweb.=
+com/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB222FB9B9F01176B6CFCD=
+B2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fastweb.com%2Funsubscr=
+ibe%3Fee%3D842EEE6E54A43EF62807FE56295F5AB222FB9B9F01176B6CFCDB2D75EF0D99=
+C5%26email_list_id%3D11%26utm_campaign%3Ddeadline%26utm_medium%3Demail%26=
+utm_source%3Daward&amp;original_send_date=3D2023_11_05&amp;source=3DAward=
+NotificationSend&amp;version=3DAwardDeadline" style=3D"color: #0099cc; te=
+xt-decoration: none;" target=3D"_blank">Unsubscribe</a> | <a href=3D"http=
+s://www.fastweb.com/tracking/ext?ee=3D842EEE6E54A43EF62807FE56295F5AB222F=
+B9B9F01176B6CFCDB2D75EF0D99C5&amp;landing_page=3Dhttps%3A%2F%2Fwww.fastwe=
+b.com%2Fprivacy%3Futm_campaign%3Ddeadline%26utm_medium%3Demail%26utm_sour=
+ce%3Daward&amp;original_send_date=3D2023_11_05&amp;source=3DAwardNotifica=
+tionSend&amp;version=3DAwardDeadline" style=3D"color: #0099cc; text-decor=
+ation: none;" target=3D"_blank">Privacy Policy</a><br><br>=0D
+Fastweb, LLC =E2=80=A2 133 Boston Post Rd =E2=80=A2 Weston, MA 02493<br>=0D=
+
+Copyright =C2=A92023. All rights reserved.<br><br>=0D
+</td>=0D
+</tr>=0D
+=0D
+=0D
+<tr>=0D
+  <td align=3D"center"><img src=3D"https://www.fastweb.com/nfs/fastweb/st=
+atic/2019/notifications/a-monster-company_250x24@2x.png" width=3D"125" al=
+t=3D"A MONSTER COMPANY"></td>=0D
+</tr>=0D
+=0D
+<tr><td height=3D"20"></td></tr>=0D
+=0D
+ <tr>=0D
+    <td align=3D"center" style=3D"font-family: Helvetica, Arial, sans-ser=
+if; color: #9ca0a4 ; font-size: 11px; line-height: 1.5em;">=0D
+<span style=3D"font-size: 16px; font-weight:bold">Download the Fastweb Ap=
+p<br></span>=0D
+</td>=0D
+</tr>=0D
+=0D
+=0D
+=0D
+   <tr><td align=3D"center">=0D
+      =0D
+      <table border=3D"0" cellspacing=3D"0" cellpadding=3D"10">=0D
+  =0D
+    <tr>=0D
+      <td align=3D"center"><a href=3D"https://itunes.apple.com/us/app/fas=
+tweb-college-scholarships/id1105307315?mt=3D8" target=3D"_blank"><img src=
+=3D"https://www.fastweb.com/uploads/widget_photo/photo/2037246/appstore-l=
+rg-apple.png" width=3D"90" alt=3D"Download on the App Store" border=3D"0"=
+></a></td>=0D
+      <td align=3D"center"><a href=3D"https://play.google.com/store/apps/=
+details?id=3Dcom.fastweb.scholarships" target=3D"_blank"><img src=3D"http=
+s://www.fastweb.com/uploads/widget_photo/photo/2037245/appstore-lrg.png" =
+width=3D"90" alt=3D"Get it on Google Play" border=3D"0"></a></td>=0D
+   =0D
+    </tr>=0D
+  =0D
+</table>=0D
+      =0D
+      =0D
+      </td></tr>=0D
+      =0D
+      =0D
+        <tr>=0D
+    <td align=3D"center" style=3D"font-family: Helvetica, Arial, sans-ser=
+if; color: #9ca0a4 ; font-size: 11px; line-height: 1.5em;">Apple, the and=
+ Apple logo are trademarks of Apple Inc., registered in the U.S. and othe=
+r countries. App Store is a service mark of Apple Inc., registered in the=
+ U.S. and other countries.<br><br>=0D
+=0D
+Google Play and the Google Play logo are trademarks of Google Inc.=0D
+</td>=0D
+</tr>=0D
+=0D
+<tr><td height=3D"20"></td></tr>=0D
+=0D
+=0D
+=0D
+=0D
+  =0D
+</table>=0D
+</td>=0D
+=0D
+<td width=3D"20"></td>=0D
+</tr>=0D
+=0D
+</table></td>=0D
+    </tr>=0D
+  =0D
+</table>=0D
+        =0D
+    =0D
+    =0D
+    </td>=0D
+    </tr>=0D
+    </table>=0D
+   =0D
+   =0D
+   =0D
+     <!-- campaignid: affinitylabs_fastweb_%%JOB_ID_CODE%% -->=0D
+        <img style=3D"display:block;" width=3D"1" height=3D"1" src=3D"htt=
+ps://pixel.monitor1.returnpath.net/pixel.gif?r=3DjUk0DZvfAy3OXTqoXt4lGH8U=
+kg&amp;c=3D32345&amp;Fastweb=3Dawards">=0D
+<!-- rptags: iris, deadline -->=0D
+   =0D
+<img style=3D"display:block;" width=3D"1" height=3D"1" src=3D"https://www=
+.fastweb.com/tracking/pixel?ee=3D842EEE6E54A43EF62807FE56295F5AB222FB9B9F=
+01176B6CFCDB2D75EF0D99C5&amp;original_send_date=3D2023_11_05&amp;source=3D=
+AwardNotificationSend&amp;version=3DAwardDeadline">=0D
+ =0D
+   =0D
+   =0D
+   =0D
+   =0D
+   </div>=0D
+   =0D
+   </body>=0D
+   </html>=0D
+
+----==_mimepart_65490df05bae6_1c186911945433--

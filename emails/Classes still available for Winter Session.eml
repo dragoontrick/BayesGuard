@@ -1,0 +1,440 @@
+Received: from SA1PR08MB7038.namprd08.prod.outlook.com (2603:10b6:806:1a9::19)
+ by SJ0PR08MB6494.namprd08.prod.outlook.com with HTTPS; Mon, 13 Nov 2023
+ 21:05:05 +0000
+Received: from SJ0PR13CA0146.namprd13.prod.outlook.com (2603:10b6:a03:2c6::31)
+ by SA1PR08MB7038.namprd08.prod.outlook.com (2603:10b6:806:1a9::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6977.29; Mon, 13 Nov
+ 2023 21:05:03 +0000
+Received: from CO1PEPF000044F0.namprd05.prod.outlook.com
+ (2603:10b6:a03:2c6:cafe::3f) by SJ0PR13CA0146.outlook.office365.com
+ (2603:10b6:a03:2c6::31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7002.15 via Frontend
+ Transport; Mon, 13 Nov 2023 21:05:03 +0000
+Authentication-Results: spf=fail (sender IP is 148.163.156.229)
+ smtp.mailfrom=bounce.e.fullerton.edu; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=fullerton.edu;compauth=pass
+ reason=704
+Received-SPF: Fail (protection.outlook.com: domain of bounce.e.fullerton.edu
+ does not designate 148.163.156.229 as permitted sender)
+ receiver=protection.outlook.com; client-ip=148.163.156.229;
+ helo=mx0b-00039101.pphosted.com;
+Received: from mx0b-00039101.pphosted.com (148.163.156.229) by
+ CO1PEPF000044F0.mail.protection.outlook.com (10.167.241.70) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.7002.13 via Frontend Transport; Mon, 13 Nov 2023 21:05:03 +0000
+Received: from pps.filterd (m0099219.ppops.net [127.0.0.1])
+	by mx0a-00039101.pphosted.com (8.17.1.22/8.17.1.22) with ESMTP id 3ADGkRWI013823
+	for <eorellana96@csu.fullerton.edu>; Mon, 13 Nov 2023 13:05:03 -0800
+Authentication-Results-Original: ppops.net;	spf=pass
+ smtp.mailfrom=bounce-2047_HTML-146009474-2686844-100018121-82@bounce.e.fullerton.edu;
+	dmarc=pass header.from=fullerton.edu
+Received: from mta.e.fullerton.edu (mta.e.fullerton.edu [13.111.124.152])
+	by mx0a-00039101.pphosted.com (PPS) with ESMTPS id 3ua9wdbg8g-9
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT)
+	for <eorellana96@csu.fullerton.edu>; Mon, 13 Nov 2023 13:05:02 -0800 (PST)
+Received: by mta.e.fullerton.edu id haa7ns2fmd4f for <eorellana96@csu.fullerton.edu>; Mon, 13 Nov 2023 21:03:41 +0000 (envelope-from <bounce-2047_HTML-146009474-2686844-100018121-82@bounce.e.fullerton.edu>)
+From: "CSUF - Winter Session" <wintersession@fullerton.edu>
+To: <eorellana96@csu.fullerton.edu>
+Subject: Classes still available for Winter Session
+Date: Mon, 13 Nov 2023 15:03:41 -0600
+List-Unsubscribe: <https://click.e.fullerton.edu/subscription_center.aspx?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtaWQiOiIxMDAwMTgxMjEiLCJzIjoiMTQ2MDA5NDc0IiwibGlkIjoiMjA0NyIsImoiOiIyNjg2ODQ0IiwiamIiOiI4MiIsImQiOiIxMDAxOTUifQ.mnnmp8bKTPuYotL6ZxUJW-7pV9FdIcH0gg1rB_m9YR4>, <mailto:leave-fd1e167071636b2531492c-fe2c157473640474711374-fe8916767d620c7971-fe41157075640575741671-ff951c72@leave.e.fullerton.edu>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+x-CSA-Compliance-Source: SFMC
+Reply-To: "CSUF - Winter Session" <reply-fe8916767d620c7971-2047_HTML-146009474-100018121-82@e.fullerton.edu>
+List-ID: <100009040.xt.local>
+X-CSA-Complaints: csa-complaints@eco.de
+X-SFMC-Stack: 10
+x-job: 100018121_2686844
+Message-ID: <29be615b-e9ad-49d5-adc1-33ae63800361@dfw1s10mta806.xt.local>
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-ORIG-GUID: WcI4JNdc-X9JZwhxMUUyyCKEimCzRQwz
+X-Proofpoint-GUID: WcI4JNdc-X9JZwhxMUUyyCKEimCzRQwz
+X-CLX-Response: 1TFkXGRwSEQpMehcaEQpZRBdoQlpyYltZbXJ/ehEKWFgXZEVIfxtjZEheWUc RCnhOF2ByWEVwTE5HeWl+EQp4SxdkRUh/G2NkSF5ZRxEKeEwXaxlvXBp7f3sScxgRCnlMF2sZb1 wae397EnMYEQpDSBcHGxoZEQpDWRcHGxgcEQpDSRcaBBoaGhEKWU0XZ2ZyEQpZSRcacRoQGncGG
+ R4ScRkaGh8QGncGGBoGGhEKWV4XY25mEQpJRhdJWV9MX0ZGT1heRUR1QkVZXk9OEQpJRxd4T00R CkNOF31JYx5gZE5JB3ITYHBdQlJnf39TU2lhb0NHaVB4e11QEQpYXBcfBBoEGRkTBRsaBBsaGgQ bGR4EGR8QGx4aHxoRCl5ZF0lDbntwEQpNXBceHhkRCkxaF2lrbV1NXREKTEYXY2NraxEKQk8Xel
+ hhb0tGQnlIGkARCkNaFxsZBBsbGwQbGB4EGx8YEQpCXhcbEQpCRhdoQlpyYltZbXJ/ehEKQkcXb XlfGRlHQ1MFHn8RCkJFF2QdYnNcW0x5TX9YEQpCThdjGGscYmYaYX9ySxEKQkwXemtTS1BjY0Fo Z2YRCkJsF2FEHmlrQm5aXlAZEQpCQBdpQk8eWXofcl1iXBEKQlgXbHtaexJORX9mexsRClpYFx0
+ RCnlDF2lLQxtMUm5Ha25kEQpZSxcbGB4aGhEKWksXGxgeGhoRCnBnF25dAWZBYlIBT15vEBoRCn BoF2ROTXpzaGh9WBh4EBkaEQpwaBdsRGd+bx5TfktaYRAaEQpwaBdvcEsSHxlCcx5oWxAZGhEKc GgXYU9SE11hfE8Bb3kQHRIRCnBoF3p6ZhxdHEd/aVBZEBkaEQpwaBdsbnliSRxlUmNmGxAaEQpw
+ aBd6Xk8TRxpHEkV6XRATGREKcGgXZl9HRBlFbxxFUGUQGRoRCnB9F2ZzX15kWWxwE31sEBoRCnB 9F2Z8fk0bH398BWxSEBoRCnB9F2RwfxxyExJOcE9+EBkaEQpwfRd6YRljHBhdR10eUxAaEQpwfR dmRUtdRUhzcF5/ZhAaEQpwfRdvcF1LAU9CRE0ZeBAaEQpwfRdte0EdGX5nZwUdcxAaEQpwZxdjc
+ 1p+fxtmaGJoaBAZGhEKcH0Xekl/eXhMU31rUFgQGhEKcH0XZhoTfkNebEd7aWwQGRoRCnB9F2Ub XGxkZR9SfUl+EBoRCnB9F2VMfx5LSURnYGEaEBkaEQpwfRdoGGRNc3JbQ1hPcBAaEQpwfRd6cHM FSEhNbQF5cxAZGhEKcH0XbnMZaH9uWh9/fFIQGhEKcH0XaVhcQ0RMSERge3gQGRoRCnB9F2Bwcx
+ 9IU3BnZUlwEBoRCnB9F2dLWnh9RR98XBtyEBkaEQpwfRdtSVhoXGR5TlheYBAaEQpwfRdtGURgW Gl8EnNvHRAaEQpwfRdnckRPWG9peFpoRBAaEQpwfRdkQUlsenhvf054fRAaEQpwfxdrGGhpe1Nn G0VIexAdEhEKcF8XZnhmEx1/bHNBY1oQGRoRCnBfF21nW0MYBU4ZQ15zEBkaEQpwXxdjYQV9Rnl
+ AUkcYUhAZGhEKcH8XYF9gW1tQYnthWl4QHRwRCnBfF2l6GUhHWxxzTWdsEBkaEQpwXxdlT0R8Q2 FLYlpJRxAZGhEKcF8XbENNRWlEfkNubHAQGRoRCnBfF2haQx1cU0lJQUxnEBkaEQpwXxdsZHxBb RhjeF9DUBAZGhEKcGwXYFJwH0JjYFwSc3wQGRoRCm1+FxoRClhNF0sRIA==
+X-CLX-Shades: MLX
+X-Campuspartner_External_Email_Body_Warning: 5
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.272,Aquarius:18.0.987,Hydra:6.0.619,FMLib:17.11.176.26
+ definitions=2023-11-13_12,2023-11-09_01,2023-05-22_02
+X-Proofpoint-Spam-Reason: orgsafe
+Content-Type: text/html;	charset="utf-8"
+Return-Path:
+ bounce-2047_HTML-146009474-2686844-100018121-82@bounce.e.fullerton.edu
+X-MS-Exchange-Organization-ExpirationStartTime: 13 Nov 2023 21:05:03.6138
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ 0d303373-b23b-46d3-525e-08dbe48c34d7
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 82c0b871-335f-4b5c-9ed0-a4a23565a79b:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ CO1PEPF000044F0:EE_|SA1PR08MB7038:EE_|SJ0PR08MB6494:EE_
+X-MS-Exchange-Organization-AuthSource:
+ CO1PEPF000044F0.namprd05.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id: 0d303373-b23b-46d3-525e-08dbe48c34d7
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Organization-SCL: -1
+X-Microsoft-Antispam: BCL:0;
+X-Forefront-Antispam-Report:
+ CIP:148.163.156.229;CTRY:US;LANG:en;SCL:-1;SRV:;IPV:CAL;SFV:SKN;H:mx0b-00039101.pphosted.com;PTR:mx0a-00039101.pphosted.com;CAT:NONE;SFS:(13230031)(4636009)(230173577357003)(230273577357003)(451199024)(1690799017)(31696002)(5426002)(19810500001)(6916009)(26005)(9686003)(76236004)(42186006)(16670700002)(40140700001)(7636003)(120186005)(336012)(426003)(356005)(83170400001)(83380400001)(166002)(5660300002)(75432002)(1096003)(8676002)(19627405001)(31686004)(66899024)(1406899027);DIR:INB;
+X-MS-Exchange-ABP-GUID: b2fa3326-568d-4b64-8951-71f7165a514f
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Nov 2023 21:05:03.5044
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0d303373-b23b-46d3-525e-08dbe48c34d7
+X-MS-Exchange-CrossTenant-Id: 82c0b871-335f-4b5c-9ed0-a4a23565a79b
+X-MS-Exchange-CrossTenant-AuthSource:
+ CO1PEPF000044F0.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR08MB7038
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:02.2747050
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.6977.029
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910001)(944506478)(944626604)(920097)(930097)(140003)(1420103);
+X-Microsoft-Antispam-Message-Info:
+	=?Windows-1252?Q?SuK2/cs6TJit5axSe/fxLaJu48jacTOzPwaWAlLVy7SmWsnoDYTQFu4X?=
+ =?Windows-1252?Q?r5nSIllAA8jk67Ob2X0+Pz3Exey7HuPlD4Fy9EpUPKwXUlLFdPcg/ApO?=
+ =?Windows-1252?Q?XKFhd7amJvoCxEgrKGNL6voAd6eRC55w5EtfV7cZhWfGhTgF7wx1hClg?=
+ =?Windows-1252?Q?P/Nv1my9h34vY9vBx/sOAa69CPMefi8cQ0RAGRrMt88XQRqscfxayFpO?=
+ =?Windows-1252?Q?i/fyOiAeH0D5qdZdWIaZX7L+Qvmsa2MHoqV6chMrnxzyvmeaEjMTEaKs?=
+ =?Windows-1252?Q?koGxK1t57F5Zh/aNym8XMHFPVzYt4XCGQ0JKqbQvZSiqZh9tbbJwRns1?=
+ =?Windows-1252?Q?QISAnTqZL1tOe0gFSUv1aIK2KbAZvwj4bh9VIyAmyexKvX0Sp92vxco4?=
+ =?Windows-1252?Q?ZUxX8gDXZLgyviGC5QxFO+YSJSHUi+DUW9XSnw0/4GzZMEmRNOC3NsMI?=
+ =?Windows-1252?Q?4eC9Q0hbW58fTZnlTSHj1fBT1rCMOASA+FNHWp76SYR+taUoqVmjJTdb?=
+ =?Windows-1252?Q?l/xS2St3t2lfWruNB5Fv4mYlGW0xnJQol5eFz4pzvBlIYl15GuBLkmYM?=
+ =?Windows-1252?Q?cgc+YTsezvvFy8rgypUNPSkdJBTaYxmM+QAF2OCpvq1T5umSdf6YZpHN?=
+ =?Windows-1252?Q?3cZIVIgzA5KpGcwsNKt/xngT9lEEfXl66l1Elqq0V1RaA2h2HfxwKY+O?=
+ =?Windows-1252?Q?1SE+mTmcAUe5dhR0ZrtHxtEQNqMZYh2Ss802RZyUvf5J2f37K45JgoUT?=
+ =?Windows-1252?Q?EB5SwkYolQRB61Gh50AEegdPrDNfI4DNlbtsrnUzr7GoIV0d/U/oOkfT?=
+ =?Windows-1252?Q?5W736j1KPmaZT8wditpY/KNM5m9/ZPH0J68nUdtm0oA+w0KEotPUaphy?=
+ =?Windows-1252?Q?JT8QQBSrintPVxBMx4xMXFr+u7RyjpRZlisJK56oVygzYucA5e7Q3dK3?=
+ =?Windows-1252?Q?ivwZvMsgMeUsYkY7ZjtVBqZ6o2jRMnvv4bdTVBVeeQwdcZ317ScF0EJO?=
+ =?Windows-1252?Q?vxNE7GGkkYSMbpzuqJEequlUN2AJunDtPbVXPBjAgb9te443xSuoXPdS?=
+ =?Windows-1252?Q?/tObHK5XOjMSzYQgdqOL+WW/QlmZ+hKF6eToJ9HOb8orShQFNerXz6p9?=
+ =?Windows-1252?Q?mRu0+OU76ct60KR4URYffQsAI8oD0myDRgRmAXipCVW+up8jsF1ZdvTz?=
+ =?Windows-1252?Q?fkLY1kIAM3fntx86EmkodU1aobi0XDlKwj1OFP4bHry6YybauIBIv2pn?=
+ =?Windows-1252?Q?rdlys1TXQWQrXLMu9W0/GX3rNGp9R+N9kWSwHlK8n6I5/hRbl5Pjt1Xi?=
+ =?Windows-1252?Q?bzSS3sGzhAsdEcgj0OByOKiXiI2OBxphnsQQtwods3oTel+mH88lmf0v?=
+ =?Windows-1252?Q?AFrLGukoQRt/BP6sWAiQSGwszsKlvyaxZ57PuWMhEfn9f/kmLham4xl8?=
+ =?Windows-1252?Q?u68DvI2BAvhXm942PvzPLVcVVUGhLZIunRmWVb8KA3NVw5S11dkHftdU?=
+ =?Windows-1252?Q?HZDO9oJx?=
+MIME-Version: 1.0
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    
+     <meta name="format-detection" content="telephone=no">
+    <style class="media" type="text/css">
+      ReadMsgBody{
+        width: 100%;
+      }
+      .ExternalClass {
+        width: 100%;
+      }
+      .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {
+        line-height: 100%;
+      }
+      body {
+        -webkit-text-size-adjust:100%;
+        -ms-text-size-adjust:100%;
+        margin:0 !important;
+      }
+      p {
+        margin: 1em 0;
+      }
+      table td {
+        border-collapse: collapse;
+      }
+      img {
+        outline:0;
+      }
+      a img {
+        border:none;
+      }
+      p {
+        margin: 1em 0;
+      }
+      @-ms-viewport{
+        width: device-width;
+      }
+      @media only screen and (max-width: 480px) {
+        body[yahoo] .container {
+          width:100% !important;
+        }
+        body[yahoo] .footer {
+          width:auto !important;
+          margin-left:0;
+        }
+        body[yahoo] .content-padding{
+          padding:4px !important;
+        }
+        body[yahoo] .mobile-hidden {
+          display:none !important;
+        }
+        body[yahoo] .logo {
+          display:block !important;
+          padding:0 !important;
+        }
+        body[yahoo] img {
+          max-width:100% !important;
+          height:auto !important;
+          max-height:auto !important;
+        }
+        body[yahoo] .header img{
+          max-width:100% !important;
+          height:auto !important;
+          max-height:auto !important;
+          margin: 0 auto;
+        }
+        body[yahoo] .photo img {
+          width:100% !important;
+          max-width:100% !important;
+          height:auto !important;
+        }
+        body[yahoo] .drop {
+          display:block !important;
+          width: 100% !important;
+          float:left;
+          clear:both;
+        }
+        body[yahoo] .footerlogo {
+          display:block !important;
+          width: 100% !important;
+          padding-top:15px;
+          float:left;
+          clear:both;
+        }
+        body[yahoo] .nav4, body[yahoo] .nav5, body[yahoo] .nav6 {
+          display: none !important;
+        }
+        body[yahoo] .tableBlock {
+          width:100% !important;
+        }
+        body[yahoo] .responsive-td {
+          width:100% !important;
+          float:left !important;
+          padding:0 !important;
+        }
+        .fluid, .fluid-centered {
+          width: 100% !important;
+          max-width: 100% !important;
+          height: auto !important;
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+        .fluid-centered {
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+        /* MOBILE GLOBAL STYLES - DO NOT CHANGE */
+        body {
+          padding: 0px !important;
+          font-size: 16px !important;
+          line-height: 150% !important;
+        }
+        h1 {
+          font-size: 22px !important;
+          line-height: normal !important;
+        }
+        h2 {
+          font-size: 20px !important;
+          line-height: normal !important;
+        }
+        h3 {
+          font-size: 18px !important;
+          line-height: normal !important;
+        }
+        .buttonstyles {
+          font-family:arial,helvetica,sans-serif !important;
+          font-size: 16px !important;
+          color: #FFFFFF !important;
+          padding: 10px !important;
+        }
+        [class*="normal_mobile"]{
+          line-height: 100% !important;
+        }
+      }
+      /* END OF MOBILE GLOBAL STYLES - DO NOT CHANGE */   
+      @media only screen and (max-width: 640px) {
+        body[yahoo] .container {
+          width:100% !important;
+        }
+        body[yahoo] .mobile-hidden {
+          display:none !important;
+        }
+        body[yahoo] .logo {
+          display:block !important;
+          padding:0 !important;
+        }
+        body[yahoo] .photo img {
+          width:100% !important;
+          height:auto !important;
+        }
+        body[yahoo] .nav5, body[yahoo] .nav6 {
+          display: none !important;
+        }
+        .fluid, .fluid-centered {
+          width: 100% !important;
+          max-width: 100% !important;
+          height: auto !important;
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+        .fluid-centered {
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+      }
+    </style>
+  </head>
+  <body bgcolor="#FFFFFF" text="#FFFFFF" style="background-color: #FFFFFF; color: #808080; margin: 0px; padding: 0px; -webkit-text-size-adjust:none; line-height: normal; font-size: 16px; font-family:arial,helvetica,sans-serif;" yahoo="fix">
+<div>
+<table align="left" bgcolor="9DBED8" border="0" cellpadding="0" cellspacing="0"><tr><td align="center" height="10" width="500"><font color="black">CSUF external service. Use caution and confirm sender.</font></td></tr></table></body><body><p><br></p>
+</div><style type="text/css">
+div.preheader 
+{ display: none !important; } 
+</style>
+<div class="preheader" style="font-size: 1px; display: none !important;">Registration deadlines approaching!</div>    
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" style="background-color: #FFFFFF; margin: 0 auto; text-align: center">
+      <tr>
+          <td width="100%" height="5" style="margin:0; padding:0;">&nbsp;</td>
+      </tr>
+      <tr>
+        <td align="center" valign="top">
+          
+        </td>
+      </tr>
+      <tr>
+        <td align="center">
+          <table cellspacing="0" cellpadding="0" border="0" width="600" class="container" align="center">
+           
+            <tr>
+              <td>
+                <!-- added the border style here -->
+                <table class="tb_properties border_style" cellspacing="0" cellpadding="0" style="border-color : none; border-width : 0px;" bgcolor="#ffffff" width="100%">
+                  <!-- end of comment -->
+                  <tr>
+                    <td align="center" valign="top">
+                      <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                          <!-- added padding here -->
+                          <td class="content_padding" style="padding:0px;">
+                            <!-- end of comment -->
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                              <tr>
+                                <td align="left" class="" valign="top">
+                                  <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 10px 0px 20px; " class="stylingblock-content-wrapper camarker-inner"><div style="font-family:'Open Sans',arial,helvetica,sans-serif; font-size:11px; color: #777777; line-height: 11px; text-align: center">
+	To view this email as a web page, click <a data-linkto="other" href="https://nam10.safelinks.protection.outlook.com/?url=https%3A%2F%2Fview.e.fullerton.edu%2F%3Fqs%3D0d9d85b2e3897812f63d0e9922e90cebe061caa311ea325f7004a0ca70280addcdabe0a4ca0d1b8f4043da0cf0e214c3fbe5bbc5692be36cd511081f05e21d437cc894e06cf10d6ce791fe53bfea88e9&amp;data=05%7C01%7Ceorellana96%40csu.fullerton.edu%7C0d303373b23b46d3525e08dbe48c34d7%7C82c0b871335f4b5c9ed0a4a23565a79b%7C0%7C0%7C638355063062322597%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdata=IiQ6CfWXDjW5cdAtJJS44I8wX4lJif%2FeMTlnabFrBX0%3D&amp;reserved=0" originalsrc="https://view.e.fullerton.edu/?qs=0d9d85b2e3897812f63d0e9922e90cebe061caa311ea325f7004a0ca70280addcdabe0a4ca0d1b8f4043da0cf0e214c3fbe5bbc5692be36cd511081f05e21d437cc894e06cf10d6ce791fe53bfea88e9" shash="uVC/keJUpt+sLcT3vkSf7ZIVfQ/ldWHXL3DroMUv5Po1QBOQcHXziPKd+wAZGLarsmfDgR0nG3XrW4pskSvYAabg1M/7FlThvFd6vpLfnfjkH0JgV7CeC416HPjtCAdz/jvxclz2hn6pjnaqZ70PtB6ZXQ4ix+SJxC3a5tGTGvI=" style="color:#007FFF; text-decoration:underline;" title="">here.</a></div></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; border: 0px solid transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px; " class="stylingblock-content-wrapper camarker-inner"><table role="presentation" width="100%" cellspacing="0" cellpadding="0"><tr><td align="center"><a href="https://nam10.safelinks.protection.outlook.com/?url=https%3A%2F%2Fclick.e.fullerton.edu%2F%3Fqs%3D77b1d2ee0176f7869e916bc8beb5270a7142e53fbbf9ea80acca00e509cfe50ab22fdaa6a6f91509ecf94479f94148c65dbedc8cee57a4247b7e36fc66c879a7&amp;data=05%7C01%7Ceorellana96%40csu.fullerton.edu%7C0d303373b23b46d3525e08dbe48c34d7%7C82c0b871335f4b5c9ed0a4a23565a79b%7C0%7C0%7C638355063062322597%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdata=NBqlRMxvgYjqMeZMC%2B7zbDukV9kkKtnNSIPSCSnnq%2F0%3D&amp;reserved=0" originalsrc="https://click.e.fullerton.edu/?qs=77b1d2ee0176f7869e916bc8beb5270a7142e53fbbf9ea80acca00e509cfe50ab22fdaa6a6f91509ecf94479f94148c65dbedc8cee57a4247b7e36fc66c879a7" shash="CSk4z86A71pYnO+mI+nogAjNVbI6NhxKehN0hKOiech8Y5uBWy59qhMJ0lr8XXY3YjrfcUgmQ93hxXoAqEE0v6wmWsRI+YihfsO6cwR/zgq4s1aIEYGeBvqiKB2jUSL4IvkDmtMalJj41qO4RP67xSftfkZzj/MeCtg025sh3EI=" title="CSUF Winter Session" data-linkto="https://">
+<img data-assetid="277402" src="https://image.e.fullerton.edu/lib/fe41157075640575741671/m/1/7ecfe4dc-492d-472d-ac41-e72d0074d6e7.jpg" alt="" style="display: block; padding: 0px; text-align: center; height: auto; width: 100%; border: 0px none transparent;" width="600"></a></td></tr></table></td>
+</tr></table>
+                                  
+                                </td>
+                              </tr>
+                              <tr>
+                                <td align="left" class="" valign="top">
+                                  <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 30px 20px 25px; " class="stylingblock-content-wrapper camarker-inner"><div style="color:#00406a; text-align:center; font-family:'Open Sans',arial,helvetica,sans-serif; font-size:22px; line-height: 28px;">
+	<b>Classes Still Available for Winter Session 2024</b></div></td></tr></table>
+                                </td>
+                              </tr>
+                               <tr>
+                                <td align="left" class="" valign="top">
+                                  <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px 20px; " class="stylingblock-content-wrapper camarker-inner"><div style="font-family:'Open Sans',arial,helvetica,sans-serif; color: #333333; font-size:16px; line-height: 22px;">
+	Dear Elizabeth,<br>
+	<br>
+	There are still classes available for <a data-linkto="http://" href="https://nam10.safelinks.protection.outlook.com/?url=https%3A%2F%2Fclick.e.fullerton.edu%2F%3Fqs%3D77b1d2ee0176f786e213ede2abe442ed5748b7861f362b6a42a89d9f4c7dcec05be4fc5304e6895a43d5505d56c2dc5555afaaab40ca3f5b8dd0b965e6159a3f&amp;data=05%7C01%7Ceorellana96%40csu.fullerton.edu%7C0d303373b23b46d3525e08dbe48c34d7%7C82c0b871335f4b5c9ed0a4a23565a79b%7C0%7C0%7C638355063062322597%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdata=eWqrlbZ%2FfXOT79mDGzBVMnTx4taKBaaaGXErQOvE0Hc%3D&amp;reserved=0" originalsrc="https://click.e.fullerton.edu/?qs=77b1d2ee0176f786e213ede2abe442ed5748b7861f362b6a42a89d9f4c7dcec05be4fc5304e6895a43d5505d56c2dc5555afaaab40ca3f5b8dd0b965e6159a3f" shash="QvsBdzhfO/VjeVw9l+YUhpzk4aOppwn3kd+WoV3kdoOBUK051eKXAbCjjGPBPK/upT+/0XBAtUXENlwRXoRso1GP0TLqSnkL7P4OmdwnMeQFzHV+85quwjAMwJRIeNXMPfTfvdr1qQIK0oOsGYSvpAiC2oWw1hgu/GUUpjmcCno=" style="color:#377ab7;text-decoration:underline;" title="Winter Session">Winter Session</a> 2024!&nbsp;Complete a 3-unit course&nbsp;in only 3 to 5&nbsp;weeks.<br>
+	<br>
+	You can search for open classes and register through <a data-linkto="http://" href="https://nam10.safelinks.protection.outlook.com/?url=https%3A%2F%2Fclick.e.fullerton.edu%2F%3Fqs%3D77b1d2ee0176f78607b6aaded0e0a7d91e7a8d1e1eed4db38840918adb8475434225185d202774f6b1e5966416a94470e58833e9704e095aa353a190e0f65934&amp;data=05%7C01%7Ceorellana96%40csu.fullerton.edu%7C0d303373b23b46d3525e08dbe48c34d7%7C82c0b871335f4b5c9ed0a4a23565a79b%7C0%7C0%7C638355063062322597%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdata=%2FCw09%2F9ivBioDceUYFySqHg0AunbCdGGYOwxAWwKTI4%3D&amp;reserved=0" originalsrc="https://click.e.fullerton.edu/?qs=77b1d2ee0176f78607b6aaded0e0a7d91e7a8d1e1eed4db38840918adb8475434225185d202774f6b1e5966416a94470e58833e9704e095aa353a190e0f65934" shash="sjMMrxy4ltCmWN4S8TfNcxVt4e49TuHv0Ocvm1wbOd6OOp2x0m2IuGwp+aIFsEccNCcRePlCakssJDylFKANC2scIEP6tmXCnf6AP72USAhfeEOJBb/UTZPLbMinl3BKaazwc+3qXHTqmpkUH/1JGoOtSfcxJLdBVThOjd9nc5Y=" style="color:#377ab7;text-decoration:underline;" title="Titan Online">Titan Online</a>. Make sure to select “Winter 2024” for the Term, and “Extended Education” for the Course Career.<br>
+	<br>
+	<b>The last day to register&nbsp;is December 15 for Session A,&nbsp;and January 1 for Session B without a permit or late fee</b>. You can learn more about registering, as well as view fees and registration deadlines, on the <a data-linkto="https://" href="https://nam10.safelinks.protection.outlook.com/?url=https%3A%2F%2Fclick.e.fullerton.edu%2F%3Fqs%3D77b1d2ee0176f786871aba3e80de4d097406089215681cbdf6970046fa38312dfd8be36f9603d0743535f89abd41671fdad889d52dc639ad3655533fca16e221&amp;data=05%7C01%7Ceorellana96%40csu.fullerton.edu%7C0d303373b23b46d3525e08dbe48c34d7%7C82c0b871335f4b5c9ed0a4a23565a79b%7C0%7C0%7C638355063062322597%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdata=Pb3jUOBVKxJRun8kzdyhIUoDQwtbPhkrLh%2BoSW7pi7Q%3D&amp;reserved=0" originalsrc="https://click.e.fullerton.edu/?qs=77b1d2ee0176f786871aba3e80de4d097406089215681cbdf6970046fa38312dfd8be36f9603d0743535f89abd41671fdad889d52dc639ad3655533fca16e221" shash="LK4/Xyza8MEtISq4SaMN4kty5h9wMkCuyWWg899Y5sgBjc4Y+MXeEGZYtx5esrghEeFgdLgIR+xozHTWs7UM2spG/Os8GkuJI7731FnoobGujXi6l8SmGD/WY1m9eT9L6TEt8gUgspXe7CaIA00L6LGlxR+ZFyXTyZWPhUKKjMU=" style="color:#337ab7;text-decoration:underline;" title="Winter Session website">Winter Session website</a>.<br>
+	<br>
+	Course cancellations due to low enrollment will begin on November 27; it is strongly recommended that you register before that date.<br>
+	&nbsp;</div></td></tr></table>
+                                  
+                                </td>
+                              </tr>
+                              <tr>
+                                <td align="left" class="" valign="top">
+                                  <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 20px; " class="stylingblock-content-wrapper camarker-inner"><table width="100%" cellspacing="0" cellpadding="0" border="0" align="center"><tr><td align="center"><table cellspacing="0" cellpadding="0" border="0"><tr><td class="innertd buttonblock" style=" border-radius: 0px; -moz-border-radius: 0px; -webkit-border-radius: 0px; background-color: #E17000;" bgcolor="#E17000">
+<a target="_blank" class="buttonstyles" style=" font-size: 16px; font-family: Arial, Helvetica, sans-serif; color: #FFFFFF; text-align: center; text-decoration: none; display: block; background-color: #E17000; border: 0px solid #FFFFFF; padding: 15px 20px; border-radius: 0px; -moz-border-radius: 0px; -webkit-border-radius: 0px;" href="https://nam10.safelinks.protection.outlook.com/?url=https%3A%2F%2Fclick.e.fullerton.edu%2F%3Fqs%3D77b1d2ee0176f78677e59951df345abdb948affdad3ab7e340d46b7693c9efe1fecdfda30f08a9f6d006d60fe00c9046b1975d035393ed78ff056260c70b7e58&amp;data=05%7C01%7Ceorellana96%40csu.fullerton.edu%7C0d303373b23b46d3525e08dbe48c34d7%7C82c0b871335f4b5c9ed0a4a23565a79b%7C0%7C0%7C638355063062322597%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdata=0zYuyNLPQ3Si1Lz1V11wk11IwrIfSBJtX0hXeW96wnY%3D&amp;reserved=0" originalsrc="https://click.e.fullerton.edu/?qs=77b1d2ee0176f78677e59951df345abdb948affdad3ab7e340d46b7693c9efe1fecdfda30f08a9f6d006d60fe00c9046b1975d035393ed78ff056260c70b7e58" shash="Px1n2xokv5lJ4hrCPoiG8L6pl7VTzqdSpf2AzHs2Yhm8nfm4zz6pvNZFWYTVMysnlb69PyE2eEkB6nQhgBPXtRqrz/GIlGrEroiPutbVophMp6iJfeMr8s+auSwhJ41YNFNTOrnkD4WJq0oWUHfmGOcv+FHwiothz1kesUUnxVg=" title="Register Now" data-linkto="http://">Register Now</a></td></tr></table></td></tr></table></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner">
+<table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: #EEEEEE; border: 0px solid transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 20px; " class="stylingblock-content-wrapper camarker-inner"><div style="font-family:'Open Sans',arial,helvetica,sans-serif; color: #333333; font-size:16px; line-height: 22px;">
+	<b>Winter Session Dates</b>:<br>
+	<b>Session A:</b> December 16, 2023 – January 19, 2024<br>
+	<b>Session B:</b> January 2-19, 2024<br>
+	<br>
+	<span style="font-size:16px;"><b>Campus Closed</b>: Saturday,&nbsp;</span>December 23, 2023 through Monday, January 1, 2024 and Monday, January 15, 2024<br>
+	<br>
+	<span style="font-size:16px;"><b>Please note: </b>Session A classes may have online instructional activities during the winter break.<br>
+	<br>
+	If you have any questions, please contact TITAN Helpline at (657) 278-7601 or email <a alias="arsc@fullerton.edu" conversion="false" data-linkto="mailto:" href="mailto:arsc@fullerton.edu?subject=" style="color:#337ab7;text-decoration:underline;" title="arsc@fullerton.edu">arsc@fullerton.edu</a>.</span></div></td></tr></table>
+</td></tr></table>
+                                  
+                                </td>
+                              </tr>
+                              <tr>
+                                <td align="left" class="" valign="top">
+                                  <table cellpadding="0" cellspacing="0" width="100%" role="presentation" class="stylingblock-content-wrapper" style="min-width: 100%; "><tr><td class="stylingblock-content-margin-cell" style="padding: 20px 0px 0px; "><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px; " class="stylingblock-content-wrapper camarker-inner"><table style="width: 100%;" cellspacing="0" cellpadding="0"><tr><td><table style="width: 100%;" cellspacing="0" cellpadding="0"><tr><td class="responsive-td" style="width: 100%; padding-bottom: 3px;" valign="top"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: #333333; border: 0px; min-width: 100%; " class="stylingblock-content-wrapper"><tr>
+<td style="padding: 25px 20px 0px; " class="stylingblock-content-wrapper camarker-inner"><table cellspacing="0" cellpadding="0" border="0" align="center">
+	
+		<tr>
+			<td style="padding-left:15px;" align="left">
+				<a data-linkto="https://" href="https://nam10.safelinks.protection.outlook.com/?url=https%3A%2F%2Fclick.e.fullerton.edu%2F%3Fqs%3D77b1d2ee0176f786eb8de81dc5bdd6758090839b8e2f7146d767867cb0a0b73b94b1ac83471781f3589d776a354ea4b33474bdfe74a16fcd&amp;data=05%7C01%7Ceorellana96%40csu.fullerton.edu%7C0d303373b23b46d3525e08dbe48c34d7%7C82c0b871335f4b5c9ed0a4a23565a79b%7C0%7C0%7C638355063062322597%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdata=FhLI2YQ%2B82zpoVuFnl6HvnUEelQtFf7%2FUR6hXLyUv3U%3D&amp;reserved=0" originalsrc="https://click.e.fullerton.edu/?qs=77b1d2ee0176f786eb8de81dc5bdd6758090839b8e2f7146d767867cb0a0b73b94b1ac83471781f3589d776a354ea4b33474bdfe74a16fcd" shash="P5m1v6D7qsmcYzmzG3gWb4/2ZXNTjKPw/nBHYZGMDiPYwUgBZMvGJm0qgwtJqDaIrhMO/K4yK1oDDONxajN8TtO0LmzmESA2ZlsdbgLYwyHMxq9T87dJC42GLaAxliIeIWWQ89mX0gk6NmVrBWl/MG428/vWYHiHhpQxBdyKhfA=" style="text-decoration:none;"><img alt="facebook" src="http://image.e.fullerton.edu/lib/fe41157075640575741671/m/1/43769c6b-8dda-4d58-aa9b-44539ce6f222.png" style="display: block; height: 30px; width: 30px;" width="30" height="30"></a></td><td>
+				&nbsp;</td><td style="padding-left:15px;" align="left">
+				<a data-linkto="https://" href="https://nam10.safelinks.protection.outlook.com/?url=https%3A%2F%2Fclick.e.fullerton.edu%2F%3Fqs%3D77b1d2ee0176f786452763f3f0acfb60cd93b0246e835ec1b01f5a377a98c0489ed6acec9595762075dcf6a53ea2f56609afd516e3000960&amp;data=05%7C01%7Ceorellana96%40csu.fullerton.edu%7C0d303373b23b46d3525e08dbe48c34d7%7C82c0b871335f4b5c9ed0a4a23565a79b%7C0%7C0%7C638355063062322597%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdata=gKdPSj4R6hQRYSRE8DjegRCptT%2F2eOtXmI1%2BkEY6jrE%3D&amp;reserved=0" originalsrc="https://click.e.fullerton.edu/?qs=77b1d2ee0176f786452763f3f0acfb60cd93b0246e835ec1b01f5a377a98c0489ed6acec9595762075dcf6a53ea2f56609afd516e3000960" shash="fc07dPIwtFJd5BHH41i591KoECQw9M9a2TYd2rEAu7XUHjbAd4QUb9n9ksGYr1Slt1bl8xBzkMBdfSSFkaLD55VCQZqD4ED3hWwwId9KK5Cbtni8wJvdM0jB+0zugzMG072JYEm6wA8cgm9TY0rabeF+FJbN1CZY2JcrDPvZWwk=" style="text-decoration:none;"><img alt="Instagram" src="http://image.e.fullerton.edu/lib/fe41157075640575741671/m/1/4f384149-4f95-4635-9f14-ed25529d206f.png" style="display: block; height: 30px; width: 30px;" width="30" height="30"></a></td><td>
+				&nbsp;</td><td style="padding-left:15px;" align="left">
+				<a data-linkto="https://" href="https://nam10.safelinks.protection.outlook.com/?url=https%3A%2F%2Fclick.e.fullerton.edu%2F%3Fqs%3D77b1d2ee0176f7863279005cac3ad7c19fc35f8814579a196febb8c113cdcf3123de40829634b4f4c4fe0ed175a6d21528f43bfe30929a5d&amp;data=05%7C01%7Ceorellana96%40csu.fullerton.edu%7C0d303373b23b46d3525e08dbe48c34d7%7C82c0b871335f4b5c9ed0a4a23565a79b%7C0%7C0%7C638355063062322597%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdata=ankaidSlNV3m8QYTl%2FvNJe9pi3b1cb9kxb9MMHYg8mU%3D&amp;reserved=0" originalsrc="https://click.e.fullerton.edu/?qs=77b1d2ee0176f7863279005cac3ad7c19fc35f8814579a196febb8c113cdcf3123de40829634b4f4c4fe0ed175a6d21528f43bfe30929a5d" shash="wNlvm1XWzeSf6ahUV2uXDlwr1jk1i/hcxpqAKlb396QBOPAhjHgelvJrtUic579rJ8fgON5HwRCVoXVpDVezHJzvoQbavuCHnnnO2sXLHFsEQdaTIebOS/+6CIIGmpQHcNrTrVvYPqKAfB7ESoMeWtnBQgB4o/D852aH3dhLH2o=" style="text-decoration:none;"><img alt="twitter" src="http://image.e.fullerton.edu/lib/fe41157075640575741671/m/1/17079d6e-e67d-4033-82d6-27c22e295c3c.png" style="display: block; height: 30px; width: 30px;" width="30" height="30"></a></td><td>
+				&nbsp;</td><td>
+				&nbsp;</td><td style="padding-left:15px;" align="left">
+				<a data-linkto="https://" href="https://nam10.safelinks.protection.outlook.com/?url=https%3A%2F%2Fclick.e.fullerton.edu%2F%3Fqs%3D77b1d2ee0176f78693e493ed692dc8e4589236846ef5f5c5553f5aaf7323881dae5c47652780fa92dc02d3be1c43b34a15ff36834c766b7c&amp;data=05%7C01%7Ceorellana96%40csu.fullerton.edu%7C0d303373b23b46d3525e08dbe48c34d7%7C82c0b871335f4b5c9ed0a4a23565a79b%7C0%7C0%7C638355063062322597%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdata=8o7PP7ytACeEnF8XIrANwqEbwp1y8rMHWUoi12gquSM%3D&amp;reserved=0" originalsrc="https://click.e.fullerton.edu/?qs=77b1d2ee0176f78693e493ed692dc8e4589236846ef5f5c5553f5aaf7323881dae5c47652780fa92dc02d3be1c43b34a15ff36834c766b7c" shash="DXKJW4YYxAOEX3fkt4e2xYRfbyCqjXCpKtJRPX/aPiLkAZ/aa9p5AYJMDguMb68Vqi0vjer62p6mBZqv/sC8hRbBzRo9YquGoulScyWqJIZQp/eMS9P1OH4s4OSBp1v5eSFwkZKI0zYyucoYsQFsAkMXA/rD8Nqbsl1UpptLMcw=" style="text-decoration:none;"><img alt="Linkedin" src="http://image.e.fullerton.edu/lib/fe41157075640575741671/m/1/6ccea46e-2cd0-410d-85e9-84edaccb491f.png" style="display: block; height: 30px; width: 30px;" width="30" height="30"></a></td><td>
+				&nbsp;</td><td style="padding-left:15px;" align="left">
+				<a data-linkto="other" href="https://nam10.safelinks.protection.outlook.com/?url=https%3A%2F%2Fview.e.fullerton.edu%2Fftaf.aspx%3Fqs%3D0d9d85b2e3897812f63d0e9922e90cebe061caa311ea325f7004a0ca70280addf861c6f3909ff350f13fc2728290052a&amp;data=05%7C01%7Ceorellana96%40csu.fullerton.edu%7C0d303373b23b46d3525e08dbe48c34d7%7C82c0b871335f4b5c9ed0a4a23565a79b%7C0%7C0%7C638355063062322597%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdata=dTaXlgVPU9MKd2U2JCLyQ0l3To3%2Fng3Gzjx6CM0MZPU%3D&amp;reserved=0" originalsrc="https://view.e.fullerton.edu/ftaf.aspx?qs=0d9d85b2e3897812f63d0e9922e90cebe061caa311ea325f7004a0ca70280addf861c6f3909ff350f13fc2728290052a" shash="DZ3Spto56XndKd8CCxzPgLO9sW4zBKxv8Xua3wOmXrKBUOMeJYjtHGjXvYDjGHzjtTDpQ8jX2MCmaAr1LsyGe+9qMWjAJNRrCbepDNjdlNAfozY6Q/DJ0xPj/CSmTMOeDHc/TL4DIU91hUPxBLz5ow0XK8Px7bxZ8+dHHrD670w=" style="text-decoration:none;"><img alt="Forward to Friend" src="http://image.e.fullerton.edu/lib/fe41157075640575741671/m/1/4b2b41dc-480a-4162-acc8-d7ebfcdc5364.png" style="display: block; height: 30px; width: 30px;" width="30" height="30"></a></td></tr></table></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: #333333; border: 0px solid transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 20px 20px 0px; " class="stylingblock-content-wrapper camarker-inner"><div style="font-family:'Open Sans',arial,helvetica,sans-serif; color: #ffffff; font-size:12px; line-height: 18px; text-align: center">
+	You received this email because you signed up to receive updates<br>
+	from CSUF Extension &amp; International Programs. We respect your <a data-linkto="https://" href="https://nam10.safelinks.protection.outlook.com/?url=https%3A%2F%2Fclick.e.fullerton.edu%2F%3Fqs%3Dc512ff9b4159153a6d04f990d3f4e9f8a2f08e8ab63ba5c6d396ecb667580d3b8d5782f4c7f0762c7cf49dfcce464281e4edc94c69c671e525460dacabe02c30&amp;data=05%7C01%7Ceorellana96%40csu.fullerton.edu%7C0d303373b23b46d3525e08dbe48c34d7%7C82c0b871335f4b5c9ed0a4a23565a79b%7C0%7C0%7C638355063062478849%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdata=wGqR3lvPh2zuSJBkBgUanKTK3ar0MMaUeKyVAULUJ%2Bg%3D&amp;reserved=0" originalsrc="https://click.e.fullerton.edu/?qs=c512ff9b4159153a6d04f990d3f4e9f8a2f08e8ab63ba5c6d396ecb667580d3b8d5782f4c7f0762c7cf49dfcce464281e4edc94c69c671e525460dacabe02c30" shash="Wb1A4NGq49xKPr17dt8h1nhcNKzrrSsyTp4lbX6cMvJ1XJ1hPJnn0MkFgy2jerLRdksDlkN52yUQ97t7LpZmeSozL3rxdr3XFnHfSRoHeox8OY02K4J+KWF+Jby0OMTDHtkPXdVur5uSrd1I4rFMbXfKsQBRa/+7qbmNDHlOPJc=" style="color:#FFFFFF;text-decoration:underline;" title="privacy">privacy</a>.<br>
+	You can <a data-linkto="other" href="https://nam10.safelinks.protection.outlook.com/?url=https%3A%2F%2Fclick.e.fullerton.edu%2Fprofile_center.aspx%3Fqs%3D8073f6554718a8b7b3ba6bed15092f09bd27d95a68d632932b4e80d493b892c67168085882b96e67764c0473de17eadce34238ebdc8fd0010ae20a5d8bb9108aabf4fb0a445862d6&amp;data=05%7C01%7Ceorellana96%40csu.fullerton.edu%7C0d303373b23b46d3525e08dbe48c34d7%7C82c0b871335f4b5c9ed0a4a23565a79b%7C0%7C0%7C638355063062478849%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdata=64jKaGkQOlVz9%2FrGV4HQX7XGOr%2FW4SlN5yQzTb08kpg%3D&amp;reserved=0" originalsrc="https://click.e.fullerton.edu/profile_center.aspx?qs=8073f6554718a8b7b3ba6bed15092f09bd27d95a68d632932b4e80d493b892c67168085882b96e67764c0473de17eadce34238ebdc8fd0010ae20a5d8bb9108aabf4fb0a445862d6" shash="sOMsrtu2lvId73vdk0jphbbBjm3SeCaFgBMuVYgo4r0R1b/kGGBytRrZCBPtmxJO5Ruk1iK0BvYJZiWnfPrTi1/0fQG1XiPvPIk1ylWZTVn9z/QXVq2hXww3ihVJVpvVvxKXu2ST5NYhGdMEcFx2+dEBnaBgepEp3TdCGpUdCMI=" style="color:#FFFFFF;text-decoration:underline;" title="update your preferences">update your preferences</a> or <a data-linkto="other" href="https://nam10.safelinks.protection.outlook.com/?url=https%3A%2F%2Fclick.e.fullerton.edu%2Funsub_center.aspx%3Fqs%3D8073f6554718a8b724c612b3565b3890f95540f6282799826141f1a6ff5b6c46517a5cfbcb7314ddf6e6ff4412bdab607e328f26f1152b0f0a6e1d0858f01f5200625ae36b4d0438&amp;data=05%7C01%7Ceorellana96%40csu.fullerton.edu%7C0d303373b23b46d3525e08dbe48c34d7%7C82c0b871335f4b5c9ed0a4a23565a79b%7C0%7C0%7C638355063062478849%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdata=5jAtQ9U02hId0jZ%2F9Lz6WxCCuc49crgovNLEozVpOR0%3D&amp;reserved=0" originalsrc="https://click.e.fullerton.edu/unsub_center.aspx?qs=8073f6554718a8b724c612b3565b3890f95540f6282799826141f1a6ff5b6c46517a5cfbcb7314ddf6e6ff4412bdab607e328f26f1152b0f0a6e1d0858f01f5200625ae36b4d0438" shash="w1ptIDGbuYq8YmUMPJXcqpQXDiEb3JzHYADSLL5C6ynU6CfQ1TlL/lFh7oo30OZvTW5rnTvI4WvwUJ7OaW5CpAs0kFIoNaAs5J/Tz+LJyGDoGghzbZLcuP9yJqfDP285hiTXpLKzPCMsKKw9Qh8YeayEW04txN9msE7wFvboj1c=" style="color:#FFFFFF;text-decoration:underline;" title="unsubscribe">unsubscribe</a>.</div></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: #333333; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 25px 20px 0px; " class="stylingblock-content-wrapper camarker-inner">
+<div style="font-family:'Open Sans',arial,helvetica,sans-serif; color: #ffffff; font-size:12px; line-height: 18px; text-align: center;">
+	<strong>CSUF Extension &amp;&nbsp;International Programs</strong><br>
+	1111 N. State College Blvd., Fullerton, CA, 92831</div><hr style="border:none; height:1px; background-color:#777; border-color:#777; margin:20px 40px 0;">
+</td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: #333333; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 20px 20px 25px; " class="stylingblock-content-wrapper camarker-inner"><div style="font-family:'Open Sans',arial,helvetica,sans-serif; color: #ffffff; font-size:12px; line-height: 18px; text-align: center">
+	<i>Need to mail us something? Please use the following address when sending postal mail:</i><br>
+	<span>800 N. State College Blvd., #THall 1403, Fullerton, CA, 92831</span><br>
+	<br>
+	<i>© California State University, Fullerton, All rights reserved.</i></div></td></tr></table></td></tr></table></td></tr><tr><td><table style="width: 100%;" cellspacing="0" cellpadding="0"><tr><td class="responsive-td" style="width: 100%; padding-top: 3px;" valign="top"></td></tr></table></td></tr></table></td></tr></table></td></tr></table>
+                                  
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr bgcolor="#ffffff">
+            <td align="left" class="" valign="top">
+              
+              </td>
+            </tr>
+            
+          </table>
+        </td>
+      </tr>
+      <tr>
+          <td width="100%" height="5" style="margin:0; padding:0;">&nbsp;</td>
+      </tr>
+    </table>
+    <img src="https://click.e.fullerton.edu/open.aspx?ffcb10-fe8916767d620c7971-fe241576746702747d1578-fe41157075640575741671-ff3216707163-fe2c157473640474711374-ff951c72&amp;d=100195&amp;bmt=0" width="1" height="1" alt="">
+  </body>
+</html>

@@ -1,0 +1,963 @@
+Delivered-To: alpha1.liz56@gmail.com
+Received: by 2002:a05:612c:2575:b0:417:fa31:15a0 with SMTP id hf53csp425845vqb;
+        Tue, 7 Nov 2023 10:29:26 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IEMTdIHycaOVxpSqlgO7I25TtEzIISg6PgI6BttlHXC687RRB2fvgY3vyMXFGtlpDwD8d7W
+X-Received: by 2002:a05:620a:9003:b0:775:f798:91f8 with SMTP id rk3-20020a05620a900300b00775f79891f8mr28280501qkn.60.1699381765770;
+        Tue, 07 Nov 2023 10:29:25 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1699381765; cv=none;
+        d=google.com; s=arc-20160816;
+        b=aow7uDqqhAIrE/iMZ1xLsiTU6AdToaxjOeDb1/jTlVGIJGUUcelLPvX4VTVCU0h6QU
+         WDAxLumJ8CmX8UqrPwwWAmIPoXqt12mlSgkyK2aRIL80YpWeO6pAMsX4eJXTGgIMn6Pr
+         wnDIkdfzyC322zHRBiNOIN/McDSuvJKmPZYEpGa/e/jNb88FRnfJVWBR5dYMCDlE79pf
+         Mz0mLtTeJsCiu4FgzbmD27SJbhhwXZpIZHJTd/KSC2zbIQjAkjbsoZem0tlUy+xAt+rV
+         vXXqxJQiTNj5CDMLBbqT/M56nvuGDnAEVhGUW0WcYH+k8yFHPyCVFaCk8QYxpDqjbFVb
+         d0bg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:mime-version:from:date:dkim-signature
+         :dkim-signature;
+        bh=MlrpOM0jFQpO7P9x6BzrD3uLncj5bTGSzsFIUga7IvA=;
+        fh=fcigEnBxMbMxpT+5SU++uHdMJjsDhaLio/R/m4pX5wA=;
+        b=XtAhgXkqPI9HwD8ldwFPLJuHbtxfrAfStgRU/S6eTBdrE7CoSUwpTunILY2rgRidbC
+         mRi1LSYC4ZRDnzLbW4f/GrDNcSwRMp3xAa+h9K9+BmGmYCmtQZplF1Em9Jbnq3zpIaZ7
+         hzydiL/bFnsqfxV2ew1ZM/phEr1NvbT7u1BPTZutAzGENbYZRviiodv1JI+MEtnkTwT0
+         k+ViCeLIeEN+EuXAT5eQqAIUGM78TDBdWBSh14G2Bn++Qqv+SLyqQKU4gMrS6zR7GWFg
+         4xBLXN3F3bC6/Qe5d80z0NT7y4hASrfOGWBvJ/S1U9+27nuyc31dSMvt6yqPvrpp+DAl
+         dqKQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@spotify.com header.s=s1 header.b=TJs9agtY;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=DdWB0huy;
+       spf=pass (google.com: domain of bounces+54769-3838-alpha1.liz56=gmail.com@em.spotify.com designates 159.183.114.182 as permitted sender) smtp.mailfrom="bounces+54769-3838-alpha1.liz56=gmail.com@em.spotify.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=spotify.com
+Return-Path: <bounces+54769-3838-alpha1.liz56=gmail.com@em.spotify.com>
+Received: from o47.ptr4125.spotify.com (o47.ptr4125.spotify.com. [159.183.114.182])
+        by mx.google.com with ESMTPS id ay35-20020a05620a17a300b00773bb585660si215191qkb.348.2023.11.07.10.29.25
+        for <alpha1.liz56@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 07 Nov 2023 10:29:25 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounces+54769-3838-alpha1.liz56=gmail.com@em.spotify.com designates 159.183.114.182 as permitted sender) client-ip=159.183.114.182;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@spotify.com header.s=s1 header.b=TJs9agtY;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=DdWB0huy;
+       spf=pass (google.com: domain of bounces+54769-3838-alpha1.liz56=gmail.com@em.spotify.com designates 159.183.114.182 as permitted sender) smtp.mailfrom="bounces+54769-3838-alpha1.liz56=gmail.com@em.spotify.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=spotify.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=spotify.com;
+	h=content-type:from:mime-version:subject:x-feedback-id:to:cc:
+	content-type:from:subject:to;
+	s=s1; bh=MlrpOM0jFQpO7P9x6BzrD3uLncj5bTGSzsFIUga7IvA=;
+	b=TJs9agtY/Tv0hGtjc5DhBE5d+Yj21pgXz3XBm4f0p4pXMmo+10RSS4KWnSjNEDrpeME0
+	c1JgVdtJGv9oWMLyvxn37tDZoBDZVg7uZ4gK/1Rt6SLUiP7q3jfLOzyTlLE5ZzCDc1khFL
+	bnppabdwYyMiXXHMjKNV/gXrXtSygxVUyDCgebqM66UzWIJe8m10G3Znh6OpuRoB9NcBH4
+	WYJyzGRMXp163539JEkv8CoKZ9yDXTRIH3oeqAkNvz7vueegYD4JAmN0HbbpdhMWDUeICt
+	kKXGDDYkNrUXTL/ZrxkuYO4nfd+6SsTxptg7WYnKPhp2viwbgBdusIKJdqEklYDA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info;
+	h=content-type:from:mime-version:subject:x-feedback-id:to:cc:
+	content-type:from:subject:to;
+	s=smtpapi; bh=MlrpOM0jFQpO7P9x6BzrD3uLncj5bTGSzsFIUga7IvA=;
+	b=DdWB0huy/gPPJomWw6G741liwXvBDOVAnwbqjOqVr/sbYlD8kN2rCPEY/VS0J7ucoiWt
+	u43+6O1iHYF4MQd8GYPQv+RFVFQJtbo4M+yjiGXUmKBIFcWFHqtoCnhtnw21mpqSSogUu1
+	8Ad8At7SR3ny8ja//cdaGyBxlFnNyaIKo=
+Received: by filterdrecv-cb6564d98-845dw with SMTP id filterdrecv-cb6564d98-845dw-1-654A8205-9
+        2023-11-07 18:29:25.091895174 +0000 UTC m=+1813643.534999139
+Received: from NTQ3Njk (unknown)
+	by geopod-ismtpd-6 (SG) with HTTP
+	id vBQMwyW_TiiNlDKrpl-vgA
+	Tue, 07 Nov 2023 18:29:25.029 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=c43f908848dbc7ab6f747746bdc768a6c88fabf4539f99f678d7fcb06562
+Date: Tue, 07 Nov 2023 18:00:00 +0000 (UTC)
+From: Spotify <no-reply@spotify.com>
+Mime-Version: 1.0
+Message-ID: <vBQMwyW_TiiNlDKrpl-vgA@geopod-ismtpd-6>
+Subject: A special thank you from Phora
+X-Feedback-ID: 54769:SG
+X-SG-EID: 
+ =?us-ascii?Q?0C9L=2FeBRtgYa=2FF8y6aOTnwpGIngFWQ11NoR8o2fvCVMN9thUS8ZNdG1JBR+Ynp?=
+ =?us-ascii?Q?5TqR0Hpm2LFUl=2FBnY7BDTNZft1iCY41gQD219Bl?=
+ =?us-ascii?Q?4w+aWodTaoh5cZEd6WpelKJMkFkSLyYtLlJ53JK?=
+ =?us-ascii?Q?eZT5ivsQJCzW7YqSBlfr50HHFjm3mvRSlhe1mA+?=
+ =?us-ascii?Q?ODA09V8iqjF+wAQWOSy35m1nM6fopcx2bVpCX0M?=
+ =?us-ascii?Q?rVbicmnfhGtnBLllDhyasRg50C4LTFeQAusM+4?=
+X-SG-ID: 
+ =?us-ascii?Q?N2C25iY2uzGMFz6rgvQsb1Tp4jAodW3Jed5YYb2QHGfH8QHsRQc+6ab=2FBpaUEE?=
+ =?us-ascii?Q?JyXBd5LLaKfMGRP6dMqIDplfdLstYMQZlasdIN=2F?=
+ =?us-ascii?Q?UR6bI2XuCQov95gWQh3rZq289NjqNf0u8+dfgYW?=
+ =?us-ascii?Q?RiIp4DMcMNBx8OCrKqMuN=2Fi028mh4OdOds+HazL?=
+ =?us-ascii?Q?aNzMChSmMX33K0fmMwRNo6o29RQO1Fe8gCSLrpI?=
+ =?us-ascii?Q?I7DdkcLGsRuhs3wklg8x+UpLvSV3Rj3V6gUJuuk?=
+ =?us-ascii?Q?xfkht7GxWwbxpm7nRrDD=2F9XfWIW3nzPrSQjDJ7j?=
+ =?us-ascii?Q?2qkqr7yYkGnMbmXkZK+MFr6bv4QwRc0fxdRLRW0?=
+ =?us-ascii?Q?i6w6j2pSWfSVBKI0n+=2FGlYw=2FDPUGFdkTLHfu9oY?=
+ =?us-ascii?Q?PNI=2Fu1rHXk1oLmdNjFUlVUWlItIqSi1AVQdcp1+?=
+ =?us-ascii?Q?AL35CuXnetLrffD+vr84KK+SwVPDneszogom+L=2F?=
+ =?us-ascii?Q?OpriLawnYc2bvWVfLGVVBdsGwxBQ5FZdntayF=2FY?= =?us-ascii?Q?=3D?=
+To: alpha1.liz56@gmail.com
+X-Entity-ID: 2vxnRJdGdooKCfSUhf9vyA==
+
+--c43f908848dbc7ab6f747746bdc768a6c88fabf4539f99f678d7fcb06562
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Mime-Version: 1.0
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+ Spotify Fans First
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+
+
+Thanks for being a fan
+
+
+
+Phora is giving you special access to get tickets to his upcoming tour!
+
+
+
+** Presale starts now
+ **
+
+Offer code: SINNERS
+
+Ends November 9, 2023 at 10:00 PM PT
+
+
+
+
+--
+
+Get Spotify for:
+  * iPhone (https://itunes.apple.com/app/spotify-music/id324684580)
+  * iPad (https://itunes.apple.com/app/spotify-music/id324684580)
+  * Android (https://play.google.com/store/apps/details?id=3Dcom.spotify.mu=
+sic)
+  * Other (https://www.spotify.com/download/)
+
+unsubscribe ("https://www.spotify.com/accounts/profile")
+
+  * Terms of Use (https://www.spotify.com/legal/end-user-agreement/)
+  * Privacy Policy (https://www.spotify.com/legal/privacy-policy/)
+  * Contact Us (https://www.spotify.com/about-us/contact/)
+
+Spotify USA Inc, 4 World Trade Center, 150 Greenwich Street, 62nd Floor, Ne=
+w York, NY 10007, USA
+
+--c43f908848dbc7ab6f747746bdc768a6c88fabf4539f99f678d7fcb06562
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Mime-Version: 1.0
+
+<!DOCTYPE html> <html xmlns=3D"http://www.w3.org/1999/xhtml" style=3D"margi=
+n: 0; padding: 0"> <head> <meta charset=3D"utf-8"/> <meta name=3D"viewport"=
+ content=3D"width=3Ddevice-width, initial-scale=3D1"/> <title> A special th=
+ank you from Phora </title> <style type=3D"text/css">
+    @media only screen and (min-device-width: 481px) {
+      div[id=3D"main"] {
+        width: 480px !important;
+      }
+    }
+  </style> <!--[if mso]><style>body, table, tr, td, h1, h2, h3, h4, h5, h6,=
+ center p, a, span, table.MsoNormalTable {font-family: "Helvetica Neue", "H=
+elvetica", "Arial", sans-serif !important}</style><![endif]--> </head> <bod=
+y topmargin=3D"0" leftmargin=3D"0" rightmargin=3D"0" bottommargin=3D"0" mar=
+ginheight=3D"0" marginwidth=3D"0" style=3D"-webkit-font-smoothing: antialia=
+sed; width: 100% !important; -webkit-text-size-adjust: none; margin: 0; pad=
+ding: 0"> <!--[if (mso) | (IE)]><table cellpadding=3D"0" cellspacing=3D"0" =
+border=3D"0" valign=3D"top" width=3D"480" align=3D"center"><tr><td valign=
+=3D"top" align=3D"left" style=3D" word-break:normal; border-collapse:collap=
+se; font-family:'Circular', 'Helvetica Neue', Helvetica, Arial, sans-serif;=
+ font-size:12px; line-height:18px; color:#555555;"><![endif]--> <table cell=
+padding=3D"0" cellspacing=3D"0" border=3D"0" valign=3D"top" width=3D"100%" =
+align=3D"center" style=3D" width:100%; max-width:480px;"> <tr> <td valign=
+=3D"top" align=3D"left" style=3D" word-break:normal; border-collapse:collap=
+se; font-family:'Circular', 'Helvetica Neue', Helvetica, Arial, sans-serif;=
+ font-size:12px; line-height:18px; color:#555555;"> <center> <div id=3D"mai=
+n"> <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"bord=
+er: none; margin: 0px; border-collapse: collapse; padding: 0px; width: 100%=
+;"> <tbody valign=3D"middle" style=3D"border: none; margin: 0px; padding: 0=
+px;"> <tr valign=3D"middle" style=3D"border: none; margin: 0px; padding: 0p=
+x;"> <td valign=3D"middle" style=3D"border: none; margin: 0px; padding: 0px=
+;"> <center style=3D"border: none; margin: 0px; padding: 0px;"> <a href=3D"=
+https://wl.spotify.com/ss/c/jB8Q9cVeEn3mlrUL0ylOyXNlzjNGY9Gpn9VJHbrpOJE7-SG=
+McvpsJvxIKqR9lyARwf5HWrfFcKGzsM_1Rudybw/413/RHcmCx37SQupYVlm4q_PWw/h0/SF7gT=
+w-flMffpALl3a_h2EsAc4ZPacSzokhikn2B7ag" style=3D"border: none; margin: 0px;=
+ padding: 0px; text-decoration: none;"> <!--[if mso]><img style=3D"width: 4=
+80px; display: block" width=3D"480" src=3D"https://ff-images.scdn.co/5732f0=
+33-9406-4865-93b4-9babe8ad8907/001d22d1-2ae9-4c73-95e2-18925d0c1793"/><![en=
+dif]--><!--[if mso]><div style=3D"mso-hide: all"><![endif]--> <img src=3D"h=
+ttps://ff-images.scdn.co/5732f033-9406-4865-93b4-9babe8ad8907/001d22d1-2ae9=
+-4c73-95e2-18925d0c1793" width=3D"100%" align=3D"center" alt=3D"Phora" styl=
+e=3D"border: none; padding: 0px; display: block; max-width: 100%; margin: 0=
+px auto; text-align: center; width: 100%;"> <!--[if mso]></div><![endif]-->=
+ </a> </center> </td> </tr> <tr height=3D"30" valign=3D"middle" style=3D"bo=
+rder: none; margin: 0px; padding: 0px; height: 30px;"> <td height=3D"30" va=
+lign=3D"middle" style=3D"border: none; margin: 0px; padding: 0px; height: 3=
+0px;"></td> </tr> </tbody> </table> <table width=3D"100%" cellpadding=3D"0"=
+ cellspacing=3D"0" style=3D"border: none; margin: 0px; border-collapse: col=
+lapse; padding: 0px; width: 100%;"> <tbody valign=3D"middle" style=3D"borde=
+r: none; margin: 0px; padding: 0px;"> <tr valign=3D"middle" style=3D"border=
+: none; margin: 0px; padding: 0px;"> <td width=3D"6.25%" valign=3D"middle" =
+style=3D"width: 6.25%; border: none; margin: 0px; padding: 0px;"></td> <td =
+valign=3D"middle" style=3D"border: none; margin: 0px; padding: 0px;"> <tabl=
+e cellspacing=3D"0" cellpadding=3D"0" border=3D"0" width=3D"100%" style=3D"=
+margin: 0px; padding: 0px"> <tbody> <tr> <td align=3D"left" style=3D"border=
+: none; margin: 0px; padding: 0px 0px 5px; font-family: Circular, &quot;Hel=
+vetica Neue&quot;, Helvetica, Arial, sans-serif; font-weight: 200; text-ali=
+gn: left; text-decoration: none; color: rgb(97, 100, 103); font-size: 14px;=
+ line-height: 20px;"> <div style=3D"font-size: 28px; letter-spacing: -1.8px=
+; color: rgb(65, 65, 65); font-family: Circular, &quot;Helvetica Neue&quot;=
+, Helvetica, Arial, sans-serif; line-height: 1.2; border: none; margin: 0px=
+; padding: 0px;" align=3D"center" valign=3D"center"> <b align=3D"left" styl=
+e=3D"border: none; margin: 0px; padding: 0px; font-family: Circular, &quot;=
+Helvetica Neue&quot;, Helvetica, Arial, sans-serif; text-align: left; text-=
+decoration: none; font-weight: bold;"> Thanks for being a fan </b> </div> <=
+/td> </tr> </tbody> </table> </td> <td width=3D"6.25%" valign=3D"middle" st=
+yle=3D"width: 6.25%; border: none; margin: 0px; padding: 0px;"></td> </tr> =
+<tr valign=3D"middle" style=3D"border: none; margin: 0px; padding: 0px;"> <=
+td colspan=3D"3" height=3D"20" valign=3D"middle" style=3D"border: none; mar=
+gin: 0px; padding: 0px; height: 20px;"></td> </tr> </tbody> </table> <table=
+ width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"border: none; =
+margin: 0px; border-collapse: collapse; padding: 0px; width: 100%;"> <tbody=
+ valign=3D"middle" style=3D"border: none; margin: 0px; padding: 0px;"> <tr =
+valign=3D"middle" style=3D"border: none; margin: 0px; padding: 0px;"> <td w=
+idth=3D"6.25%" valign=3D"middle" style=3D"width: 6.25%; border: none; margi=
+n: 0px; padding: 0px;"></td> <td valign=3D"middle" style=3D"border: none; m=
+argin: 0px; padding: 0px;"> <table cellspacing=3D"0" cellpadding=3D"0" bord=
+er=3D"0" width=3D"100%" style=3D"margin: 0px; padding: 0px"> <tbody> <tr> <=
+td align=3D"left" style=3D"border: none; margin: 0px; padding: 0px 0px 5px;=
+ font-family: Circular, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-=
+serif; font-weight: 200; text-align: left; text-decoration: none; color: rg=
+b(97, 100, 103); font-size: 14px; line-height: 20px;"> <div style=3D"font-s=
+ize: 16px; font-family: Circular, &quot;Helvetica Neue&quot;, Helvetica, Ar=
+ial, sans-serif; line-height: 1.2; border: none; margin: 0px; padding: 0px;=
+" valign=3D"top"> <center style=3D"border: none; margin: 0px; padding: 0px;=
+ font-style: italic;"> Phora is giving you special access to get tickets to=
+ his upcoming tour! </center> </div> </td> </tr> </tbody> </table> </td> <t=
+d width=3D"6.25%" valign=3D"middle" style=3D"width: 6.25%; border: none; ma=
+rgin: 0px; padding: 0px;"></td> </tr> <tr valign=3D"middle" style=3D"border=
+: none; margin: 0px; padding: 0px;"> <td colspan=3D"3" height=3D"20" valign=
+=3D"middle" style=3D"border: none; margin: 0px; padding: 0px; height: 20px;=
+"></td> </tr> </tbody> </table> <table width=3D"100%" cellpadding=3D"0" cel=
+lspacing=3D"0" style=3D"border: none; margin: 0px; border-collapse: collaps=
+e; padding: 0px; width: 100%;"> <tbody valign=3D"middle" style=3D"border: n=
+one; margin: 0px; padding: 0px;"> <tr valign=3D"middle" style=3D"border: no=
+ne; margin: 0px; padding: 0px;"> <td width=3D"6.25%" valign=3D"middle" styl=
+e=3D"width: 6.25%; border: none; margin: 0px; padding: 0px;"></td> <td vali=
+gn=3D"middle" style=3D"border: none; margin: 0px; padding: 0px;"> <center s=
+tyle=3D"border: none; margin: 0px; padding: 0px;"> <span style=3D"backgroun=
+d-color: #1ae68c; display: inline-block;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span> </cente=
+r> </td> <td width=3D"6.25%" valign=3D"middle" style=3D"width: 6.25%; borde=
+r: none; margin: 0px; padding: 0px;"></td> </tr> <tr height=3D"30" valign=
+=3D"middle" style=3D"border: none; margin: 0px; padding: 0px; height: 30px;=
+"> <td colspan=3D"3" height=3D"30" valign=3D"middle" style=3D"border: none;=
+ margin: 0px; padding: 0px; height: 30px;"></td> </tr> </tbody> </table> <t=
+able width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"border: no=
+ne; margin: 0px; border-collapse: collapse; padding: 0px; width: 100%;"> <t=
+body valign=3D"middle" style=3D"border: none; margin: 0px; padding: 0px;"> =
+<tr valign=3D"middle" style=3D"border: none; margin: 0px; padding: 0px;"> <=
+td width=3D"6.25%" valign=3D"middle" style=3D"width: 6.25%; border: none; m=
+argin: 0px; padding: 0px;"></td> <td valign=3D"middle" style=3D"border: non=
+e; margin: 0px; padding: 0px;"> <table cellspacing=3D"0" cellpadding=3D"0" =
+border=3D"0" width=3D"100%" style=3D"margin: 0px; padding: 0px"> <tbody> <t=
+r> <td align=3D"left" style=3D"border: none; margin: 0px; padding: 0px 0px =
+5px; font-family: Circular, &quot;Helvetica Neue&quot;, Helvetica, Arial, s=
+ans-serif; font-weight: 200; text-align: left; text-decoration: none; color=
+: rgb(97, 100, 103); font-size: 14px; line-height: 20px;"> <div style=3D"fo=
+nt-size: 16px; font-family: Circular, &quot;Helvetica Neue&quot;, Helvetica=
+, Arial, sans-serif; line-height: 1.2; border: none; margin: 0px; padding: =
+0px;" valign=3D"top"> <center style=3D"border: none; margin: 0px; padding: =
+0px;"><b align=3D"left" style=3D"border: none; margin: 0px; padding: 0px; f=
+ont-family: Circular, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-se=
+rif; text-align: left; text-decoration: none; font-weight: bold;"> Presale =
+starts now <br style=3D"border: none; margin: 0px; padding: 0px;"></b> Offe=
+r code: <b align=3D"left" style=3D"border: none; margin: 0px; padding: 0px;=
+ font-family: Circular, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-=
+serif; text-align: left; text-decoration: none; font-weight: bold;"> <span =
+style=3D"color: #513751; border: none; margin: 0px; padding: 0px;">SINNERS<=
+/span> </b> <br style=3D"border: none; margin: 0px; padding: 0px;"> Ends No=
+vember 9, 2023 at 10:00 PM PT </center> </div><br style=3D"border: none; ma=
+rgin: 0px; padding: 0px;"> </td> </tr> </tbody> </table> </td> <td width=3D=
+"6.25%" valign=3D"middle" style=3D"width: 6.25%; border: none; margin: 0px;=
+ padding: 0px;"></td> </tr> <tr valign=3D"middle" style=3D"border: none; ma=
+rgin: 0px; padding: 0px;"> <td colspan=3D"3" height=3D"20" valign=3D"middle=
+" style=3D"border: none; margin: 0px; padding: 0px; height: 20px;"></td> </=
+tr> </tbody> </table> <table width=3D"100%" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"border: none; margin: 0px; border-collapse: collapse; paddi=
+ng: 0px; width: 100%;"> <tbody valign=3D"middle" style=3D"border: none; mar=
+gin: 0px; padding: 0px;"> <tr valign=3D"middle" style=3D"border: none; marg=
+in: 0px; padding: 0px;"> <td width=3D"6.25%" valign=3D"middle" style=3D"wid=
+th: 6.25%; border: none; margin: 0px; padding: 0px;"></td> <td valign=3D"mi=
+ddle" style=3D"border: none; margin: 0px; padding: 0px;"> <center style=3D"=
+border: none; margin: 0px; padding: 0px;"> <span style=3D"background-color:=
+ #1ae68c; display: inline-block;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span> </center> </td>=
+ <td width=3D"6.25%" valign=3D"middle" style=3D"width: 6.25%; border: none;=
+ margin: 0px; padding: 0px;"></td> </tr> <tr height=3D"30" valign=3D"middle=
+" style=3D"border: none; margin: 0px; padding: 0px; height: 30px;"> <td col=
+span=3D"3" height=3D"30" valign=3D"middle" style=3D"border: none; margin: 0=
+px; padding: 0px; height: 30px;"></td> </tr> </tbody> </table> <table width=
+=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"border: none; margin=
+: 0px; border-collapse: collapse; padding: 0px; width: 100%;"> <tbody valig=
+n=3D"middle" style=3D"border: none; margin: 0px; padding: 0px;"> <tr valign=
+=3D"middle" style=3D"border: none; margin: 0px; padding: 0px;"> <td width=
+=3D"6.25%" valign=3D"middle" style=3D"width: 6.25%; border: none; margin: 0=
+px; padding: 0px;"></td> <td valign=3D"middle" style=3D"border: none; margi=
+n: 0px; padding: 0px;"> <table cellspacing=3D"0" cellpadding=3D"0" border=
+=3D"0" width=3D"100%" style=3D"margin: 0px; padding: 0px"> <tbody> <tr> <td=
+ align=3D"left" style=3D"border: none; margin: 0px; padding: 0px 0px 5px; f=
+ont-family: Circular, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-se=
+rif; font-weight: 200; text-align: left; text-decoration: none; color: rgb(=
+97, 100, 103); font-size: 14px; line-height: 20px;"> <hr bgcolor=3D"#D1D5D9=
+" style=3D"border: none; margin: 0px; padding: 0px; background-color: rgb(2=
+09, 213, 217); height: 1px;"> <div style=3D"font-family: Circular, &quot;He=
+lvetica Neue&quot;, Helvetica, Arial, sans-serif; color: rgb(153, 153, 153)=
+; border: none; margin: 0px; padding: 0px;"></div> <div style=3D"font-famil=
+y: Circular, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; colo=
+r: rgb(153, 153, 153); border: none; margin: 0px; padding: 0px;"></div> <di=
+v style=3D"font-family: Circular, &quot;Helvetica Neue&quot;, Helvetica, Ar=
+ial, sans-serif; color: rgb(153, 153, 153); border: none; margin: 0px; padd=
+ing: 0px;"></div> <div style=3D"font-family: Circular, &quot;Helvetica Neue=
+&quot;, Helvetica, Arial, sans-serif; color: rgb(153, 153, 153); border: no=
+ne; margin: 0px; padding: 0px;"></div> <div style=3D"font-family: Circular,=
+ &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; color: rgb(153, =
+153, 153); border: none; margin: 0px; padding: 0px;"></div> <div style=3D"f=
+ont-family: Circular, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-se=
+rif; color: rgb(153, 153, 153); border: none; margin: 0px; padding: 0px;"><=
+/div> <div style=3D"font-family: Circular, &quot;Helvetica Neue&quot;, Helv=
+etica, Arial, sans-serif; color: rgb(153, 153, 153); border: none; margin: =
+0px; padding: 0px;"></div> <div style=3D"font-family: Circular, &quot;Helve=
+tica Neue&quot;, Helvetica, Arial, sans-serif; color: rgb(153, 153, 153); b=
+order: none; margin: 0px; padding: 0px;"></div> <div style=3D"font-family: =
+Circular, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; color: =
+rgb(153, 153, 153); border: none; margin: 0px; padding: 0px;"></div> <div s=
+tyle=3D"font-family: Circular, &quot;Helvetica Neue&quot;, Helvetica, Arial=
+, sans-serif; color: rgb(153, 153, 153); border: none; margin: 0px; padding=
+: 0px;"></div> <div style=3D"font-family: Circular, &quot;Helvetica Neue&qu=
+ot;, Helvetica, Arial, sans-serif; color: rgb(153, 153, 153); border: none;=
+ margin: 0px; padding: 0px;"></div> <div style=3D"font-family: Circular, &q=
+uot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; color: rgb(153, 153=
+, 153); border: none; margin: 0px; padding: 0px;"></div> <table border=3D"0=
+" width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" bordercolor=3D"green" =
+style=3D"border: none; margin: 0px; border-collapse: collapse; padding: 0px=
+;"> <tbody valign=3D"middle" style=3D"border: none; margin: 0px; padding: 0=
+px;"> <tr align=3D"center" valign=3D"middle" style=3D"border: none; margin:=
+ 0px; padding: 0px;"> <td align=3D"left" valign=3D"middle" style=3D"border:=
+ none; margin: 0px; padding: 8px;"> <b align=3D"left" style=3D"border: none=
+; margin: 0px; padding: 0px; font-family: Circular, &quot;Helvetica Neue&qu=
+ot;, Helvetica, Arial, sans-serif; text-align: left; text-decoration: none;=
+ font-weight: bold;"> Seattle, WA </b> <br/> January 15, 2024 </td> <td ali=
+gn=3D"right" valign=3D"middle" style=3D"border: none; margin: 0px; padding:=
+ 8px;"> <a href=3D"https://wl.spotify.com/ss/c/Yxw8gcxqYcOVXBM9x1TRPfStp3bh=
+OWqm6vRjZX_4A7I/413/RHcmCx37SQupYVlm4q_PWw/h1/l0TULb8jFA41xovsNniiooy8_-Ze3=
+tOAu-QSgASs1UE" align=3D"left" style=3D"border: none; margin: 0px; padding:=
+ 0px; font-family: Circular, &quot;Helvetica Neue&quot;, Helvetica, Arial, =
+sans-serif; font-weight: 200; text-align: left; text-decoration: underline;=
+ color: #513751;"> <b>Get tickets</b> </a> </td> </tr> <tr rowspan=3D"4" va=
+lign=3D"middle" style=3D"border: none; margin: 0px; padding: 0px;"> <td col=
+span=3D"3" valign=3D"middle" style=3D"border: none; margin: 0px; padding: 0=
+px;"> <hr bgcolor=3D"#D1D5D9" style=3D"border: none; margin: 0px; padding: =
+0px; background-color: rgb(209, 213, 217); height: 1px;"> </td> </tr> <tr a=
+lign=3D"center" valign=3D"middle" style=3D"border: none; margin: 0px; paddi=
+ng: 0px;"> <td align=3D"left" valign=3D"middle" style=3D"border: none; marg=
+in: 0px; padding: 8px;"> <b align=3D"left" style=3D"border: none; margin: 0=
+px; padding: 0px; font-family: Circular, &quot;Helvetica Neue&quot;, Helvet=
+ica, Arial, sans-serif; text-align: left; text-decoration: none; font-weigh=
+t: bold;"> Portland, OR </b> <br/> January 16, 2024 </td> <td align=3D"righ=
+t" valign=3D"middle" style=3D"border: none; margin: 0px; padding: 8px;"> <a=
+ href=3D"https://wl.spotify.com/ss/c/Yxw8gcxqYcOVXBM9x1TRPX6WCoop0MQqnG_AZI=
+LwQk0/413/RHcmCx37SQupYVlm4q_PWw/h2/iZDYcBgp82Gg66Z9KQMYVYktVhO_dxoUU0Ec_12=
+CdgI" align=3D"left" style=3D"border: none; margin: 0px; padding: 0px; font=
+-family: Circular, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif=
+; font-weight: 200; text-align: left; text-decoration: underline; color: #5=
+13751;"> <b>Get tickets</b> </a> </td> </tr> <tr rowspan=3D"4" valign=3D"mi=
+ddle" style=3D"border: none; margin: 0px; padding: 0px;"> <td colspan=3D"3"=
+ valign=3D"middle" style=3D"border: none; margin: 0px; padding: 0px;"> <hr =
+bgcolor=3D"#D1D5D9" style=3D"border: none; margin: 0px; padding: 0px; backg=
+round-color: rgb(209, 213, 217); height: 1px;"> </td> </tr> <tr align=3D"ce=
+nter" valign=3D"middle" style=3D"border: none; margin: 0px; padding: 0px;">=
+ <td align=3D"left" valign=3D"middle" style=3D"border: none; margin: 0px; p=
+adding: 8px;"> <b align=3D"left" style=3D"border: none; margin: 0px; paddin=
+g: 0px; font-family: Circular, &quot;Helvetica Neue&quot;, Helvetica, Arial=
+, sans-serif; text-align: left; text-decoration: none; font-weight: bold;">=
+ Reno, NV </b> <br/> January 18, 2024 </td> <td align=3D"right" valign=3D"m=
+iddle" style=3D"border: none; margin: 0px; padding: 8px;"> <a href=3D"https=
+://wl.spotify.com/ss/c/Yxw8gcxqYcOVXBM9x1TRPSY3GinfUxD-7Q-Y1udRN-s/413/RHcm=
+Cx37SQupYVlm4q_PWw/h3/MwPTGrtthZiHPpT9v_Fx4e0N3SvePBsfHQHzg1d4jzU" align=3D=
+"left" style=3D"border: none; margin: 0px; padding: 0px; font-family: Circu=
+lar, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-weight:=
+ 200; text-align: left; text-decoration: underline; color: #513751;"> <b>Ge=
+t tickets</b> </a> </td> </tr> <tr rowspan=3D"4" valign=3D"middle" style=3D=
+"border: none; margin: 0px; padding: 0px;"> <td colspan=3D"3" valign=3D"mid=
+dle" style=3D"border: none; margin: 0px; padding: 0px;"> <hr bgcolor=3D"#D1=
+D5D9" style=3D"border: none; margin: 0px; padding: 0px; background-color: r=
+gb(209, 213, 217); height: 1px;"> </td> </tr> <tr align=3D"center" valign=
+=3D"middle" style=3D"border: none; margin: 0px; padding: 0px;"> <td align=
+=3D"left" valign=3D"middle" style=3D"border: none; margin: 0px; padding: 8p=
+x;"> <b align=3D"left" style=3D"border: none; margin: 0px; padding: 0px; fo=
+nt-family: Circular, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-ser=
+if; text-align: left; text-decoration: none; font-weight: bold;"> Oakland, =
+CA </b> <br/> January 19, 2024 </td> <td align=3D"right" valign=3D"middle" =
+style=3D"border: none; margin: 0px; padding: 8px;"> <a href=3D"https://wl.s=
+potify.com/ss/c/Yxw8gcxqYcOVXBM9x1TRPR0quLZA4CGRLpT7GmQuJ2k/413/RHcmCx37SQu=
+pYVlm4q_PWw/h4/2LFC4MrAX93ikAeHOdRmczBoOCcSDoB5SNwqSwaLVY0" align=3D"left" =
+style=3D"border: none; margin: 0px; padding: 0px; font-family: Circular, &q=
+uot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-weight: 200; t=
+ext-align: left; text-decoration: underline; color: #513751;"> <b>Get ticke=
+ts</b> </a> </td> </tr> <tr rowspan=3D"4" valign=3D"middle" style=3D"border=
+: none; margin: 0px; padding: 0px;"> <td colspan=3D"3" valign=3D"middle" st=
+yle=3D"border: none; margin: 0px; padding: 0px;"> <hr bgcolor=3D"#D1D5D9" s=
+tyle=3D"border: none; margin: 0px; padding: 0px; background-color: rgb(209,=
+ 213, 217); height: 1px;"> </td> </tr> <tr align=3D"center" valign=3D"middl=
+e" style=3D"border: none; margin: 0px; padding: 0px;"> <td align=3D"left" v=
+align=3D"middle" style=3D"border: none; margin: 0px; padding: 8px;"> <b ali=
+gn=3D"left" style=3D"border: none; margin: 0px; padding: 0px; font-family: =
+Circular, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; text-al=
+ign: left; text-decoration: none; font-weight: bold;"> Sacramento, CA </b> =
+<br/> January 21, 2024 </td> <td align=3D"right" valign=3D"middle" style=3D=
+"border: none; margin: 0px; padding: 8px;"> <a href=3D"https://wl.spotify.c=
+om/ss/c/Yxw8gcxqYcOVXBM9x1TRPY314TgyXxBPmsar_PcPiLw/413/RHcmCx37SQupYVlm4q_=
+PWw/h5/zxf15ZAv7DqA1mJEZqCSbDy3ZTx5yOFxvjFdrh8Me5E" align=3D"left" style=3D=
+"border: none; margin: 0px; padding: 0px; font-family: Circular, &quot;Helv=
+etica Neue&quot;, Helvetica, Arial, sans-serif; font-weight: 200; text-alig=
+n: left; text-decoration: underline; color: #513751;"> <b>Get tickets</b> <=
+/a> </td> </tr> <tr rowspan=3D"4" valign=3D"middle" style=3D"border: none; =
+margin: 0px; padding: 0px;"> <td colspan=3D"3" valign=3D"middle" style=3D"b=
+order: none; margin: 0px; padding: 0px;"> <hr bgcolor=3D"#D1D5D9" style=3D"=
+border: none; margin: 0px; padding: 0px; background-color: rgb(209, 213, 21=
+7); height: 1px;"> </td> </tr> <tr align=3D"center" valign=3D"middle" style=
+=3D"border: none; margin: 0px; padding: 0px;"> <td align=3D"left" valign=3D=
+"middle" style=3D"border: none; margin: 0px; padding: 8px;"> <b align=3D"le=
+ft" style=3D"border: none; margin: 0px; padding: 0px; font-family: Circular=
+, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; text-align: lef=
+t; text-decoration: none; font-weight: bold;"> Fresno, CA </b> <br/> Januar=
+y 23, 2024 </td> <td align=3D"right" valign=3D"middle" style=3D"border: non=
+e; margin: 0px; padding: 8px;"> <a href=3D"https://wl.spotify.com/ss/c/Yxw8=
+gcxqYcOVXBM9x1TRPZOHny-z5Ot9EzoSq4qes08/413/RHcmCx37SQupYVlm4q_PWw/h6/oF1wV=
+d3fa1yCRPPgjUNtqWmDHTTe3sgy-qK0dhcKMxs" align=3D"left" style=3D"border: non=
+e; margin: 0px; padding: 0px; font-family: Circular, &quot;Helvetica Neue&q=
+uot;, Helvetica, Arial, sans-serif; font-weight: 200; text-align: left; tex=
+t-decoration: underline; color: #513751;"> <b>Get tickets</b> </a> </td> </=
+tr> <tr rowspan=3D"4" valign=3D"middle" style=3D"border: none; margin: 0px;=
+ padding: 0px;"> <td colspan=3D"3" valign=3D"middle" style=3D"border: none;=
+ margin: 0px; padding: 0px;"> <hr bgcolor=3D"#D1D5D9" style=3D"border: none=
+; margin: 0px; padding: 0px; background-color: rgb(209, 213, 217); height: =
+1px;"> </td> </tr> <tr align=3D"center" valign=3D"middle" style=3D"border: =
+none; margin: 0px; padding: 0px;"> <td align=3D"left" valign=3D"middle" sty=
+le=3D"border: none; margin: 0px; padding: 8px;"> <b align=3D"left" style=3D=
+"border: none; margin: 0px; padding: 0px; font-family: Circular, &quot;Helv=
+etica Neue&quot;, Helvetica, Arial, sans-serif; text-align: left; text-deco=
+ration: none; font-weight: bold;"> Bakersfield, CA </b> <br/> January 25, 2=
+024 </td> <td align=3D"right" valign=3D"middle" style=3D"border: none; marg=
+in: 0px; padding: 8px;"> <a href=3D"https://wl.spotify.com/ss/c/Yxw8gcxqYcO=
+VXBM9x1TRPRdDqrnzMa37wXuoSy_hsLI/413/RHcmCx37SQupYVlm4q_PWw/h7/A3U3htQeURYU=
+ThX3gQPsIEZSsBLFafj7vbQdW-uzZ8o" align=3D"left" style=3D"border: none; marg=
+in: 0px; padding: 0px; font-family: Circular, &quot;Helvetica Neue&quot;, H=
+elvetica, Arial, sans-serif; font-weight: 200; text-align: left; text-decor=
+ation: underline; color: #513751;"> <b>Get tickets</b> </a> </td> </tr> <tr=
+ rowspan=3D"4" valign=3D"middle" style=3D"border: none; margin: 0px; paddin=
+g: 0px;"> <td colspan=3D"3" valign=3D"middle" style=3D"border: none; margin=
+: 0px; padding: 0px;"> <hr bgcolor=3D"#D1D5D9" style=3D"border: none; margi=
+n: 0px; padding: 0px; background-color: rgb(209, 213, 217); height: 1px;"> =
+</td> </tr> <tr align=3D"center" valign=3D"middle" style=3D"border: none; m=
+argin: 0px; padding: 0px;"> <td align=3D"left" valign=3D"middle" style=3D"b=
+order: none; margin: 0px; padding: 8px;"> <b align=3D"left" style=3D"border=
+: none; margin: 0px; padding: 0px; font-family: Circular, &quot;Helvetica N=
+eue&quot;, Helvetica, Arial, sans-serif; text-align: left; text-decoration:=
+ none; font-weight: bold;"> Pomona, CA </b> <br/> January 27, 2024 </td> <t=
+d align=3D"right" valign=3D"middle" style=3D"border: none; margin: 0px; pad=
+ding: 8px;"> <a href=3D"https://wl.spotify.com/ss/c/Yxw8gcxqYcOVXBM9x1TRPQc=
+U7Lyhwawgx2gRymmarhA/413/RHcmCx37SQupYVlm4q_PWw/h8/amtbIOyyNs0LvXFhWdrEb41p=
+VO9VQPbvtJqC1MSet3g" align=3D"left" style=3D"border: none; margin: 0px; pad=
+ding: 0px; font-family: Circular, &quot;Helvetica Neue&quot;, Helvetica, Ar=
+ial, sans-serif; font-weight: 200; text-align: left; text-decoration: under=
+line; color: #513751;"> <b>Get tickets</b> </a> </td> </tr> <tr rowspan=3D"=
+4" valign=3D"middle" style=3D"border: none; margin: 0px; padding: 0px;"> <t=
+d colspan=3D"3" valign=3D"middle" style=3D"border: none; margin: 0px; paddi=
+ng: 0px;"> <hr bgcolor=3D"#D1D5D9" style=3D"border: none; margin: 0px; padd=
+ing: 0px; background-color: rgb(209, 213, 217); height: 1px;"> </td> </tr> =
+<tr align=3D"center" valign=3D"middle" style=3D"border: none; margin: 0px; =
+padding: 0px;"> <td align=3D"left" valign=3D"middle" style=3D"border: none;=
+ margin: 0px; padding: 8px;"> <b align=3D"left" style=3D"border: none; marg=
+in: 0px; padding: 0px; font-family: Circular, &quot;Helvetica Neue&quot;, H=
+elvetica, Arial, sans-serif; text-align: left; text-decoration: none; font-=
+weight: bold;"> San Diego, CA </b> <br/> January 29, 2024 </td> <td align=
+=3D"right" valign=3D"middle" style=3D"border: none; margin: 0px; padding: 8=
+px;"> <a href=3D"https://wl.spotify.com/ss/c/Yxw8gcxqYcOVXBM9x1TRPZkbXZ79dL=
+EzAu51s3XZAWU/413/RHcmCx37SQupYVlm4q_PWw/h9/awUefpwOSnFXjvLv5Pu4XBRe2DDO_DE=
+YAa6qFdmnhHY" align=3D"left" style=3D"border: none; margin: 0px; padding: 0=
+px; font-family: Circular, &quot;Helvetica Neue&quot;, Helvetica, Arial, sa=
+ns-serif; font-weight: 200; text-align: left; text-decoration: underline; c=
+olor: #513751;"> <b>Get tickets</b> </a> </td> </tr> <tr rowspan=3D"4" vali=
+gn=3D"middle" style=3D"border: none; margin: 0px; padding: 0px;"> <td colsp=
+an=3D"3" valign=3D"middle" style=3D"border: none; margin: 0px; padding: 0px=
+;"> <hr bgcolor=3D"#D1D5D9" style=3D"border: none; margin: 0px; padding: 0p=
+x; background-color: rgb(209, 213, 217); height: 1px;"> </td> </tr> <tr ali=
+gn=3D"center" valign=3D"middle" style=3D"border: none; margin: 0px; padding=
+: 0px;"> <td align=3D"left" valign=3D"middle" style=3D"border: none; margin=
+: 0px; padding: 8px;"> <b align=3D"left" style=3D"border: none; margin: 0px=
+; padding: 0px; font-family: Circular, &quot;Helvetica Neue&quot;, Helvetic=
+a, Arial, sans-serif; text-align: left; text-decoration: none; font-weight:=
+ bold;"> Phoenix, AZ </b> <br/> January 31, 2024 </td> <td align=3D"right" =
+valign=3D"middle" style=3D"border: none; margin: 0px; padding: 8px;"> <a hr=
+ef=3D"https://wl.spotify.com/ss/c/Yxw8gcxqYcOVXBM9x1TRPU_NVTXQpJ23XlSUS3fxf=
+lc/413/RHcmCx37SQupYVlm4q_PWw/h10/8YEBr6jf7jqtwTaYp0eqhmUrm90HzoEcn1VUR9UxL=
+9I" align=3D"left" style=3D"border: none; margin: 0px; padding: 0px; font-f=
+amily: Circular, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; =
+font-weight: 200; text-align: left; text-decoration: underline; color: #513=
+751;"> <b>Get tickets</b> </a> </td> </tr> <tr rowspan=3D"4" valign=3D"midd=
+le" style=3D"border: none; margin: 0px; padding: 0px;"> <td colspan=3D"3" v=
+align=3D"middle" style=3D"border: none; margin: 0px; padding: 0px;"> <hr bg=
+color=3D"#D1D5D9" style=3D"border: none; margin: 0px; padding: 0px; backgro=
+und-color: rgb(209, 213, 217); height: 1px;"> </td> </tr> <tr align=3D"cent=
+er" valign=3D"middle" style=3D"border: none; margin: 0px; padding: 0px;"> <=
+td align=3D"left" valign=3D"middle" style=3D"border: none; margin: 0px; pad=
+ding: 8px;"> <b align=3D"left" style=3D"border: none; margin: 0px; padding:=
+ 0px; font-family: Circular, &quot;Helvetica Neue&quot;, Helvetica, Arial, =
+sans-serif; text-align: left; text-decoration: none; font-weight: bold;"> E=
+l Paso, TX </b> <br/> February 2, 2024 </td> <td align=3D"right" valign=3D"=
+middle" style=3D"border: none; margin: 0px; padding: 8px;"> <a href=3D"http=
+s://wl.spotify.com/ss/c/Yxw8gcxqYcOVXBM9x1TRPXTxzFjzfBuJ-gqJq4iilDg/413/RHc=
+mCx37SQupYVlm4q_PWw/h11/jlfOKczSigWTaanIDj9BmKKUDZq_YsdcSdKSVAisjfo" align=
+=3D"left" style=3D"border: none; margin: 0px; padding: 0px; font-family: Ci=
+rcular, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-weig=
+ht: 200; text-align: left; text-decoration: underline; color: #513751;"> <b=
+>Get tickets</b> </a> </td> </tr> <tr rowspan=3D"4" valign=3D"middle" style=
+=3D"border: none; margin: 0px; padding: 0px;"> <td colspan=3D"3" valign=3D"=
+middle" style=3D"border: none; margin: 0px; padding: 0px;"> <hr bgcolor=3D"=
+#D1D5D9" style=3D"border: none; margin: 0px; padding: 0px; background-color=
+: rgb(209, 213, 217); height: 1px;"> </td> </tr> <tr align=3D"center" valig=
+n=3D"middle" style=3D"border: none; margin: 0px; padding: 0px;"> <td align=
+=3D"left" valign=3D"middle" style=3D"border: none; margin: 0px; padding: 8p=
+x;"> <b align=3D"left" style=3D"border: none; margin: 0px; padding: 0px; fo=
+nt-family: Circular, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-ser=
+if; text-align: left; text-decoration: none; font-weight: bold;"> Austin, T=
+X </b> <br/> February 3, 2024 </td> <td align=3D"right" valign=3D"middle" s=
+tyle=3D"border: none; margin: 0px; padding: 8px;"> <a href=3D"https://wl.sp=
+otify.com/ss/c/Yxw8gcxqYcOVXBM9x1TRPZqaLYrFXqEsaGcEr7bzPaI/413/RHcmCx37SQup=
+YVlm4q_PWw/h12/_m8956dsOiWNFgNAUJP9TmKmVTG0ay11QIquPMZrAhQ" align=3D"left" =
+style=3D"border: none; margin: 0px; padding: 0px; font-family: Circular, &q=
+uot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-weight: 200; t=
+ext-align: left; text-decoration: underline; color: #513751;"> <b>Get ticke=
+ts</b> </a> </td> </tr> <tr rowspan=3D"4" valign=3D"middle" style=3D"border=
+: none; margin: 0px; padding: 0px;"> <td colspan=3D"3" valign=3D"middle" st=
+yle=3D"border: none; margin: 0px; padding: 0px;"> <hr bgcolor=3D"#D1D5D9" s=
+tyle=3D"border: none; margin: 0px; padding: 0px; background-color: rgb(209,=
+ 213, 217); height: 1px;"> </td> </tr> <tr align=3D"center" valign=3D"middl=
+e" style=3D"border: none; margin: 0px; padding: 0px;"> <td align=3D"left" v=
+align=3D"middle" style=3D"border: none; margin: 0px; padding: 8px;"> <b ali=
+gn=3D"left" style=3D"border: none; margin: 0px; padding: 0px; font-family: =
+Circular, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; text-al=
+ign: left; text-decoration: none; font-weight: bold;"> Houston, TX </b> <br=
+/> February 5, 2024 </td> <td align=3D"right" valign=3D"middle" style=3D"bo=
+rder: none; margin: 0px; padding: 8px;"> <a href=3D"https://wl.spotify.com/=
+ss/c/Yxw8gcxqYcOVXBM9x1TRPVDowheASRyRsQWgUuXdLdY/413/RHcmCx37SQupYVlm4q_PWw=
+/h13/T09D0aPkabwAQaUmUyvbWVlP43WBpE_h8-RzIeitDV0" align=3D"left" style=3D"b=
+order: none; margin: 0px; padding: 0px; font-family: Circular, &quot;Helvet=
+ica Neue&quot;, Helvetica, Arial, sans-serif; font-weight: 200; text-align:=
+ left; text-decoration: underline; color: #513751;"> <b>Get tickets</b> </a=
+> </td> </tr> <tr rowspan=3D"4" valign=3D"middle" style=3D"border: none; ma=
+rgin: 0px; padding: 0px;"> <td colspan=3D"3" valign=3D"middle" style=3D"bor=
+der: none; margin: 0px; padding: 0px;"> <hr bgcolor=3D"#D1D5D9" style=3D"bo=
+rder: none; margin: 0px; padding: 0px; background-color: rgb(209, 213, 217)=
+; height: 1px;"> </td> </tr> <tr align=3D"center" valign=3D"middle" style=
+=3D"border: none; margin: 0px; padding: 0px;"> <td align=3D"left" valign=3D=
+"middle" style=3D"border: none; margin: 0px; padding: 8px;"> <b align=3D"le=
+ft" style=3D"border: none; margin: 0px; padding: 0px; font-family: Circular=
+, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; text-align: lef=
+t; text-decoration: none; font-weight: bold;"> Dallas, TX </b> <br/> Februa=
+ry 6, 2024 </td> <td align=3D"right" valign=3D"middle" style=3D"border: non=
+e; margin: 0px; padding: 8px;"> <a href=3D"https://wl.spotify.com/ss/c/Yxw8=
+gcxqYcOVXBM9x1TRPZg88w32st0VqfZ8v1btP5M/413/RHcmCx37SQupYVlm4q_PWw/h14/fXWg=
+cZEqZu6IQ0OR3BzceXhRxTjVgaeMKvooR_4yOlA" align=3D"left" style=3D"border: no=
+ne; margin: 0px; padding: 0px; font-family: Circular, &quot;Helvetica Neue&=
+quot;, Helvetica, Arial, sans-serif; font-weight: 200; text-align: left; te=
+xt-decoration: underline; color: #513751;"> <b>Get tickets</b> </a> </td> <=
+/tr> <tr rowspan=3D"4" valign=3D"middle" style=3D"border: none; margin: 0px=
+; padding: 0px;"> <td colspan=3D"3" valign=3D"middle" style=3D"border: none=
+; margin: 0px; padding: 0px;"> <hr bgcolor=3D"#D1D5D9" style=3D"border: non=
+e; margin: 0px; padding: 0px; background-color: rgb(209, 213, 217); height:=
+ 1px;"> </td> </tr> <tr align=3D"center" valign=3D"middle" style=3D"border:=
+ none; margin: 0px; padding: 0px;"> <td align=3D"left" valign=3D"middle" st=
+yle=3D"border: none; margin: 0px; padding: 8px;"> <b align=3D"left" style=
+=3D"border: none; margin: 0px; padding: 0px; font-family: Circular, &quot;H=
+elvetica Neue&quot;, Helvetica, Arial, sans-serif; text-align: left; text-d=
+ecoration: none; font-weight: bold;"> New Orleans, LA </b> <br/> February 8=
+, 2024 </td> <td align=3D"right" valign=3D"middle" style=3D"border: none; m=
+argin: 0px; padding: 8px;"> <a href=3D"https://wl.spotify.com/ss/c/Yxw8gcxq=
+YcOVXBM9x1TRPZrGK_QDJcv990Wb61ww6lA/413/RHcmCx37SQupYVlm4q_PWw/h15/_6nZ8AEI=
+99rAuLaOzSBHqwh6VZOi-NQUp_ZLGiDrpJE" align=3D"left" style=3D"border: none; =
+margin: 0px; padding: 0px; font-family: Circular, &quot;Helvetica Neue&quot=
+;, Helvetica, Arial, sans-serif; font-weight: 200; text-align: left; text-d=
+ecoration: underline; color: #513751;"> <b>Get tickets</b> </a> </td> </tr>=
+ <tr rowspan=3D"4" valign=3D"middle" style=3D"border: none; margin: 0px; pa=
+dding: 0px;"> <td colspan=3D"3" valign=3D"middle" style=3D"border: none; ma=
+rgin: 0px; padding: 0px;"> <hr bgcolor=3D"#D1D5D9" style=3D"border: none; m=
+argin: 0px; padding: 0px; background-color: rgb(209, 213, 217); height: 1px=
+;"> </td> </tr> <tr align=3D"center" valign=3D"middle" style=3D"border: non=
+e; margin: 0px; padding: 0px;"> <td align=3D"left" valign=3D"middle" style=
+=3D"border: none; margin: 0px; padding: 8px;"> <b align=3D"left" style=3D"b=
+order: none; margin: 0px; padding: 0px; font-family: Circular, &quot;Helvet=
+ica Neue&quot;, Helvetica, Arial, sans-serif; text-align: left; text-decora=
+tion: none; font-weight: bold;"> Miami, FL </b> <br/> February 11, 2024 </t=
+d> <td align=3D"right" valign=3D"middle" style=3D"border: none; margin: 0px=
+; padding: 8px;"> <a href=3D"https://wl.spotify.com/ss/c/Yxw8gcxqYcOVXBM9x1=
+TRPS462UPmMJKpjgNumLvSjS0/413/RHcmCx37SQupYVlm4q_PWw/h16/n2VCvgTfraKFawBhhw=
+un-omqvw7ors00R2f4VeJlbgo" align=3D"left" style=3D"border: none; margin: 0p=
+x; padding: 0px; font-family: Circular, &quot;Helvetica Neue&quot;, Helveti=
+ca, Arial, sans-serif; font-weight: 200; text-align: left; text-decoration:=
+ underline; color: #513751;"> <b>Get tickets</b> </a> </td> </tr> <tr rowsp=
+an=3D"4" valign=3D"middle" style=3D"border: none; margin: 0px; padding: 0px=
+;"> <td colspan=3D"3" valign=3D"middle" style=3D"border: none; margin: 0px;=
+ padding: 0px;"> <hr bgcolor=3D"#D1D5D9" style=3D"border: none; margin: 0px=
+; padding: 0px; background-color: rgb(209, 213, 217); height: 1px;"> </td> =
+</tr> <tr align=3D"center" valign=3D"middle" style=3D"border: none; margin:=
+ 0px; padding: 0px;"> <td align=3D"left" valign=3D"middle" style=3D"border:=
+ none; margin: 0px; padding: 8px;"> <b align=3D"left" style=3D"border: none=
+; margin: 0px; padding: 0px; font-family: Circular, &quot;Helvetica Neue&qu=
+ot;, Helvetica, Arial, sans-serif; text-align: left; text-decoration: none;=
+ font-weight: bold;"> Orlando, FL </b> <br/> February 12, 2024 </td> <td al=
+ign=3D"right" valign=3D"middle" style=3D"border: none; margin: 0px; padding=
+: 8px;"> <a href=3D"https://wl.spotify.com/ss/c/Yxw8gcxqYcOVXBM9x1TRPfzrrj_=
+KMmjG1nb5ijs0cjA/413/RHcmCx37SQupYVlm4q_PWw/h17/Cg14NEkWcYERfSeqPEgCEBjkRkv=
+9_-hHMXadgyy2AnQ" align=3D"left" style=3D"border: none; margin: 0px; paddin=
+g: 0px; font-family: Circular, &quot;Helvetica Neue&quot;, Helvetica, Arial=
+, sans-serif; font-weight: 200; text-align: left; text-decoration: underlin=
+e; color: #513751;"> <b>Get tickets</b> </a> </td> </tr> <tr rowspan=3D"4" =
+valign=3D"middle" style=3D"border: none; margin: 0px; padding: 0px;"> <td c=
+olspan=3D"3" valign=3D"middle" style=3D"border: none; margin: 0px; padding:=
+ 0px;"> <hr bgcolor=3D"#D1D5D9" style=3D"border: none; margin: 0px; padding=
+: 0px; background-color: rgb(209, 213, 217); height: 1px;"> </td> </tr> <tr=
+ align=3D"center" valign=3D"middle" style=3D"border: none; margin: 0px; pad=
+ding: 0px;"> <td align=3D"left" valign=3D"middle" style=3D"border: none; ma=
+rgin: 0px; padding: 8px;"> <b align=3D"left" style=3D"border: none; margin:=
+ 0px; padding: 0px; font-family: Circular, &quot;Helvetica Neue&quot;, Helv=
+etica, Arial, sans-serif; text-align: left; text-decoration: none; font-wei=
+ght: bold;"> Atlanta, GA </b> <br/> February 15, 2024 </td> <td align=3D"ri=
+ght" valign=3D"middle" style=3D"border: none; margin: 0px; padding: 8px;"> =
+<a href=3D"https://wl.spotify.com/ss/c/Yxw8gcxqYcOVXBM9x1TRPR-18qcvHMN8K-mt=
+2drFaPM/413/RHcmCx37SQupYVlm4q_PWw/h18/2mSKbVo-KC0_uTVx2DtpYaD3RQwb_PGzISgy=
+juSRWks" align=3D"left" style=3D"border: none; margin: 0px; padding: 0px; f=
+ont-family: Circular, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-se=
+rif; font-weight: 200; text-align: left; text-decoration: underline; color:=
+ #513751;"> <b>Get tickets</b> </a> </td> </tr> <tr rowspan=3D"4" valign=3D=
+"middle" style=3D"border: none; margin: 0px; padding: 0px;"> <td colspan=3D=
+"3" valign=3D"middle" style=3D"border: none; margin: 0px; padding: 0px;"> <=
+hr bgcolor=3D"#D1D5D9" style=3D"border: none; margin: 0px; padding: 0px; ba=
+ckground-color: rgb(209, 213, 217); height: 1px;"> </td> </tr> <tr align=3D=
+"center" valign=3D"middle" style=3D"border: none; margin: 0px; padding: 0px=
+;"> <td align=3D"left" valign=3D"middle" style=3D"border: none; margin: 0px=
+; padding: 8px;"> <b align=3D"left" style=3D"border: none; margin: 0px; pad=
+ding: 0px; font-family: Circular, &quot;Helvetica Neue&quot;, Helvetica, Ar=
+ial, sans-serif; text-align: left; text-decoration: none; font-weight: bold=
+;"> New York, NY </b> <br/> February 18, 2024 </td> <td align=3D"right" val=
+ign=3D"middle" style=3D"border: none; margin: 0px; padding: 8px;"> <a href=
+=3D"https://wl.spotify.com/ss/c/Yxw8gcxqYcOVXBM9x1TRPRheCBZY8iBpQ_w62jwxOU4=
+/413/RHcmCx37SQupYVlm4q_PWw/h19/iS869He1AM0Xxw4ZRbVKfAP03w1mj77vydoTPWckACE=
+" align=3D"left" style=3D"border: none; margin: 0px; padding: 0px; font-fam=
+ily: Circular, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; fo=
+nt-weight: 200; text-align: left; text-decoration: underline; color: #51375=
+1;"> <b>Get tickets</b> </a> </td> </tr> <tr rowspan=3D"4" valign=3D"middle=
+" style=3D"border: none; margin: 0px; padding: 0px;"> <td colspan=3D"3" val=
+ign=3D"middle" style=3D"border: none; margin: 0px; padding: 0px;"> <hr bgco=
+lor=3D"#D1D5D9" style=3D"border: none; margin: 0px; padding: 0px; backgroun=
+d-color: rgb(209, 213, 217); height: 1px;"> </td> </tr> <tr align=3D"center=
+" valign=3D"middle" style=3D"border: none; margin: 0px; padding: 0px;"> <td=
+ align=3D"left" valign=3D"middle" style=3D"border: none; margin: 0px; paddi=
+ng: 8px;"> <b align=3D"left" style=3D"border: none; margin: 0px; padding: 0=
+px; font-family: Circular, &quot;Helvetica Neue&quot;, Helvetica, Arial, sa=
+ns-serif; text-align: left; text-decoration: none; font-weight: bold;"> Chi=
+cago, IL </b> <br/> February 21, 2024 </td> <td align=3D"right" valign=3D"m=
+iddle" style=3D"border: none; margin: 0px; padding: 8px;"> <a href=3D"https=
+://wl.spotify.com/ss/c/Yxw8gcxqYcOVXBM9x1TRPbOCiZ1jOEm9kHdDQpbkdLg/413/RHcm=
+Cx37SQupYVlm4q_PWw/h20/q67j7SYrL39AZ9Ryn7W_O1NuiQDDJvizNvk_BYGkJx4" align=
+=3D"left" style=3D"border: none; margin: 0px; padding: 0px; font-family: Ci=
+rcular, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-weig=
+ht: 200; text-align: left; text-decoration: underline; color: #513751;"> <b=
+>Get tickets</b> </a> </td> </tr> <tr rowspan=3D"4" valign=3D"middle" style=
+=3D"border: none; margin: 0px; padding: 0px;"> <td colspan=3D"3" valign=3D"=
+middle" style=3D"border: none; margin: 0px; padding: 0px;"> <hr bgcolor=3D"=
+#D1D5D9" style=3D"border: none; margin: 0px; padding: 0px; background-color=
+: rgb(209, 213, 217); height: 1px;"> </td> </tr> <tr align=3D"center" valig=
+n=3D"middle" style=3D"border: none; margin: 0px; padding: 0px;"> <td align=
+=3D"left" valign=3D"middle" style=3D"border: none; margin: 0px; padding: 8p=
+x;"> <b align=3D"left" style=3D"border: none; margin: 0px; padding: 0px; fo=
+nt-family: Circular, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-ser=
+if; text-align: left; text-decoration: none; font-weight: bold;"> St. Louis=
+, MO </b> <br/> February 23, 2024 </td> <td align=3D"right" valign=3D"middl=
+e" style=3D"border: none; margin: 0px; padding: 8px;"> <a href=3D"https://w=
+l.spotify.com/ss/c/Yxw8gcxqYcOVXBM9x1TRPRq3DXQI7IJPOsR8lPyq5Vg/413/RHcmCx37=
+SQupYVlm4q_PWw/h21/05WqMqGQLYWsk2gml1b6uPL7eNPauIVW-JTSfbsxszY" align=3D"le=
+ft" style=3D"border: none; margin: 0px; padding: 0px; font-family: Circular=
+, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-weight: 20=
+0; text-align: left; text-decoration: underline; color: #513751;"> <b>Get t=
+ickets</b> </a> </td> </tr> <tr rowspan=3D"4" valign=3D"middle" style=3D"bo=
+rder: none; margin: 0px; padding: 0px;"> <td colspan=3D"3" valign=3D"middle=
+" style=3D"border: none; margin: 0px; padding: 0px;"> <hr bgcolor=3D"#D1D5D=
+9" style=3D"border: none; margin: 0px; padding: 0px; background-color: rgb(=
+209, 213, 217); height: 1px;"> </td> </tr> <tr align=3D"center" valign=3D"m=
+iddle" style=3D"border: none; margin: 0px; padding: 0px;"> <td align=3D"lef=
+t" valign=3D"middle" style=3D"border: none; margin: 0px; padding: 8px;"> <b=
+ align=3D"left" style=3D"border: none; margin: 0px; padding: 0px; font-fami=
+ly: Circular, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; tex=
+t-align: left; text-decoration: none; font-weight: bold;"> Denver, CO </b> =
+<br/> February 26, 2024 </td> <td align=3D"right" valign=3D"middle" style=
+=3D"border: none; margin: 0px; padding: 8px;"> <a href=3D"https://wl.spotif=
+y.com/ss/c/Yxw8gcxqYcOVXBM9x1TRPROE4nXsSicmMyofS0rZbt4/413/RHcmCx37SQupYVlm=
+4q_PWw/h22/JtodXNx_gCf0jiSbkvh3HoQIpIGL3qAgPS7aMwnlxi8" align=3D"left" styl=
+e=3D"border: none; margin: 0px; padding: 0px; font-family: Circular, &quot;=
+Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-weight: 200; text-=
+align: left; text-decoration: underline; color: #513751;"> <b>Get tickets</=
+b> </a> </td> </tr> <tr rowspan=3D"4" valign=3D"middle" style=3D"border: no=
+ne; margin: 0px; padding: 0px;"> <td colspan=3D"3" valign=3D"middle" style=
+=3D"border: none; margin: 0px; padding: 0px;"> <hr bgcolor=3D"#D1D5D9" styl=
+e=3D"border: none; margin: 0px; padding: 0px; background-color: rgb(209, 21=
+3, 217); height: 1px;"> </td> </tr> <tr align=3D"center" valign=3D"middle" =
+style=3D"border: none; margin: 0px; padding: 0px;"> <td align=3D"left" vali=
+gn=3D"middle" style=3D"border: none; margin: 0px; padding: 8px;"> <b align=
+=3D"left" style=3D"border: none; margin: 0px; padding: 0px; font-family: Ci=
+rcular, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; text-alig=
+n: left; text-decoration: none; font-weight: bold;"> Salt Lake, UT </b> <br=
+/> February 28, 2024 </td> <td align=3D"right" valign=3D"middle" style=3D"b=
+order: none; margin: 0px; padding: 8px;"> <a href=3D"https://wl.spotify.com=
+/ss/c/Yxw8gcxqYcOVXBM9x1TRPXc25pUjMEWmmR9bdv1rbKo/413/RHcmCx37SQupYVlm4q_PW=
+w/h23/7w5mVrxwvUISy5fT8tK1j_B3VG56AOCS_Sfb6G3yXxc" align=3D"left" style=3D"=
+border: none; margin: 0px; padding: 0px; font-family: Circular, &quot;Helve=
+tica Neue&quot;, Helvetica, Arial, sans-serif; font-weight: 200; text-align=
+: left; text-decoration: underline; color: #513751;"> <b>Get tickets</b> </=
+a> </td> </tr> <tr rowspan=3D"4" valign=3D"middle" style=3D"border: none; m=
+argin: 0px; padding: 0px;"> <td colspan=3D"3" valign=3D"middle" style=3D"bo=
+rder: none; margin: 0px; padding: 0px;"> <hr bgcolor=3D"#D1D5D9" style=3D"b=
+order: none; margin: 0px; padding: 0px; background-color: rgb(209, 213, 217=
+); height: 1px;"> </td> </tr> <tr align=3D"center" valign=3D"middle" style=
+=3D"border: none; margin: 0px; padding: 0px;"> <td align=3D"left" valign=3D=
+"middle" style=3D"border: none; margin: 0px; padding: 8px;"> <b align=3D"le=
+ft" style=3D"border: none; margin: 0px; padding: 0px; font-family: Circular=
+, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; text-align: lef=
+t; text-decoration: none; font-weight: bold;"> Santa Ana, CA </b> <br/> Mar=
+ch 3, 2024 </td> <td align=3D"right" valign=3D"middle" style=3D"border: non=
+e; margin: 0px; padding: 8px;"> <a href=3D"https://wl.spotify.com/ss/c/Yxw8=
+gcxqYcOVXBM9x1TRPUQ2w7dfPlFI9i4Qr1TkSBs/413/RHcmCx37SQupYVlm4q_PWw/h24/7sp0=
+X96GvJnRoXDbC7ZoOWpiatNNYAhigY98St19ORI" align=3D"left" style=3D"border: no=
+ne; margin: 0px; padding: 0px; font-family: Circular, &quot;Helvetica Neue&=
+quot;, Helvetica, Arial, sans-serif; font-weight: 200; text-align: left; te=
+xt-decoration: underline; color: #513751;"> <b>Get tickets</b> </a> </td> <=
+/tr> <tr rowspan=3D"4" valign=3D"middle" style=3D"border: none; margin: 0px=
+; padding: 0px;"> <td colspan=3D"3" valign=3D"middle" style=3D"border: none=
+; margin: 0px; padding: 0px;"> <hr bgcolor=3D"#D1D5D9" style=3D"border: non=
+e; margin: 0px; padding: 0px; background-color: rgb(209, 213, 217); height:=
+ 1px;"> </td> </tr> <tr align=3D"center" valign=3D"middle" style=3D"border:=
+ none; margin: 0px; padding: 0px;"> <td align=3D"left" valign=3D"middle" st=
+yle=3D"border: none; margin: 0px; padding: 8px;"> <b align=3D"left" style=
+=3D"border: none; margin: 0px; padding: 0px; font-family: Circular, &quot;H=
+elvetica Neue&quot;, Helvetica, Arial, sans-serif; text-align: left; text-d=
+ecoration: none; font-weight: bold;"> Los Angeles, CA </b> <br/> March 9, 2=
+024 </td> <td align=3D"right" valign=3D"middle" style=3D"border: none; marg=
+in: 0px; padding: 8px;"> <a href=3D"https://wl.spotify.com/ss/c/Yxw8gcxqYcO=
+VXBM9x1TRPSjRCoLTziYgxG5JV8UAWaA/413/RHcmCx37SQupYVlm4q_PWw/h25/DgtBKJsyGn9=
+H7xFaPp0CuzfTB4sDn_KyRKih_Gd9s5k" align=3D"left" style=3D"border: none; mar=
+gin: 0px; padding: 0px; font-family: Circular, &quot;Helvetica Neue&quot;, =
+Helvetica, Arial, sans-serif; font-weight: 200; text-align: left; text-deco=
+ration: underline; color: #513751;"> <b>Get tickets</b> </a> </td> </tr> <t=
+r rowspan=3D"4" valign=3D"middle" style=3D"border: none; margin: 0px; paddi=
+ng: 0px;"> <td colspan=3D"3" valign=3D"middle" style=3D"border: none; margi=
+n: 0px; padding: 0px;"> <hr bgcolor=3D"#D1D5D9" style=3D"border: none; marg=
+in: 0px; padding: 0px; background-color: rgb(209, 213, 217); height: 1px;">=
+ </td> </tr> </tbody> </table> </td> </tr> </tbody> </table> </td> <td widt=
+h=3D"6.25%" valign=3D"middle" style=3D"width: 6.25%; border: none; margin: =
+0px; padding: 0px;"></td> </tr> <tr valign=3D"middle" style=3D"border: none=
+; margin: 0px; padding: 0px;"> <td colspan=3D"3" height=3D"20" valign=3D"mi=
+ddle" style=3D"border: none; margin: 0px; padding: 0px; height: 20px;"></td=
+> </tr> </tbody> </table> <table width=3D"100%" cellpadding=3D"0" cellspaci=
+ng=3D"0" style=3D"border: none; margin: 0px; border-collapse: collapse; pad=
+ding: 0px; width: 100%;"> <tbody valign=3D"middle" style=3D"border: none; m=
+argin: 0px; padding: 0px;"> <tr valign=3D"middle" style=3D"border: none; ma=
+rgin: 0px; padding: 0px;"> <td width=3D"6.25%" valign=3D"middle" style=3D"w=
+idth: 6.25%; border: none; margin: 0px; padding: 0px;"></td> <td valign=3D"=
+middle" style=3D"border: none; margin: 0px; padding: 0px;"> <table cellspac=
+ing=3D"0" cellpadding=3D"0" border=3D"0" width=3D"100%" style=3D"margin: 0p=
+x; padding: 0px"> <tbody> <tr> <td align=3D"left" style=3D"border: none; ma=
+rgin: 0px; padding: 0px 0px 5px; font-family: Circular, &quot;Helvetica Neu=
+e&quot;, Helvetica, Arial, sans-serif; font-weight: 200; text-align: left; =
+text-decoration: none; color: rgb(97, 100, 103); font-size: 14px; line-heig=
+ht: 20px;"> <div style=3D"font-size: 24px; letter-spacing: -1.8px; color: r=
+gb(65, 65, 65); font-family: Circular, &quot;Helvetica Neue&quot;, Helvetic=
+a, Arial, sans-serif; line-height: 1.2; border: none; margin: 0px; padding:=
+ 0px;" align=3D"center" valign=3D"center"> <b align=3D"left" style=3D"borde=
+r: none; color: #1ae68c; margin: 0px; padding: 0px; font-family: Circular, =
+&quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; text-align: left;=
+ text-decoration: none; font-weight: bold;"> <span style=3D"border: none; m=
+argin: 0px; padding: 0px;">#SpotifyFansFirst</span> </b> </div> </td> </tr>=
+ </tbody> </table> </td> <td width=3D"6.25%" valign=3D"middle" style=3D"wid=
+th: 6.25%; border: none; margin: 0px; padding: 0px;"></td> </tr> <tr valign=
+=3D"middle" style=3D"border: none; margin: 0px; padding: 0px;"> <td colspan=
+=3D"3" height=3D"20" valign=3D"middle" style=3D"border: none; margin: 0px; =
+padding: 0px; height: 20px;"></td> </tr> </tbody> </table> <style style=3D"=
+border: none; margin: 0px; padding: 0px;">
+            .footer-root a.footer-link {
+              color: #6D6D6D;
+              text-decoration: none;
+              font-weight: bold;
+            }
+          </style> <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0=
+" style=3D"border: none; margin: 0px; border-collapse: collapse; padding: 0=
+px; width: 100%;"> <tbody valign=3D"middle" style=3D"border: none; margin: =
+0px; padding: 0px;"> <tr height=3D"22" valign=3D"middle" style=3D"border: n=
+one; margin: 0px; padding: 0px; height: 22px;"> <td colspan=3D"3" height=3D=
+"22" valign=3D"middle" style=3D"border: none; margin: 0px; padding: 0px; he=
+ight: 22px;"></td> </tr> </tbody> </table> <table width=3D"100%" cellpaddin=
+g=3D"0" cellspacing=3D"0" bgcolor=3D"#F7F7F7" style=3D"border: none; margin=
+: 0px; border-collapse: collapse; padding: 0px; background-color: rgb(247, =
+247, 247); width: 100%;"> <tbody valign=3D"middle" style=3D"border: none; m=
+argin: 0px; padding: 0px;"> <tr height=3D"25" valign=3D"middle" style=3D"bo=
+rder: none; margin: 0px; padding: 0px; height: 25px;"> <td colspan=3D"3" he=
+ight=3D"25" valign=3D"middle" style=3D"border: none; margin: 0px; padding: =
+0px; height: 25px;"></td> </tr> <tr valign=3D"middle" style=3D"border: none=
+; margin: 0px; padding: 0px;"> <td width=3D"6.25%" valign=3D"middle" style=
+=3D"border: none; margin: 0px; padding: 0px; width: 6.25%;"></td> <td valig=
+n=3D"middle" style=3D"border: none; margin: 0px; padding: 0px;"><img src=3D=
+"http://aro.spotify.s3.amazonaws.com/newsletter/images/logo_footer.png" wid=
+th=3D"77" height=3D"23" alt=3D"" style=3D"border: none; margin: 0px; paddin=
+g: 0px; display: block; max-width: 100%; width: 77px; height: 23px;"></td> =
+<td width=3D"6.25%" valign=3D"middle" style=3D"border: none; margin: 0px; p=
+adding: 0px; width: 6.25%;"></td> </tr> <tr height=3D"25" valign=3D"middle"=
+ style=3D"border: none; margin: 0px; padding: 0px; height: 25px;"> <td cols=
+pan=3D"3" height=3D"25" valign=3D"middle" style=3D"border: none; margin: 0p=
+x; padding: 0px; height: 25px;"></td> </tr> <tr valign=3D"middle" style=3D"=
+border: none; margin: 0px; padding: 0px;"> <td width=3D"6.25%" valign=3D"mi=
+ddle" style=3D"border: none; margin: 0px; padding: 0px; width: 6.25%;"></td=
+> <td valign=3D"middle" style=3D"border: none; margin: 0px; padding: 0px;">=
+ <hr bgcolor=3D"#D1D5D9" style=3D"border: none; margin: 0px; padding: 0px; =
+background-color: rgb(209, 213, 217); height: 1px;"> </td> <td width=3D"6.2=
+5%" valign=3D"middle" style=3D"border: none; margin: 0px; padding: 0px; wid=
+th: 6.25%;"></td> </tr> <tr height=3D"12" valign=3D"middle" style=3D"border=
+: none; margin: 0px; padding: 0px; height: 12px;"> <td colspan=3D"3" height=
+=3D"12" valign=3D"middle" style=3D"border: none; margin: 0px; padding: 0px;=
+ height: 12px;"></td> </tr> <tr valign=3D"middle" style=3D"border: none; ma=
+rgin: 0px; padding: 0px;"> <td width=3D"6.25%" valign=3D"middle" style=3D"b=
+order: none; margin: 0px; padding: 0px; width: 6.25%;"></td> <td valign=3D"=
+middle" align=3D"left" style=3D"border: none; margin: 0px; padding: 0px; fo=
+nt-family: Circular, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-ser=
+if; font-weight: 200; text-align: left; text-decoration: none; color: rgb(1=
+36, 137, 140); font-size: 11px; line-height: 1.65em;"> Get Spotify for: &nb=
+sp; <a href=3D"https://wl.spotify.com/ss/c/LamQ60llzuDczOYk0tvsVVb_SVJdGTIf=
+Q_1t3ZEqsocA89S5jCd9p0IlNqMwxH3JqzQnktd1uTGceMdF7hhGNw/413/RHcmCx37SQupYVlm=
+4q_PWw/h26/6R68BhxfVI5zIfIFWjWwmzlr6isNcmVTIb0NtzTJnV4" style=3D"border-top=
+: none; border-bottom: none; border-image: initial; margin: 0px; text-decor=
+ation: none; border-right: 1px solid rgb(195, 195, 195); display: inline-bl=
+ock; padding: 0px 7px 0px 0px; border-left: none; color: rgb(109, 109, 109)=
+; font-weight: bold;">iPhone</a> <a href=3D"https://wl.spotify.com/ss/c/Lam=
+Q60llzuDczOYk0tvsVVb_SVJdGTIfQ_1t3ZEqsocA89S5jCd9p0IlNqMwxH3JqzQnktd1uTGceM=
+dF7hhGNw/413/RHcmCx37SQupYVlm4q_PWw/h27/GJsRnY0ZaP_5QcnPlS0XeE0xIPpp6kQdOdT=
+Hn2kIKlk" style=3D"border-top: none; border-bottom: none; border-image: ini=
+tial; margin: 0px; text-decoration: none; border-right: 1px solid rgb(195, =
+195, 195); border-left: 1px solid transparent; display: inline-block; paddi=
+ng: 0px 7px; color: rgb(109, 109, 109); font-weight: bold;">iPad</a> <a hre=
+f=3D"https://wl.spotify.com/ss/c/LSBBlYVQQ_VCiEyN29qgQnMlOf9Jt7hsFVsIAtx2fd=
+uVQ-RD06uqH_MglQiwpeh4yz3YFY9r5mVv70uX9UksCPAlDPpkTad4_quXpiIygHA/413/RHcmC=
+x37SQupYVlm4q_PWw/h28/6xP1OHvQWpuFj2JnqaGeamnjzLZ0aGBLkorI7oA1DGU" style=3D=
+"border-top: none; border-bottom: none; border-image: initial; margin: 0px;=
+ text-decoration: none; border-right: 1px solid rgb(195, 195, 195); border-=
+left: 1px solid transparent; display: inline-block; padding: 0px 7px; color=
+: rgb(109, 109, 109); font-weight: bold;"> Android </a> <a href=3D"https://=
+wl.spotify.com/ss/c/NcOg9etoQJvwfdKhGmCY2X7wwCLpJpAe5ncSaY1irojI3pkk08KAuyL=
+zK6h-UxjZ/413/RHcmCx37SQupYVlm4q_PWw/h29/7n7b2ctnPYgRl4TmN0ywYc382MS7Hp1_PB=
+UnAecIaME" style=3D"border-top: none; border-bottom: none; border-image: in=
+itial; margin: 0px; text-decoration: none; border-left: 1px solid transpare=
+nt; display: inline-block; padding: 0px 0px 0px 7px; border-right: none; co=
+lor: rgb(109, 109, 109); font-weight: bold;"> Other </a> </td> <td width=3D=
+"6.25%" valign=3D"middle" style=3D"border: none; margin: 0px; padding: 0px;=
+ width: 6.25%;"></td> </tr> <tr height=3D"12" valign=3D"middle" style=3D"bo=
+rder: none; margin: 0px; padding: 0px; height: 12px;"> <td colspan=3D"3" he=
+ight=3D"12" valign=3D"middle" style=3D"border: none; margin: 0px; padding: =
+0px; height: 12px;"></td> </tr> <tr valign=3D"middle" style=3D"border: none=
+; margin: 0px; padding: 0px;"> <td width=3D"6.25%" valign=3D"middle" style=
+=3D"border: none; margin: 0px; padding: 0px; width: 6.25%;"></td> <td valig=
+n=3D"middle" style=3D"border: none; margin: 0px; padding: 0px;"> <hr bgcolo=
+r=3D"#D1D5D9" style=3D"border: none; margin: 0px; padding: 0px; background-=
+color: rgb(209, 213, 217); height: 1px;"> </td> <td width=3D"6.25%" valign=
+=3D"middle" style=3D"border: none; margin: 0px; padding: 0px; width: 6.25%;=
+"></td> </tr> <tr height=3D"25" valign=3D"middle" style=3D"border: none; ma=
+rgin: 0px; padding: 0px; height: 25px;"> <td colspan=3D"3" height=3D"25" va=
+lign=3D"middle" style=3D"border: none; margin: 0px; padding: 0px; height: 2=
+5px;"></td> </tr> <tr valign=3D"middle" style=3D"border: none; margin: 0px;=
+ padding: 0px;"> <td width=3D"6.25%" valign=3D"middle" style=3D"border: non=
+e; margin: 0px; padding: 0px; width: 6.25%;"></td> <td valign=3D"middle" al=
+ign=3D"left" style=3D"border: none; margin: 0px; padding: 0px; font-family:=
+ Circular, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-w=
+eight: 200; text-align: left; text-decoration: none; color: rgb(136, 137, 1=
+40); font-size: 11px; line-height: 1.65em;"> By clicking the button above y=
+ou will be redirected to a third party website. Any activity, including pur=
+chases made, on the third party website shall be governed by such third par=
+ty=E2=80=99s terms and conditions. This message was sent to alpha1.liz56@gm=
+ail.com. If you don't want to receive these emails from Spotify in the futu=
+re, you can <a class=3D"footer-link" href=3D"https://wl.spotify.com/ss/c/Nc=
+Og9etoQJvwfdKhGmCY2Tg4LW1ey7esc5l6X6-eqGF-QyfLxArYtrRWBbbxnK85/413/RHcmCx37=
+SQupYVlm4q_PWw/h30/zjFMxuzrFSUU27gF5UhrZrIv1V8R7Lu46oUbxnimfN8" style=3D"bo=
+rder: none; margin: 0px; padding: 0px; font-family: Circular, &quot;Helveti=
+ca Neue&quot;, Helvetica, Arial, sans-serif; text-align: left; color: rgb(1=
+09, 109, 109); text-decoration: none; font-weight: bold;" align=3D"left">ed=
+it your profile</a> or <a class=3D"footer-link" href=3D"https://wl.spotify.=
+com/ss/c/NcOg9etoQJvwfdKhGmCY2Tg4LW1ey7esc5l6X6-eqGEqmIL0iCiYfb2sP410pYkvTs=
+__N2Ag3iHBsrwMac2YM5rcCbf7xdF6oZhWnOBOJ1yKLXKty7naczs2HoHKT7xZaN2DdoWqlpHC8=
+XGKTTOXUfNWZwNyd_o2gb9Gj4hNBTKsoMQB5qBN0FGVw16Kixlz3m9dqsutI71Vd_yrkyb-gZYu=
+K5txiqxGQT6dvuKuqro/413/RHcmCx37SQupYVlm4q_PWw/h31/Eci19PLUN16kdSwjXGZMBBgT=
+CBLlDscBbQjRF2NZEP4" style=3D"border: none; margin: 0px; padding: 0px; font=
+-family: Circular, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif=
+; text-align: left; color: rgb(109, 109, 109); text-decoration: none; font-=
+weight: bold;" align=3D"left">unsubscribe</a>. </td> <td width=3D"6.25%" va=
+lign=3D"middle" style=3D"border: none; margin: 0px; padding: 0px; width: 6.=
+25%;"></td> </tr> <tr height=3D"33" valign=3D"middle" style=3D"border: none=
+; margin: 0px; padding: 0px; height: 33px;"> <td colspan=3D"3" height=3D"33=
+" valign=3D"middle" style=3D"border: none; margin: 0px; padding: 0px; heigh=
+t: 33px;"></td> </tr> <tr valign=3D"middle" style=3D"border: none; margin: =
+0px; padding: 0px;"> <td width=3D"6.25%" valign=3D"middle" style=3D"border:=
+ none; margin: 0px; padding: 0px; width: 6.25%;"></td> <td valign=3D"middle=
+" align=3D"left" style=3D"border: none; margin: 0px; padding: 0px; font-fam=
+ily: Circular, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; fo=
+nt-weight: 200; text-align: left; text-decoration: none; color: rgb(136, 13=
+7, 140); line-height: 1.65em; font-size: 11px;"> <a href=3D"https://wl.spot=
+ify.com/ss/c/NcOg9etoQJvwfdKhGmCY2fcBnoxmjKsVnFK97F3n2xpfrSiLOBmqYfyUpU7EqH=
+EhY3m2JdYYxb7oVoLbzu-jlQ/413/RHcmCx37SQupYVlm4q_PWw/h32/3xlbPBKkq_RdHx3tl4C=
+SDeiI6nF21lw2NXR3y1k1zyQ" style=3D"border-top: none; border-bottom: none; b=
+order-image: initial; margin: 0px; text-decoration: none; border-right: 1px=
+ solid rgb(195, 195, 195); display: inline-block; padding: 0px 7px 0px 0px;=
+ border-left: none; color: rgb(109, 109, 109); font-weight: bold;"> Terms o=
+f Use </a> <a href=3D"https://wl.spotify.com/ss/c/NcOg9etoQJvwfdKhGmCY2fcBn=
+oxmjKsVnFK97F3n2xrJwED8Ww28_ARd9o75w0L3P54amTh-3KUFl3nQvHsy8A/413/RHcmCx37S=
+QupYVlm4q_PWw/h33/x1cPia8PLQTGCa9ClBV0BS6tCYD03458_4Sfuczy-ys" style=3D"bor=
+der-top: none; border-bottom: none; border-image: initial; margin: 0px; tex=
+t-decoration: none; border-right: 1px solid rgb(195, 195, 195); border-left=
+: 1px solid transparent; display: inline-block; padding: 0px 7px; color: rg=
+b(109, 109, 109); font-weight: bold;"> Privacy Policy </a> <a href=3D"https=
+://wl.spotify.com/ss/c/NcOg9etoQJvwfdKhGmCY2SM2WHtDeWpixSGNnLCcXfuP7mNHsv5L=
+3zy1pG5dDltl/413/RHcmCx37SQupYVlm4q_PWw/h34/N0H8DuIGMRL7Hn99vxdET_SS72F959M=
+kIvFhLIOkrXM" style=3D"border-top: none; border-bottom: none; border-image:=
+ initial; margin: 0px; text-decoration: none; border-left: 1px solid transp=
+arent; display: inline-block; padding: 0px 0px 0px 7px; border-right: none;=
+ color: rgb(109, 109, 109); font-weight: bold;"> Contact Us </a> </td> <td =
+width=3D"6.25%" valign=3D"middle" style=3D"border: none; margin: 0px; paddi=
+ng: 0px; width: 6.25%;"></td> </tr> <tr valign=3D"middle" style=3D"border: =
+none; margin: 0px; padding: 0px;"> <td colspan=3D"3" height=3D"12" valign=
+=3D"middle" style=3D"border: none; margin: 0px; padding: 0px; height: 12px;=
+"></td> </tr> <tr valign=3D"middle" style=3D"border: none; margin: 0px; pad=
+ding: 0px;"> <td width=3D"6.25%" valign=3D"middle" style=3D"border: none; m=
+argin: 0px; padding: 0px; width: 6.25%;"></td> <td valign=3D"middle" align=
+=3D"left" style=3D"border: none; margin: 0px; padding: 0px; font-family: Ci=
+rcular, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-weig=
+ht: 200; text-align: left; text-decoration: none; color: rgb(136, 137, 140)=
+; line-height: 1.65em; font-size: 11px;"> Spotify USA Inc, 4 World Trade Ce=
+nter, 150 Greenwich Street, 62nd Floor, New York, NY 10007, USA </td> <td w=
+idth=3D"6.25%" valign=3D"middle" style=3D"border: none; margin: 0px; paddin=
+g: 0px; width: 6.25%;"></td> </tr> <tr height=3D"20" valign=3D"middle" styl=
+e=3D"border: none; margin: 0px; padding: 0px; height: 20px;"> <td colspan=
+=3D"3" height=3D"25" valign=3D"middle" style=3D"border: none; margin: 0px; =
+padding: 0px; height: 25px;"></td> </tr> </tbody> </table> </div> </center>=
+ </td> </tr> </table> <!--[if (mso) | (IE)]></td></tr></table><![endif]--> =
+<img src=3D"https://wl.spotify.com/ss/o/BIFIEceKwRrl2okIkGwAPQ/413/RHcmCx37=
+SQupYVlm4q_PWw/ho.gif" alt=3D"" width=3D"1" height=3D"1" border=3D"0" style=
+=3D"height:1px !important;width:1px !important;border-width:0 !important;ma=
+rgin-top:0 !important;margin-bottom:0 !important;margin-right:0 !important;=
+margin-left:0 !important;padding-top:0 !important;padding-bottom:0 !importa=
+nt;padding-right:0 !important;padding-left:0 !important;"/></body> </html>
+--c43f908848dbc7ab6f747746bdc768a6c88fabf4539f99f678d7fcb06562--
