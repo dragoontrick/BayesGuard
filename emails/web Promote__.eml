@@ -1,0 +1,333 @@
+Delivered-To: muslimyouthproj@gmail.com
+Received: by 2002:a05:7300:8a1c:b0:f4:91ba:e8f8 with SMTP id w28csp929769dyr;
+        Sun, 22 Oct 2023 07:13:09 -0700 (PDT)
+X-Received: by 2002:a05:6a20:b292:b0:14e:3ba7:2933 with SMTP id ei18-20020a056a20b29200b0014e3ba72933mr4003757pzb.54.1697983988750;
+        Sun, 22 Oct 2023 07:13:08 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1697983988; cv=none;
+        d=google.com; s=arc-20160816;
+        b=ItDSJbQdi4rtnghoxgEDaMdM1urcVM5syQL4KNRCbjSjYk1a2jNmXLXJSlhZa1J07i
+         vrvLtUJpZC0klsDnqHRhRxwEHSHkz9unBpnhoq1ttB8GcXygMH2MgfmOIRU6lAb2AfQ2
+         dDKq5FqAhGw4NUgNzRdMj5KJkTssXF0r7fnz+/F8RhHiWhNNkC14lO/hNiEunVJj6R03
+         39ay4gmPF4b/mgxLvfPeeeZ9p26TtrpH4g8/K4Ov8vRacnSsJgilApMmZStH/HsLNzHD
+         Bel1jmYpRfi+VrfHx3sbNwVs2JywRJEnBstOJzGdtZn0W26fqgC2JtdUbn6A87Uj67kQ
+         GhCA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-language:thread-index:mime-version:message-id:date:subject
+         :to:from:dkim-signature;
+        bh=oJA7Fc+9PtefzC0TnKYzgrVVd4glT2yrmkTZ9fDBlqE=;
+        fh=TdwHKBixe/P8M70ckhXuR/6UIeWqCrmk681E9SQzENE=;
+        b=UFgLyGgeMxYgdRyrpu2xAjaCuQpFHWVGtk2IxSycMBtHH//Yv1TUDUtggXFDZtv3mY
+         VvX1kmZiY0oxk/AEGDcsmThjJy74GPTisGsJElgEH21fsKx2xLvK2xnm7q6xVYYXknLb
+         nBmSmvYdZNZ+TVGgH/OdRYzsordh1WqayaqC7LNOeer/jVgLslu4Qc7kSvp/PsKyLQJy
+         fFKt+Ub3lw+96TTCzr7ccHWe3egyzPXpdiJvYRkmbt4BxDoL1ZzfTW+hWxpWt57eOTIx
+         S7TdjfNrM5uNt+r9XEnbwqmtHxjm4DhtaA1ExN3UF6JUT4l5nr0SSEx27RYSVtpgoF5C
+         6pCw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b="l35kEo/f";
+       spf=pass (google.com: domain of tracygreen743@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=tracygreen743@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Return-Path: <tracygreen743@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id l4-20020a170902ec0400b001c61835ce4dsor1730932pld.20.2023.10.22.07.13.08
+        for <muslimyouthproj@gmail.com>
+        (Google Transport Security);
+        Sun, 22 Oct 2023 07:13:08 -0700 (PDT)
+Received-SPF: pass (google.com: domain of tracygreen743@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b="l35kEo/f";
+       spf=pass (google.com: domain of tracygreen743@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=tracygreen743@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1697983988; x=1698588788; dara=google.com;
+        h=content-language:thread-index:mime-version:message-id:date:subject
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=oJA7Fc+9PtefzC0TnKYzgrVVd4glT2yrmkTZ9fDBlqE=;
+        b=l35kEo/fKrJeFDWhs29Ig7v81ToqRvfI4PAqL62SZTOtKPoU7scixX4ciXogTQM9A/
+         kB4ckpvEDt3tfyq/lBgbUO3/E3VO5bIw6DfFIUD5tiCGJpg9YVVKdmc4rJMRr6fMwLrD
+         +zS1cih8bvpVf6sNKXb5xaFk5RVDDgJu02GQTic3DumLqdcjErFlIU21p+U/DuchaRos
+         4sFLNtLlcFMKRHv2jWKhUSf4vdzjU3AH9tuIsQfcq0OcmayzaNmMxx2gvGb8SUXN2uHy
+         lpYHsMGKMKajwAUFI8T3fWAndq+7QA2BgvXH42JavfHNlTmw/LWx/d83oKEr4criiGKv
+         8HaA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1697983988; x=1698588788;
+        h=content-language:thread-index:mime-version:message-id:date:subject
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=oJA7Fc+9PtefzC0TnKYzgrVVd4glT2yrmkTZ9fDBlqE=;
+        b=WCVvDZ6DAaRKxAPplebMB54k7wLPNS9iMk+KePa7M+HPz4zW/oW8SLw9W6UhKy6sVQ
+         bcmnf4b3L7C+y6V0YnJTmWlVBW79l+EjtyXzR5vGnxyB9w6fFaFZajPtQy4CJNO8uBxA
+         o5SfEa4VPpbYgb7CzClyARD+JIqFdALsGe50rJkL8QvBJfuwJ6w0V3VhOmxGtNhd28zM
+         N0csMZyFLUcCyikZV0sxwp/JdxNHDTSYDIqH99i58FjDI+EHR3q4AhUsS1XftIFGCT91
+         F4zJfIvoamN8SkBLmeoR1TzwXI1FS3w2TR6opllugQK8dbu3wFNsiYgVyiqfgbKocpFr
+         okkA==
+X-Gm-Message-State: AOJu0YxYIERbt2VKahyTDj8WHxKzwShKK1CTq+qSdTWL3Ts4NnaaUZ8L
+	xwFu0KB8/+0xcMhBYSD726951GXqdasi/Q==
+X-Google-Smtp-Source: AGHT+IHPmmOoJ3B17oSCMC34kLFt9j6Tls7GJDbCBXWcdxFfuX88RZR5t8d493KhiJ1sQsFla5VFBA==
+X-Received: by 2002:a17:903:18c:b0:1c9:d46e:d523 with SMTP id z12-20020a170903018c00b001c9d46ed523mr6447512plg.7.1697983988028;
+        Sun, 22 Oct 2023 07:13:08 -0700 (PDT)
+Return-Path: <tracygreen743@gmail.com>
+Received: from DESKTOPD11SLJL ([2409:40d0:10ce:d16b:11cb:c0bf:9faf:5396])
+        by smtp.gmail.com with ESMTPSA id a6-20020a170902ecc600b001c61bde04a7sm4465818plh.276.2023.10.22.07.13.06
+        for <muslimyouthproj@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 22 Oct 2023 07:13:07 -0700 (PDT)
+From: "Tracy" <tracygreen743@gmail.com>
+To: <muslimyouthproj@gmail.com>
+Subject: web Promote//
+Date: Sun, 22 Oct 2023 19:42:46 +0530
+Message-ID: <02f301da04f1$dfd9e700$9f8db500$@com>
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+	boundary="----=_NextPart_000_02F4_01DA051F.F9922300"
+X-Mailer: Microsoft Office Outlook 12.0
+Thread-Index: AdoE8E78eE/MYIfpTgC5ov3sMTYnig==
+Content-Language: en-in
+
+This is a multipart message in MIME format.
+
+------=_NextPart_000_02F4_01DA051F.F9922300
+Content-Type: text/plain;
+	charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+
+Hi, muslimyouthproj@gmail.com
+
+ 
+
+Do you want to more targeted visitors on your website? Then we can help you.
+
+ 
+
+If you are interested, Share your contact details, it will be perfect to
+discuss.
+
+ 
+
+May I send you a SEO AUDIT REPORT FREE OF COST?
+
+ 
+
+Best Regards,
+
+Tracy,
+
+ 
+
+
+------=_NextPart_000_02F4_01DA051F.F9922300
+Content-Type: text/html;
+	charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" =
+xmlns:o=3D"urn:schemas-microsoft-com:office:office" =
+xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" =
+xmlns=3D"http://www.w3.org/TR/REC-html40">
+
+<head>
+<META HTTP-EQUIV=3D"Content-Type" CONTENT=3D"text/html; =
+charset=3Dus-ascii">
+<meta name=3DGenerator content=3D"Microsoft Word 12 (filtered medium)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-priority:99;
+	color:purple;
+	text-decoration:underline;}
+p
+	{mso-style-priority:99;
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing
+	{mso-style-priority:1;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.m-6152997403625849841x1119726642msonospacing, =
+li.m-6152997403625849841x1119726642msonospacing, =
+div.m-6152997403625849841x1119726642msonospacing
+	{mso-style-name:m_-6152997403625849841x1119726642msonospacing;
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+span.m-6152997403625849841size
+	{mso-style-name:m_-6152997403625849841size;}
+p.m-2941187130992629882m-7920233455589859084msonospacing, =
+li.m-2941187130992629882m-7920233455589859084msonospacing, =
+div.m-2941187130992629882m-7920233455589859084msonospacing
+	=
+{mso-style-name:m_-2941187130992629882m-7920233455589859084msonospacing;
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.m3033505476744795851xmsonospacing, =
+li.m3033505476744795851xmsonospacing, =
+div.m3033505476744795851xmsonospacing
+	{mso-style-name:m_3033505476744795851xmsonospacing;
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.m-2315118492359672432m8756550820286746460msonospacing, =
+li.m-2315118492359672432m8756550820286746460msonospacing, =
+div.m-2315118492359672432m8756550820286746460msonospacing
+	{mso-style-name:m_-2315118492359672432m8756550820286746460msonospacing;
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+.MsoChpDefault
+	{mso-style-type:export-only;}
+.MsoPapDefault
+	{mso-style-type:export-only;
+	margin-bottom:10.0pt;
+	line-height:115%;}
+@page Section1
+	{size:612.0pt 792.0pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext=3D"edit">
+  <o:idmap v:ext=3D"edit" data=3D"1" />
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=3DEN-US link=3Dblue vlink=3Dpurple>
+
+<div class=3DSection1>
+
+<p class=3DMsoNoSpacing><span =
+style=3D'font-size:14.0pt'>Hi,&nbsp;muslimyouthproj@gmail.com<o:p></o:p><=
+/span></p>
+
+<p class=3DMsoNoSpacing style=3D'font-variant-ligatures: =
+normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: =
+initial;text-decoration-color: initial;
+word-spacing:0px'><span =
+style=3D'font-size:14.0pt'>&nbsp;<o:p></o:p></span></p>
+
+<p class=3DMsoNoSpacing style=3D'font-variant-ligatures: =
+normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: =
+initial;text-decoration-color: initial;
+word-spacing:0px'><span style=3D'font-size:14.0pt'>Do you want =
+to&nbsp;<b><i><span
+style=3D'color:#8064A2'>more targeted visitors</span></i></b>&nbsp;on =
+your website?
+Then we can help you.<o:p></o:p></span></p>
+
+<p class=3DMsoNoSpacing style=3D'font-variant-ligatures: =
+normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: =
+initial;text-decoration-color: initial;
+word-spacing:0px'><span =
+style=3D'font-size:14.0pt'>&nbsp;<o:p></o:p></span></p>
+
+<p class=3DMsoNoSpacing style=3D'font-variant-ligatures: =
+normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: =
+initial;text-decoration-color: initial;
+word-spacing:0px'><span style=3D'font-size:14.0pt'>If you are =
+interested, Share
+your contact details, it will be perfect to =
+discuss.<o:p></o:p></span></p>
+
+<p class=3DMsoNoSpacing style=3D'font-variant-ligatures: =
+normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: =
+initial;text-decoration-color: initial;
+word-spacing:0px'><span =
+style=3D'font-size:14.0pt'>&nbsp;<o:p></o:p></span></p>
+
+<p class=3DMsoNoSpacing style=3D'font-variant-ligatures: =
+normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: =
+initial;text-decoration-color: initial;
+word-spacing:0px'><b><span style=3D'font-size:14.0pt'>May I send you a =
+SEO AUDIT
+REPORT FREE OF COST?</span></b><span =
+style=3D'font-size:14.0pt'><o:p></o:p></span></p>
+
+<p class=3DMsoNoSpacing style=3D'font-variant-ligatures: =
+normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: =
+initial;text-decoration-color: initial;
+word-spacing:0px'><span =
+style=3D'font-size:14.0pt'>&nbsp;<o:p></o:p></span></p>
+
+<p class=3DMsoNoSpacing style=3D'font-variant-ligatures: =
+normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: =
+initial;text-decoration-color: initial;
+word-spacing:0px'><span style=3D'font-size:14.0pt'>Best =
+Regards,<o:p></o:p></span></p>
+
+<p class=3DMsoNoSpacing style=3D'font-variant-ligatures: =
+normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: =
+initial;text-decoration-color: initial;
+word-spacing:0px'><span =
+style=3D'font-size:14.0pt'>Tracy,<o:p></o:p></span></p>
+
+<p class=3DMsoNoSpacing><span =
+style=3D'font-size:14.0pt'>&nbsp;<o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>
+
+------=_NextPart_000_02F4_01DA051F.F9922300--
+

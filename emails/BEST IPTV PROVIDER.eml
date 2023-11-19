@@ -1,0 +1,138 @@
+Delivered-To: funnygum977@gmail.com
+Received: by 2002:a05:7108:6987:b0:339:159:19dc with SMTP id bn7csp723373gdb;
+        Sun, 22 Oct 2023 04:42:58 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEEwzLUsSUA5t/fto3pkaHN2Oqi/JgAU3DihNlFmMBYzEIbRjtlUNjRtX7ui0vbXFjLy7jR
+X-Received: by 2002:a0d:d494:0:b0:5a8:78b0:a9fd with SMTP id w142-20020a0dd494000000b005a878b0a9fdmr7415401ywd.29.1697974978296;
+        Sun, 22 Oct 2023 04:42:58 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1697974978; cv=none;
+        d=google.com; s=arc-20160816;
+        b=Q4IdozYcvNntpoAJqHd2sLy+FO8QaUgPsBSn/9hpkftD/mYTEWE3ei6cfo9Vlb3n1U
+         5pApAPRUDJldne1MZ3hkS8CToVVA0VLndQ6aeDy79vA6xWbc/mSdKcKvI8awGEXU6SH0
+         3ol0HT0yeo5xGBF1cAC6qqdu3L2sHe1jpOHVDaadspZyv91z9MdrcEEd+O6N530E+YX5
+         pqxMbYwIdThgyxuwvwBzNpWZqyuDSZVJS/BXR0SbOwAXrj3m+brnK5Su1ElobxATnFFr
+         InZY5zeIBX4hljx9H/YNprlytLeBw2dDQFGZjLG2CIJq6j3vliqK9W3/QDxbWI+YMm+J
+         aTBQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=ui-outboundreport:mime-version:date:content-transfer-encoding
+         :message-id:subject:to:from:dkim-signature;
+        bh=gSgmSMJqNJnq3MKgldw4wcSAgPuRK4PiQY+sQEDvX5k=;
+        fh=3KxIDdUNjr10SEPqSSEpS++ic6Rdy+Dm2Nyl3+vUblM=;
+        b=ydOy4BjhVcLz1rnq/Otdp3OOGd3MAVcpiiQyc9UPDEFhgy85fDkjLLyhgZ254cS5N6
+         mNcvZ88bVWTtIrsl4EiPxWqA/icSs4De5ZK6lXZE/exHJcmFAIEaqVD1DnwP4pz6HXa5
+         1N0p8KedjioN+fRZrGDGOniDyB2/ZqDZ+rF6pnYtrFbM86dMfOcqZlG2wkLFfFzrA84H
+         S9Ye18FQCq1Ohu7EKHwBywZdYJJDtVmE1aNAFNBKlrNUO7/vl6hNcXGu63MFVctozACo
+         wsDDkS2EgiFVqaV08PPsZjFnxCDRD/IXAxNo8qiGkp+cPg2zM4vjTKStKQovYnNq/StV
+         75pA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmx.de header.s=s31663417 header.b=nQK0Olas;
+       spf=pass (google.com: domain of taylor_smitherty@gmx.de designates 82.165.159.42 as permitted sender) smtp.mailfrom=Taylor_Smitherty@gmx.de;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=gmx.de
+Return-Path: <Taylor_Smitherty@gmx.de>
+Received: from mout-xforward.gmx.net (mout-xforward.gmx.net. [82.165.159.42])
+        by mx.google.com with ESMTPS id n13-20020a819c4d000000b00589a37f9043si3864465ywa.407.2023.10.22.04.42.57
+        for <funnygum977@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Oct 2023 04:42:58 -0700 (PDT)
+Received-SPF: pass (google.com: domain of taylor_smitherty@gmx.de designates 82.165.159.42 as permitted sender) client-ip=82.165.159.42;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmx.de header.s=s31663417 header.b=nQK0Olas;
+       spf=pass (google.com: domain of taylor_smitherty@gmx.de designates 82.165.159.42 as permitted sender) smtp.mailfrom=Taylor_Smitherty@gmx.de;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=gmx.de
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.de; s=s31663417;
+	t=1697974977; x=1698579777; i=taylor_smitherty@gmx.de;
+	bh=48lrvWh7AcEhU2Bk3to8lPgEYyp4WLEn8BlfkAU3+N4=;
+	h=X-UI-Sender-Class:From:To:Subject:Date;
+	b=nQK0OlashcuDRajkFJjzPSTKXoPNWuI2SQc3Z0u+pDkw4cPlQ4eYB0WM4NlaPb3c
+	 dTgP0XVHgyYRk/kP4+VcW/wP5F2xKt5DZ7hRpVbSCVm3ZhJuaw10KwljyWsx7XBgC
+	 PZnXzCrDflzoukDI2bw0NKFDIUd0iwGm9n1ee/vgkZwWqha5WDoVM+eNYBtkO5KFp
+	 sIIL5yhdDnMBm1nM5unVM94C0ImA3ZoVbssB060V/pjPQA+NVbAA8iw7pbb/MBGuo
+	 g+Y/fXwxkeHmaLOmx3xeAQeSu2vwuJ6PvkFAQFj2Za7D1/X5MD2TKLqMiuUcX3vr1
+	 y/c4tQt2cndtZy0KWg==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [127.0.0.1] ([45.142.104.72]) by mail.gmx.net (mrgmx105
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1MQv8x-1r6zZf3USl-00Nyjk for
+ <funnygum977@gmail.com>; Sun, 22 Oct 2023 13:42:56 +0200
+Content-Type: text/html; charset=utf-8
+From: BEST IPTV <Taylor_Smitherty@gmx.de>
+To: funnygum977@gmail.com
+Subject: BEST IPTV PROVIDER
+Message-ID: <8baec789-8f28-4acb-ff3a-e33e45b77f82@gmx.de>
+Content-Transfer-Encoding: quoted-printable
+Date: Sun, 22 Oct 2023 11:42:56 +0000
+MIME-Version: 1.0
+X-Provags-ID: V03:K1:/AHkTTy8unjMHKEOz3uyxLpFW/xFTsYXnFEvXrxuQoqiIzfO4oh
+ U6e9YEUkmKw2Fby0OeNe9L85pYj7PEcSMfFWU+RsV74bpPISfEKks6qfuAO75qrmJa2NiuP
+ +AsX7TSqlmgASlFtJ6SQS0+yoeZaybY5RDBzuBf8nbMNL530mtW5vo1Fvlc9GKJveSLSA+Q
+ vv2wqZFTRew0668NNO/QA==
+X-Spam-Flag: YES
+UI-OutboundReport: junk:10;M01:P0:ijpVGQsDOsQ=;Y95zSwFlEUi2xeFnTbjtsVUrb1Dj+
+ Q2Lz8hloTaDCAe/hBJeIcAZbOZgSyAsZ3MaChiXa/6MZjEXVvS6M9YLxwzdxJXHUq9O2TeAWc
+ hb7fJu20QDRozDp1NpYu/yffDht5q4BOYbrJF5eqIR6G2qisyTkDxkDxauMpfF3BMdlPzBe1b
+ iSf9HCHmIiw4d7RAvKbcw8MsvtmVzmIpbd7Fai3oTEoDyYAmeB+TYzAm53pfXZx4qcqYEqUKu
+ G1J8w2M8gl+95ygbDCZ4t20wQgUXSni/CJRzne3/ZX3jCbHbO7ObHChdlFSAyRpeOSzug6EM1
+ 6mqFjaOtBeBsAWu2E/pSq2zdkR1sPCElkRofEFdHsHskLtUNwg708rObNwsrAlIlBZmIOKx5I
+ uxquWE9bO8JYUOLYDzl/dbtQ4WuZpBBRJwDPllwBiGjrhe1Gcjt7ZrJvDq4IUDNYhbXE7dZDs
+ QJyv6uI84x9JHdv/oDUzLJvssuviHccmS3IRw/ECUT0TDcVVHe/dvPpHUrBzNNLoV7lipjymJ
+ mXV3rwPTKoNiIcrkT4C8ziFsXZhzrOYSG785eS1DvcJrACPhm50F4asZQAgSoyKgFxwamAwUk
+ BVHr/kjtwD7KGZN6y5MIGGKMfnAsQ/3Y1Ta9ID0NIClLqR/HP3h4F+dndoxvgbP8uoZo4pV58
+ P4QigJzIjnDXD3fI0HE0/AqHi+BNUSSaLF2cZv13IT8/tzJBhyoEmqJT9fSC6pcsMc37hlnuJ
+ 2MpDbYepx7SXKHWNv2Xr5/7u/ddrNK5Tma4gRfRD5jZZ9LdXCCopyaH6bWVbPWanULCogx00o
+ wZqZdsvd2SNsEXpyf68uDPRFSVTea4MQqjPSj4ATf5zoIAlj46WlUsItlW3dXNBlbUKCV37bv
+ 8Dm4o263eOsO04+S8pB2F0bs68TbDkiOQCCC9EqRcQ5f+H3X65POmSpL5gyMw2ZFeG5NMxd6Z
+ xt8Bs8ksz9VfRS+D4MiCuRCQbVD+KxZp3ffd1HYcvT//f0XVZJv/paRXvRXgcEfYqH+qe3jk8
+ mNXO9QLJmMKwzng7/5uj57Oeh+Ysx3xlj4zUc
+
+<p style=3D"text-align: center;"><strong>It&apos;s time to GET YOUR =
+SUBSCRIPTION and enjoy watching your favorites</strong></p>
+<p style=3D"text-align: center;"><br></p>
+<p style=3D"text-align: =
+center;"><strong>IPTV Provider - Your Ultimate Source for Premium IPTV =
+Services</strong></p>
+<p style=3D"text-align: center;">Watch your favorites=
+ of tv channels , Soprt/News/Documentary &nbsp;from anywhere and any time ,=
+ the last movies and series include Netflix, Disney+, HBO,Amazon Prime ....=
+</p>
+<p style=3D"text-align: center;"><strong>Features :</strong></p>
+<ul style=3D"list-style-type: square;">
+    <li style=3D"text-align: =
+center;">20k+ Live TV</li>
+    <li style=3D"text-align: center;">&nbsp;10k+=
+ VOD SERIES</li>
+    <li style=3D"text-align: center;">&nbsp;ACESS Premium =
+Channels </li>
+    <li style=3D"text-align: center;">&nbsp;SD/HD/FULL-HD/4K=
+</li>
+    <li style=3D"text-align: center;">&nbsp;SUPPORT ALL DEVICES</li>
+    <li style=3D"text-align: center;">&nbsp;Technical sup 24/7</li>
+    <li style=3D"text-align: center;">&nbsp;STABLE</li>
+</ul>
+<p style=3D"text-align: center;"><strong>Our IPTV Plans :</strong></p>
+<ul>
+    <li class=3D"selectable-text copyable-text iq0m558w g0rxnol2" =
+dir=3D"ltr" style=3D"text-align: center;"><span class=3D"selectable-text =
+copyable-text">1 Month</span></li>
+    <li class=3D"selectable-text =
+copyable-text iq0m558w g0rxnol2" dir=3D"ltr" style=3D"text-align: =
+center;"><span class=3D"selectable-text copyable-text">3 Months</span></li>
+    <li class=3D"selectable-text copyable-text iq0m558w g0rxnol2" =
+dir=3D"ltr" style=3D"text-align: center;"><span class=3D"selectable-text =
+copyable-text">6 Months</span></li>
+    <li class=3D"selectable-text =
+copyable-text iq0m558w g0rxnol2" dir=3D"ltr" style=3D"text-align: =
+center;"><span class=3D"selectable-text copyable-text">12 =
+Months</span></li>
+    <li class=3D"selectable-text copyable-text iq0m558w =
+g0rxnol2" dir=3D"ltr" style=3D"text-align: center;"><span =
+class=3D"selectable-text copyable-text">24 Months</span></li>
+</ul>
+<p style=3D"text-align: center;"><span class=3D"selectable-text =
+copyable-text">You can request free 1 day trial before buying any =
+subscription :</span></p>
+<p style=3D"text-align: center;"><span =
+class=3D"selectable-text copyable-text">Contact us :&nbsp;</span><span =
+class=3D"selectable-text copyable-text"><a href=3D"https://wa.=
+link/60coia">Whatsapp</a></span></p>
+<p style=3D"text-align: center;">our =
+website : <a href=3D"https://bit.ly/3rU4ZJw">our_store</a></p>
+<p style=3D"text-align: center;">www.iptvwhite .=
+co</p>

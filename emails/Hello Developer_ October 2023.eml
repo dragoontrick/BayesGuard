@@ -1,0 +1,2468 @@
+Delivered-To: funnygum977@gmail.com
+Received: by 2002:a05:7108:5625:b0:339:159:19dc with SMTP id bf37csp2084470gdb;
+        Tue, 3 Oct 2023 17:57:56 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IF7U+pUfCwhAzd2y6fyslpTBEmbXN36JlzBd4QLtsxbpd2da6H/I7p9jAGq0tZpAct77lEc
+X-Received: by 2002:ac2:4555:0:b0:503:1adf:b4d5 with SMTP id j21-20020ac24555000000b005031adfb4d5mr608549lfm.52.1696381075950;
+        Tue, 03 Oct 2023 17:57:55 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1696381075; cv=none;
+        d=google.com; s=arc-20160816;
+        b=EhOOX6UvOsfIRgFeKjJv5csjI25AzEmMICkAHCZfc5JTzj21yKF7qdzFB/H6GRQsoa
+         CPafwn89t3a6k7UJHCoGm5JolR2eBTozuditbyy7YNCQpBJWviRCGe5UDiHw2QyBQg49
+         AoF1cKCJK7cVrQSpS+Nx88wjvYQu0Iw8ZYUpEoYcarsM57rWrp2uRuDvzESCNArcicCi
+         gxFjs1doa9G96QT39lwpzNucdsCct3ayvs+0ck5Aszfb5UzyWHuD8x/x1l4hnZfy5ccg
+         qwBRExwlENrbqPi6MglBnBYOGeh2B7ElF4JjMrNgdFSZKyGJ7+qrM+94ND7YWI5Dq+8Y
+         oBUg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=list-unsubscribe:mime-version:subject:message-id:to:from:date
+         :dkim-signature;
+        bh=sEi9ZfSm6Hq5hI4bj5yPN9XzqXKw7ngKPdr2MlHxmYg=;
+        fh=3KxIDdUNjr10SEPqSSEpS++ic6Rdy+Dm2Nyl3+vUblM=;
+        b=avX29Y4cPNTmQvRvev6iNGtCiDN2gbLB3aky+7VcYcLuqtAtTzf0m2XXCbiP5HUKwD
+         AF6zqbFVtLu/Tdw0KwSBkMxr0PF5CiAk0IHhcuEtjQY2Nw2N2bRIvjnexkBSnO8bkDyp
+         ihKi03ka40wWY1IA8Nns61JBfnvNbr5pg9TQiy/8GV1E7a3TNkAijN1YcIs4QEGuysmq
+         Agt8ltswMt8RL5OOmlMQzRL/kNY8mombiaDahPjjURo7DF4kDet53gQBOfIssyXx6Z79
+         5xsvdQRwrNvdxsZCpIuZm1U0hK/hJfI6fvRhVdpCIJ9RNq2mFRj2C/k5+jUVs5ul1dwf
+         ctNg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@insideapple.apple.com header.s=insideapple0517 header.b=sKtr15yW;
+       spf=pass (google.com: domain of developer_bounces@insideapple.apple.com designates 17.179.250.154 as permitted sender) smtp.mailfrom=developer_bounces@insideapple.apple.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=insideapple.apple.com
+Return-Path: <developer_bounces@insideapple.apple.com>
+Received: from rn2-msbadger11104.apple.com (rn2-msbadger11104.apple.com. [17.179.250.154])
+        by mx.google.com with ESMTPS id o10-20020ac2494a000000b0050482b29668si2279719lfi.407.2023.10.03.17.57.54
+        for <funnygum977@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 03 Oct 2023 17:57:55 -0700 (PDT)
+Received-SPF: pass (google.com: domain of developer_bounces@insideapple.apple.com designates 17.179.250.154 as permitted sender) client-ip=17.179.250.154;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@insideapple.apple.com header.s=insideapple0517 header.b=sKtr15yW;
+       spf=pass (google.com: domain of developer_bounces@insideapple.apple.com designates 17.179.250.154 as permitted sender) smtp.mailfrom=developer_bounces@insideapple.apple.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=insideapple.apple.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=insideapple.apple.com; s=insideapple0517; t=1696381070;
+	bh=sEi9ZfSm6Hq5hI4bj5yPN9XzqXKw7ngKPdr2MlHxmYg=;
+	h=Date:From:To:Message-ID:Subject:Content-Type:List-Unsubscribe;
+	b=sKtr15yWaHsSotbktuocMOOlVRVULi2hXjM4pBb8c9IKfd4SpDZ6toP3pYEjjYoyL
+	 OOcGNn0vOyTNJ/13mbRgKo3uhSD8TQqsly3UvSH6DbzJ+AGmovOuoyM9cxYpW8bh55
+	 coODDwX4rdq2kGRvushOy7VQ3y5QhfLq8K1wquBqHwtDQ3lmeXrX3Ni+zkZP/sKcNp
+	 mDUTSG+CPAj4QiYT560aXA3o+KjSNze5gTmrpwCku5du9SWyTdYcE+wiysSzAeBZU1
+	 g9PdhTNhRkMy4TJckO19tOZBPAicGYo5C9YEBh5RTXtCmgsOqrHWwO83M2IjxWB+/Z
+	 svtSRyFcDXcnQ==
+Date: Wed, 4 Oct 2023 00:57:50 +0000 (GMT)
+From: Apple Developer <developer@insideapple.apple.com>
+To: funnygum977@gmail.com
+Message-ID: <2116177985.274782277.1696381070298@insideapple.apple.com>
+Subject: Hello Developer: October 2023
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_274782275_1151269941.1696381070298"
+X-Attach-Flag: N
+X-Sent-To: funnygum977@gmail.com,2,8w%2BvXLoOe%2FyPdV0vFeToEaVDPVat%2FUGYPsTImJukEbiwnyIKmEzBWuxc6RAWRKGMPUzce33nPyPE8EwtEDPZzIPiuvP9aUOdtWMaOzSac0D4a%2FQyQTMsKECGGL98O4Kck5RANDVK2BLjy%2B9uV7SjYlpPq4lWjPeCNAXwivT%2BjHVKjLa1xLESzwSx9CopoJnnSFfqTc70HtQdgxBZdcv5h%2Fsdm0XlbvP3G5v26w7XgdlfIUIOGujeU7Pfh3298rblE1HN4U9jJk0CSaH945UmNw%3D%3D
+X-TXN_ID: 065ffc7a-f818-4150-a917-9813cf522e94
+X-DKIM_SIGN_REQUIRED: YES
+x-evs: BYPASS
+X-EmailType-Id: 181667
+X-Business-Group: CEP Developer
+X-Broadcast-Id: 181667
+X-MSG-ID: M00177~c00088~r0001~644781
+X-MSG-LINK: b3d837a4cb6e4691f7d3008d8fb9e16a
+List-Unsubscribe: <https://developer.apple.com/unsubscribe/?v=2&la=en_US&a=8w%2BvXLoOe%2FyPdV0vFeToEaVDPVat%2FUGYPsTImJukEbiwnyIKmEzBWuxc6RAWRKGMPUzce33nPyPE8EwtEDPZzIPiuvP9aUOdtWMaOzSac0D4a%2FQyQTMsKECGGL98O4Kck5RANDVK2BLjy%2B9uV7SjYlpPq4lWjPeCNAXwivT%2BjHVKjLa1xLESzwSx9CopoJnnSFfqTc70HtQdgxBZdcv5h%2Fsdm0XlbvP3G5v26w7XgdlfIUIOGujeU7Pfh3298rblE1HN4U9jJk0CSaH945UmNw%3D%3D>
+X-mp: d
+
+------=_Part_274782275_1151269941.1696381070298
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: QUOTED-PRINTABLE
+Content-Disposition: inline
+
+Find out about our latest activities (including more Apple Vision Pro devel=
+oper lab dates), learn how the Plex team embraced Xcode Cloud, discover how=
+ the inventive puzzle game Automatoys came to life, catch up on the latest =
+news, and more.
+
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C OCTOBER 2023
+
+Hello Developer
+Find out about our latest activities (including more Apple Vision Pro devel=
+oper lab dates), learn how the Plex team embraced Xcode Cloud, discover how=
+ the inventive puzzle game Automatoys came to life, catch up on the latest =
+news, and more.
+
+ Meet with Apple Experts=20
+Hosted in person and online, our upcoming developer activities are for ever=
+yone, no matter where you are on your development journey. Find out how to =
+enhance your existing app or game, refine your design, or launch a new proj=
+ect. Here are just a few of the latest sessions, consultations, and labs =
+=E2=80=94 with new ones coming each month.
+
+ * Apple Vision Pro developer labs https://c.apple.com/r?v=3D2&a=3Do2CKfLM8=
+dAL7lynfnyn7UMMbvjEUb4BrWM74kYDMi4niC15nggzlWVUiAkAVNI2cTpke6nLIhurnaVA0roR=
+4ly1Ds61yLS0rl2uIDayYix7j457rh6ovOBpSouTF7QIIO7PRK1aO2CGUsdvhcQgBBztSbEAcQM=
+ZN2bGMrUPnMipHfwgte%2Fm%2FeulEvx6WshUXLRzyNAvyGHMfN%2F%2Bda5ufZYp4prSRcH7LA=
+dbjkmM6rkrF9pT0UeVXcVQAxN%2BshcCcS8xoPL2lUPhSjpjEmaES1PJNk8GurNIgUPsHaoBPq%=
+2F4%3D
+ * Get started with app discovery and marketing https://c.apple.com/r?v=3D2=
+&a=3Do2CKfLM8dAL7lynfnyn7UMMbvjEUb4BrWM74kYDMi4niC15nggzlWVUiAkAVNI2cTpke6n=
+LIhurnaVA0roR4ly1Ds61yLS0rl2uIDayYix7j457rh6ovOBpSouTF7QIIO7PRK1aO2CGUsdvhc=
+QgBBztSbEAcQMZN2bGMrUPnMipHfwgte%2Fm%2FeulEvx6WshUXLRzyNAvyGHMfN%2F%2Bda5uf=
+ZYp4prSRcH7LAdbjkmM6rkrF9pT0UeVXcVQAxN%2BshcCcuvhlGJPgsj7i0jo98vKw8aMieCSye=
+bu9vzAEPIKG4r0%3D
+ * Request a one-on-one App Review consultation https://c.apple.com/r?v=3D2=
+&a=3Do2CKfLM8dAL7lynfnyn7UMMbvjEUb4BrWM74kYDMi4niC15nggzlWVUiAkAVNI2cTpke6n=
+LIhurnaVA0roR4ly1Ds61yLS0rl2uIDayYix7j457rh6ovOBpSouTF7QIIO7PRK1aO2CGUsdvhc=
+QgBBztSbEAcQMZN2bGMrUPnMipHfwgte%2Fm%2FeulEvx6WshUXLRzyNAvyGHMfN%2F%2Bda5uf=
+ZYp4prSRcH7LAdbjkmM6rkrF9pT0UeVXcVQAxN%2BshcCcsq4pvwWblpSo22JTyNha9z1krsOvE=
+HA5ny%2FQfnmy7VA%3D
+ * Request a one-on-one design and technology consultation https://c.apple.=
+com/r?v=3D2&a=3Do2CKfLM8dAL7lynfnyn7UMMbvjEUb4BrWM74kYDMi4niC15nggzlWVUiAkA=
+VNI2cTpke6nLIhurnaVA0roR4ly1Ds61yLS0rl2uIDayYix7j457rh6ovOBpSouTF7QIIO7PRK1=
+aO2CGUsdvhcQgBBztSbEAcQMZN2bGMrUPnMipHfwgte%2Fm%2FeulEvx6WshUXLRzyNAvyGHMfN=
+%2F%2Bda5ufZYp4prSRcH7LAdbjkmM6rkrF9pT0UeVXcVQAxN%2BshcCcS8xoPL2lUPhSjpjEma=
+ES1C22dhifyCXxOZq4aGGzmug%3D
+
+Want to find one near you? Explore the list of upcoming activities worldwid=
+e. https://c.apple.com/r?v=3D2&a=3Do2CKfLM8dAL7lynfnyn7UMMbvjEUb4BrWM74kYDM=
+i4niC15nggzlWVUiAkAVNI2cTpke6nLIhurnaVA0roR4ly1Ds61yLS0rl2uIDayYix7j457rh6o=
+vOBpSouTF7QIIO7PRK1aO2CGUsdvhcQgBBztSbEAcQMZN2bGMrUPnMipHfwgte%2Fm%2FeulEvx=
+6WshUXLRzyNAvyGHMfN%2F%2Bda5ufZYp4prSRcH7LAdbjkmM6rkrF9pT0UeVXcVQAxN%2BshcC=
+cumQ9ab7Ut30YEl0FA%2BBwYiYiP5DB%2BoAy2LJAUysCCwU%3D
+
+ Get ready for a new round of Apple Vision Pro developer lab dates=20
+Developers have been thrilled to experience their apps and games in Apple V=
+ision Pro labs, and connect with Apple experts to help refine their ideas a=
+nd answer questions. Ben Guerrette, chief experience officer at Spool, says=
+, =E2=80=9CThat kind of learning experience is incredibly valuable.=E2=80=
+=9D Developer and podcaster David Smith says, =E2=80=9CThe first time you s=
+ee your own app running for real is when you get the audible gasp.=E2=80=9D=
+ Submit a lab request. https://c.apple.com/r?v=3D2&a=3Do2CKfLM8dAL7lynfnyn7=
+UMMbvjEUb4BrWM74kYDMi4niC15nggzlWVUiAkAVNI2cTpke6nLIhurnaVA0roR4ly1Ds61yLS0=
+rl2uIDayYix7j457rh6ovOBpSouTF7QIIO7PRK1aO2CGUsdvhcQgBBztSbEAcQMZN2bGMrUPnMi=
+pHfwgte%2Fm%2FeulEvx6WshUXLRzyNAvyGHMfN%2F%2Bda5ufZYp4prSRcH7LAdbjkmM6rkrF9=
+pT0UeVXcVQAxN%2BshcCcS8xoPL2lUPhSjpjEmaES1MpVcDDTQy1mwb5p73NspCo%3D
+
+You can also request Apple Vision Pro compatibility evaluations https://c.a=
+pple.com/r?v=3D2&a=3Do2CKfLM8dAL7lynfnyn7UMMbvjEUb4BrWM74kYDMi4niC15nggzlWV=
+UiAkAVNI2cTpke6nLIhurnaVA0roR4ly1Ds61yLS0rl2uIDayYix7j457rh6ovOBpSouTF7QIIO=
+7PRK1aO2CGUsdvhcQgBBztSbEAcQMZN2bGMrUPnMipHfwgte%2Fm%2FeulEvx6WshUXLRzyNAvy=
+GHMfN%2F%2Bda5ufZYp4prSRcH7LAdbjkmM6rkrF9pT0UeVXcVQAxN%2BshcCcumQ9ab7Ut30YE=
+l0FA%2BBwYjnEBMCd6ITndIeASa2Q8Ug%3D. We=E2=80=99ll evaluate your apps and g=
+ames directly on Apple Vision Pro to make sure they behave as expected and =
+send you the results.
+
+ =E2=80=9CSmall but mighty=E2=80=9D: Go behind the scenes with Plex=20
+Discover how the streaming service and media player uses developer tools li=
+ke Xcode Cloud https://c.apple.com/r?v=3D2&a=3Do2CKfLM8dAL7lynfnyn7UMMbvjEU=
+b4BrWM74kYDMi4niC15nggzlWVUiAkAVNI2cTpke6nLIhurnaVA0roR4ly1Ds61yLS0rl2uIDay=
+Yix7j457rh6ovOBpSouTF7QIIO7PRK1aO2CGUsdvhcQgBBztSbEAcQMZN2bGMrUPnMipHfwgte%=
+2Fm%2FeulEvx6WshUXLRzyNAvyGHMfN%2F%2Bda5ufZYp4prSRcH7LAdbjkmM6rkrF9pT0UeVXc=
+VQAxN%2BshcCcumQ9ab7Ut30YEl0FA%2BBwYg8bX2G1FAOJ1w2Am9Od0bA%3D to maintain a=
+ brisk release pace. =E2=80=9CWe=E2=80=99re relatively small,=E2=80=9D says=
+ Danni Hemberger, director of product marketing at Plex, =E2=80=9Cbut we=E2=
+=80=99re mighty.=E2=80=9D
+
+ Meet the mind behind Automatoys=20
+=E2=80=9CI like the idea of a moment where players are left to say, =E2=80=
+=98Well, I guess I=E2=80=99ll just start tapping and see what happens,=E2=
+=80=99=E2=80=9D says Steffan Glynn of Apple Design Award finalist Automatoy=
+s, an inspired puzzler in which players navigate elaborate contraptions wit=
+h a single tap. Find out how https://c.apple.com/r?v=3D2&a=3Do2CKfLM8dAL7ly=
+nfnyn7UMMbvjEUb4BrWM74kYDMi4niC15nggzlWVUiAkAVNI2cTpke6nLIhurnaVA0roR4ly1Ds=
+61yLS0rl2uIDayYix7j457rh6ovOBpSouTF7QIIO7PRK1aO2CGUsdvhcQgBBztSbEAcQMZN2bGM=
+rUPnMipHfwgte%2Fm%2FeulEvx6WshUXLRzyNAvyGHMfN%2F%2Bda5ufZYp4prSRcH7LAdbjkmM=
+6rkrF9pT0UeVXcVQAxN%2BshcCcumQ9ab7Ut30YEl0FA%2BBwYk%2F6gN5UTv5fTRUTV%2BHSOQ=
+o%3D Glynn brought his Rube Goldberg-inspired game to life.
+
+ Catch up on the latest news and updates=20
+Make sure you=E2=80=99re up to date on feature announcements, important gui=
+dance, new documentation, and more.
+
+ * Get ready with the latest beta releases https://c.apple.com/r?v=3D2&a=3D=
+o2CKfLM8dAL7lynfnyn7UMMbvjEUb4BrWM74kYDMi4niC15nggzlWVUiAkAVNI2cTpke6nLIhur=
+naVA0roR4ly1Ds61yLS0rl2uIDayYix7j457rh6ovOBpSouTF7QIIO7PRK1aO2CGUsdvhcQgBBz=
+tSbEAcQMZN2bGMrUPnMipHfwgte%2Fm%2FeulEvx6WshUXLRzyNAvyGHMfN%2F%2Bda5ufZYp4p=
+rSRcH7LAdbjkmM6rkrF9pT0UeVXcVQAxN%2BshcCcumQ9ab7Ut30YEl0FA%2BBwYuutfEyBwcxM=
+UK5c26ofFeI%3D: Build your apps using the latest developer tools and test t=
+hem on the most recent OS releases. Download Xcode 15.1 beta, and the beta =
+2 versions of iOS 17.1, iPadOS 17.1, macOS 14.1, tvOS 17.1, and watchOS 10.=
+1.
+ * Use RealityKit to create an interactive ride in visionOS https://c.apple=
+.com/r?v=3D2&a=3Do2CKfLM8dAL7lynfnyn7UMMbvjEUb4BrWM74kYDMi4niC15nggzlWVUiAk=
+AVNI2cTpke6nLIhurnaVA0roR4ly1Ds61yLS0rl2uIDayYix7j457rh6ovOBpSouTF7QIIO7PRK=
+1aO2CGUsdvhcQgBBztSbEAcQMZN2bGMrUPnMipHfwgte%2Fm%2FeulEvx6WshUXLRzyNAvyGHMf=
+N%2F%2Bda5ufZYp4prSRcH7LAdbjkmM6rkrF9pT0UeVXcVQAxN%2BshcCcuvhlGJPgsj7i0jo98=
+vKw8V7LhFEIXNYr1eFJ1EgTkFg%3D: The developer sample project =E2=80=9CSwift =
+Splash=E2=80=9D leverages RealityKit and Reality Composer Pro to create a w=
+aterslide by combining modular slide pieces. And once you finish your ride,=
+ you can release an adventurous goldfish to try it out.
+ * Take your iPad and iPhone apps even further on Apple Vision Pro https://=
+c.apple.com/r?v=3D2&a=3Do2CKfLM8dAL7lynfnyn7UMMbvjEUb4BrWM74kYDMi4niC15nggz=
+lWVUiAkAVNI2cTpke6nLIhurnaVA0roR4ly1Ds61yLS0rl2uIDayYix7j457rh6ovOBpSouTF7Q=
+IIO7PRK1aO2CGUsdvhcQgBBztSbEAcQMZN2bGMrUPnMipHfwgte%2Fm%2FeulEvx6WshUXLRzyN=
+AvyGHMfN%2F%2Bda5ufZYp4prSRcH7LAdbjkmM6rkrF9pT0UeVXcVQAxN%2BshcCcmpO3MsagPQ=
+sjJF%2F9aboPfO%2BV%2BhXuHpcFgUxjm%2BmBqRk%3D: A brand=E2=80=91new App Store=
+ will launch with Apple Vision Pro, featuring apps and games built for visi=
+onOS, as well as hundreds of thousands of iPad and iPhone apps that run gre=
+at on visionOS too.
+ * App Store Connect API 3.0 https://c.apple.com/r?v=3D2&a=3Do2CKfLM8dAL7ly=
+nfnyn7UMMbvjEUb4BrWM74kYDMi4niC15nggzlWVUiAkAVNI2cTpke6nLIhurnaVA0roR4ly1Ds=
+61yLS0rl2uIDayYix7j457rh6ovOBpSouTF7QIIO7PRK1aO2CGUsdvhcQgBBztSbEAcQMZN2bGM=
+rUPnMipHfwgte%2Fm%2FeulEvx6WshUXLRzyNAvyGHMfN%2F%2Bda5ufZYp4prSRcH7LAdbjkmM=
+6rkrF9pT0UeVXcVQAxN%2BshcCcuvhlGJPgsj7i0jo98vKw8bOIh8YpSwsD%2BbHxtWwZKkQ%3D=
+: This release includes support for Game Center, pre-orders by region, and =
+more.
+ * Debugging universal links https://c.apple.com/r?v=3D2&a=3Do2CKfLM8dAL7ly=
+nfnyn7UMMbvjEUb4BrWM74kYDMi4niC15nggzlWVUiAkAVNI2cTpke6nLIhurnaVA0roR4ly1Ds=
+61yLS0rl2uIDayYix7j457rh6ovOBpSouTF7QIIO7PRK1aO2CGUsdvhcQgBBztSbEAcQMZN2bGM=
+rUPnMipHfwgte%2Fm%2FeulEvx6WshUXLRzyNAvyGHMfN%2F%2Bda5ufZYp4prSRcH7LAdbjkmM=
+6rkrF9pT0UeVXcVQAxN%2BshcCcsq4pvwWblpSo22JTyNha92ACJ3HoygOhx2WFmuxjxQo%3D: =
+Investigate why your universal links are opening in Safari instead of your =
+app.
+
+ Share your thoughts=20
+We=E2=80=99d love to hear from you. If you have suggestions for our activit=
+ies or stories, please let us know https://c.apple.com/r?v=3D2&a=3Do2CKfLM8=
+dAL7lynfnyn7UMMbvjEUb4BrWM74kYDMi4niC15nggzlWVUiAkAVNI2cTpke6nLIhurnaVA0roR=
+4ly1Ds61yLS0rl2uIDayYix7j457rh6ovOBpSouTF7QIIO7PRK1aO2CGUsdvhcQgBBztSbEAcQM=
+ZN2bGMrUPnMipHfwgte%2Fm%2FeulEvx6WshUXLRzyNAvyGHMfN%2F%2Bda5ufZYp4prSRcH7LA=
+dbjkmM6rkrF9pT0UeVXcVQAxN%2BshcCcuvhlGJPgsj7i0jo98vKw8W7VrajBmGt40JoTE%2B6e=
+m5s%3D.
+
+Copyright =C2=A9 2023 Apple Inc.=20
+
+One Apple Park Way, MS 923-4DEV, Cupertino, CA 95014.
+
+All Rights Reserved https://c.apple.com/r?v=3D2&a=3Do2CKfLM8dAL7lynfnyn7UMM=
+bvjEUb4BrWM74kYDMi4niC15nggzlWVUiAkAVNI2cTpke6nLIhurnaVA0roR4ly1Ds61yLS0rl2=
+uIDayYix7j457rh6ovOBpSouTF7QIIO7PRK1aO2CGUsdvhcQgBBztSbEAcQMZN2bGMrUPnMipHf=
+wgte%2Fm%2FeulEvx6WshUXLRzyNAvyGHMfN%2F%2Bda5ufZYp4prSRcH7LAdbjkmM6rkrF9pT0=
+UeVXcVQAxN%2BshcCcS8xoPL2lUPhSjpjEmaES1NpsTa3SDXY4P%2BVHvbcVwro%3D | Privac=
+y Policy https://c.apple.com/r?v=3D2&a=3Do2CKfLM8dAL7lynfnyn7UMMbvjEUb4BrWM=
+74kYDMi4niC15nggzlWVUiAkAVNI2cTpke6nLIhurnaVA0roR4ly1Ds61yLS0rl2uIDayYix7j4=
+57rh6ovOBpSouTF7QIIO7PRK1aO2CGUsdvhcQgBBztSbEAcQMZN2bGMrUPnMipHfwgte%2Fm%2F=
+eulEvx6WshUXLRzyNAvyGHMfN%2F%2Bda5ufZYp4prSRcH7LAdbjkmM6rkrF9pT0UeVXcVQAxN%=
+2BshcCcS8xoPL2lUPhSjpjEmaES1P9M7wwXbGBKWy0lDlQgte4%3D | Account https://c.a=
+pple.com/r?v=3D2&a=3Do2CKfLM8dAL7lynfnyn7UMMbvjEUb4BrWM74kYDMi4niC15nggzlWV=
+UiAkAVNI2cTpke6nLIhurnaVA0roR4ly1Ds61yLS0rl2uIDayYix7j457rh6ovOBpSouTF7QIIO=
+7PRK1aO2CGUsdvhcQgBBztSbEAcQMZN2bGMrUPnMipHfwgte%2Fm%2FeulEvx6WshUXLRzyNAvy=
+GHMfN%2F%2Bda5ufZYp4prSRcH7LAdbjkmM6rkrF9pT0UeVXcVQAxN%2BshcCcuvhlGJPgsj7i0=
+jo98vKw8TQ5F6NYt%2FRGzWAfHb9roXk%3D
+
+If you would prefer not to receive future communications from Apple Develop=
+er, you may unsubscribe https://c.apple.com/r?v=3D2&a=3D8ps6Ok0qKWiF37xoxSt=
+POmTNGs51zlivdjtcXTFjpLlRuCwyddQ3iyYDv7lzbrRV0%2FsqmpE%2Bke0PNCs0kHZqlDAFhL=
+w8Pn%2B14CE%2B92t47PiDJlyK76D7FULBqvq9XDS2y8ftzKBiMQb5YxbyB%2B557ej2D6be23U=
+0kWhV7uiAC9xKNq7DA9cSsl73pjKKbs4t0rWbeABpOBLmSZn5qOmpvx86rDxBMh0vREAYzCTq%2=
+FTmd4%2BirO3qTJd59ojnPBuPNQDV2bGxz7H2d5hmZu%2BjJbq%2FfHMekSwyyvV0CDhKuBcJUb=
+BeGOmY7qjxwWDpL3aQ%2FGzbubPorSt6gUUP9RCzqq4BG65R2xNRTQmTVd5qO7AKCQyztGeRDnX=
+m88TkmMbHKjmWnd7wEY0oxR%2FwInEyPYCTGmy7PXXKEo84HEBB8NP19SrafYO%2FmChgAfFTRN=
+PBLAQ3GAVXElkcMYAOKI7dWBJXTBNWn0Hoz%2BdAf%2FPvE01O1MT4rDG0sx0vYcebGMMN%2B6B=
+81kjZMPB%2FFYUTxj5pAEg%3D%3D.
+------=_Part_274782275_1151269941.1696381070298
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: QUOTED-PRINTABLE
+Content-Disposition: inline
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn:schemas-microso=
+ft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:office">
+<head>
+=09    <title>Hello Developer: October 2023</title>
+=09=09<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scal=
+e=3D1.0">
+=09=09<meta http-equiv=3D"content-type" content=3D"text/html;charset=3Dutf-=
+8">
+
+=09=09<style media=3D"all" type=3D"text/css">a{color: blue;}</style>
+=09=09<style>
+=09=09/* body { background-color: #f2f2f2; } */
+=09=09  th{font-weight:normal;}
+=09=09thead th{text-align:center;font-weight:bold;}
+=09=09=09=09=09@media only screen and (max-width: 899px) {#wrapper { paddin=
+g-top: 0 !important } #before_text { width: 100% !important } #weblink .web=
+-link, #weblink th { display: none !important } #CoverPage, .ArticlePage, .=
+Generic, .SystemResponsePage, .before_text_wrapper table { width: 100% !imp=
+ortant } body { padding: 0 !important; background-color: #f2f2f2; } #nsta-r=
+eview-banner-header, #ntsa-review-banner-right, #ntsa-review-banner-right t=
+able th { display: block !important; width: auto !important } #ntsa-review-=
+banner-right, #ntsa-review-banner-right table { max-width: 320px !important=
+; width: 100% !important } #ntsa-review-banner-right table th image { displ=
+ay: none !important } .nw_articleGallery_image img { max-width: 100% !impor=
+tant } .Generic .nw-componentSpacerMainCell table, .ArticlePage .nw-compone=
+ntSpacerMainCell table { table-layout: fixed !important } * { word-wrap: br=
+eak-word !important; word-wrap: break-all !important } .nw_summary_wrapper =
+.summary img, .full-story img { max-width: 100% !important; height: inherit=
+ !important } .nw_summary_wrapper .summary table, .full-story table, #wrapp=
+er iframe { width: 100% !important; height: inherit !important } #mastheadi=
+mage img, .section_header img, #fullwidthimage img { width: 100% !important=
+; height: inherit !important; max-width: 899px !important } #mastheadimage =
+img, #fullwidthimage img { display: block } #fullwidthimage .nw-componentMa=
+inCell { padding: 0; line-height: 100% !important; mso-line-height-rule: ex=
+actly !important } .logo img { max-width: 100% !important; height: inherit =
+!important } .nw_img_cell img { width: 100% !important; height: inherit !im=
+portant; max-width: 600px !important } #Services3-AcrossA .section_header i=
+mg, #Services2-AcrossA .section_header img, #Services2-LeftsideA .section_h=
+eader img { width: 100% !important; height: inherit !important; max-width: =
+35px !important } #Services2-LeftsideA .nw_img_cell img { width: 100% !impo=
+rtant; height: inherit !important; max-width: 116px !important } #Services2=
+-LeftsideA .nw_img_cell, #Services2-AcrossA .nw_img_cell { text-align: left=
+ !important } .nw_img_table, .nw_img_wrapper { width: 100% !important } .nw=
+_img_caption { text-align: left !important; padding-left: 20px !important }=
+ .nw_summary_right { width: 100% !important; display: table-footer-group !i=
+mportant } .nw_img_left { width: 100% !important; display: table-header-gro=
+up !important } .nw_summary_left { width: 100% !important; display: table-f=
+ooter-group !important } .nw_img_right { width: 100% !important; display: t=
+able-header-group !important } #main { width: auto !important; display: blo=
+ck !important; padding-left: 0 !important; padding-right: 0 !important; pad=
+ding-bottom: 0 !important; padding-top: 0 } #CoverPage #main { width: auto =
+!important; display: block !important; padding-left: 15px !important; paddi=
+ng-right: 15px !important; padding-bottom: 0 !important } #ArticlePage #mai=
+n { width: auto !important; display: block !important; padding-left: 15px !=
+important; padding-right: 15px !important; padding-bottom: 0 !important; pa=
+dding-top: 30px } .article_wrapper, .article_spacer { width: auto !importan=
+t; display: block !important }=20
+=09=09=09=09=09#masthead .nw-componentMainCell { padding: 20px !important }=
+ #titlebar th { display: block !important; text-align: center !important; l=
+ine-height: 20px !important; width: auto !important } #titlebar .nw-compone=
+ntMainCell .titlebar_subtitle { padding-bottom: 5px } .nw_img_main_cell { p=
+adding-left: 0 !important; padding-right: 0 !important } #nw_toc_wrapper .n=
+w-componentSpacerMainCell, #tocDisplayTitle th, #toc .nw-componentMainCell =
+{ display: none !important } .title, .title a, .title a:hover { font-size: =
+24px !important } .between_two_col_rows_fragment .divider_line, .between_th=
+ree_col_rows_fragment .divider_line, .between_four_col_rows_fragment .divid=
+er_line { border-bottom: 0 !important } #PollQuestion .nw-survey-horizontal=
+-question label { margin-top: 15px !important; margin-right: 10px !importan=
+t; display: block !important } .nw-survey-question-title img { width: 100% =
+!important; height: inherit !important } #usefulDisplayTitle th, #contactDi=
+splayTitle th, #contact .nw-componentMainCell .contact_us_title, #PollQuest=
+ionDisplayTitle th, #PollQuestionbDisplayTitle th, #socialnetworksDisplayTi=
+tle th, #usefulhorizontalDisplayTitle th { font-size: 24px !important } .nw=
+_twitter_tweet_text { font-size: 14px !important } .summary img, .full-stor=
+y img, .summary table img, .full-story table img, .summary th img, .full-st=
+ory th img, #introtext .nw-componentMainCell img, #introtext .nw-componentM=
+ainCell table img, #introtext .nw-componentMainCell th img { max-width: 100=
+% !important; height: inherit !important } .nw-survey-submit input[type=3D"=
+button"] { background-color: rgb(0, 112, 201) !important; border-bottom: 9p=
+x solid rgb(0, 112, 201) !important; border-left: 9px solid rgb(0, 112, 201=
+) !important; border-right: 9px solid rgb(0, 112, 201) !important; border-t=
+op: 9px solid rgb(0, 112, 201) !important; display: inline-block !important=
+; line-height: 15px !important; text-decoration: none !important; text-alig=
+n: center !important; font-size: 14px; color: rgb(255, 255, 255); font-weig=
+ht: normal; font-style: normal; text-decoration: none } input[type=3D"butto=
+n"] { -webkit-appearance: none !important; -moz-appearance: none !important=
+; appearance: none !important } .nw-survey-answer-td { display: block !impo=
+rtant } #LeadStory .nw-componentMainCell, #LeadStory .article_wrapper, #Lea=
+dStory .content_wrapper { text-align: left !important } #SingleColumnA .nw-=
+componentMainCell, #SingleColumnA .article_wrapper, #SingleColumnA .content=
+_wrapper { text-align: left !important }=20
+=09=09=09=09=09#useful .nw-componentMainCell a { font-size: 17px !important=
+ } #usefulhorizontal .nw-componentMainCell a { font-size: 17px !important; =
+display: block !important } #usefulhorizontal .nw-componentMainCell { color=
+: rgb(63, 72, 97) !important } #useful th.nw-componentMainCell a:hover { fo=
+nt-size: 17px !important } #usefulhorizontal .nw-componentMainCell a:hover =
+{ font-size: 17px !important } #SubscribePage .nw-componentMainCell .nw-for=
+m-field { font-size: 26px !important } #SurveyPage #survey .nw-componentMai=
+nCell .nw-survey-submit { font-size: 17px !important } #SurveyPage #survey =
+.nw-componentMainCell .nw_survey_option { font-size: 17px !important } #Cal=
+endarA .section_header, #Services2-AcrossA .section_header, #LeftImageA .se=
+ction_header, #LeftImageB .section_header, #LeftServiceA .section_header, #=
+FOAFSectionA .section_header, #LOBSectionA .nw-componentMainCell .section_h=
+eader { padding-top: 0 !important } #CoverPage #left, #CoverPage #main { wi=
+dth: auto !important; display: block !important; padding-left: 15px !import=
+ant; padding-right: 15px !important; padding-bottom: 0 !important; padding-=
+top: 0 !important; background-color: rgb(242, 242, 242) !important } #langu=
+agelinks .nw-componentMainCell th { display: block !important; width: auto =
+!important; text-align: left !important } #languagelinks .language { paddin=
+g-bottom: 10px !important } #Services3-AcrossA .nw-componentMainCell, #Serv=
+ices2-LeftsideA .nw-componentMainCell { padding-left: 15px !important; padd=
+ing-right: 15px !important } #Services3-AcrossA .nw_img_main_cell, #Service=
+s2-LeftsideA .nw_img_main_cell { padding-bottom: 15px !important } #Service=
+s3-AcrossA .title, #Services3-AcrossA .title a, #Services3-AcrossA .title a=
+:hover, #Services2-LeftsideA .title, #Services2-LeftsideA .title a, #Servic=
+es2-LeftsideA .title a:hover { font-size: 18px !important } #Services3-Acro=
+ssA .article_spacer, #Services2-LeftsideA .article_spacer { padding-bottom:=
+ 30px !important } #fullwidthimage .nw-componentMainCell img { border-radiu=
+s: 0 !important } #nw_PollQuestion_wrapper .nw-componentSpacerMainCell { pa=
+dding-left: 0 !important; padding-right: 0 !important } #PollQuestionDispla=
+yTitle th { border-left: 0 !important; border-right: 0 !important } #PollQu=
+estion .nw-componentMainCell { padding-left: 30px !important; padding-right=
+: 30px !important } #FOAFSectionA .summary_wrapper { column-count: 1 !impor=
+tant } #Services3-AcrossA .after_article_title_fragment th, #Services2-Acro=
+ssA .after_article_title_fragment th, #Services2-LeftsideA .after_article_t=
+itle_fragment th, #LOBSectionA .subtitle { padding-bottom: 12px !important =
+}=20
+=09=09=09=09=09#masthead .nw-componentMainCell { padding-top: 30px !importa=
+nt; padding-right: 30px !important; padding-bottom: 10px !important; paddin=
+g-left: 30px !important } #masthead #title_date_table .main_title, #masthea=
+d #title_date_table .main_title h1 { font-size: 30px !important; font-weigh=
+t: 900 !important } #languagelinks .subtitle { font-size: 14px !important; =
+font-weight: 500 !important } #languagelinks .nw-componentMainCell { paddin=
+g-top: 0px !important; padding-right: 20px !important; padding-bottom: 15px=
+ !important; padding-left: 20px !important; } #languagelinks .nw-componentM=
+ainCell { font-size: 12px !important; font-weight: 400 !important }=20
+=09=09=09=09=09#LeadStory .content_wrapper { padding-top: 0px !important; p=
+adding-right: 30px !important; padding-bottom: 30px !important; padding-lef=
+t: 30px !important } #LeadStory .nw-componentMainCell .section_header { pad=
+ding-right: 20px !important; padding-left: 20px !important } #LeadStory .nw=
+_img_table th.nw_img_caption { font-size: 10px !important; font-weight: 400=
+ !important } #LeadStory th.nw_img_main_cell { padding-bottom: 15px !import=
+ant } #LeadStory .title, #LeadStory .title a, #LeadStory .title a:hover, #L=
+eadStory h3 .title, #LeadStory h3 .title a, #LeadStory h3 .title a:hover { =
+font-size: 23px !important; font-weight: 700 !important } #LeadStory .subti=
+tle { font-size: 13px !important; font-weight: 400 !important } #LeadStory =
+.summary, #LeadStory .summary table, #LeadStory .summary th, #LeadStory .su=
+mmary a, #LeadStory .summary table a, #LeadStory .summary th a { font-size:=
+ 14px !important; font-weight: 400 !important } #LeadStory .nw_readmore, #L=
+eadStory .nw_readmore:hover { font-size: 14px !important; font-weight: 400 =
+!important } #LeadStory .between_FAIT_article_fragment th { padding-bottom:=
+ 0px !important } #nw_LeadStory_wrapper .nw-componentSpacerMainCell { paddi=
+ng-bottom: 0px !important } #FloatedArticle .nw-componentMainCell { padding=
+-top: 20px !important; padding-right: 20px !important; padding-bottom: 40px=
+ !important; padding-left: 20px !important } #FloatedArticle .nw-componentM=
+ainCell .section_header { padding-right: 20px !important; padding-left: 20p=
+x !important } #FloatedArticle .nw_img_table th.nw_img_caption { font-size:=
+ 10px !important; font-weight: 400 !important } #FloatedArticle th.nw_img_m=
+ain_cell { padding-bottom: 15px !important } #FloatedArticle .title, #Float=
+edArticle .title a, #FloatedArticle .title a:hover, #FloatedArticle h3 .tit=
+le, #FloatedArticle h3 .title a, #FloatedArticle h3 .title a:hover { font-s=
+ize: 23px !important; font-weight: 700 !important }=20
+=09=09=09=09=09#FloatedArticle .subtitle { font-size: 13px !important; font=
+-weight: 400 !important } #FloatedArticle .summary, #FloatedArticle .summar=
+y table, #FloatedArticle .summary th, #FloatedArticle .summary a, #FloatedA=
+rticle .summary table a, #FloatedArticle .summary th a { font-size: 14px !i=
+mportant; font-weight: 400 !important } #FloatedArticle .nw_readmore, #Floa=
+tedArticle .nw_readmore:hover { font-size: 14px !important; font-weight: 40=
+0 !important } #FloatedArticle .between_FAIT_article_fragment th { padding-=
+bottom: 15px !important } #nw_FloatedArticle_wrapper .nw-componentSpacerMai=
+nCell { padding-bottom: 20px !important } #SingleColumnA .nw-componentMainC=
+ell { padding-top: 0px !important; padding-right: 10px !important; padding-=
+bottom: 30px !important; padding-left: 10px !important } #SingleColumnA .nw=
+-componentMainCell .content_wrapper { padding-top: 20px !important; padding=
+-right: 20px !important; padding-bottom: 20px !important; padding-left: 20p=
+x !important } #SingleColumnA .nw_img_table th.nw_img_caption { font-size: =
+11px !important; font-weight: 400 !important } #SingleColumnA .nw_img_main_=
+cell { padding-bottom: 0px !important } #SingleColumnA .title, #SingleColum=
+nA .title a, #SingleColumnA .title a:hover, #SingleColumnA h3 .title, #Sing=
+leColumnA h3 .title a, #SingleColumnA h3 .title a:hover { font-size: 18px !=
+important; font-weight: 600 !important } #SingleColumnA .subtitle { font-si=
+ze: 14px !important; font-weight: 400 !important } #SingleColumnA .summary,=
+ #SingleColumnA .summary table, #SingleColumnA .summary th, #SingleColumnA =
+.summary a, #SingleColumnA .summary table a, #SingleColumnA .summary th a {=
+ font-size: 14px !important; font-weight: 400 !important } #SingleColumnA .=
+nw_readmore, #SingleColumnA .nw_readmore:hover { font-size: 14px !important=
+; font-weight: 400 !important } #SingleColumnA .nw-componentMainCell .betwe=
+en_SAIT_article_fragment th { padding-bottom: 12px !important } #SingleColu=
+mnA .nw-componentMainCell div.section-name, #SingleColumnA .nw-componentMai=
+nCell h2 div.section-name { font-size: 18px !important; font-weight: 700 !i=
+mportant } #SingleColumnA .nw-componentMainCell .section_header { padding-b=
+ottom: 20px !important; padding-top: 0px !important } #LeftImageA .nw-compo=
+nentMainCell { padding-top: 0px !important; padding-right: 15px !important;=
+ padding-bottom: 30px !important; padding-left: 15px !important } #LeftImag=
+eA .nw-componentMainCell .nw_summary_wrapper { padding-top: 20px !important=
+; padding-right: 20px !important; padding-bottom: 20px !important; padding-=
+left: 20px !important } #LeftImageA .nw_readmore { padding-right: 20px !imp=
+ortant; padding-bottom: 20px !important; padding-left: 20px !important }=20
+=09=09=09=09=09#LeftImageA .nw_img_cell img { border-radius: 20px 20px 0 0 =
+!important } #LeftImageA .nw_img_table th.nw_img_caption { font-size: 11px =
+!important; font-weight: 400 !important } #LeftImageA .nw_img_main_cell { p=
+adding-bottom: 0px !important } #LeftImageA .title, #LeftImageA .title a, #=
+LeftImageA .title a:hover, #LeftImageA h3 .title, #LeftImageA h3 .title a, =
+#LeftImageA h3 .title a:hover { font-size: 21px !important; font-weight: 60=
+0 !important } #LeftImageA .subtitle { font-size: 14px !important; font-wei=
+ght: 400 !important } #LeftImageA .summary, #LeftImageA .summary table, #Le=
+ftImageA .summary th, #LeftImageA .summary a, #LeftImageA .summary table a,=
+ #LeftImageA .summary th a { font-size: 14px !important; font-weight: 400 !=
+important } #LeftImageA .nw_readmore, #SingleColumnA .nw_readmore:hover { f=
+ont-size: 14px !important; font-weight: 400 !important } #LeftImageA .nw-co=
+mponentMainCell .between_SAIR_article_fragment th { padding-bottom: 15px !i=
+mportant } #LeftImageA .nw-componentMainCell div.section-name, #LeftImageA =
+.nw-componentMainCell h2 div.section-name { font-size: 18px !important; fon=
+t-weight: 700 !important } #LeftImageA .nw-componentMainCell .section_heade=
+r { padding-bottom: 20px !important; padding-top: 0px !important } #LeftIma=
+geB .nw-componentMainCell { padding-top: 20px !important; padding-right: 15=
+px !important; padding-bottom: 30px !important; padding-left: 15px !importa=
+nt } #LeftImageB .nw-componentMainCell .nw_summary_wrapper { padding-top: 2=
+0px !important; padding-right: 20px !important; padding-bottom: 20px !impor=
+tant; padding-left: 20px !important } #LeftImageB .nw_readmore { padding-ri=
+ght: 20px !important; padding-bottom: 20px !important; padding-left: 20px !=
+important } #LeftImageB .nw_img_cell img { border-radius: 20px 20px 0 0 !im=
+portant } #LeftImageB .nw_img_table th.nw_img_caption { font-size: 11px !im=
+portant; font-weight: 400 !important } #LeftImageB .nw_img_main_cell { padd=
+ing-bottom: 0px !important } #LeftImageB .title, #LeftImageB .title a, #Lef=
+tImageB .title a:hover, #LeftImageB h3 .title, #LeftImageB h3 .title a, #Le=
+ftImageB h3 .title a:hover { font-size: 19px !important; font-weight: 600 !=
+important } #LeftImageB .subtitle { font-size: 14px !important; font-weight=
+: 400 !important } #LeftImageB .summary, #LeftImageB .summary table, #LeftI=
+mageB .summary th, #LeftImageB .summary a, #LeftImageB .summary table a, #L=
+eftImageB .summary th a { font-size: 14px !important; font-weight: 400 !imp=
+ortant } #LeftImageB .nw_readmore, #SingleColumnB .nw_readmore:hover { font=
+-size: 14px !important; font-weight: 400 !important } #LeftImageB .nw-compo=
+nentMainCell .between_SAIR_article_fragment th { padding-bottom: 15px !impo=
+rtant }=20
+=09=09=09=09=09#LeftImageB .nw-componentMainCell div.section-name, #LeftIma=
+geB .nw-componentMainCell h2 div.section-name { font-size: 18px !important;=
+ font-weight: 700 !important } #LeftImageB .nw-componentMainCell .section_h=
+eader { padding-bottom: 20px !important; padding-top: 0px !important } #Cal=
+endarA .nw-componentMainCell { padding-top: 0px !important; padding-right: =
+10px !important; padding-bottom: 0px !important; padding-left: 10px !import=
+ant } #CalendarA .nw-componentMainCell .article_wrapper { padding-top: 20px=
+ !important; padding-right: 20px !important; padding-bottom: 0px !important=
+; padding-left: 20px !important; border-radius: 0 0 20px 20px !important } =
+#CalendarA .section_subtitle { padding-bottom: 10px !important; padding-lef=
+t: 20px !important } #CalendarA .nw-componentMainCell .section-name { paddi=
+ng-left: 20px !important } #CalendarA .twocol_outerwrapper { padding: 0 0 2=
+5px 0 !important } #CalendarA .nw_img_table th.nw_img_caption { font-size: =
+11px !important; font-weight: 400 !important; padding-left: 0 !important } =
+#CalendarA .nw_img_main_cell { padding-bottom: 30px !important } #CalendarA=
+ .title, #CalendarA .title a, #CalendarA .title a:hover, #CalendarA h3 .tit=
+le, #CalendarA h3 .title a, #CalendarA h3 .title a:hover { font-size: 16px =
+!important; font-weight: 700 !important } #CalendarA .subtitle { font-size:=
+ 14px !important; font-weight: 400 !important } #CalendarA .summary, #Calen=
+darA .summary table, #CalendarA .summary th, #CalendarA .summary a, #Calend=
+arA .summary table a, #CalendarA .summary th a { font-size: 14px !important=
+; font-weight: 400 !important } #CalendarA .nw_readmore, #SingleColumnA .nw=
+_readmore:hover { font-size: 14px !important; font-weight: 400 !important }=
+ #CalendarA .article_spacer { padding-bottom: 0px !important } #CalendarA .=
+nw-componentMainCell div.section-name, #CalendarA .nw-componentMainCell h2 =
+div.section-name { font-size: 19px !important; font-weight: 700 !important =
+} #CalendarA .nw-componentMainCell .section_header { padding-bottom: 0px !i=
+mportant; padding-top: 0px !important } #LOBSectionA .nw-componentMainCell =
+{ padding-top: 20px !important; padding-right: 15px !important; padding-bot=
+tom: 20px !important; padding-left: 15px !important } #LOBSectionA .nw-comp=
+onentMainCell .content_wrapper { padding-top: 20px !important; padding-righ=
+t: 20px !important; padding-bottom: 20px !important; padding-left: 20px !im=
+portant } #LOBSectionA .nw-componentMainCell .article_wrapper { padding: 0 =
+!important } #LOBSectionA .title_wrapper, #LOBSectionA .summary_wrapper { d=
+isplay: block !important; width: auto !important } #LOBSectionA .nw_img_tab=
+le th.nw_img_caption { font-size: 11px !important; font-weight: 400 !import=
+ant }=20
+=09=09=09=09=09#LOBSectionA .nw_img_main_cell { padding-bottom: 0px !import=
+ant } #LOBSectionA .title, #LOBSectionA .title a, #LOBSectionA .title a:hov=
+er, #LOBSectionA h3 .title, #LOBSectionA h3 .title a, #LOBSectionA h3 .titl=
+e a:hover { font-size: 25px !important; font-weight: 700 !important } #LOBS=
+ectionA .subtitle { font-size: 14px !important; font-weight: 700 !important=
+ } #LOBSectionA .summary, #LOBSectionA .summary table, #LOBSectionA .summar=
+y th, #LOBSectionA .summary a, #LOBSectionA .summary table a, #LOBSectionA =
+.summary th a { font-size: 14px !important; font-weight: 400 !important } #=
+LOBSectionA .nw_readmore, #SingleColumnA .nw_readmore:hover { font-size: 14=
+px !important; font-weight: 400 !important } #LOBSectionA .nw-componentMain=
+Cell .between_SAIT_article_fragment th { padding-bottom: 0px !important } #=
+LOBSectionA .nw-componentMainCell div.section-name, #LOBSectionA .nw-compon=
+entMainCell h2 div.section-name { font-size: 19px !important; font-weight: =
+700 !important } #LOBSectionA .nw-componentMainCell .section_header { paddi=
+ng-bottom: 20px !important; padding-top: 0px !important } #LeftServiceA .nw=
+-componentMainCell { padding-top: 0px !important; padding-right: 15px !impo=
+rtant; padding-bottom: 30px !important; padding-left: 15px !important } #Le=
+ftServiceA .nw-componentMainCell .article_wrapper { padding-top: 0px !impor=
+tant; padding-right: 0px !important; padding-bottom: 0px !important; paddin=
+g-left: 0px !important } #LeftServiceA .nw_img_table th.nw_img_caption { fo=
+nt-size: 11px !important; font-weight: 400 !important; padding-left: 0 !imp=
+ortant } #LeftServiceA .nw_img_main_cell { padding-bottom: 20px !important =
+} #LeftServiceA .title, #LeftServiceA .title a, #LeftServiceA .title a:hove=
+r, #LeftServiceA h3 .title, #LeftServiceA h3 .title a, #LeftServiceA h3 .ti=
+tle a:hover { font-size: 19px !important; font-weight: 700 !important } #Le=
+ftServiceA .subtitle { font-size: 14px !important; font-weight: 400 !import=
+ant } #LeftServiceA .summary, #LeftServiceA .summary table, #LeftServiceA .=
+summary th, #LeftServiceA .summary a, #LeftServiceA .summary table a, #Left=
+ServiceA .summary th a { font-size: 14px !important; font-weight: 400 !impo=
+rtant } #LeftServiceA .nw_readmore, #LeftServiceA .nw_readmore:hover { font=
+-size: 14px !important; font-weight: 400 !important } #LeftServiceA .nw-com=
+ponentMainCell .between_SAIR_article_fragment th { padding-bottom: 15px !im=
+portant } #LeftServiceA .nw-componentMainCell div.section-name, #LeftServic=
+eA .nw-componentMainCell h2 div.section-name { font-size: 19px !important; =
+font-weight: 700 !important } #LeftServiceA .nw-componentMainCell .section_=
+header { padding-bottom: 20px !important; padding-top: 0px !important } #Tw=
+oColumnA .nw-componentMainCell { padding-top: 0px !important; padding-right=
+: 15px !important; padding-bottom: 30px !important; padding-left: 15px !imp=
+ortant } #TwoColumnA .nw-componentMainCell .content_wrapper { padding-top: =
+20px !important; padding-right: 20px !important; padding-bottom: 20px !impo=
+rtant; padding-left: 20px !important } #TwoColumnA .nw_img_table th.nw_img_=
+caption { font-size: 11px !important; font-weight: 400 !important } #TwoCol=
+umnA .nw_img_main_cell { padding-bottom: 0px !important } #TwoColumnA .titl=
+e, #TwoColumnA .title a, #TwoColumnA .title a:hover, #TwoColumnA h3 .title,=
+ #TwoColumnA h3 .title a, #TwoColumnA h3 .title a:hover { font-size: 19px !=
+important; font-weight: 700 !important } #TwoColumnA .subtitle { font-size:=
+ 14px !important; font-weight: 400 !important } #TwoColumnA .summary, #TwoC=
+olumnA .summary table, #TwoColumnA .summary th, #TwoColumnA .summary a, #Tw=
+oColumnA .summary table a, #TwoColumnA .summary th a { font-size: 14px !imp=
+ortant; font-weight: 400 !important } #TwoColumnA .nw_readmore, #SingleColu=
+mnA .nw_readmore:hover { font-size: 14px !important; font-weight: 400 !impo=
+rtant } #TwoColumnA .article_spacer { padding-bottom: 30px !important } #Tw=
+oColumnA .nw-componentMainCell div.section-name, #TwoColumnA .nw-componentM=
+ainCell h2 div.section-name { font-size: 19px !important; font-weight: 700 =
+!important } #TwoColumnA .nw-componentMainCell .section_header { padding-bo=
+ttom: 20px !important; padding-top: 0px !important } #AnnounceImageA .nw-co=
+mponentMainCell { padding-top: 0px !important; padding-right: 10px !importa=
+nt; padding-bottom: 30px !important; padding-left: 10px !important } #Annou=
+nceImageA .nw-componentMainCell .article_wrapper { padding-top: 20px !impor=
+tant; padding-right: 20px !important; padding-bottom: 20px !important; padd=
+ing-left: 20px !important; background-color: rgb(145, 213, 249) !important;=
+ border-radius: 0 0 20px 20px !important } #AnnounceImageA .nw-componentMai=
+nCell .article_wrapper { background-color: rgb(145, 213, 249) !important; b=
+order-radius: 20px !important } #AnnounceImageA .nw_img_table th.nw_img_cap=
+tion { font-size: 11px !important; font-weight: 400 !important; padding-lef=
+t: 0 !important } #AnnounceImageA .nw_img_left .nw_img_cell img { border-ra=
+dius: 0 !important } #AnnounceImageA .after_article_title_fragment th { pad=
+ding-bottom: 10px } #AnnounceImageA .nw_img_main_cell { padding-bottom: 0px=
+ !important } #AnnounceImageA .title, #AnnounceImageA .title a, #AnnounceIm=
+ageA .title a:hover, #AnnounceImageA h3 .title, #AnnounceImageA h3 .title a=
+, #AnnounceImageA h3 .title a:hover { font-size: 18px !important; font-weig=
+ht: 700 !important } #AnnounceImageA .subtitle { font-size: 14px !important=
+; font-weight: 400 !important } #AnnounceImageA .summary, #AnnounceImageA .=
+summary table, #AnnounceImageA .summary th, #AnnounceImageA .summary a, #An=
+nounceImageA .summary table a, #AnnounceImageA .summary th a { font-size: 1=
+4px !important; font-weight: 400 !important } #AnnounceImageA .nw_readmore,=
+ #heroimagearticle .nw_readmore:hover { font-size: 14px !important; font-we=
+ight: 400 !important } #AnnounceImageA .nw-componentMainCell .between_SAIT_=
+article_fragment th { padding-bottom: 15px !important } #AnnounceImageA .nw=
+-componentMainCell div.section-name, #AnnounceImageA .nw-componentMainCell =
+h2 div.section-name { font-size: 19px !important; font-weight: 700 !importa=
+nt } #AnnounceImageA .nw-componentMainCell .section_header { padding-bottom=
+: 20px !important; padding-top: 0px !important } #FOAFSectionA .nw-componen=
+tMainCell { padding-top: 0px !important; padding-right: 0px !important; pad=
+ding-bottom: 0px !important; padding-left: 0px !important } #FOAFSectionA .=
+nw-componentMainCell .article_wrapper { padding-left: 0 !important; padding=
+-right: 0 !important; padding-top: 0 !important; padding-bottom: 30px !impo=
+rtant } #FOAFSectionA .title, #FOAFSectionA .subtitle, #FOAFSectionA .summa=
+ry p, #FOAFSectionA .nw_readmore, #FOAFSectionA .nw_img_table th.nw_img_cap=
+tion { padding-top: 0px !important; padding-right: 30px !important; padding=
+-bottom: 0px !important; padding-left: 30px !important } #FOAFSectionA .sum=
+mary { display: block !important } #FOAFSectionA .subtitle { border-top: no=
+ne !important } #FOAFSectionA .nw_img_cell img { border-radius: 0 !importan=
+t } #FOAFSectionA .after_article_title_fragment th { padding-bottom: 4px !i=
+mportant } #FOAFSectionA .nw_img_table th.nw_img_caption { font-size: 11px =
+!important; font-weight: 400 !important } #FOAFSectionA .nw_img_main_cell {=
+ padding-bottom: 30px !important } #FOAFSectionA .title, #FOAFSectionA .tit=
+le a, #FOAFSectionA .title a:hover, #FOAFSectionA h3 .title, #FOAFSectionA =
+h3 .title a, #FOAFSectionA h3 .title a:hover { font-size: 24px !important; =
+font-weight: 700 !important } #FOAFSectionA .subtitle { font-size: 14px !im=
+portant; font-weight: 700 !important } #FOAFSectionA .summary, #FOAFSection=
+A .summary table, #FOAFSectionA .summary th, #FOAFSectionA .summary a, #FOA=
+FSectionA .summary table a, #FOAFSectionA .summary th a { font-size: 14px !=
+important; font-weight: 400 !important } #FOAFSectionA .nw_img_cell { paddi=
+ng-left: 0 !important } #FOAFSectionA .nw_readmore, #LeftServiceA .nw_readm=
+ore:hover { font-size: 14px !important; font-weight: 400 !important } #FOAF=
+SectionA .nw-componentMainCell .between_SAIR_article_fragment th { padding-=
+bottom: 15px !important } #FOAFSectionA .nw-componentMainCell div.section-n=
+ame, #FOAFSectionA .nw-componentMainCell h2 div.section-name { font-size: 1=
+9px !important; font-weight: 700 !important } #FOAFSectionA .nw-componentMa=
+inCell .section_header { padding-bottom: 20px !important; padding-top: 0px =
+!important } #Services2-AcrossA .nw-componentMainCell { padding-top: 0px !i=
+mportant; padding-right: 15px !important; padding-bottom: 30px !important; =
+padding-left: 15px !important } #Services2-AcrossA .nw-componentMainCell .a=
+rticle_wrapper { padding-top: 0px !important; padding-right: 0px !important=
+; padding-bottom: 0px !important; padding-left: 0px !important } #Services2=
+-AcrossA .nw_img_table th.nw_img_caption { font-size: 11px !important; font=
+-weight: 400 !important; padding-left: 0 !important } #Services2-AcrossA .n=
+w_img_main_cell { padding-bottom: 20px !important } #Services2-AcrossA .tit=
+le, #Services2-AcrossA .title a, #Services2-AcrossA .title a:hover, #Servic=
+es2-AcrossA h3 .title, #Services2-AcrossA h3 .title a, #Services2-AcrossA h=
+3 .title a:hover { font-size: 19px !important; font-weight: 700 !important =
+} #Services2-AcrossA .subtitle { font-size: 14px !important; font-weight: 4=
+00 !important } #Services2-AcrossA .summary, #Services2-AcrossA .summary ta=
+ble, #Services2-AcrossA .summary th, #Services2-AcrossA .summary a, #Servic=
+es2-AcrossA .summary table a, #Services2-AcrossA .summary th a { font-size:=
+ 14px !important; font-weight: 400 !important } #Services2-AcrossA .nw_read=
+more, #heroimagearticle .nw_readmore:hover { font-size: 14px !important; fo=
+nt-weight: 400 !important } #Services2-AcrossA .article_spacer { padding-bo=
+ttom: 30px !important } #Services2-AcrossA .nw-componentMainCell div.sectio=
+n-name, #Services2-AcrossA .nw-componentMainCell h2 div.section-name { font=
+-size: 18px !important; font-weight: 700 !important } #Services2-AcrossA .n=
+w-componentMainCell .section_header { padding-bottom: 20px !important; padd=
+ing-top: 0px !important } #Services3-AcrossA .nw-componentMainCell { paddin=
+g-top: 0px !important; padding-right: 15px !important; padding-bottom: 30px=
+ !important; padding-left: 15px !important } #Services3-AcrossA .nw-compone=
+ntMainCell .article_wrapper { padding-top: 0px !important; padding-right: 0=
+px !important; padding-bottom: 0px !important; padding-left: 0px !important=
+ } #Services3-AcrossA .nw_img_table th.nw_img_caption { font-size: 11px !im=
+portant; font-weight: 400 !important; padding-left: 0 !important } #Service=
+s3-AcrossA .nw_img_main_cell { padding-bottom: 20px !important } #Services3=
+-AcrossA .title, #Services3-AcrossA .title a, #Services3-AcrossA .title a:h=
+over, #Services3-AcrossA h3 .title, #Services3-AcrossA h3 .title a, #Servic=
+es3-AcrossA h3 .title a:hover { font-size: 19px !important; font-weight: 70=
+0 !important } #Services3-AcrossA .subtitle { font-size: 14px !important; f=
+ont-weight: 400 !important } #Services3-AcrossA .summary, #Services3-Across=
+A .summary table, #Services3-AcrossA .summary th, #Services3-AcrossA .summa=
+ry a, #Services3-AcrossA .summary table a, #Services3-AcrossA .summary th a=
+ { font-size: 14px !important; font-weight: 400 !important } #Services3-Acr=
+ossA .nw_readmore, #heroimagearticle .nw_readmore:hover { font-size: 14px !=
+important; font-weight: 400 !important } #Services3-AcrossA .article_spacer=
+ { padding-bottom: 30px !important } #Services3-AcrossA .nw-componentMainCe=
+ll div.section-name, #Services3-AcrossA .nw-componentMainCell h2 div.sectio=
+n-name { font-size: 22px !important; font-weight: 700 !important } #Service=
+s3-AcrossA .nw-componentMainCell .section_header { padding-bottom: 20px !im=
+portant; padding-top: 0px !important } #Services2-LeftsideA .nw_img_table t=
+h.nw_img_caption, #Services3-AcrossA .nw_img_table th.nw_img_caption { padd=
+ing-left: 0 !important } #AnnounceA .nw-componentMainCell { padding-top: 0p=
+x !important; padding-right: 15px !important; padding-bottom: 30px !importa=
+nt; padding-left: 15px !important } #AnnounceA .nw-componentMainCell .artic=
+le_wrapper { padding-top: 20px !important; padding-right: 20px !important; =
+padding-bottom: 20px !important; padding-left: 20px !important } #AnnounceA=
+ .nw_img_table th.nw_img_caption { font-size: 11px !important; font-weight:=
+ 400 !important; padding-left: 0 !important } #AnnounceA .nw_img_main_cell =
+{ padding-bottom: 20px !important } #AnnounceA .title, #AnnounceA .title a,=
+ #AnnounceA .title a:hover, #AnnounceA h3 .title, #AnnounceA h3 .title a, #=
+AnnounceA h3 .title a:hover { font-size: 19px !important; font-weight: 700 =
+!important } #AnnounceA .subtitle { font-size: 14px !important; font-weight=
+: 400 !important } #AnnounceA .summary, #AnnounceA .summary table, #Announc=
+eA .summary th, #AnnounceA .summary a, #AnnounceA .summary table a, #Announ=
+ceA .summary th a { font-size: 14px !important; font-weight: 400 !important=
+ } #AnnounceA .nw_readmore, #AnnounceA .nw_readmore:hover { font-size: 14px=
+ !important; font-weight: 400 !important } #AnnounceA .nw-componentMainCell=
+ .between_SAIR_article_fragment th { padding-bottom: 15px !important } #Ann=
+ounceA .nw-componentMainCell div.section-name, #AnnounceA .nw-componentMain=
+Cell h2 div.section-name { font-size: 19px !important; font-weight: 700 !im=
+portant } #AnnounceA .nw-componentMainCell .section_header { padding-bottom=
+: 20px !important; padding-top: 0px !important } #AnnounceB .nw-componentMa=
+inCell { padding-top: 0px !important; padding-right: 15px !important; paddi=
+ng-bottom: 30px !important; padding-left: 15px !important } #AnnounceB .nw-=
+componentMainCell .article_wrapper { padding-top: 20px !important; padding-=
+right: 20px !important; padding-bottom: 20px !important; padding-left: 20px=
+ !important } #AnnounceB .nw_img_table th.nw_img_caption { font-size: 11px =
+!important; font-weight: 400 !important; padding-left: 0 !important } #Anno=
+unceB .nw_img_main_cell { padding-bottom: 20px !important } #AnnounceB .tit=
+le, #AnnounceB .title a, #AnnounceB .title a:hover, #AnnounceB h3 .title, #=
+AnnounceB h3 .title a, #AnnounceB h3 .title a:hover { font-size: 19px !impo=
+rtant; font-weight: 700 !important } #AnnounceB .subtitle { font-size: 14px=
+ !important; font-weight: 400 !important } #AnnounceB .summary, #AnnounceB =
+.summary table, #AnnounceB .summary th, #AnnounceB .summary a, #AnnounceB .=
+summary table a, #AnnounceB .summary th a { font-size: 14px !important; fon=
+t-weight: 400 !important } #AnnounceB .nw_readmore, #AnnounceA .nw_readmore=
+:hover { font-size: 14px !important; font-weight: 400 !important } #Announc=
+eB .nw-componentMainCell .between_SAIR_article_fragment th { padding-bottom=
+: 15px !important } #AnnounceB .nw-componentMainCell div.section-name, #Ann=
+ounceB .nw-componentMainCell h2 div.section-name { font-size: 19px !importa=
+nt; font-weight: 700 !important } #AnnounceB .nw-componentMainCell .section=
+_header { padding-bottom: 20px !important; padding-top: 0px !important } #S=
+ingleColumnB .nw-componentMainCell { padding-top: 0px !important; padding-r=
+ight: 10px !important; padding-bottom: 30px !important; padding-left: 10px =
+!important } #SingleColumnB .nw-componentMainCell .content_wrapper { paddin=
+g-top: 20px !important; padding-right: 20px !important; padding-bottom: 20p=
+x !important; padding-left: 20px !important } #SingleColumnB .nw_img_table =
+th.nw_img_caption { font-size: 11px !important; font-weight: 400 !important=
+ } #SingleColumnB .nw_img_main_cell { padding-bottom: 0px !important } #Sin=
+gleColumnB .title, #SingleColumnB .title a, #SingleColumnB .title a:hover, =
+#SingleColumnB h3 .title, #SingleColumnB h3 .title a, #SingleColumnB h3 .ti=
+tle a:hover { font-size: 21px !important; font-weight: 600 !important } #Si=
+ngleColumnB .subtitle { font-size: 14px !important; font-weight: 400 !impor=
+tant } #SingleColumnB .summary, #SingleColumnB .summary table, #SingleColum=
+nB .summary th, #SingleColumnB .summary a, #SingleColumnB .summary table a,=
+ #SingleColumnB .summary th a { font-size: 14px !important; font-weight: 40=
+0 !important } #SingleColumnB .nw_readmore, #heroimagearticle .nw_readmore:=
+hover { font-size: 14px !important; font-weight: 400 !important } #SingleCo=
+lumnB .nw-componentMainCell .between_SAIT_article_fragment th { padding-bot=
+tom: 12px !important } #SingleColumnB .nw-componentMainCell div.section-nam=
+e, #SingleColumnB .nw-componentMainCell h2 div.section-name { font-size: 18=
+px !important; font-weight: 700 !important } #SingleColumnB .nw-componentMa=
+inCell .section_header { padding-bottom: 20px !important } #CoverPage #left=
+, #CoverPage #main { padding-bottom: 0 !important } #nw_PollQuestion_wrappe=
+r .nw-componentSpacerMainCell { padding-bottom: 25px !important } #nw_PollQ=
+uestionb_wrapper .nw-componentSpacerMainCell { padding-bottom: 25px !import=
+ant } #nw_contact_wrapper .nw-componentSpacerMainCell { padding-top: 0px !i=
+mportant; padding-right: 0px !important; padding-bottom: 0px !important; pa=
+dding-left: 0px !important } #contact .nw-componentMainCell { padding-top: =
+30px !important; padding-right: 30px !important; padding-bottom: 25px !impo=
+rtant; padding-left: 30px !important } #contact .nw-componentMainCell .cont=
+act_us_title, #contact .nw-componentMainCell .contact_us_title h3 { font-si=
+ze: 22px !important; font-weight: 600 !important } #contact .nw-componentMa=
+inCell .contact_us_content { font-size: 13px !important; font-weight: 400 !=
+important } #dividerline .nw-componentMainCell { padding-left: 30px !import=
+ant; padding-right: 30px !important; padding-top: 0px !important; padding-b=
+ottom: 25px !important } #footertext .nw-componentMainCell { padding-left: =
+30px !important; padding-right: 30px !important; padding-top: 0px !importan=
+t; padding-bottom: 20px !important; font-size: 13px !important; font-weight=
+: 400 !important } #footertext .nw-componentMainCell, #footertext .nw-compo=
+nentMainCell a { font-size: 13px !important; font-weight: 400 !important } =
+}
+=09=09</style>
+
+=09=09<style>
+=09=09=09ul.m3  {margin: 0; padding: 0; padding-inline-start: 15px; margin-=
+top: 15px;}
+=09=09=09.m3 li {
+=09=09=09=09margin-bottom: 15px;
+=09=09=09}
+=09=09=09
+=09=09=09/* @media only screen and (max-width: 720px) { */
+=09=09=09=09.article_wrapper img {
+  =09=09=09=09=09max-width: 100% !important;
+=09=09=09=09=09width: 100% !important;
+    =09=09=09=09height: auto !important;
+=09=09=09=09}
+=09=09=09/* } */
+=09=09</style>
+
+=09=09<!--[if gte mso 9]>
+=09=09<xml>
+=09=09<o:OfficeDocumentSettings>
+=09=09<o:AllowPNG/>
+=09=09<o:PixelsPerInch>96</o:PixelsPerInch>
+=09=09</o:OfficeDocumentSettings>
+=09=09</xml>
+=09=09<![endif]-->
+=09
+</head>
+
+<body style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; =
+background-color: #fff; color: #333333; font-family:system,-apple-system,-w=
+ebkit-system-font,BlinkMacSystemFont,'SFNSText','Segoe UI','Helvetica Neue'=
+,Helvetica,Arial,sans-serif,'SF Pro Icons'; -webkit-font-smoothing:antialia=
+sed; font-size: 17px; line-height: 24px; margin: 0; min-width: 100%; paddin=
+g: 0; text-align: left; width: 100% !important;">
+=09<!-- Adding spaces to prevent email copy from being visible -->
+=09<div style=3D"display:none; font-size:1px; line-height:1px">
+=09=09<span class=3D"summary" id=3D"articleSummary_1320149" style=3D"color:=
+ #1d1d1f; font-size: 16px; font-style: normal; font-weight: 400; line-heigh=
+t: 155%; text-decoration: none;">
+=09=09=09<p style=3D"margin: 0; padding: 0;">Find out about our latest acti=
+vities (including more Apple Vision Pro developer lab dates), learn how the=
+ <em>Plex</em> team embraced Xcode Cloud, discover how the inventive puzzle=
+ game <em>Automatoys</em> came to life, catch up on the latest news, and&nb=
+sp;more.</p>
+=09=09</span>
+=09</div>
+=09<div style=3D"display:none;max-height:0;overflow:hidden"> =C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C </div>
+=09<style>
+=09=09@media only screen {
+=09=09=09a {
+=09=09=09=09color: #0088cc;
+=09=09=09}
+
+=09=09=09a:hover {
+=09=09=09=09text-decoration: underline !important;
+=09=09=09=09color: #0088cc;
+=09=09=09}
+
+=09=09=09a:active {
+=09=09=09=09color: #0088cc !important;
+=09=09=09}
+
+=09=09=09/* a:visited {color:#0088cc !important;} */
+=09=09}
+
+=09=09table[class=3D"body"] .image-hero-top img {
+=09=09=09/* width: 100% !important; */
+=09=09=09/* margin: 1em auto 0 !important; */
+=09=09=09width: 250px;
+=09=09}
+
+=09=09@media only screen and (max-width: 720px) {
+=09=09=09table[class=3D"body"] {
+=09=09=09=09min-width: 320px !important;
+=09=09=09}
+
+=09=09=09table.section {
+=09=09=09=09background-color: transparent !important;
+=09=09=09=09width: 100% !important;
+=09=09=09}
+
+=09=09=09table.container {
+=09=09=09=09width: 90% !important;
+=09=09=09}
+
+=09=09=09table[class=3D"body"] .copy-container {
+=09=09=09=09width: 90% !important;
+=09=09=09}
+=09=09}
+
+=09=09@media only screen and (max-width: 320px) {
+=09=09=09table[class=3D"body"] {
+=09=09=09=09min-width: 280px !important;
+=09=09=09}
+=09=09}
+
+=09=09@media only screen and (max-width: 720px) {
+=09=09=09.logo-container {
+=09=09=09=09width: 90% !important;
+=09=09=09=09margin: 0 auto !important;
+=09=09=09}
+
+=09=09=09.logo {
+=09=09=09=09padding-top: 35px !important;
+=09=09=09=09padding-bottom: 20px !important;
+=09=09=09}
+=09=09}
+
+=09=09@media only screen and (max-width: 720px) {
+=09=09=09table.header {
+=09=09=09=09width: 100% !important;
+=09=09=09}
+
+=09=09=09.section-hero h1 {
+=09=09=09=09font-size: 32px !important;
+=09=09=09}
+
+=09=09=09table[class=3D"body"] .image-hero img {
+=09=09=09=09width: 100% !important;
+=09=09=09=09margin: 0em auto 0 !important;
+=09=09=09}
+=09=09}
+
+=09=09@media only screen and (max-width: 720px) {
+=09=09=09.footer-wrapper .footer .container {
+=09=09=09=09background-color: transparent !important;
+=09=09=09}
+=09=09}
+
+=09=09@media only screen and (max-width: 720px) {
+
+=09=09=09.footer-wrapper .router-links p,
+=09=09=09.footer-wrapper .router-links td,
+=09=09=09.footer-wrapper .router-links span {
+=09=09=09=09font-size: 11px !important;
+=09=09=09=09line-height: 11px !important;
+=09=09=09}
+=09=09}
+
+=09=09@media only screen and (max-width: 480px) {
+=09=09=09.footer-wrapper .router-links .copy-container {
+=09=09=09=09margin: 15px auto 13px !important;
+=09=09=09=09width: 90%;
+=09=09=09}
+
+=09=09=09.footer-wrapper .router-links .copy-container .router-link-phone~.=
+router-link-pipe {
+=09=09=09=09display: none;
+=09=09=09}
+
+=09=09=09.footer-wrapper .router-links .copy-container .router-link-app {
+=09=09=09=09white-space: nowrap !important;
+=09=09=09=09display: block !important;
+=09=09=09=09padding: 14px 0 0 !important;
+=09=09=09=09border-top: 1px solid #d6d6d6 !important;
+=09=09=09=09width: 100% !important;
+=09=09=09=09margin: 14px auto 0 !important;
+=09=09=09}
+
+=09=09=09table[class=3D"body"] .image-hero-top img {
+=09=09=09=09/* width: 100% !important; */
+=09=09=09=09margin: 1em auto 0 !important;
+=09=09=09=09width: 250px !important;
+=09=09=09}
+=09=09}
+
+=09=09@media only screen and (max-width: 720px) {
+=09=09=09.footer-wrapper .sosumi p {
+=09=09=09=09text-align: left !important;
+=09=09=09}
+=09=09}
+
+=09=09@media only screen and (min-width: 421px) {
+=09=09=09h1.sub-head-title {
+=09=09=09=09font-size: 38px !important;
+=09=09=09}
+=09=09}
+
+=09=09@media only screen and (max-width: 420px) {
+=09=09=09h1.sub-head-title {
+=09=09=09=09font-size: 27px !important;
+=09=09=09=09width: 100% !important;
+=09=09=09}
+
+=09=09=09p.copy-container {
+=09=09=09=09font-size: 21px !important;
+=09=09=09}
+=09=09}
+
+=09=09@media only screen and (max-width: 720px) {
+=09=09=09.footer-wrapper .sosumi .copy-container {
+=09=09=09=09margin: 15px auto 15px !important;
+=09=09=09}
+=09=09}
+=09</style>
+
+=09<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ class=3D" CoverPage" id=3D"CoverPage" style=3D"background-color: #f2f2f2;m=
+argin-bottom: 1em; width: 700px;" width=3D"700">
+
+=09=09<tbody>
+
+=09=09=09<tr>
+=09=09=09=09<th id=3D"header" valign=3D"top" width=3D"700" style=3D"color: =
+#1d1d1f; font-family: system,-apple-system,-webkit-system-font,BlinkMacSyst=
+emFont,'SFNSText','Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif,'S=
+F Pro Icons'; font-size: 14px; font-style: normal; font-weight: normal; pad=
+ding: 0; text-decoration: none; width: 100%;text-align:left;">
+=09=09=09=09=09<!-- HERO COPY REFACB -->
+
+=09=09=09=09=09<table id=3D"nw_masthead_wrapper" class=3D"nw_component_wrap=
+per" cellpadding=3D"0" cellspacing=3D"0" style=3D"width: 100%;">
+
+=09=09=09=09=09=09<tbody>
+
+=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09<th class=3D"nw-componentSpacerMainCell" style=3D"c=
+olor: #1d1d1f; font-family: system,-apple-system,-webkit-system-font,BlinkM=
+acSystemFont,'SFNSText','Segoe UI','Helvetica Neue',Helvetica,Arial,sans-se=
+rif,'SF Pro Icons'; font-size: 14px; font-style: normal; font-weight: norma=
+l; padding-bottom: 0; padding-top: 0; text-decoration: none; text-align: le=
+ft;">
+
+=09=09=09=09=09=09=09=09=09<table cellpadding=3D"0" cellspacing=3D"0" class=
+=3D"ContentBlock" id=3D"masthead" style=3D"margin: 0;" width=3D"100%">
+
+=09=09=09=09=09=09=09=09=09=09<tbody>
+
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<th class=3D"nw-componentMainCell" styl=
+e=3D"color: #1d1d1f; font-family: system,-apple-system,-webkit-system-font,=
+BlinkMacSystemFont,'SFNSText','Segoe UI','Helvetica Neue',Helvetica,Arial,s=
+ans-serif,'SF Pro Icons'; font-size: 14px; font-style: normal; font-weight:=
+ normal; padding: 40px 45px 5px 32px; text-decoration: none; text-align: le=
+ft;">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09<table id=3D"text_masthead_table" st=
+yle=3D"width: 100%;" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<th class=3D"title_date" st=
+yle=3D"color: #1d1d1f; font-family: system,-apple-system,-webkit-system-fon=
+t,BlinkMacSystemFont,'SFNSText','Segoe UI','Helvetica Neue',Helvetica,Arial=
+,sans-serif,'SF Pro Icons'; font-size: 14px; font-style: normal; font-weigh=
+t: normal; text-decoration: none; text-align: left;">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table id=3D"title_date_=
+table" style=3D"width: 100%;" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<th style=3D"co=
+lor: #111111; font-family: system,-apple-system,-webkit-system-font,BlinkMa=
+cSystemFont,'SFNSText','Segoe UI','Helvetica Neue',Helvetica,Arial,sans-ser=
+if,'SF Pro Icons'; font-size: 34px; font-style: normal; font-weight: normal=
+; letter-spacing: -0.75px; line-height: 80%; text-decoration: none; text-al=
+ign: left;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<p style=3D"=
+color: #666; font-size: 16px; font-family: system,-apple-system,-webkit-sys=
+tem-font,BlinkMacSystemFont,'SFNSText','Segoe UI','Helvetica Neue',Helvetic=
+a,Arial,sans-serif,'SF Pro Icons'; font-style: normal; font-weight: 800; le=
+tter-spacing: -0.25px; line-height: 80%; margin-bottom: 15px; margin-top: 0=
+; text-decoration: none;">OCTOBER 2023</p>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<h1 style=3D=
+"color: #111111; font-size: 34px; font-style: normal; font-weight: 800; let=
+ter-spacing: -0.75px; line-height: 80%; margin-bottom: 15px; margin-top: 0;=
+ text-decoration: none;">Hello Developer</h1>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</th>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</th>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09</th>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09</th>
+=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09</tbody>
+=09=09=09=09=09</table>
+=09=09=09=09=09<!-- HEROIMAGE REFACB -->
+
+=09=09=09=09=09<table id=3D"nw_LeadStory_wrapper" class=3D"nw_component_wra=
+pper" cellpadding=3D"0" cellspacing=3D"0" style=3D"width: 100%;">
+
+=09=09=09=09=09=09<tbody>
+
+=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09<th class=3D"nw-componentSpacerMainCell" style=3D"c=
+olor: #1d1d1f; font-family: system,-apple-system,-webkit-system-font,BlinkM=
+acSystemFont,'SFNSText','Segoe UI','Helvetica Neue',Helvetica,Arial,sans-se=
+rif,'SF Pro Icons'; font-size: 14px; font-style:normal; font-weight: normal=
+; padding-bottom: 0; padding-top: 0; text-decoration: none;text-align:left;=
+">
+
+=09=09=09=09=09=09=09=09=09<table cellpadding=3D"0" cellspacing=3D"0" class=
+=3D"ArticleSummary" id=3D"LeadStory" style=3D"margin-top:0px;margin-bottom:=
+0px;margin-left:0px;margin-right:0px;" width=3D"100%">
+
+=09=09=09=09=09=09=09=09=09=09<tbody>
+
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<th class=3D"nw-componentMainCell" styl=
+e=3D"color: #1d1d1f; font-family: system,-apple-system,-webkit-system-font,=
+BlinkMacSystemFont,'SFNSText','Segoe UI','Helvetica Neue',Helvetica,Arial,s=
+ans-serif,'SF Pro Icons'; font-size: 14px; font-style: normal; font-weight:=
+ normal; padding: 0; text-decoration: none;text-align:left;">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09<table border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" width=3D"100%">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<th style=3D"color: #1d1d1f=
+; font-family: system,-apple-system,-webkit-system-font,BlinkMacSystemFont,=
+'SFNSText','Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif,'SF Pro I=
+cons'; font-size: 14px; font-style: normal; font-weight: normal;text-decora=
+tion: none;text-align:left;">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table width=3D"100%" ce=
+llpadding=3D"0" cellspacing=3D"0" border=3D"0">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<th class=3D"ar=
+ticle_wrapper" style=3D"color: #1d1d1f; font-family: system,-apple-system,-=
+webkit-system-font,BlinkMacSystemFont,'SFNSText','Segoe UI','Helvetica Neue=
+',Helvetica,Arial,sans-serif,'SF Pro Icons'; font-size: 14px; font-style:no=
+rmal; font-weight: normal; text-decoration: none;text-align:left;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<div class=
+=3D"nw_lotus" style=3D"height: 0; line-height: 0; font-size: 0; background-=
+color: transparent;"> &nbsp; </div>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table class=
+=3D"nw_img_table" align=3D"center" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<th=
+ class=3D"nw_img_main_cell" style=3D"color: #1d1d1f; font-family: system,-a=
+pple-system,-webkit-system-font,BlinkMacSystemFont,'SFNSText','Segoe UI','H=
+elvetica Neue',Helvetica,Arial,sans-serif,'SF Pro Icons'; font-size: 14px; =
+font-style: normal; font-weight: normal; padding: 0 0 25px 0; text-align: c=
+enter;text-decoration: none;">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+<table class=3D"nw_img_wrapper" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"background-color: transparent; max-width: none; width: 700p=
+x;">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09<tbody>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09=09<th class=3D"nw_img_cell" style=3D"color: #1d1d1f; font-family: sy=
+stem,-apple-system,-webkit-system-font,BlinkMacSystemFont,'SFNSText','Segoe=
+ UI','Helvetica Neue',Helvetica,Arial,sans-serif,'SF Pro Icons'; font-size:=
+ 14px; font-style: normal; font-weight: normal; padding: 0; text-align: cen=
+ter; text-decoration: none;"> <span id=3D"articleSummaryImage_1320149" clas=
+s=3D"summary" style=3D"color: #1d1d1f; font-size: 16px; font-style: normal;=
+ font-weight: 400; line-height: 155%; text-decoration: none;"><img src=3D"h=
+ttps://developer.apple.com/click/images/hello-developer/oct23/hello-develop=
+er-october-2023.jpg" width=3D"700" height=3D"268" alt=3D"" title=3D"" borde=
+r=3D"0" style=3D"border: none;display: inline;"></span></th>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</t=
+h>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table width=
+=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<th=
+ class=3D"content_wrapper" style=3D"color: #1d1d1f; font-family: system,-ap=
+ple-system,-webkit-system-font,BlinkMacSystemFont,'SFNSText','Segoe UI','He=
+lvetica Neue',Helvetica,Arial,sans-serif,'SF Pro Icons'; font-size: 14px; f=
+ont-style: normal; font-weight: normal; padding-bottom: 35px; padding-left:=
+ 45px;padding-right: 45px; padding-top: 0px; text-align: left; text-decorat=
+ion:none;">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+<table class=3D"after_article_title_fragment" style=3D"width: 10%;" border=
+=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09<tbody>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09=09<th style=3D"color: #1d1d1f; font-family: system,-apple-system,-we=
+bkit-system-font,BlinkMacSystemFont,'SFNSText','Segoe UI','Helvetica Neue',=
+Helvetica,Arial,sans-serif,'SF Pro Icons'; font-size: 14px; font-style: nor=
+mal; font-weight: normal; line-height: 1px; padding-bottom: 12px; text-deco=
+ration: none;text-align:left;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09=09</th>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+</table> <span class=3D"summary" id=3D"" style=3D"color: #1d1d1f; font-size=
+: 16px; font-style: normal; font-weight: 400; line-height: 155%; text-decor=
+ation: none;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09<p style=3D"margin: 0; padding: 0;">Find out about our latest activities=
+ (including more Apple Vision Pro developer lab dates), learn how the <em>P=
+lex</em> team embraced Xcode Cloud, discover how the inventive puzzle game =
+<em>Automatoys</em> came to life, catch up on the latest news, and&nbsp;mor=
+e.</p>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+</span>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</t=
+h>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</th>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table class=3D"after_se=
+ctions_fragment" style=3D"width: 100%;" border=3D"0" cellspacing=3D"0" cell=
+padding=3D"0">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<th style=3D"co=
+lor: #1d1d1f; font-family: system,-apple-system,-webkit-system-font,BlinkMa=
+cSystemFont,'SFNSText','Segoe UI','Helvetica Neue',Helvetica,Arial,sans-ser=
+if,'SF Pro Icons'; font-size: 14px; font-style: normal; font-weight: normal=
+; line-height: 1px; text-decoration: none;text-align:left;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<!-- <div st=
+yle=3D"font-size: 0px; line-height: 0px; mso-line-height-rule: exactly; bor=
+der-collapse: collapse;"> &nbsp; </div> -->
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</th>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</th>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09</th>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09</th>
+=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09</tbody>
+=09=09=09=09=09</table>
+=09=09=09=09=09<!-- STORIES REFACB -->
+
+=09=09=09=09=09<table id=3D"nw_SingleColumnB_wrapper" class=3D"nw_component=
+_wrapper" cellpadding=3D"0" cellspacing=3D"0" style=3D"width: 100%;">
+
+=09=09=09=09=09=09<tbody>
+
+=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09<th class=3D"nw-componentSpacerMainCell" style=3D"c=
+olor: #1d1d1f; font-family: system,-apple-system,-webkit-system-font,BlinkM=
+acSystemFont,'SFNSText','Segoe UI','Helvetica Neue',Helvetica,Arial,sans-se=
+rif,'SF Pro Icons'; font-size: 14px; font-style:normal; font-weight: normal=
+; padding-bottom: 0; padding-top: 0; text-decoration: none;text-align:left;=
+">
+
+=09=09=09=09=09=09=09=09=09<table cellpadding=3D"0" cellspacing=3D"0" class=
+=3D"ArticleSummary" id=3D"SingleColumnB" style=3D"margin-top:0px;margin-bot=
+tom:0px;margin-left:0px;margin-right:0px;" width=3D"100%">
+
+=09=09=09=09=09=09=09=09=09=09<tbody>
+
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<th class=3D"nw-componentMainCell" styl=
+e=3D"color: #1d1d1f; font-family: system,-apple-system,-webkit-system-font,=
+BlinkMacSystemFont,'SFNSText','Segoe UI','Helvetica Neue',Helvetica,Arial,s=
+ans-serif,'SF Pro Icons'; font-size: 14px; font-style: normal; font-weight:=
+ normal; padding: 0; padding-bottom: 35px; padding-left: 45px; padding-righ=
+t: 45px; padding-top: 0px; text-decoration: none;text-align:left;">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09<table border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" width=3D"100%">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<th style=3D"color: #1d1d1f=
+; font-family: system,-apple-system,-webkit-system-font,BlinkMacSystemFont,=
+'SFNSText','Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif,'SF Pro I=
+cons'; font-size: 14px; font-style: normal; font-weight: normal;text-decora=
+tion: none;text-align:left;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<!-- Meet with Apple Exp=
+erts REFACB -->
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table width=3D"100%" ce=
+llpadding=3D"0" cellspacing=3D"0" border=3D"0">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<th class=3D"ar=
+ticle_wrapper" style=3D"border-radius: 20px; background-color: #fff; color:=
+ #1d1d1f; font-family: system,-apple-system,-webkit-system-font,BlinkMacSys=
+temFont,'SFNSText','Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif,'=
+SF Pro Icons'; font-size: 14px; font-style:normal; font-weight: normal; tex=
+t-decoration: none;text-align:left;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<div class=
+=3D"nw_lotus" style=3D"height: 0; line-height: 0; font-size: 0; background-=
+color: transparent;"> &nbsp; </div>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table width=
+=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<th=
+ class=3D"content_wrapper" style=3D"background-color: #fff; border-radius: =
+20px 20px 20px 20px; color: #1d1d1f; font-family: system,-apple-system,-web=
+kit-system-font,BlinkMacSystemFont,'SFNSText','Segoe UI','Helvetica Neue',H=
+elvetica,Arial,sans-serif,'SF Pro Icons'; font-size: 14px; font-style: norm=
+al; font-weight: normal; padding-bottom: 30px; padding-left: 30px; padding-=
+right: 30px; padding-top: 25px; text-align: left; text-decoration: none;">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+<h3 style=3D"margin-bottom: 0; margin-top: 0;"> <span class=3D"title" style=
+=3D"color: #1d1d1f; font-family: system,-apple-system,-webkit-system-font,B=
+linkMacSystemFont,'SFNSText','Segoe UI','Helvetica Neue',Helvetica,Arial,sa=
+ns-serif,'SF Pro Icons'; font-size: 21px; font-style: normal; font-weight: =
+700; letter-spacing: 0.18px;line-height: 130%; text-decoration: none;">Meet=
+ with Apple Experts</span> </h3>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+<table class=3D"after_article_title_fragment" style=3D"width: 10%;" border=
+=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09<tbody>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09=09<th style=3D"color: #1d1d1f; font-family: system,-apple-system,-we=
+bkit-system-font,BlinkMacSystemFont,'SFNSText','Segoe UI','Helvetica Neue',=
+Helvetica,Arial,sans-serif,'SF Pro Icons'; font-size: 14px; font-style: nor=
+mal; font-weight: normal; line-height: 1px; padding-bottom: 12px; text-deco=
+ration: none;text-align:left;"></th>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+</table> <span class=3D"summary" style=3D"color: #1d1d1f; font-size: 14px; =
+font-style: normal; font-weight: normal; line-height: 155%; text-decoration=
+: none;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09<p class=3D"p1" style=3D"margin: 0; padding: 0;">Hosted in person and on=
+line, our upcoming developer activities are for everyone, no matter where y=
+ou are on your development journey. Find out how to enhance your existing a=
+pp or game, refine your design, or launch a new project. Here are just a fe=
+w of the latest sessions, consultations, and labs =E2=80=94 with new ones c=
+oming each month.</p>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09<ul style=3D"margin-top: 15px; margin-bottom: 15px; padding-inline-start=
+: 20px;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09<li><a href=3D"https://c.apple.com/r?v=3D2&a=3Do2CKfLM8dAL7lynfnyn7UM=
+MbvjEUb4BrWM74kYDMi4niC15nggzlWVUiAkAVNI2cTpke6nLIhurnaVA0roR4l%2FVkjlNdyjb=
+DC9PYBWobMN8TSTT5JR7Kw8PZVk9wxMOIa1ZUHvB8CtM1g5lp7mHRmqzQVK0bsrMXxKy1NbX8nZ=
+hDMU%2BwViDEjYUgYgaLLe4QFGt7xPE4b%2FkYny6VdKXh6vOMpejWOlTYakHyLFxATaKar9d6c=
+SnkXOdfW2T3Sgs94QlDN4jNC%2Bi9win0RGOB3JchrMqzdGMbBAL3ksqWsEA%3D" style=3D"c=
+olor: #0074d7; font-style:normal; font-weight: normal; text-decoration: non=
+e;">Apple Vision Pro developer labs</a></li>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09<li><a href=3D"https://c.apple.com/r?v=3D2&a=3Do2CKfLM8dAL7lynfnyn7UM=
+MbvjEUb4BrWM74kYDMi4niC15nggzlWVUiAkAVNI2cTpke6nLIhurnaVA0roR4l%2FVkjlNdyjb=
+DC9PYBWobMN8TSTT5JR7Kw8PZVk9wxMOIa1ZUHvB8CtM1g5lp7mHRmqzQVK0bsrMXxKy1NbX8nZ=
+hDMU%2BwViDEjYUgYgaLLe4QFGt7xPE4b%2FkYny6VdKXh6vOMpejWOlTYakHyLFxATaKar9d6c=
+SnkXOdfW2T3Sgs9OPkM64y2EKQBlEGiRfXz407RNFLXnZlGnChHOF2bfm8%3D" style=3D"col=
+or: #0074d7; font-style:normal; font-weight: normal; text-decoration: none;=
+">Get started with app discovery and marketing</a></li>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09<li><a href=3D"https://c.apple.com/r?v=3D2&a=3Do2CKfLM8dAL7lynfnyn7UM=
+MbvjEUb4BrWM74kYDMi4niC15nggzlWVUiAkAVNI2cTpke6nLIhurnaVA0roR4l%2FVkjlNdyjb=
+DC9PYBWobMN8TSTT5JR7Kw8PZVk9wxMOIa1ZUHvB8CtM1g5lp7mHRmqzQVK0bsrMXxKy1NbX8nZ=
+hDMU%2BwViDEjYUgYgaLLe4QFGt7xPE4b%2FkYny6VdKXh6vOMpejWOlTYakHyLFxATaKar9d6c=
+SnkXOdfW2T3Sgs9i%2Be9ywzu2m2plSJc%2Fmyys2lwGVX6888LuxrXjj4nUyU%3D" style=3D=
+"color: #0074d7; font-style:normal; font-weight: normal; text-decoration: n=
+one;">Request a one-on-one App Review consultation</a></li>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09<li><a href=3D"https://c.apple.com/r?v=3D2&a=3Do2CKfLM8dAL7lynfnyn7UM=
+MbvjEUb4BrWM74kYDMi4niC15nggzlWVUiAkAVNI2cTpke6nLIhurnaVA0roR4l%2FVkjlNdyjb=
+DC9PYBWobMN8TSTT5JR7Kw8PZVk9wxMOIa1ZUHvB8CtM1g5lp7mHRmqzQVK0bsrMXxKy1NbX8nZ=
+hDMU%2BwViDEjYUgYgaLLe4QFGt7xPE4b%2FkYny6VdKXh6vOMpejWOlTYakHyLFxATaKar9d6c=
+SnkXOdfW2T3Sgs94QlDN4jNC%2Bi9win0RGOB3PRI%2Fq94tjcDc%2Bqfp%2FSs%2B%2BA%3D" =
+style=3D"color: #0074d7; font-style:normal; font-weight: normal; text-decor=
+ation: none;">Request a one-on-one design and technology consultation</a></=
+li>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09</ul>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09<p class=3D"p1" style=3D"margin: 0; padding: 0; margin-top: 15px;">Want =
+to find one near you? <a href=3D"https://c.apple.com/r?v=3D2&a=3Do2CKfLM8dA=
+L7lynfnyn7UMMbvjEUb4BrWM74kYDMi4niC15nggzlWVUiAkAVNI2cTpke6nLIhurnaVA0roR4l=
+%2FVkjlNdyjbDC9PYBWobMN8TSTT5JR7Kw8PZVk9wxMOIa1ZUHvB8CtM1g5lp7mHRmqzQVK0bsr=
+MXxKy1NbX8nZhDMU%2BwViDEjYUgYgaLLe4QFGt7xPE4b%2FkYny6VdKXh6vOMpejWOlTYakHyL=
+FxATaKar9d6cSnkXOdfW2T3Sgs9rKe0EqpG931t%2FMum630zZWvgRzBOD7pPoBNmGjpqbvI%3D=
+" style=3D"color: #0074d7; font-style:normal; font-weight: normal; text-dec=
+oration: none;"> Explore the list of upcoming activities worldwide.</a></p>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+</span>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</t=
+h>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</th>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<!-- SPACER REFACB -->
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table class=3D"between_=
+SAIT_article_fragment" style=3D"clear: both; width: 100%;" border=3D"0" cel=
+lspacing=3D"0" cellpadding=3D"0">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<th class=3D" d=
+ivider_line" style=3D"border-bottom: solid 1px #cccccc; border-bottom-color=
+: #cccccc; border-bottom-style: solid;border-bottom-width: 0px; color: #1d1=
+d1f; font-family: system,-apple-system,-webkit-system-font,BlinkMacSystemFo=
+nt,'SFNSText','Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif,'SF Pr=
+o Icons'; font-size: 14px; font-style: normal; font-weight: normal; line-he=
+ight: 1px; mso-line-height-rule: exactly; padding-bottom: 15px; text-decora=
+tion: none;text-align:left;"><img border=3D"0" src=3D"https://developer.app=
+le.com/click/images/hello-developer/oct23/spacer.gif" alt=3D"" width=3D"1" =
+height=3D"1" style=3D"border: none; display: block;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</th>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<th style=3D"co=
+lor: #1d1d1f; font-family: system,-apple-system,-webkit-system-font,BlinkMa=
+cSystemFont,'SFNSText','Segoe UI','Helvetica Neue',Helvetica,Arial,sans-ser=
+if,'SF Pro Icons'; font-size: 14px; font-style: normal; font-weight: normal=
+; line-height: 1px; padding-bottom: 15px; text-decoration: none;text-align:=
+left;"><img border=3D"0" src=3D"https://developer.apple.com/click/images/he=
+llo-developer/oct23/spacer.gif" alt=3D"" width=3D"1" height=3D"1" style=3D"=
+border: none; display: block;"></th>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<!-- Apple Vision Pro de=
+veloper lab dates REFACB -->
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table width=3D"100%" ce=
+llpadding=3D"0" cellspacing=3D"0" border=3D"0">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<th class=3D"ar=
+ticle_wrapper" style=3D"border-radius: 20px; background-color: #fff; color:=
+ #1d1d1f; font-family: system,-apple-system,-webkit-system-font,BlinkMacSys=
+temFont,'SFNSText','Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif,'=
+SF Pro Icons'; font-size: 14px; font-style:normal; font-weight: normal; tex=
+t-decoration: none;text-align:left;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<div class=
+=3D"nw_lotus" style=3D"height: 0; line-height: 0; font-size: 0; background-=
+color: transparent;"> &nbsp; </div>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table width=
+=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<th=
+ class=3D"content_wrapper" style=3D"background-color: #fff; border-radius: =
+20px 20px 20px 20px; color: #1d1d1f; font-family: system,-apple-system,-web=
+kit-system-font,BlinkMacSystemFont,'SFNSText','Segoe UI','Helvetica Neue',H=
+elvetica,Arial,sans-serif,'SF Pro Icons'; font-size: 14px; font-style: norm=
+al; font-weight: normal; padding-bottom: 30px; padding-left: 30px; padding-=
+right: 30px; padding-top: 25px; text-align: left; text-decoration: none;">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+<h3 style=3D"margin-bottom: 0; margin-top: 0;"> <span class=3D"title" style=
+=3D"color: #1d1d1f; font-family: system,-apple-system,-webkit-system-font,B=
+linkMacSystemFont,'SFNSText','Segoe UI','Helvetica Neue',Helvetica,Arial,sa=
+ns-serif,'SF Pro Icons'; font-size: 21px; font-style: normal; font-weight: =
+700; letter-spacing: 0.18px;line-height: 25px !important; text-decoration: =
+none;">Get ready for a new round of Apple&nbsp;Vision&nbsp;Pro developer&nb=
+sp;lab&nbsp;dates</span> </h3>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+<table class=3D"after_article_title_fragment" style=3D"width: 10%;" border=
+=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09<tbody>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09=09<th style=3D"color: #1d1d1f; font-family: system,-apple-system,-we=
+bkit-system-font,BlinkMacSystemFont,'SFNSText','Segoe UI','Helvetica Neue',=
+Helvetica,Arial,sans-serif,'SF Pro Icons'; font-size: 14px; font-style: nor=
+mal; font-weight: normal; line-height: 1px; padding-bottom: 12px; text-deco=
+ration: none;text-align:left;"></th>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+</table> <span class=3D"summary" style=3D"color: #1d1d1f; font-size: 14px; =
+font-style: normal; font-weight: normal; line-height: 155%; text-decoration=
+: none;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09<p class=3D"p1" style=3D"margin: 0; padding: 0;">Developers have been th=
+rilled to experience their apps and games in Apple&nbsp;Vision&nbsp;Pro lab=
+s, and connect with Apple experts to help refine their ideas and answer que=
+stions. Ben&nbsp;Guerrette, chief experience officer at <em>Spool</em>, say=
+s, =E2=80=9CThat kind of learning experience is incredibly valuable.=E2=80=
+=9D Developer and podcaster David&nbsp;Smith says, =E2=80=9CThe first time =
+you see your own app running for real is when you get the audible gasp.=E2=
+=80=9D <a href=3D"https://c.apple.com/r?v=3D2&a=3Do2CKfLM8dAL7lynfnyn7UMMbv=
+jEUb4BrWM74kYDMi4niC15nggzlWVUiAkAVNI2cTpke6nLIhurnaVA0roR4l%2FVkjlNdyjbDC9=
+PYBWobMN8TSTT5JR7Kw8PZVk9wxMOIa1ZUHvB8CtM1g5lp7mHRmqzQVK0bsrMXxKy1NbX8nZhDM=
+U%2BwViDEjYUgYgaLLe4QFGt7xPE4b%2FkYny6VdKXh6vOMpejWOlTYakHyLFxATaKar9d6cSnk=
+XOdfW2T3Sgs94QlDN4jNC%2Bi9win0RGOB3Mu2sM7bup4n%2BbBfREfllaY%3D" style=3D"co=
+lor: #0074d7; font-style:normal; font-weight: normal; text-decoration: none=
+;">Submit a lab request.</a></p>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09<p class=3D"p1" style=3D"margin: 0; padding: 0; margin-top: 15px;">You c=
+an also request <a href=3D"https://c.apple.com/r?v=3D2&a=3Do2CKfLM8dAL7lynf=
+nyn7UMMbvjEUb4BrWM74kYDMi4niC15nggzlWVUiAkAVNI2cTpke6nLIhurnaVA0roR4l%2FVkj=
+lNdyjbDC9PYBWobMN8TSTT5JR7Kw8PZVk9wxMOIa1ZUHvB8CtM1g5lp7mHRmqzQVK0bsrMXxKy1=
+NbX8nZhDMU%2BwViDEjYUgYgaLLe4QFGt7xPE4b%2FkYny6VdKXh6vOMpejWOlTYakHyLFxATaK=
+ar9d6cSnkXOdfW2T3Sgs9rKe0EqpG931t%2FMum630zZRFVJC9a7eKSTnTQpr%2BmmgI%3D" st=
+yle=3D"color: #0074d7; font-style:normal; font-weight: normal; text-decorat=
+ion: none;">Apple&nbsp;Vision&nbsp;Pro compatibility evaluations</a>. We=E2=
+=80=99ll evaluate your apps and games directly on Apple Vision Pro to make =
+sure they behave as expected and send you the results.</p>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+</span>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</t=
+h>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</th>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<!-- SPACER REFACB -->
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table class=3D"between_=
+SAIT_article_fragment" style=3D"clear: both; width: 100%;" border=3D"0" cel=
+lspacing=3D"0" cellpadding=3D"0">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<th class=3D" d=
+ivider_line" style=3D"border-bottom: solid 1px #cccccc; border-bottom-color=
+: #cccccc; border-bottom-style: solid;border-bottom-width: 0px; color: #1d1=
+d1f; font-family: system,-apple-system,-webkit-system-font,BlinkMacSystemFo=
+nt,'SFNSText','Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif,'SF Pr=
+o Icons'; font-size: 14px; font-style: normal; font-weight: normal; line-he=
+ight: 1px; mso-line-height-rule: exactly; padding-bottom: 15px; text-decora=
+tion: none;text-align:left;"><img border=3D"0" src=3D"https://developer.app=
+le.com/click/images/hello-developer/oct23/spacer.gif" alt=3D"" width=3D"1" =
+height=3D"1" style=3D"border: none; display: block;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</th>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<th style=3D"co=
+lor: #1d1d1f; font-family: system,-apple-system,-webkit-system-font,BlinkMa=
+cSystemFont,'SFNSText','Segoe UI','Helvetica Neue',Helvetica,Arial,sans-ser=
+if,'SF Pro Icons'; font-size: 14px; font-style: normal; font-weight: normal=
+; line-height: 1px; padding-bottom: 15px; text-decoration: none;text-align:=
+left;"><img border=3D"0" src=3D"https://developer.apple.com/click/images/he=
+llo-developer/oct23/spacer.gif" alt=3D"" width=3D"1" height=3D"1" style=3D"=
+border: none; display: block;"></th>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<!-- STORY 1 REFACB -->
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table width=3D"100%" ce=
+llpadding=3D"0" cellspacing=3D"0" border=3D"0">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<th class=3D"ar=
+ticle_wrapper" style=3D"border-radius: 20px; background-color: #fff; color:=
+ #1d1d1f; font-family: system,-apple-system,-webkit-system-font,BlinkMacSys=
+temFont,'SFNSText','Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif,'=
+SF Pro Icons'; font-size: 14px; font-style:normal; font-weight: normal; tex=
+t-decoration: none;text-align:left;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<div class=
+=3D"nw_lotus" style=3D"height: 0; line-height: 0; font-size: 0; background-=
+color: transparent;"> &nbsp; </div>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table class=
+=3D"nw_img_table" align=3D"center" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<th=
+ class=3D"nw_img_main_cell" style=3D"color: #1d1d1f; font-family: system,-a=
+pple-system,-webkit-system-font,BlinkMacSystemFont,'SFNSText','Segoe UI','H=
+elvetica Neue',Helvetica,Arial,sans-serif,'SF Pro Icons'; font-size: 14px; =
+font-style: normal; font-weight: normal; padding: 0 0 0 0; text-decoration:=
+ none;text-align:left;">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+<table class=3D"nw_img_wrapper" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"background-color: transparent; max-width: none; width: 610p=
+x;">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09<tbody>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09=09<th class=3D"nw_img_cell" style=3D"color: #1d1d1f; font-family: sy=
+stem,-apple-system,-webkit-system-font,BlinkMacSystemFont,'SFNSText','Segoe=
+ UI','Helvetica Neue',Helvetica,Arial,sans-serif,'SF Pro Icons'; font-size:=
+ 14px; font-style: normal; font-weight: normal; padding: 0; text-align: cen=
+ter; text-decoration: none;"> <span id=3D"articleSummaryImage_1320141" clas=
+s=3D"summary" style=3D"color: #1d1d1f; font-size: 14px; font-style: normal;=
+ font-weight: normal; line-height: 155%; text-decoration: none;"><img src=
+=3D"https://developer.apple.com/click/images/hello-developer/oct23/story-a.=
+jpg" width=3D"610" height=3D"223" alt=3D"" title=3D"" border=3D"0" style=3D=
+"background-color: #f2f2f2; border: none; border-radius: 20px 20px 0 0;disp=
+lay: inline;"></span></th>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</t=
+h>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table width=
+=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<th=
+ class=3D"content_wrapper" style=3D"background-color: #ffffff; border-radiu=
+s: 0 0 20px 20px; color: #1d1d1f; font-family: system,-apple-system,-webkit=
+-system-font,BlinkMacSystemFont,'SFNSText','Segoe UI','Helvetica Neue',Helv=
+etica,Arial,sans-serif,'SF Pro Icons'; font-size: 14px; font-style: normal;=
+ font-weight: normal; padding-bottom: 30px; padding-left: 30px; padding-rig=
+ht: 30px; padding-top: 25px; text-align: left; text-decoration: none;">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+<h3 style=3D"margin-bottom: 0; margin-top: 0;"> <span class=3D"title" style=
+=3D"color: #1d1d1f; font-family: system,-apple-system,-webkit-system-font,B=
+linkMacSystemFont,'SFNSText','Segoe UI','Helvetica Neue',Helvetica,Arial,sa=
+ns-serif,'SF Pro Icons'; font-size: 21px; font-style: normal; font-weight: =
+700; letter-spacing: 0.18px;line-height: 130%; text-decoration: none;">=E2=
+=80=9CSmall but mighty=E2=80=9D: Go behind the scenes with Plex</span> </h3=
+>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+<table class=3D"after_article_title_fragment" style=3D"width: 10%;" border=
+=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09<tbody>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09=09<th style=3D"color: #1d1d1f; font-family: system,-apple-system,-we=
+bkit-system-font,BlinkMacSystemFont,'SFNSText','Segoe UI','Helvetica Neue',=
+Helvetica,Arial,sans-serif,'SF Pro Icons'; font-size: 14px; font-style: nor=
+mal; font-weight: normal; line-height: 1px; padding-bottom: 12px; text-deco=
+ration: none;text-align:left;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09=09=09<!-- <div style=3D"font-size: 0px; line-height: 0px; mso-line-h=
+eight-rule:exactly; border-collapse: collapse;"> &nbsp; </div> -->
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09=09</th>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+</table> <span class=3D"summary" id=3D"articleSummary_1" style=3D"color: #1=
+d1d1f; font-size: 14px; font-style: normal; font-weight: normal; line-heigh=
+t: 155%; text-decoration: none;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09<!-- LINK REFACB -->
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09<!-- <a href=3D"" style=3D"color: #0074d7; font-style:normal; font-weigh=
+t: normal; text-decoration: none;">EXAMPLE A TAG</a> -->
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09<p style=3D"margin: 0; padding: 0;">Discover how the streaming service a=
+nd media player <a href=3D"https://c.apple.com/r?v=3D2&a=3Do2CKfLM8dAL7lynf=
+nyn7UMMbvjEUb4BrWM74kYDMi4niC15nggzlWVUiAkAVNI2cTpke6nLIhurnaVA0roR4l%2FVkj=
+lNdyjbDC9PYBWobMN8TSTT5JR7Kw8PZVk9wxMOIa1ZUHvB8CtM1g5lp7mHRmqzQVK0bsrMXxKy1=
+NbX8nZhDMU%2BwViDEjYUgYgaLLe4QFGt7xPE4b%2FkYny6VdKXh6vOMpejWOlTYakHyLFxATaK=
+ar9d6cSnkXOdfW2T3Sgs9rKe0EqpG931t%2FMum630zZQ3CxpIFqDBBUgFCj0eytxU%3D" styl=
+e=3D"color: #0074d7; font-style:normal; font-weight: normal; text-decoratio=
+n: none;">uses developer tools like Xcode&nbsp;Cloud</a> to maintain a bris=
+k release pace. =E2=80=9CWe=E2=80=99re relatively small,=E2=80=9D says Dann=
+i&nbsp;Hemberger, director of product marketing at <em>Plex</em>, =E2=80=9C=
+but we=E2=80=99re mighty.=E2=80=9D</p>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+</span>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</t=
+h>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</th>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<!-- SPACER REFACB -->
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table class=3D"between_=
+SAIT_article_fragment" style=3D"clear: both; width: 100%;" border=3D"0" cel=
+lspacing=3D"0" cellpadding=3D"0">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<th class=3D" d=
+ivider_line" style=3D"border-bottom: solid 1px #cccccc; border-bottom-color=
+: #cccccc; border-bottom-style: solid;border-bottom-width: 0px; color: #1d1=
+d1f; font-family: system,-apple-system,-webkit-system-font,BlinkMacSystemFo=
+nt,'SFNSText','Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif,'SF Pr=
+o Icons'; font-size: 14px; font-style: normal; font-weight: normal; line-he=
+ight: 1px; mso-line-height-rule: exactly; padding-bottom: 15px; text-decora=
+tion: none;text-align:left;"><img border=3D"0" src=3D"https://developer.app=
+le.com/click/images/hello-developer/oct23/spacer.gif" alt=3D"" width=3D"1" =
+height=3D"1" style=3D"border: none; display: block;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</th>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<th style=3D"co=
+lor: #1d1d1f; font-family: system,-apple-system,-webkit-system-font,BlinkMa=
+cSystemFont,'SFNSText','Segoe UI','Helvetica Neue',Helvetica,Arial,sans-ser=
+if,'SF Pro Icons'; font-size: 14px; font-style: normal; font-weight: normal=
+; line-height: 1px; padding-bottom: 15px; text-decoration: none;text-align:=
+left;"><img border=3D"0" src=3D"https://developer.apple.com/click/images/he=
+llo-developer/oct23/spacer.gif" alt=3D"" width=3D"1" height=3D"1" style=3D"=
+border: none; display: block;"></th>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<!-- STORY 2 REFACB -->
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table width=3D"100%" ce=
+llpadding=3D"0" cellspacing=3D"0" border=3D"0">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<th class=3D"ar=
+ticle_wrapper" style=3D"border-radius: 20px; background-color: #fff; color:=
+ #1d1d1f; font-family: system,-apple-system,-webkit-system-font,BlinkMacSys=
+temFont,'SFNSText','Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif,'=
+SF Pro Icons'; font-size: 14px; font-style:normal; font-weight: normal; tex=
+t-decoration: none;text-align:left;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<div class=
+=3D"nw_lotus" style=3D"height: 0; line-height: 0; font-size: 0; background-=
+color: transparent;"> &nbsp; </div>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table class=
+=3D"nw_img_table" align=3D"center" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<th=
+ class=3D"nw_img_main_cell" style=3D"color: #1d1d1f; font-family: system,-a=
+pple-system,-webkit-system-font,BlinkMacSystemFont,'SFNSText','Segoe UI','H=
+elvetica Neue',Helvetica,Arial,sans-serif,'SF Pro Icons'; font-size: 14px; =
+font-style: normal; font-weight: normal; padding: 0 0 0 0; text-decoration:=
+ none;text-align:left;">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+<table class=3D"nw_img_wrapper" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"background-color: transparent; max-width: none; width: 610p=
+x;">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09<tbody>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09=09<th class=3D"nw_img_cell" style=3D"color: #1d1d1f; font-family: sy=
+stem,-apple-system,-webkit-system-font,BlinkMacSystemFont,'SFNSText','Segoe=
+ UI','Helvetica Neue',Helvetica,Arial,sans-serif,'SF Pro Icons'; font-size:=
+ 14px; font-style: normal; font-weight: normal; padding: 0; text-align: cen=
+ter; text-decoration: none;"> <span id=3D"" class=3D"summary" style=3D"colo=
+r: #1d1d1f; font-size: 14px; font-style: normal; font-weight: normal; line-=
+height: 155%; text-decoration: none;"><img src=3D"https://developer.apple.c=
+om/click/images/hello-developer/oct23/story-b.jpg" width=3D"610" height=3D"=
+341" alt=3D"" title=3D"" border=3D"0" style=3D"background-color: #f2f2f2; b=
+order: none; border-radius: 20px 20px 0 0;display: inline;"></span></th>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</t=
+h>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table width=
+=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<th=
+ class=3D"content_wrapper" style=3D"background-color: #ffffff; border-radiu=
+s: 0 0 20px 20px; color: #1d1d1f; font-family: system,-apple-system,-webkit=
+-system-font,BlinkMacSystemFont,'SFNSText','Segoe UI','Helvetica Neue',Helv=
+etica,Arial,sans-serif,'SF Pro Icons'; font-size: 14px; font-style: normal;=
+ font-weight: normal; padding-bottom: 30px; padding-left: 30px; padding-rig=
+ht: 30px; padding-top: 25px; text-align: left; text-decoration: none;">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+<h3 style=3D"margin-bottom: 0; margin-top: 0;"> <span class=3D"title" style=
+=3D"color: #1d1d1f; font-family: system,-apple-system,-webkit-system-font,B=
+linkMacSystemFont,'SFNSText','Segoe UI','Helvetica Neue',Helvetica,Arial,sa=
+ns-serif,'SF Pro Icons'; font-size: 21px; font-style: normal; font-weight: =
+700; letter-spacing: 0.18px;line-height: 130%; text-decoration: none;">Meet=
+ the mind behind Automatoys</span> </h3>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+<table class=3D"after_article_title_fragment" style=3D"width: 10%;" border=
+=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09<tbody>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09=09<th style=3D"color: #1d1d1f; font-family: system,-apple-system,-we=
+bkit-system-font,BlinkMacSystemFont,'SFNSText','Segoe UI','Helvetica Neue',=
+Helvetica,Arial,sans-serif,'SF Pro Icons'; font-size: 14px; font-style: nor=
+mal; font-weight: normal; line-height: 1px; padding-bottom: 12px; text-deco=
+ration: none;text-align:left;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09=09=09<!-- <div style=3D"font-size: 0px; line-height: 0px; mso-line-h=
+eight-rule:exactly; border-collapse: collapse;"> &nbsp; </div> -->
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09=09</th>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+</table> <span class=3D"summary" id=3D"articleSummary_2" style=3D"color: #1=
+d1d1f; font-size: 14px; font-style: normal; font-weight: normal; line-heigh=
+t: 155%; text-decoration: none;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09<!-- LINK REFACB -->
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09<!-- <a href=3D"" style=3D"color: #0074d7; font-style:normal; font-weigh=
+t: normal; text-decoration: none;">EXAMPLE A TAG</a> -->
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09<p style=3D"margin: 0; padding: 0;">=E2=80=9CI like the idea of a moment=
+ where players are left to say, =E2=80=98Well, I guess I=E2=80=99ll just st=
+art tapping and see what happens,=E2=80=99=E2=80=9D says Steffan&nbsp;Glynn=
+ of Apple Design Award finalist <em>Automatoys</em>, an inspired puzzler in=
+ which players navigate elaborate contraptions with a single tap. <a href=
+=3D"https://c.apple.com/r?v=3D2&a=3Do2CKfLM8dAL7lynfnyn7UMMbvjEUb4BrWM74kYD=
+Mi4niC15nggzlWVUiAkAVNI2cTpke6nLIhurnaVA0roR4l%2FVkjlNdyjbDC9PYBWobMN8TSTT5=
+JR7Kw8PZVk9wxMOIa1ZUHvB8CtM1g5lp7mHRmqzQVK0bsrMXxKy1NbX8nZhDMU%2BwViDEjYUgY=
+gaLLe4QFGt7xPE4b%2FkYny6VdKXh6vOMpejWOlTYakHyLFxATaKar9d6cSnkXOdfW2T3Sgs9rK=
+e0EqpG931t%2FMum630zZWxaxbzbeUxMreoXXOFPYuM%3D" style=3D"color: #0074d7; fo=
+nt-style:normal; font-weight: normal; text-decoration: none;">Find out how<=
+/a> Glynn brought his Rube Goldberg-inspired game to&nbsp;life.</p>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+</span>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</t=
+h>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</th>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<!-- SPACER REFACB -->
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table class=3D"between_=
+SAIT_article_fragment" style=3D"clear: both; width: 100%;" border=3D"0" cel=
+lspacing=3D"0" cellpadding=3D"0">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<th class=3D" d=
+ivider_line" style=3D"border-bottom: solid 1px #cccccc; border-bottom-color=
+: #cccccc; border-bottom-style: solid;border-bottom-width: 0px; color: #1d1=
+d1f; font-family: system,-apple-system,-webkit-system-font,BlinkMacSystemFo=
+nt,'SFNSText','Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif,'SF Pr=
+o Icons'; font-size: 14px; font-style: normal; font-weight: normal; line-he=
+ight: 1px; mso-line-height-rule: exactly; padding-bottom: 15px; text-decora=
+tion: none;text-align:left;"><img border=3D"0" src=3D"https://developer.app=
+le.com/click/images/hello-developer/oct23/spacer.gif" alt=3D"" width=3D"1" =
+height=3D"1" style=3D"border: none; display: block;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</th>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<th style=3D"co=
+lor: #1d1d1f; font-family: system,-apple-system,-webkit-system-font,BlinkMa=
+cSystemFont,'SFNSText','Segoe UI','Helvetica Neue',Helvetica,Arial,sans-ser=
+if,'SF Pro Icons'; font-size: 14px; font-style: normal; font-weight: normal=
+; line-height: 1px; padding-bottom: 15px; text-decoration: none;text-align:=
+left;"><img border=3D"0" src=3D"https://developer.apple.com/click/images/he=
+llo-developer/oct23/spacer.gif" alt=3D"" width=3D"1" height=3D"1" style=3D"=
+border: none; display: block;"></th>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<!-- Catch up on the lat=
+est news and updates REFACB -->
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table width=3D"100%" ce=
+llpadding=3D"0" cellspacing=3D"0" border=3D"0">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<th class=3D"ar=
+ticle_wrapper" style=3D"border-radius: 20px; background-color: #fff; color:=
+ #1d1d1f; font-family: system,-apple-system,-webkit-system-font,BlinkMacSys=
+temFont,'SFNSText','Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif,'=
+SF Pro Icons'; font-size: 14px; font-style:normal; font-weight: normal; tex=
+t-decoration: none;text-align:left;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<div class=
+=3D"nw_lotus" style=3D"height: 0; line-height: 0; font-size: 0; background-=
+color: transparent;"> &nbsp; </div>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table width=
+=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<th=
+ class=3D"content_wrapper" style=3D"background-color: #fff; border-radius: =
+20px 20px 20px 20px; color: #1d1d1f; font-family: system,-apple-system,-web=
+kit-system-font,BlinkMacSystemFont,'SFNSText','Segoe UI','Helvetica Neue',H=
+elvetica,Arial,sans-serif,'SF Pro Icons'; font-size: 14px; font-style: norm=
+al; font-weight: normal; padding-bottom: 30px; padding-left: 30px; padding-=
+right: 30px; padding-top: 25px; text-align: left; text-decoration: none;">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+<h3 style=3D"margin-bottom: 0; margin-top: 0;"> <span class=3D"title" style=
+=3D"color: #1d1d1f; font-family: system,-apple-system,-webkit-system-font,B=
+linkMacSystemFont,'SFNSText','Segoe UI','Helvetica Neue',Helvetica,Arial,sa=
+ns-serif,'SF Pro Icons'; font-size: 21px; font-style: normal; font-weight: =
+700; letter-spacing: 0.18px;line-height: 130%; text-decoration: none;">Catc=
+h up on the latest news and&nbsp;updates</span> </h3>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+<table class=3D"after_article_title_fragment" style=3D"width: 10%;" border=
+=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09<tbody>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09=09<th style=3D"color: #1d1d1f; font-family: system,-apple-system,-we=
+bkit-system-font,BlinkMacSystemFont,'SFNSText','Segoe UI','Helvetica Neue',=
+Helvetica,Arial,sans-serif,'SF Pro Icons'; font-size: 14px; font-style: nor=
+mal; font-weight: normal; line-height: 1px; padding-bottom: 12px; text-deco=
+ration: none;text-align:left;"></th>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+</table> <span class=3D"summary" style=3D"color: #1d1d1f; font-size: 14px; =
+font-style: normal; font-weight: normal; line-height: 155%; text-decoration=
+: none;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09<p class=3D"p1" style=3D"margin: 0; padding: 0;">Make sure you=E2=80=99r=
+e up to date on feature announcements, important guidance, new documentatio=
+n, and more.</p>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09<div class=3D"m7 m9 m27">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09<ul class=3D"m3">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09=09<li><a href=3D"https://c.apple.com/r?v=3D2&a=3Do2CKfLM8dAL7lynfnyn=
+7UMMbvjEUb4BrWM74kYDMi4niC15nggzlWVUiAkAVNI2cTpke6nLIhurnaVA0roR4l%2FVkjlNd=
+yjbDC9PYBWobMN8TSTT5JR7Kw8PZVk9wxMOIa1ZUHvB8CtM1g5lp7mHRmqzQVK0bsrMXxKy1NbX=
+8nZhDMU%2BwViDEjYUgYgaLLe4QFGt7xPE4b%2FkYny6VdKXh6vOMpejWOlTYakHyLFxATaKar9=
+d6cSnkXOdfW2T3Sgs9rKe0EqpG931t%2FMum630zZZylnOsi6Zgnd2%2B6T7Vfol8%3D" style=
+=3D"color: #0074d7; font-style:normal; font-weight: normal; text-decoration=
+: none;"><strong>Get ready with the latest beta releases</strong></a>: Buil=
+d your apps using the latest developer tools and test them on the most rece=
+nt OS releases. Download Xcode&nbsp;15.1 beta, and the beta&nbsp;2 versions=
+ of iOS&nbsp;17.1, iPadOS&nbsp;17.1, macOS&nbsp;14.1, tvOS&nbsp;17.1, and w=
+atchOS&nbsp;10.1.</li>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09=09<li><a href=3D"https://c.apple.com/r?v=3D2&a=3Do2CKfLM8dAL7lynfnyn=
+7UMMbvjEUb4BrWM74kYDMi4niC15nggzlWVUiAkAVNI2cTpke6nLIhurnaVA0roR4l%2FVkjlNd=
+yjbDC9PYBWobMN8TSTT5JR7Kw8PZVk9wxMOIa1ZUHvB8CtM1g5lp7mHRmqzQVK0bsrMXxKy1NbX=
+8nZhDMU%2BwViDEjYUgYgaLLe4QFGt7xPE4b%2FkYny6VdKXh6vOMpejWOlTYakHyLFxATaKar9=
+d6cSnkXOdfW2T3Sgs9OPkM64y2EKQBlEGiRfXz45bpkUc0lgTP3%2BZ1a1ZBAnA%3D" style=
+=3D"color: #0074d7; font-style:normal; font-weight: normal; text-decoration=
+: none;"><strong>Use RealityKit to create an interactive ride in visionOS</=
+strong></a>: The developer sample project =E2=80=9CSwift Splash=E2=80=9D le=
+verages RealityKit and Reality&nbsp;Composer&nbsp;Pro to create a waterslid=
+e by combining modular slide pieces. And once you finish your ride, you can=
+ release an adventurous goldfish to try it out.</li>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09=09<li><a href=3D"https://c.apple.com/r?v=3D2&a=3Do2CKfLM8dAL7lynfnyn=
+7UMMbvjEUb4BrWM74kYDMi4niC15nggzlWVUiAkAVNI2cTpke6nLIhurnaVA0roR4l%2FVkjlNd=
+yjbDC9PYBWobMN8TSTT5JR7Kw8PZVk9wxMOIa1ZUHvB8CtM1g5lp7mHRmqzQVK0bsrMXxKy1NbX=
+8nZhDMU%2BwViDEjYUgYgaLLe4QFGt7xPE4b%2FkYny6VdKXh6vOMpejWOlTYakHyLFxATaKar9=
+d6cSnkXOdfW2T3Sgs9E5MKrtwylvdSseasd2gubIbTbn2IA9MsE6IVUpWP73M%3D" style=3D"=
+color: #0074d7; font-style:normal; font-weight: normal; text-decoration: no=
+ne;"><strong>Take your iPad and iPhone apps even further on Apple Vision Pr=
+o</strong></a>: A brand=E2=80=91new App Store will launch with Apple Vision=
+ Pro, featuring apps and games built for visionOS, as well as hundreds of t=
+housands of iPad and iPhone apps that run great on visionOS too.</li>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09=09<li><a href=3D"https://c.apple.com/r?v=3D2&a=3Do2CKfLM8dAL7lynfnyn=
+7UMMbvjEUb4BrWM74kYDMi4niC15nggzlWVUiAkAVNI2cTpke6nLIhurnaVA0roR4l%2FVkjlNd=
+yjbDC9PYBWobMN8TSTT5JR7Kw8PZVk9wxMOIa1ZUHvB8CtM1g5lp7mHRmqzQVK0bsrMXxKy1NbX=
+8nZhDMU%2BwViDEjYUgYgaLLe4QFGt7xPE4b%2FkYny6VdKXh6vOMpejWOlTYakHyLFxATaKar9=
+d6cSnkXOdfW2T3Sgs9OPkM64y2EKQBlEGiRfXz4%2F8q%2BEx6m0dwM6LZWMqnV4c%3D" style=
+=3D"color: #0074d7; font-style:normal; font-weight: normal; text-decoration=
+: none;"><strong>App Store Connect API 3.0</strong></a>: This release inclu=
+des support for Game Center, pre-orders by region, and more.</li>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09=09<li><a href=3D"https://c.apple.com/r?v=3D2&a=3Do2CKfLM8dAL7lynfnyn=
+7UMMbvjEUb4BrWM74kYDMi4niC15nggzlWVUiAkAVNI2cTpke6nLIhurnaVA0roR4l%2FVkjlNd=
+yjbDC9PYBWobMN8TSTT5JR7Kw8PZVk9wxMOIa1ZUHvB8CtM1g5lp7mHRmqzQVK0bsrMXxKy1NbX=
+8nZhDMU%2BwViDEjYUgYgaLLe4QFGt7xPE4b%2FkYny6VdKXh6vOMpejWOlTYakHyLFxATaKar9=
+d6cSnkXOdfW2T3Sgs9i%2Be9ywzu2m2plSJc%2Fmyys6ucvrpw%2B%2FFagwjZQE2ywhM%3D" s=
+tyle=3D"color: #0074d7; font-style:normal; font-weight: normal; text-decora=
+tion: none;"><strong>Debugging universal links</strong></a>: Investigate wh=
+y your universal links are opening in Safari instead of your app.</li>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09</ul>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09</div>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+</span>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</t=
+h>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</th>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<!-- SPACER REFACB -->
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table class=3D"between_=
+SAIT_article_fragment" style=3D"clear: both; width: 100%;" border=3D"0" cel=
+lspacing=3D"0" cellpadding=3D"0">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<th class=3D" d=
+ivider_line" style=3D"border-bottom: solid 1px #cccccc; border-bottom-color=
+: #cccccc; border-bottom-style: solid;border-bottom-width: 0px; color: #1d1=
+d1f; font-family: system,-apple-system,-webkit-system-font,BlinkMacSystemFo=
+nt,'SFNSText','Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif,'SF Pr=
+o Icons'; font-size: 14px; font-style: normal; font-weight: normal; line-he=
+ight: 1px; mso-line-height-rule: exactly; padding-bottom: 15px; text-decora=
+tion: none;text-align:left;"><img border=3D"0" src=3D"https://developer.app=
+le.com/click/images/hello-developer/oct23/spacer.gif" alt=3D"" width=3D"1" =
+height=3D"1" style=3D"border: none; display: block;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</th>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<th style=3D"co=
+lor: #1d1d1f; font-family: system,-apple-system,-webkit-system-font,BlinkMa=
+cSystemFont,'SFNSText','Segoe UI','Helvetica Neue',Helvetica,Arial,sans-ser=
+if,'SF Pro Icons'; font-size: 14px; font-style: normal; font-weight: normal=
+; line-height: 1px; padding-bottom: 15px; text-decoration: none;text-align:=
+left;"><img border=3D"0" src=3D"https://developer.apple.com/click/images/he=
+llo-developer/oct23/spacer.gif" alt=3D"" width=3D"1" height=3D"1" style=3D"=
+border: none; display: block;"></th>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<!-- SHARE YOUR THOUGHTS=
+ REFACB -->
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table width=3D"100%" ce=
+llpadding=3D"0" cellspacing=3D"0" border=3D"0">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<th class=3D"ar=
+ticle_wrapper" style=3D"border-radius: 20px; background-color: #fff; color:=
+ #1d1d1f; font-family: system,-apple-system,-webkit-system-font,BlinkMacSys=
+temFont,'SFNSText','Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif,'=
+SF Pro Icons'; font-size: 14px; font-style:normal; font-weight: normal; tex=
+t-decoration: none;text-align:left;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<div class=
+=3D"nw_lotus" style=3D"height: 0; line-height: 0; font-size: 0; background-=
+color: transparent;"> &nbsp; </div>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table width=
+=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<th=
+ class=3D"content_wrapper" style=3D"background-color: #f2f2f2; border-radiu=
+s: 0 0 20px 20px; color: #1d1d1f; font-family: system,-apple-system,-webkit=
+-system-font,BlinkMacSystemFont,'SFNSText','Segoe UI','Helvetica Neue',Helv=
+etica,Arial,sans-serif,'SF Pro Icons'; font-size: 14px; font-style: normal;=
+ font-weight: normal; padding-bottom: 30px; padding-left: 30px; padding-rig=
+ht: 30px; padding-top: 25px; text-align: left; text-decoration: none;">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+<h3 style=3D"margin-bottom: 0; margin-top: 0;"> <span class=3D"title" style=
+=3D"color: #1d1d1f; font-family: system,-apple-system,-webkit-system-font,B=
+linkMacSystemFont,'SFNSText','Segoe UI','Helvetica Neue',Helvetica,Arial,sa=
+ns-serif,'SF Pro Icons'; font-size: 21px; font-style: normal; font-weight: =
+700; letter-spacing: 0.18px;line-height: 130%; text-decoration: none;">Shar=
+e your thoughts</span> </h3>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+<table class=3D"after_article_title_fragment" style=3D"width: 10%;" border=
+=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09<tbody>
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09=09<th style=3D"color: #1d1d1f; font-family: system,-apple-system,-we=
+bkit-system-font,BlinkMacSystemFont,'SFNSText','Segoe UI','Helvetica Neue',=
+Helvetica,Arial,sans-serif,'SF Pro Icons'; font-size: 14px; font-style: nor=
+mal; font-weight: normal; line-height: 1px; padding-bottom: 12px; text-deco=
+ration: none;text-align:left;"></th>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+</table> <span class=3D"summary" style=3D"color: #1d1d1f; font-size: 14px; =
+font-style: normal; font-weight: normal; line-height: 155%; text-decoration=
+: none;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09<p class=3D"p1" style=3D"margin: 0; padding: 0;">We=E2=80=99d love to he=
+ar from you. If you have suggestions for our activities or stories<span cla=
+ss=3D"s1">,</span> please<span class=3D"s2"> <a href=3D"https://c.apple.com=
+/r?v=3D2&a=3Do2CKfLM8dAL7lynfnyn7UMMbvjEUb4BrWM74kYDMi4niC15nggzlWVUiAkAVNI=
+2cTpke6nLIhurnaVA0roR4l%2FVkjlNdyjbDC9PYBWobMN8TSTT5JR7Kw8PZVk9wxMOIa1ZUHvB=
+8CtM1g5lp7mHRmqzQVK0bsrMXxKy1NbX8nZhDMU%2BwViDEjYUgYgaLLe4QFGt7xPE4b%2FkYny=
+6VdKXh6vOMpejWOlTYakHyLFxATaKar9d6cSnkXOdfW2T3Sgs9OPkM64y2EKQBlEGiRfXz436T2=
+qujed5Jj6iXmCE0ql8%3D" style=3D"color: #2997ff; font-size: 14px; font-style=
+: normal; font-weight: 400;text-decoration: none;">let us&nbsp;know</a>.</s=
+pan></p>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+</span>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</t=
+h>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</th>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</th>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09</th>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09</th>
+=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09</tbody>
+=09=09=09=09=09</table>
+=09=09=09=09=09<!-- FOOTER REFACB -->
+=09=09=09=09=09<div class=3D"footer-wrapper" style=3D"background-color:#fff=
+;">
+
+=09=09=09=09=09=09<table role=3D"presentation" class=3D"section" width=3D"7=
+00" bgcolor=3D"#ffffff" style=3D"background-color:#ffffff; border-collapse:=
+collapse; border-spacing:0; margin:0 auto; padding:0; text-align:inherit; v=
+ertical-align:top; width:700px;">
+
+=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09<td style=3D"color:#999999; font-size:9px; font-wei=
+ght:300; line-height:12px; margin:0; mso-line-height-rule:exactly; padding:=
+0; text-align:left; vertical-align:top;">
+=09=09=09=09=09=09=09=09=09<!--Footer Content -->
+
+=09=09=09=09=09=09=09=09=09<table role=3D"presentation" class=3D"footer" st=
+yle=3D"border-spacing:0; border-collapse:collapse; vertical-align:top; text=
+-align:inherit; width:100%; margin:0px 0px 10px 0px; padding:0;">
+
+=09=09=09=09=09=09=09=09=09=09<tr style=3D"vertical-align:top; text-align:l=
+eft; padding:0;">
+=09=09=09=09=09=09=09=09=09=09=09<td style=3D" border-collapse:collapse !im=
+portant; vertical-align:top; text-align:left; padding:25px 0 0 0;" valign=
+=3D"top">
+=09=09=09=09=09=09=09=09=09=09=09=09<p class=3D"left-align-mobile" style=3D=
+"color:#999999; font-size:10px; text-align:left; display:block; font-weight=
+:300; line-height:1.5em; margin:0; padding:0 10px 10px;" align=3D"center">C=
+opyright =C2=A9 2023 Apple Inc. <br><br>One Apple Park Way, MS 923-4DEV, Cu=
+pertino, CA 95014.<br><br><a href=3D"https://c.apple.com/r?v=3D2&a=3Do2CKfL=
+M8dAL7lynfnyn7UMMbvjEUb4BrWM74kYDMi4niC15nggzlWVUiAkAVNI2cTpke6nLIhurnaVA0r=
+oR4l%2FVkjlNdyjbDC9PYBWobMN8TSTT5JR7Kw8PZVk9wxMOIa1ZUHvB8CtM1g5lp7mHRmqzQVK=
+0bsrMXxKy1NbX8nZhDMU%2BwViDEjYUgYgaLLe4QFGt7xPE4b%2FkYny6VdKXh6vOMpejWOlTYa=
+kHyLFxATaKar9d6cSnkXOdfW2T3Sgs94QlDN4jNC%2Bi9win0RGOB3C4zpKK3OieFWUpuZuPgu6=
+c%3D" style=3D"color:#999999; text-decoration:underline;">All Rights Reserv=
+ed</a> | <a href=3D"https://c.apple.com/r?v=3D2&a=3Do2CKfLM8dAL7lynfnyn7UMM=
+bvjEUb4BrWM74kYDMi4niC15nggzlWVUiAkAVNI2cTpke6nLIhurnaVA0roR4l%2FVkjlNdyjbD=
+C9PYBWobMN8TSTT5JR7Kw8PZVk9wxMOIa1ZUHvB8CtM1g5lp7mHRmqzQVK0bsrMXxKy1NbX8nZh=
+DMU%2BwViDEjYUgYgaLLe4QFGt7xPE4b%2FkYny6VdKXh6vOMpejWOlTYakHyLFxATaKar9d6cS=
+nkXOdfW2T3Sgs94QlDN4jNC%2Bi9win0RGOB3ByEmCymHUpvFSxZZ4w1pbA%3D" style=3D"co=
+lor:#999999; text-decoration:underline;">Privacy Policy</a> | <a href=3D"ht=
+tps://c.apple.com/r?v=3D2&a=3Do2CKfLM8dAL7lynfnyn7UMMbvjEUb4BrWM74kYDMi4niC=
+15nggzlWVUiAkAVNI2cTpke6nLIhurnaVA0roR4l%2FVkjlNdyjbDC9PYBWobMN8TSTT5JR7Kw8=
+PZVk9wxMOIa1ZUHvB8CtM1g5lp7mHRmqzQVK0bsrMXxKy1NbX8nZhDMU%2BwViDEjYUgYgaLLe4=
+QFGt7xPE4b%2FkYny6VdKXh6vOMpejWOlTYakHyLFxATaKar9d6cSnkXOdfW2T3Sgs9OPkM64y2=
+EKQBlEGiRfXz42%2B0mkHtJZHvZ0F9t8BXoFE%3D" style=3D"color:#999999; text-deco=
+ration:underline;">Account</a>
+=09=09=09=09=09=09=09=09=09=09=09=09=09<br><br> If you would prefer not to =
+receive future communications from Apple&nbsp;Developer, you may <a href=3D=
+"https://c.apple.com/r?v=3D2&a=3D8ps6Ok0qKWiF37xoxStPOmTNGs51zlivdjtcXTFjpL=
+lRuCwyddQ3iyYDv7lzbrRV0%2FsqmpE%2Bke0PNCs0kHZqlDAFhLw8Pn%2B14CE%2B92t47PiDJ=
+lyK76D7FULBqvq9XDS2y8ftzKBiMQb5YxbyB%2B557ej2D6be23U0kWhV7uiAC9xKNq7DA9cSsl=
+73pjKKbs4t0rWbeABpOBLmSZn5qOmpvx86rDxBMh0vREAYzCTq%2FTkXB26dFYYpirS8Jk64cUD=
+Plca1ckbfkTeOVYaI%2BuceCtnwDVYiAw9RvBuVUSAU72f2WKSKsEntOVa8aKW0TP541Z9TGm%2=
+FOHwdle4Xs%2BH0KwkagKg96cdz77QhV3y0v%2BwYxKxfypjKVgt%2BzU0UWQi%2BUt5dJcqjzj=
+1rGn6532%2BLEufn8N5TDv9PAQ%2BGt4Mal3r8%2FCcnCHhE0%2FSGE5tqL7nIDBFP%2FRGJ0GI=
+Cw6TI2WEb7IEoRVbo2LZB%2Fec4w%2F5H0RIqircC3131MMmmb8Jwh3o9FGLw%2Bb%2FJLbXyDb=
+CiyMy5EuA%3D%3D" style=3D"color: #999999; text-decoration: underline;">unsu=
+bscribe</a>.
+=09=09=09=09=09=09=09=09=09=09=09=09</p>
+=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09</tr>
+
+=09=09=09=09=09=09=09=09=09=09<tr style=3D"height:32px;">
+=09=09=09=09=09=09=09=09=09=09=09<td></td>
+=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09</table>
+=09=09=09=09=09</div>
+=09=09=09=09</th>
+=09=09=09</tr>
+=09=09</tbody>
+=09</table>
+</body>
+</html>
+------=_Part_274782275_1151269941.1696381070298--

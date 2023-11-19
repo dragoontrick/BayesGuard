@@ -39,7 +39,7 @@ for filename in os.listdir(email_dir):
                 labels.append(0)  # Legitimate
 
 # Split the dataset into training and testing sets
-X_train, X_test, y_train, y_test = train_test_split(emails, labels, test_size=0.2, random_state=50)
+X_train, X_test, y_train, y_test = train_test_split(emails, labels, test_size=0.9, random_state=100)
 
 # Check if there's any email text data to process
 if not X_train:
@@ -68,7 +68,7 @@ else:
         prediction = classifier.predict(email_text)
         result = 'spam email' if prediction[0] == 1 else 'legitimate source'
         email_count += 1
-        print(f"{filename}: {result} ({email_count}/57)")
+        print(f"{filename}: {result} ({email_count}/92)")
 
     # Print an output that shows the overall accuracy of the classifier
     print("=========================================")

@@ -1,0 +1,441 @@
+Delivered-To: israr.m.ibrahim@gmail.com
+Received: by 2002:a5d:56c5:0:b0:31d:d0e5:53a3 with SMTP id m5csp142022wrw;
+        Thu, 26 Oct 2023 17:02:02 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEOXotHLo5yWPiJNEmC4EcCmRc5nDRm6iQtd1GFiy9/h4FrdaKDvTyevJ0fXgHzO5R7aL/j
+X-Received: by 2002:ae9:e512:0:b0:770:9bd2:b3be with SMTP id w18-20020ae9e512000000b007709bd2b3bemr953216qkf.5.1698364922093;
+        Thu, 26 Oct 2023 17:02:02 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1698364922; cv=none;
+        d=google.com; s=arc-20160816;
+        b=XKyjbv/m3T09D0VaEvEfD4nVOeiuVxHnDiEAJQ+MQ6c8N8xhAeYSVRJO7n87bpprbD
+         z5B/C5dU59JiUpT+Z2x8IezDYvcyFJZ+RuIxzclUubL/9SMZVK2yX5kSbbg0bIGHZHnp
+         AEmJBefoMa25j52Yp8EuJ+dMZYbiunENt4QMLsjqztPF6K2Wu46P1pbQiEFeTnCBcDDe
+         WzdlvmeqZR/gjjSjELqB1OA/BZD7cT9hZ0Z2qileP6Dn3BRklxRISkWdo5qQ0DN4GkAb
+         cfHTVyAcDYHXfJwlTlytiat/z+Rj764WvikQ/tRIdz9lH5Rr6ewCCi65n0tenpU+qBa6
+         LJjw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=message-id:reply-to:to:from:subject:mime-version:date:sender
+         :dkim-signature:dkim-signature;
+        bh=5jLtlfDH5ZYcPaNOaSGxWsgwTokkQkCWwIRFB9bogmE=;
+        fh=c66xgwUCMi25AgFcF46P85GZufYfGgGtRMmvHcv40/o=;
+        b=jgnORI4bL+Jm6wK6OTvdFJLAtRe7RepuLUAfS6be8B2tY83fV1xXYM1ofCVxoZCCWr
+         LeXTkUxlBmfaj5oEPyZsu/Be9GZBZ7OIrplTDfmXH9fPfWC4uCSGbC/tQ85+8YmN9zqC
+         rHXd93zDVfXjbFjyBOWoZo7LU5FdoFkhXmdPL9lW1AucaX6++UJx2NfDitCEiEOpmKlW
+         ck9rbNAXdjf4VucccBWZHVgaEaM1DWZ+tXCyKehU/u6zaLWfFxeKo0nIIsdkdwF0FsAR
+         5QBABJ9BYeQhp8iUdBS2b9akCoV64cBn05pG6pzdc9Wi3eNcP5deOeBKfCq0pP6LhXjf
+         tKaw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@reply.mikebarrontopleads.com header.s=k1 header.b="Ux/iZeis";
+       dkim=pass header.i=@mailgun.org header.s=mg header.b=Dje1I5Hh;
+       spf=pass (google.com: domain of bounce+622ff3.7e9003-israr.m.ibrahim=gmail.com@reply.mikebarrontopleads.com designates 143.55.232.3 as permitted sender) smtp.mailfrom="bounce+622ff3.7e9003-israr.m.ibrahim=gmail.com@reply.mikebarrontopleads.com";
+       dmarc=fail (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Return-Path: <bounce+622ff3.7e9003-israr.m.ibrahim=gmail.com@reply.mikebarrontopleads.com>
+Received: from pc232-3.mailgun.net (pc232-3.mailgun.net. [143.55.232.3])
+        by mx.google.com with UTF8SMTPS id m17-20020a05620a24d100b007742059b2c9si164062qkn.482.2023.10.26.17.02.01
+        for <israr.m.ibrahim@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 26 Oct 2023 17:02:02 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounce+622ff3.7e9003-israr.m.ibrahim=gmail.com@reply.mikebarrontopleads.com designates 143.55.232.3 as permitted sender) client-ip=143.55.232.3;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@reply.mikebarrontopleads.com header.s=k1 header.b="Ux/iZeis";
+       dkim=pass header.i=@mailgun.org header.s=mg header.b=Dje1I5Hh;
+       spf=pass (google.com: domain of bounce+622ff3.7e9003-israr.m.ibrahim=gmail.com@reply.mikebarrontopleads.com designates 143.55.232.3 as permitted sender) smtp.mailfrom="bounce+622ff3.7e9003-israr.m.ibrahim=gmail.com@reply.mikebarrontopleads.com";
+       dmarc=fail (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed;
+ d=reply.mikebarrontopleads.com; q=dns/txt; s=k1; t=1698364921; x=1698372121;
+ h=Message-Id: Reply-To: To: To: From: From: Subject: Subject: Content-Type:
+ Mime-Version: Date: Sender: Sender: X-Feedback-Id;
+ bh=5jLtlfDH5ZYcPaNOaSGxWsgwTokkQkCWwIRFB9bogmE=;
+ b=Ux/iZeisvV+/mGZeF10Mnfvi1Rq0iMNkxlLPxQsrG5Vyx9YBD+zRK4rTaEiw7N6zntWJg5gVLvOWh1tBDvKjf1f5RhXIHXKrqX6SwgCmENhbMw+qWzhDSmi4mfFwlsRNMieRdHJEzUc3Lbz3Z1BZC5mQlSec8S03EZ7/jEpDmz4=
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=mailgun.org;
+ q=dns/txt; s=mg; t=1698364921; x=1698372121; h=Message-Id: Reply-To: To: To:
+ From: From: Subject: Subject: Content-Type: Mime-Version: Date: Sender:
+ Sender: X-Feedback-Id; bh=5jLtlfDH5ZYcPaNOaSGxWsgwTokkQkCWwIRFB9bogmE=;
+ b=Dje1I5HhBGTMQEYCfIv4d2760ihDPHLnpr8qjWOJB29WMoYJrVZvcs5q46NbT4Etq9vQPVZiCczqyzfUoma7M4Ve5caoCx5BlDtLAih349rn0QdULEXmG7sHIjgvbNdb2aIsWyYmpxT3/YEqEBRozUkevP2xF3x3qZSWPaXkL04=
+X-Feedback-Id: postmaster@reply.mikebarrontopleads.com:loc_opct5AKaaI9CbZBDbKho-com_yGlbDqWHb3zsRbuCOTTL-et_workflow:5f558db81fff08a64678fd78:mailgun
+X-Mailgun-Sending-Ip: 143.55.232.3
+X-Mailgun-Sid: WyI3MzBiZSIsImlzcmFyLm0uaWJyYWhpbUBnbWFpbC5jb20iLCI3ZTkwMDMiXQ==
+Received: from <unknown> (<unknown> []) by d4a102ef338a with HTTP id
+ 653afdf94e1935d1d1eb2d77; Fri, 27 Oct 2023 00:02:01 GMT
+Sender: ambitiousedge1940=gmail.com@reply.mikebarrontopleads.com
+Date: Fri, 27 Oct 2023 00:02:01 +0000
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="403d52cc22ae2fe07f8e9814f68e5e9081311722bfc0ca165f490cbb0a04"
+Subject: Your FREE Haircut Voucher Awaits!
+From: Ambitious Edge Barbershop <ambitiousedge1940@gmail.com>
+To: israr.m.ibrahim@gmail.com
+X-Mailgun-Tag: loc_opct5AKaaI9CbZBDbKho
+X-Mailgun-Tag: com_yGlbDqWHb3zsRbuCOTTL
+X-Mailgun-Tag: et_workflow
+Reply-To: ambitiousedge1940@reply.mikebarrontopleads.com
+X-Mailgun-Variables: {"c_id": "yGlbDqWHb3zsRbuCOTTL", "email_type": "workflow", "email_type_id":
+ "a7dcfb03-cdb7-4ed6-a617-9bc4695869fc", "email_type_step_id":
+ "785c065d-d22a-4c21-a24d-1244a7537628", "loc_id": "opct5AKaaI9CbZBDbKho",
+ "method": "api", "source": "email-isv-worker"}
+Message-Id: <20231027000201.8aa8103847fa8fd7@reply.mikebarrontopleads.com>
+
+--403d52cc22ae2fe07f8e9814f68e5e9081311722bfc0ca165f490cbb0a04
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+[https://email.reply.mikebarrontopleads.com/c/eJxskUFr3DAQhX-NfZMZS7JkHXRIE=
+7YtKRRKoNDLMpLGtoi9ciWlYfvrixcKOex1eO9jeJ8_x2Cvn1f39PvnFyf-lh_u7fH7y8u3NlhN=
+BkC0ZHtlRqGk4X1LG8b1XK872feUX6c1vX-4HTDUwU8OBPPBaSYpKIaq18w4L5UZRmUm_7FSKu1=
+HT4-DBzUEFjhHJj3vGXIZWM-lRD0IrfjYLpajF07rIFGZaQSSXgknJ28kQuDk22g5cNED1wDAoe=
+9GxLEHMUo94TgF3UjItK_Xbouv5DDndKlpXwlD6Xza2tUute6lEQ8NPzX8VGrKOFM3pzSvhHu8x=
+Rp-2spcLiE3_JR2X4eHZ8Sv5tH9-vTknpd0BChEbPhJSQowKSQSBjSQG2AaVI_dfpnbNd0c3EO0=
+G9UlBYt7bLONJWPuti66jEvcGgnzseLt55Lesid7m5XF8ocdcii31R74u-xqfdrOd9VXS_X8X--=
+_AAAA__9NULIL]
+
+Hi Mohammad,
+
+Time is running out to claim your FREE haircut voucher for your next visit =
+to Ambitious Edge. I'm Alex Estrada, and I've been
+delighted to see many of our valued clients booking their appointments thro=
+ugh our website and reaping the rewards.
+
+Here's how to get your FREE haircut voucher:
+
+ * Visit our website: [Insert Website Link]
+
+ * Select your desired service and barber.
+
+ * Choose your preferred date and time.
+
+ * Complete your booking.
+
+It's that simple!
+
+Thank you for your support, and I can't wait to welcome you to Ambitious Ed=
+ge for a truly exceptional grooming experience. Book
+now and secure your spot:
+
+VISIT OUR WEBSITE NOW! [https://email.reply.mikebarrontopleads.com/c/eJxskc=
+Fq3DAQhp_GusnII9mSDzqkCduWFAolUOhlGWnkWMSqXEnbsH364oVADrkO83_DfL8_R7LXz5t7-=
+PPzi5P_6g93uf_-9PSNkdVhFkKyYIdpNnJSMwwsJIzbuV33YF9zeVm2_PpudsBQk1-ckNyT01wF=
+mjhOg-az82qaRzPNi38fqS3sR06b0YtpJE4AyJWHgSMo4gMohXqUegLDVos4OqU0kRKjM4QSF1C=
+e0HmUC9DCogUBchCghRAght4gmkFIo_SCZiHdKVHCvl37FF-Cw1Ly75b3LSDV3ufENru2ttdO3n=
+Vw6uCEycUW86UGeg7HRgcntuWbubz7Nt49In6d792vTw_ucc0shbZmsrhHVmysBUuf-ugKrjF1S=
+jwfv98u1XwpPtibDB7rX34oDYU1e-A_ZDfrczp_WFizoZ3fSvkfAAD__40kmwQ]
+
+If you have any questions or need assistance with your booking, please don'=
+t hesitate to reply to this email!
+
+Looking forward to seeing you soon!
+
+Warm regards,
+
+Alex Estrada Ambitious Edge Barbershop
+--403d52cc22ae2fe07f8e9814f68e5e9081311722bfc0ca165f490cbb0a04
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div style=3D"font-family: Roboto, Arial; font-size: 14px;"><!doctype html>
+<html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn:schemas-microso=
+ft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:office">
+  <head>
+    <title>
+     =20
+    </title>
+    <!--[if !mso]><!-->
+    <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+    <!--<![endif]-->
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8=
+">
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=
+=3D1">
+    <style type=3D"text/css">
+      #outlook a { padding:0; }
+      body { margin:0;padding:0;-webkit-text-size-adjust:100%;-ms-text-size=
+-adjust:100%; }
+      table, td { border-collapse:collapse;mso-table-lspace:0pt;mso-table-r=
+space:0pt; }
+      img { border:0;height:auto;line-height:100%; outline:none;text-decora=
+tion:none;-ms-interpolation-mode:bicubic; }
+      p { display:block;margin:13px 0; }
+    </style>
+    <!--[if mso]>
+    <noscript>
+    <xml>
+    <o:OfficeDocumentSettings>
+      <o:AllowPNG/>
+      <o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings>
+    </xml>
+    </noscript>
+    <![endif]-->
+    <!--[if lte mso 11]>
+    <style type=3D"text/css">
+      .mj-outlook-group-fix { width:100% !important; }
+    </style>
+    <![endif]-->
+   =20
+   =20
+    <style type=3D"text/css">
+      @media only screen and (min-width:480px) {
+        .mj-column-per-100 { width:100% !important; max-width: 100%; }
+      }
+    </style>
+    <style media=3D"screen and (min-width:480px)">
+      .moz-text-html .mj-column-per-100 { width:100% !important; max-width:=
+ 100%; }
+    </style>
+   =20
+ =20
+    <style type=3D"text/css">
+   =20
+   =20
+
+    @media only screen and (max-width:480px) {
+      table.mj-full-width-mobile { width: 100% !important; }
+      td.mj-full-width-mobile { width: auto !important; }
+    }
+ =20
+    </style>
+    <style type=3D"text/css">
+    /* custom styles */ @media (min-width:481px) {
+        .mj-desktop-hidden-element {
+          display: none !important;
+        }
+      }
+      li p {
+        margin:0 !important;
+      }
+      p a, h1 a, h2 a, h3 a, h4 a, h5 a, li a {
+        color: inherit !important;
+      }
+      a span {
+        text-decoration: underline;
+        color: inherit;
+      }
+      p.ghl-empty-p-tag {
+        height:1lh;
+      }
+      @media (max-width:480px) {
+       .mj-small-device-hidden-element {display:none !important;}
+      }
+    </style>
+   =20
+  </head>
+  <body style=3D"word-spacing:normal;">
+   =20
+   =20
+      <div
+         class=3D"email-content" style=3D"background-color:#EAF0F6;backgrou=
+nd-image:url('');background-repeat:no-repeat;background-size:cover;backgrou=
+nd-position:center center;"
+      >
+       =20
+     =20
+      <!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" class=3D"" role=3D"presentation" style=3D"width:600px=
+;" width=3D"600" bgcolor=3D"#ffffff" ><tr><td style=3D"line-height:0px;font=
+-size:0px;mso-line-height-rule:exactly;"><v:rect style=3D"width:600px;" xml=
+ns:v=3D"urn:schemas-microsoft-com:vml" fill=3D"true" stroke=3D"false"><v:fi=
+ll origin=3D"0.5, 0" position=3D"0.5, 0" src=3D"https://storage.googleapis.=
+com/preview-production-assets/email/img/hl_default_img/bg_img/Pattern-01.pn=
+g" color=3D"#ffffff" type=3D"tile" /><v:textbox style=3D"mso-fit-shape-to-t=
+ext:true" inset=3D"0,0,0,0"><![endif]-->
+         =20
+      <div  style=3D"background:#ffffff url('https://storage.googleapis.com=
+/preview-production-assets/email/img/hl_default_img/bg_img/Pattern-01.png')=
+ center top / auto repeat;background-position:center top;background-repeat:=
+repeat;background-size:auto;margin:0px auto;max-width:600px;">
+        <div  style=3D"line-height:0;font-size:0;">
+        <table
+           align=3D"center" background=3D"https://storage.googleapis.com/pr=
+eview-production-assets/email/img/hl_default_img/bg_img/Pattern-01.png" bor=
+der=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=
+=3D"background:#ffffff url('https://storage.googleapis.com/preview-producti=
+on-assets/email/img/hl_default_img/bg_img/Pattern-01.png') center top / aut=
+o repeat;background-position:center top;background-repeat:repeat;background=
+-size:auto;width:100%;"
+        >
+          <tbody>
+            <tr>
+              <td
+                 style=3D"direction:ltr;font-size:0px;padding:20px 0;paddin=
+g-bottom:10px;padding-left:20px;padding-right:20px;padding-top:10px;text-al=
+ign:center;"
+              >
+                <!--[if mso | IE]><table role=3D"presentation" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-a=
+lign:top;width:560px;" ><![endif]-->
+           =20
+      <div
+         class=3D"mj-column-per-100 mj-outlook-group-fix" style=3D"font-siz=
+e:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top=
+;width:100%;"
+      >
+       =20
+      <table
+         border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentat=
+ion" style=3D"vertical-align:top;" width=3D"100%"
+      >
+        <tbody>
+         =20
+              <tr>
+                <td
+                   align=3D"center" style=3D"font-size:0px;padding:10px 25p=
+x;padding-top:10px;padding-right:20px;padding-bottom:10px;padding-left:20px=
+;word-break:break-word;"
+                >
+                 =20
+      <table
+         border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentat=
+ion" style=3D"border-collapse:collapse;border-spacing:0px;"
+      >
+        <tbody>
+          <tr>
+            <td  style=3D"width:156px;">
+             =20
+      <img
+         height=3D"auto" src=3D"https://storage.googleapis.com/msgsndr/opct=
+5AKaaI9CbZBDbKho/media/64ed0f6aee39070eb50f561a.png" style=3D"border:0;disp=
+lay:block;outline:none;text-decoration:none;height:auto;width:100%;font-siz=
+e:13px;" width=3D"156"
+      />
+   =20
+            </td>
+          </tr>
+        </tbody>
+      </table>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td
+                   align=3D"left" style=3D"font-size:0px;padding:10px 25px;=
+padding-top:10px;padding-right:20px;padding-bottom:10px;padding-left:20px;w=
+ord-break:break-word;"
+                >
+                 =20
+      <div
+         style=3D"font-family:arial, helvetica, sans-serif;font-size:14px;l=
+ine-height:1.25;text-align:left;color:#000000;"
+      ><p style=3D"line-height: 1.15; line-height: 1.15"><span style=3D"fon=
+t-size: 10pt; color: rgb(0, 0, 0); font-size: 10pt; color: rgb(0, 0, 0)">Hi=
+ Mohammad,</span></p><p style=3D"line-height: 1.15; line-height: 1.15"><spa=
+n style=3D"font-size: 10pt; color: rgb(0, 0, 0); font-size: 10pt; color: rg=
+b(0, 0, 0)">Time is running out to claim your FREE haircut voucher for your=
+ next visit to Ambitious Edge. I'm Alex Estrada, and I've been delighted to=
+ see many of our valued clients booking their appointments through our webs=
+ite and reaping the rewards.</span></p><p><span style=3D"font-size: 10pt; c=
+olor: rgb(0, 0, 0); font-size: 10pt; color: rgb(0, 0, 0)">Here's how to get=
+ your FREE haircut voucher:</span></p><ul><li style=3D"color: rgb(0, 0, 0)"=
+><p><span style=3D"font-size: 10pt; color: rgb(0, 0, 0); font-size: 10pt; c=
+olor: rgb(0, 0, 0)">Visit our website: [Insert Website Link]</span></p></li=
+><li style=3D"color: rgb(0, 0, 0)"><p><span style=3D"font-size: 10pt; color=
+: rgb(0, 0, 0); font-size: 10pt; color: rgb(0, 0, 0)">Select your desired s=
+ervice and barber.</span></p></li><li style=3D"color: rgb(0, 0, 0)"><p><spa=
+n style=3D"font-size: 10pt; color: rgb(0, 0, 0); font-size: 10pt; color: rg=
+b(0, 0, 0)">Choose your preferred date and time.</span></p></li><li style=
+=3D"color: rgb(0, 0, 0)"><p><span style=3D"font-size: 10pt; color: rgb(0, 0=
+, 0); font-size: 10pt; color: rgb(0, 0, 0)">Complete your booking.</span></=
+p></li></ul><p><span style=3D"font-size: 10pt; color: rgb(0, 0, 0); font-si=
+ze: 10pt; color: rgb(0, 0, 0)">It's that simple!</span></p><p><span style=
+=3D"font-size: 10pt; color: rgb(0, 0, 0); font-size: 10pt; color: rgb(0, 0,=
+ 0)">Thank you for your support, and I can't wait to welcome you to Ambitio=
+us Edge for a truly exceptional grooming experience. Book now and secure yo=
+ur spot:</span></p></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td
+                   align=3D"center" vertical-align=3D"middle" class=3D"mj-s=
+mall-device-button " style=3D"font-size:0px;padding:10px 25px;padding-top:1=
+0px;padding-right:20px;padding-bottom:10px;padding-left:20px;word-break:bre=
+ak-word;"
+                >
+                 =20
+      <table
+         border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentat=
+ion" style=3D"border-collapse:separate;line-height:100%;"
+      >
+        <tbody>
+          <tr>
+            <td
+               align=3D"center" bgcolor=3D"#333333" role=3D"presentation" s=
+tyle=3D"border:0px solid #00a4bd;border-radius:10px;cursor:auto;mso-padding=
+-alt:10px 25px;background:#333333;" valign=3D"middle"
+            >
+              <a
+                 href=3D"https://email.reply.mikebarrontopleads.com/c/eJxsk=
+cFq3DAQhp_GusnII9mSDzqkCduWFAolUOhlGWnkWMSqXEnbsH364oVADrkO83_DfL8_R7LXz5t7=
+-PPzi5P_6g93uf_-9PSNkdVhFkKyYIdpNnJSMwwsJIzbuV33YF9zeVm2_PpudsBQk1-ckNyT01w=
+FmjhOg-az82qaRzPNi38fqS3sR06b0YtpJE4AyJWHgSMo4gMohXqUegLDVos4OqU0kRKjM4QSF1=
+Ce0HmUC9DCogUBchCghRAght4gmkFIo_SCZiHdKVHCvl37FF-Cw1Ly75b3LSDV3ufENru2ttdO3=
+nVw6uCEycUW86UGeg7HRgcntuWbubz7Nt49In6d792vTw_ucc0shbZmsrhHVmysBUuf-ugKrjF1=
+Sjwfv98u1XwpPtibDB7rX34oDYU1e-A_ZDfrczp_WFizoZ3fSvkfAAD__40kmwQ" style=3D"d=
+isplay:inline-block;background:#333333;color:#ffffff;font-family:arial, hel=
+vetica, sans-serif;font-size:16px;font-weight:bold;line-height:1.25;margin:=
+0;text-decoration:none;text-transform:none;padding:10px 25px;mso-padding-al=
+t:0px;border-radius:10px;" target=3D"_blank"
+              >
+                VISIT OUR WEBSITE NOW!
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td
+                   align=3D"left" style=3D"font-size:0px;padding:10px 25px;=
+padding-top:12px;padding-right:24px;padding-bottom:12px;padding-left:24px;w=
+ord-break:break-word;"
+                >
+                 =20
+      <div
+         style=3D"font-family:arial, helvetica, sans-serif;font-size:14px;l=
+ine-height:1.25;text-align:left;color:#000000;"
+      ><p style=3D"line-height: 1.15; line-height: 1.15"><span style=3D"fon=
+t-size: 10pt; color: rgb(0, 0, 0); font-size: 10pt; color: rgb(0, 0, 0)">If=
+ you have any questions or need assistance with your booking, please don't =
+hesitate to reply to this email!</span></p><p style=3D"line-height: 1.15; l=
+ine-height: 1.15"><span style=3D"font-size: 10pt; color: rgb(0, 0, 0); font=
+-size: 10pt; color: rgb(0, 0, 0)">Looking forward to seeing you soon!</span=
+></p><p style=3D"line-height: 1.15; line-height: 1.15"><span style=3D"font-=
+size: 10pt; color: rgb(0, 0, 0); font-size: 10pt; color: rgb(0, 0, 0)">Warm=
+ regards,</span></p><p style=3D"line-height: 1.15; line-height: 1.15"><span=
+ style=3D"font-size: 10pt; color: rgb(0, 0, 0); font-size: 10pt; color: rgb=
+(0, 0, 0)">Alex Estrada Ambitious Edge Barbershop</span></p></div>
+   =20
+                </td>
+              </tr>
+           =20
+        </tbody>
+      </table>
+   =20
+      </div>
+   =20
+          <!--[if mso | IE]></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+   =20
+        <!--[if mso | IE]></v:textbox></v:rect></td></tr></table><![endif]-=
+->
+   =20
+   =20
+      </div>
+   =20
+  <img width=3D"1px" height=3D"1px" alt=3D"" src=3D"https://email.reply.mik=
+ebarrontopleads.com/o/eJxskUuLFDEURn_NZJfi5lF5LLLQGVAZQZABwU1x87JCV5kylbZpf=
+71Uw0AvenvhO3DODVOJ7vpp8S9_fnz24t_-3Z-fv729fSXR6WQBBEmOKWuEkpYzklYsy9SvW3KX=
+2k55qZe72wFDHUP2IGiIXlOZoqKomKbWB6nsaJTN4X6y97QdO23GAGqMNHKOVAbOKHIZKeNSoh6=
+FVtyQ2UkQGAJ6ENaMXDMdsvA2I_MelMlIiuPABQOuAYADGwyiYSCM1BlNjvpJQkvbch3WckoeW6=
+u_e92WhHEfQl3JUm9R6hb6-OEV8Yt99j8_vvjXuZI19blGh1shzZW9YRvWofiGc1mfJPw6tG6Qv=
+Z5bSO7mScv-lx61UiPdHfiH7O5CXaeHv-gu9em99_8AAAD__9IPjds"></body>
+</html>
+  </div>
+--403d52cc22ae2fe07f8e9814f68e5e9081311722bfc0ca165f490cbb0a04--

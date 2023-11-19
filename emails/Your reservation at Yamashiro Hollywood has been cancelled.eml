@@ -1,0 +1,363 @@
+Delivered-To: funnygum977@gmail.com
+Received: by 2002:a05:7108:6988:b0:339:159:19dc with SMTP id bn8csp2842937gdb;
+        Sun, 27 Aug 2023 18:20:35 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEa2YgqMVKydaXsUQEMoPdEn6akv4OTkNXGVNjR3mYVPmmc2Q+eddXRRit3QV+xCZwBBvq+
+X-Received: by 2002:a05:6a20:a10d:b0:14c:d0c0:d406 with SMTP id q13-20020a056a20a10d00b0014cd0c0d406mr3619028pzk.58.1693185635340;
+        Sun, 27 Aug 2023 18:20:35 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1693185635; cv=none;
+        d=google.com; s=arc-20160816;
+        b=fwwwXSoXxJlRKcivAg7YrJujStReQr2agL6Ux2u/2NSwiD3LZYdaLtY9bmtijye8nd
+         1qb0PS6ZBWL7M8AkW4y7/VMpfnew0IOByESWRtZhdQob2DGp8qpQ2PBAvrog/m0YNqls
+         BFgHuPUGHoBY8WFbVzDp8CHI1HT7B47YfLx1A65na93Q+gO4HFVxl1q7Kw7SPJ/AH/HN
+         kSDIMdWNY9gPirgxbcDGf3Ywbk3IARRAES43arHIhNZYAs8Kf+68aE7ACVfXXCz0sSka
+         ubZu5boxU05C0F5orO+N7EU4qeLhDZfOAQoq+Lj4Yd7aKODXnDrZPajGQgLwUcbBz1T8
+         /MEw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:reply-to:date:message-id:from:subject:content-transfer-encoding
+         :mime-version:dkim-signature:dkim-signature;
+        bh=6CUneShyvbrLNxRqYmPOUv0z8a/NY/lNf0D7CGs4vfA=;
+        fh=3KxIDdUNjr10SEPqSSEpS++ic6Rdy+Dm2Nyl3+vUblM=;
+        b=eHrzvYbjLH/KxZa8I+21uuXuTQdb/nbCNdXIJe8Bq+CuYvVJptucm5A26KGpluWcaw
+         Q93Wp7KQOiAucBlvw9VvQWWYZc8dqfczvGAPxCMf0YpaialMgGMyJg/aFToO0zjZ5vMP
+         XES0PMtWktAurT+rFQhesIMAFdfuUhNUHrZXBfOix7DvZraMo8RQ4bQO8Y98t8v19jCv
+         qKuThNc2Gwe4Yncm1zBoeIfmPqmd9XBeMjNJExb4h3SdS+HF5MA2/GWv/QDpmdblSl70
+         zrvT0tSELAsojSDaKSstXm8s7JBGCgy42/rBK/RyONURbyI9+k2jw3hCOzHmt4jyJSss
+         Mx7w==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@resy.com header.s=s1 header.b=OUI6YDuQ;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=QX298qCg;
+       spf=pass (google.com: domain of bounces+1170715-d065-funnygum977=gmail.com@email.resy.com designates 168.245.120.227 as permitted sender) smtp.mailfrom="bounces+1170715-d065-funnygum977=gmail.com@email.resy.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=resy.com
+Return-Path: <bounces+1170715-d065-funnygum977=gmail.com@email.resy.com>
+Received: from xvfrtvzp.outbound-mail.sendgrid.net (xvfrtvzp.outbound-mail.sendgrid.net. [168.245.120.227])
+        by mx.google.com with ESMTPS id d6-20020a170903230600b001bef085a384si6838531plh.322.2023.08.27.18.20.34
+        for <funnygum977@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 27 Aug 2023 18:20:35 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+1170715-d065-funnygum977=gmail.com@email.resy.com designates 168.245.120.227 as permitted sender) client-ip=168.245.120.227;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@resy.com header.s=s1 header.b=OUI6YDuQ;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=QX298qCg;
+       spf=pass (google.com: domain of bounces+1170715-d065-funnygum977=gmail.com@email.resy.com designates 168.245.120.227 as permitted sender) smtp.mailfrom="bounces+1170715-d065-funnygum977=gmail.com@email.resy.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=resy.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=resy.com;
+	h=content-type:mime-version:content-transfer-encoding:subject:from:
+	reply-to:x-feedback-id:to:cc:content-type:from:subject:to;
+	s=s1; bh=6CUneShyvbrLNxRqYmPOUv0z8a/NY/lNf0D7CGs4vfA=;
+	b=OUI6YDuQv6vTcULABa6/A1hSDJ7gJr4qXTitKM1s59zocKKSseZkJx0pH8wL6eLu/am9
+	Ew+ZHvxrQFNLkj09ivlo0MKo7asSO3k7fVMj3fpFKI7RRPCNYxn1SxEycxUDcrAByl40bW
+	yMPRDhCqhqT3hqjWuizegD6FNzKrm3ovdSidbCsiF7oXJQUluwNwL7NAmF0ebYXSKhMTPa
+	PlPFZ9FFhMfOz9K5Ww8w8VG+mIbOJsSTz/tvqQEYRnUG3C0fXr3jRKhf0GY7ikovujeXYg
+	/Muty/Pek/0bbiB+oVKFG+kQh73rxmpdNklCIyG265o7bbTksxYRmvwotXYgp2RQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info;
+	h=content-type:mime-version:content-transfer-encoding:subject:from:
+	reply-to:x-feedback-id:to:cc:content-type:from:subject:to;
+	s=smtpapi; bh=6CUneShyvbrLNxRqYmPOUv0z8a/NY/lNf0D7CGs4vfA=;
+	b=QX298qCgU0hw5edjwpzM27idXn8gJm1N3NyCaFJrYBRJvqzdC2tQq0ixjlN/SrA+dqCk
+	/m7UGEIW/FI8wsoFnV/hg2fCR+nN4YACUP7MLWMrMP9UKKqJtAY2HX58mtKNuiocjc4OW9
+	6EfZkxmqOD3OCYiaJDGGu1B6R+bIrT1pE=
+Received: by filterdrecv-648f9945cb-dnfxv with SMTP id filterdrecv-648f9945cb-dnfxv-1-64EBF662-2F
+        2023-08-28 01:20:34.428155747 +0000 UTC m=+9423735.517104199
+Received: from ip-10-40-111-163.ec2.internal (unknown)
+	by geopod-ismtpd-32 (SG) with ESMTP id uMX7iecdSJeBwfWUdRd24w
+	for <funnygum977@gmail.com>; Mon, 28 Aug 2023 01:20:34.312 +0000 (UTC)
+Received: by ip-10-40-111-163.ec2.internal (Postfix, from userid 99)
+	id 17970B4820; Mon, 28 Aug 2023 01:20:34 +0000 (UTC)
+Content-Type: text/html; charset=us-ascii
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Subject: Your reservation at Yamashiro Hollywood has been cancelled
+From: Resy Reservations <noreply@resy.com>
+Message-Id: <20230828012034.17970B4820@ip-10-40-111-163.ec2.internal>
+Date: Mon, 28 Aug 2023 01:20:34 +0000 (UTC)
+Reply-To: reception@yamashirohollywood.com
+X-Feedback-ID: 1170715:SG
+X-SG-EID: 
+ =?us-ascii?Q?ozcuQASq3dqOyq3L6IPWmhE8qOzhWDW5nEdY2myVMWZ6xVQSEOqJ19dig8f4Wn?=
+ =?us-ascii?Q?GKwjscPXIvz5dF4vW4H25Zj+BS8dG0P1pueo4mT?=
+ =?us-ascii?Q?=2F5Gn1DxVeRKCysV7douTmirIdmep8a0HohRvdAr?=
+ =?us-ascii?Q?iztCmYamzacZJCKAY7mkO=2FsPZdyJgTaZAz11I0V?=
+ =?us-ascii?Q?yo9a0K9wHb2FBaD18mAnmxCfQPXBEad3+njmLXE?=
+ =?us-ascii?Q?n0Gzo=2Fqol1WNU7lc4hZ5jq=2FTzGjWY=2F6sLkbYV8?=
+To: funnygum977@gmail.com
+X-Entity-ID: lgOT3P1T7t7CVvjdLsp54g==
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+	<!--[if gte mso 9]>
+	<xml>
+		<o:OfficeDocumentSettings>
+		<o:AllowPNG/>
+		<o:PixelsPerInch>96</o:PixelsPerInch>
+		</o:OfficeDocumentSettings>
+	</xml>
+	<![endif]-->
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="format-detection" content="date=no" />
+	<meta name="format-detection" content="address=no" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="x-apple-disable-message-reformatting" />
+    <!--[if !mso]><!-->
+   	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet"/>
+    <!--<![endif]-->
+	<title>Email Template</title>
+	<!--[if gte mso 9]>
+	<style type="text/css" media="all">
+		sup { font-size: 100% !important; }
+	</style>
+	<![endif]-->
+
+
+	<style type="text/css" media="screen">
+		/* Linked Styles */
+		body { padding:0 !important; margin:0 !important; display:block !important; min-width:100% !important; width:100% !important; background:#ffffff; -webkit-text-size-adjust:none }
+		a { color:#4076dd; text-decoration:none }
+		p { padding:0 !important; margin:0 !important }
+		img { -ms-interpolation-mode: bicubic; /* Allow smoother rendering of resized image in Internet Explorer */ }
+		.mcnPreviewText { display: none !important; }
+
+
+		/* Mobile styles */
+		@media only screen and (max-device-width: 480px), only screen and (max-width: 480px) {
+			.mobile-shell { width: 100% !important; min-width: 100% !important; }
+
+			.m-center { text-align: center !important; }
+
+			.center { margin: 0 auto !important; }
+
+			.td { width: 100% !important; min-width: 100% !important; }
+
+			.m-br-15 { height: 15px !important; }
+			.m-br-30 { height: 30px !important; }
+
+			.text-preheader,
+			.m-td,
+			.m-hide { display: none !important; width: 0 !important; height: 0 !important; font-size: 0 !important; line-height: 0 !important; min-height: 0 !important; }
+
+			.m-block { display: block !important; }
+
+			.fluid-img img { width: 100% !important; max-width: 100% !important; height: auto !important; }
+
+			.column-top,
+			.column { float: left !important; width: 100% !important; display: block !important; }
+
+			.content-spacing { width: 15px !important; }
+
+
+			.img-map { width: 120px !important; height: auto !important; }
+
+			.btn-width,
+			.btn-width img { height: 40px !important; width: auto !important; }
+
+			.text-small { text-align: center !important; padding: 0 15px 20px !important; }
+
+			.p0-15 { padding-left: 15px !important; padding-right: 15px !important; }
+			.p35-15-30 { padding: 35px 15px 30px !important; }
+			.p30-0 { padding: 30px 0 !important; }
+
+			.m-text-grey { font-size: 14px !important; line-height: 18px !important; }
+			.m-text2 { font-size: 16px !important; line-height: 20px !important; }
+
+			.btn { font-size: 16px !important; line-height: 20px !important; }
+
+			.h1 { font-size: 26px !important; line-height: 30px !important; }
+
+			.img-check { vertical-align: top !important; }
+			.img-check img { width: 30px !important; height: auto !important; }
+
+			.text2 { font-size: 16px !important; line-height: 20px !important; }
+		}
+	</style>
+</head>
+<body class="body" style="padding:0 !important; margin:0 !important; display:block !important; min-width:100% !important; width:100% !important; background:#ffffff; -webkit-text-size-adjust:none;">
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff">
+		<tr>
+			<td align="center" valign="top">
+				<table width="600" border="0" cellspacing="0" cellpadding="0" class="mobile-shell">
+					<tr>
+						<td class="td" style="width:600px; min-width:600px; font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal;">
+              
+                							<!-- Header -->
+							<table width="100%" border="0" cellspacing="0" cellpadding="0" class="plr-15">
+								<tr>
+									<td style="padding: 30px 0; border-bottom: 1px solid #eaeaea;">
+										<table width="100%" border="0" cellspacing="0" cellpadding="0">
+											<tr>
+										        <!-- Logo -->
+                                                
+                                                    <td class="text-preheader" width="250" style="color:#aaaaaa; font-family:'Helvetica Neue', Arial,sans-serif; font-size:12px; line-height:16px; text-align:left;">Right This Way</td>
+                                                        
+                                                            <td class="img-center" style="font-size:0pt; line-height:0pt; text-align:center;">
+                                                                <a href="http://newsletter.resy.com/ls/click?upn=-2BAJ786n0YwF1OGvC9a29aqxy-2FUA0OXJOmJnjDyKU-2BWw-3D1E6n_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaLPAm7H4g7kby-2BSKvHivWiWb05tSZ8nbFNAqzNhVbz6suogDnh9mhnlEVviRms0mVxbtoZkMBVFXsQ1IUcujwRTIU9mhnfKUaspBUmcsl0KXB3cCB2W7IzwPzT3H-2FKnhEdj4DM6zrvKHEN75QiA97YHoIrmYwc6RbeBFdXpEdzsqEA-3D-3D" target="_blank"><img src="https://s3.amazonaws.com/resy.com/images/email/v4/logo2.png" width="75" height="33" border="0" alt="Resy" /></a>
+                                                            </td>
+                                                        
+                                                    </td>
+                                                    <td class="text-preheader right" width="250" style="color:#aaaaaa; font-family:'Helvetica Neue', Arial,sans-serif; font-size:12px; line-height:16px; text-align:right;">Dept. of Reservations</td>
+												
+												<!-- END Logo -->
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</table>
+							<!-- END Header -->
+              
+              
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td class="h1 p35-15-30" style="padding: 50px 0 25px; color:#2a2a2a; font-family:'Helvetica Neue', Arial,sans-serif; font-size:32px; line-height:37px; text-align:left; font-weight:bold;">
+            Your reservation has been cancelled.
+        </td>
+    </tr>
+</table>
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="p0-15" style="padding-bottom: 35px;">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+<td align="left" style="padding-bottom: 7px; ">
+    <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td class="text2" style="color:#2a2a2a; font-family:'Helvetica Neue', Arial,sans-serif; font-size:18px; line-height:24px; text-align:left;"><strong>Yamashiro Hollywood</strong></td>
+    </tr>
+    </table>
+</td>
+</tr>
+<tr>
+<td align="left" style="padding-bottom: 7px; ">
+    <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td class="img" width="30" style="font-size:0pt; line-height:0pt; text-align:left;"><img src="https://s3.amazonaws.com/resy.com/images/email/v4/ic_calendar@2x.png" width="15" height="15" border="0" alt="" /></td>
+
+        <td class="text2" style="color:#2a2a2a; font-family:'Helvetica Neue', Arial,sans-serif; font-size:18px; line-height:24px; text-align:left;">
+        
+        Sun, Aug. 27 at 8:00pm
+        
+        </td>
+    </tr>
+    </table>
+</td>
+</tr>
+<tr>
+
+<td align="left" style="padding-bottom: 20px; ">
+
+    <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td class="img" width="30" style="font-size:0pt; line-height:0pt; text-align:left;"><img src="https://s3.amazonaws.com/resy.com/images/email/v4/ic_guests@2x.png" width="17" height="14" border="0" alt="" /></td>
+
+        <td class="text2" style="color:#2a2a2a; font-family:'Helvetica Neue', Arial,sans-serif; font-size:18px; line-height:24px; text-align:left;">2 Guests, Dining Room</td>
+    </tr>
+    </table>
+</td>
+</tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td class="p0-15">
+                      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td style="border-top: 1px solid #eaeaea; padding: 30px 0; ">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                              <tr>
+                                <td class="text" style="padding-bottom: 10px; color:#2a2a2a; font-family:'Helvetica Neue', Arial,sans-serif; font-size:16px; line-height:24px; text-align:left;">
+                                  Your reservation at Yamashiro Hollywood on Sunday August 27 at 8:00pm has been cancelled.<br />
+<br />
+If you have any questions, please reply to this email or call 323-466-5125.
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+
+              
+              
+              
+                							<table width="100%" border="0" cellspacing="0" cellpadding="0">
+								<tr>
+									<td class="p0-15">
+										<table width="100%" border="0" cellspacing="0" cellpadding="0">
+											<tr>
+												<td style="border-top: 1px solid #eaeaea; padding: 30px 0 55px; ">
+													<table width="100%" border="0" cellspacing="0" cellpadding="0">
+														<tr>
+															<th class="column" width="255" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal;">
+																<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																	<tr>
+																		<td class="text-small" style="color:#2a2a2a; font-family:'Helvetica Neue', Arial,sans-serif; font-size:14px; line-height:22px; text-align:left;">
+																			<strong>Download our app </strong>to set dining preferences and invite friends on the go.
+																		</td>
+																	</tr>
+																</table>
+															</th>
+															<th class="column" width="10" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal;"></th>
+															<th class="column" width="330" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal;">
+																<table class="center" border="0" cellspacing="0" cellpadding="0">
+																	<tr>
+																		<td class="img btn-width" width="330" style="font-size:0pt; line-height:0pt; text-align:right;"><a href="http://newsletter.resy.com/ls/click?upn=-2BAJ786n0YwF1OGvC9a29aviAK8A-2BLH2-2FpCSVFHMwf5-2BQd88-2FbfVwvpOWU37gF9ftTg0tU0GCEFxUaAQomtckTAxF6WDLf9i9TZ2DOGOsfYs-3DOpVQ_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaLPAm7H4g7kby-2BSKvHivWiWbqFNL-2FstK5bf-2FaunKwvTVDHs6vHhx8rxPb0UYYxU-2FXAR6BpHzjglKuuiXWTCU5xK74N9RsH1Vd2X7xdj-2Br-2B0zl0tWExpq7AabUF7q-2BtvxBU9BIaJutECmaTzgC4au07mK7UWJpeJkSowufYecT4JrdA-3D-3D" target="_blank"><img src="https://s3.amazonaws.com/resy.com/images/email/v3/en-us/btn_app_store.png" width="150" height="50" border="0" alt="" /></a></td>
+																	</tr>
+																</table>
+															</th>
+														</tr>
+													</table>
+												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</table>
+              
+              
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+
+	<!-- Footer -->
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#fafafa">
+		<tr>
+			<td align="center" valign="top" style="border-top: 1px solid #eaeaea; padding: 30px 0 60px;">
+				<table width="600" border="0" cellspacing="0" cellpadding="0" class="mobile-shell">
+          
+
+          <tr>
+    <td class="text-footer" style="padding-bottom: 30px; color:#7a7a7a; font-family:'Helvetica Neue', Arial,sans-serif; font-size:12px; line-height:16px; text-align:center;">
+    This is a servicing communication sent by Resy Network Inc, 222 Broadway, Floor 17 New York, NY 10038.<br /><br />If you have questions or to verify the authenticity of this email, please reach out to <a href="mailto:help@resy.com" target="_blank" class="link" style="color:#4076dd; text-decoration:none;"><span class="link" style="color:#4076dd; text-decoration:none;">help@resy.com</span></a>.<br /><br />You are receiving this message because <a href="mailto:funnygum977@gmail.com" target="_blank" class="link" style="color:#4076dd; text-decoration:none;"><span class="link" style="color:#4076dd; text-decoration:none;">Ethan Ton, funnygum977@gmail.com</span></a> is a member of Resy. If you received this email at a different address, this email message was forwarded.<br /><br />Visit our <a href="http://newsletter.resy.com/ls/click?upn=-2BAJ786n0YwF1OGvC9a29aqEtiobpeo3905dlv9WHENCcaa8PEIcCTzxajTOhUIbnRBu1_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaLPAm7H4g7kby-2BSKvHivWiWbYlk6uyp3QduUtsyR4i-2Fz8tUiE8OO8PUmzy5AqWhq8ni1MiRor1Atw-2FYc0y5ZwI1w8I4q23DEzW228vKsqI6Qp16EVjWYP-2FVWymXpbPfXkKgNkoRHjZceDMPQCIn1EreSTflb-2FDb6kvN-2BZ-2BOA56HRbA-3D-3D" target="_blank" class="link" style="color:#4076dd; text-decoration:none;"><span class="link" style="color:#4076dd; text-decoration:none;">Privacy Policy</span></a> a
+ nd <a href="http://newsletter.resy.com/ls/click?upn=-2BAJ786n0YwF1OGvC9a29aoV75jdSHzzlV4a8utURcZY-3DD0zk_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaLPAm7H4g7kby-2BSKvHivWiWbmXzQsOXqRdOjgMQ1VXS4AFdbW8HrBU-2FFoZZlIusmZ9u1ok75a9m-2FFIgtZCvl3UP7OZ9cEGCBlQfY4oOqwYzY6UGGSTTsQdosH-2FzXK-2BLWsBc3ik1n2c3l7YlRqL0Kt3eAUqzDiAHjSufqNnEjTukPwA-3D-3D" target="_blank" class="link" style="color:#4076dd; text-decoration:none;"><span class="link" style="color:#4076dd; text-decoration:none;">Terms of Service</span></a> for more information.
+    </td>
+</tr>
+		  
+          	<tr>
+    <td align="center" style="padding-bottom: 40px; ">
+        <table border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td class="img" width="24" style="font-size:0pt; line-height:0pt; text-align:left;"><a href="http://newsletter.resy.com/ls/click?upn=-2BAJ786n0YwF1OGvC9a29aueJe9iCYKY96M6fLUWA7KGsqElqEZBnpKZB1uYR2xr9RT4h_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaLPAm7H4g7kby-2BSKvHivWiWb8PvtjmWoY94Yxdd1tkeJNjGojyCQxf8bh4gWEcBmcl7ak974v-2Bu-2FIGChggG45kF4fwB3vZwQd3pX-2FXggWZ7juayq0OT5t3mzaU4-2BtKiAAy-2FMHDPx-2FqQn53Mq-2B1NwoBXkcBxuzz2ROb8seMbRTlkgNw-3D-3D" target="_blank"><img src="https://s3.amazonaws.com/resy.com/images/email/v4/ico_instagram.png" width="22" height="22" border="0" alt="" /></a></td>
+                <td class="img" width="20" style="font-size:0pt; line-height:0pt; text-align:left;"></td>
+                <td class="img" width="24" style="font-size:0pt; line-height:0pt; text-align:left;"><a href="http://newsletter.resy.com/ls/click?upn=-2BAJ786n0YwF1OGvC9a29agXLjUlDuJhTLDE3MFwxY-2FUvvakkXQWlanzS5Y5HuNZuKw12_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaLPAm7H4g7kby-2BSKvHivWiWbUvqeEtQLTgss2kusS4rgK6KhfWmSd-2B7HceSrteLx5FUhVcTKCVw-2FgwfNWGHsCVjWfzfOpMStBSRiI5XTDA4Gl3BgkKchEFln8rxucDrAm7G02OO26U19X678AnirYfqU-2Bh23I1xz-2B7C1iqfnOVTa3w-3D-3D" target="_blank"><img src="https://s3.amazonaws.com/resy.com/images/email/v4/ico_twitter.png" width="24" height="20" border="0" alt="" /></a></td>
+                <td class="img" width="20" style="font-size:0pt; line-height:0pt; text-align:left;"></td>
+                <td class="img" width="24" style="font-size:0pt; line-height:0pt; text-align:left;"><a href="http://newsletter.resy.com/ls/click?upn=-2BAJ786n0YwF1OGvC9a29akZKK8hZ2RQcljFayY0ysOMxz2xoquG7OC0zQayNFdfQFHrI_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaLPAm7H4g7kby-2BSKvHivWiWbBINaq-2BNhupM2ZxUtS82jb6AiRUp9p61FS7EtO-2FjQyUTQGvHcKFbUTv2s4CgFE8AYfAjkYHWfcJH74XqhjLxAPZGTW2nhMayLDmy-2BqpxqsA0o2RBlM0xNyxe2nQLJj0twoBjU6-2FaDRU5iv98xES9dQA-3D-3D" target="_blank"><img src="https://s3.amazonaws.com/resy.com/images/email/v4/ico_facebook.png" width="22" height="22" border="0" alt="" /></a></td>
+            </tr>
+        </table>
+    </td>
+</tr>
+		  
+				</table>
+			</td>
+		</tr>
+	</table>
+	<!-- END Footer -->
+<img src="http://newsletter.resy.com/wf/open?upn=f3b2A-2B3gKFk-2BSR9fMyOrh6ZzXgKKvV2FpFgGB3dYQh9m5VnsDuFfsP1VORY2qxs-2BYrPt1b-2Be3-2FI009RX4QnccIw1qcXdBzlQUY3Cm2bthVTD-2Bfq4pI16w3-2BVpag6hUiLJ8llkRYyu5ZaapZZnpQMQAPQEios4cuwedAqZE8VaQORttAGJ8h2X9s4KAuTrSnmyvFG78S2iXdZlDaH0J2J0jmtzctLwSwLbUNvt136Nj0-3D" alt="" width="1" height="1" border="0" style="height:1px !important;width:1px !important;border-width:0 !important;margin-top:0 !important;margin-bottom:0 !important;margin-right:0 !important;margin-left:0 !important;padding-top:0 !important;padding-bottom:0 !important;padding-right:0 !important;padding-left:0 !important;"/></body>
+</html>

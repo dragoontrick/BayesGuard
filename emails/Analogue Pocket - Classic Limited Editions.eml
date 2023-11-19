@@ -1,0 +1,399 @@
+Delivered-To: funnygum977@gmail.com
+Received: by 2002:a05:7108:7399:b0:339:159:19dc with SMTP id h25csp2492025gdq;
+        Wed, 15 Nov 2023 11:07:48 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGfZo6j6xHr24b769xF3J0P6V3jtegNR/lasxJYI11e8/mKwRm07xLwfaPaC3cb/ivgrlVk
+X-Received: by 2002:a67:e1cf:0:b0:45d:9d0c:2e07 with SMTP id p15-20020a67e1cf000000b0045d9d0c2e07mr13596080vsl.6.1700075268210;
+        Wed, 15 Nov 2023 11:07:48 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1700075268; cv=none;
+        d=google.com; s=arc-20160816;
+        b=1DfHS4t20ohrkrMllr+R2ZaRRfxoAWcLwzaRtrGJQVe39yEh2ieCjfuMs8ad662IxZ
+         cB9a/J/mRfFVSasZNXNRxOZgWnfq4N4xZbTDvnJwJkjLaCoV62Sm/2BuPf++EzOAsffs
+         uuz4CXzgHOD65nB7ysWMy0JkLua5/aeY4rguhfx00fY54ctkpGmBgK7H0op1VUMzE5SL
+         3xglDVEcpTbUeweA2ExkU+0QnDjtqXq53gsuJBk4wwMeAqe6KuT6ebLYbo9q2iqrKg1O
+         Gq4lT8OOFhrUq1G9usPIssM91yrqzhPPOheYR6aRG8SA4EJndariEPlh9VF5Fg7oUqtR
+         lgUA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=list-unsubscribe:to:reply-to:subject:message-id:mime-version:from
+         :date:dkim-signature:dkim-signature;
+        bh=k2WNTDOJ0PhS/Y4RzDtN+DW9Md+MdeLSanX+4qm2rjo=;
+        fh=3KxIDdUNjr10SEPqSSEpS++ic6Rdy+Dm2Nyl3+vUblM=;
+        b=H6vkZ1fjZX57CPuZqgSs44d8ZKbXxapppRZINqjuk6w3krCv4fxkrfDt2HFPoCQ46n
+         cvxCThjdPZignNHsCS+PoEbFQqtoCuLWq11e/hWU4LV6K8I+9Tfx4NnHQs0sFr3WiQAl
+         qIad1/3DidEm9775NZS2IJqBeLW9SGxS8y7mLAjLcfJb8q1zqfGI7ZdpH1BsNZtt0ztN
+         aaCfJz+ybM7Z60/Niv0yJNsXdG34R7jRtJHWbgD03IKIs+dzf5S+QZ1okp2Mm2pX+lDl
+         oL6R4Ai1lRiHbx15gaLSoXkKvBgSj0XzxxoiCZpkD7uVt7vSYeQBz47CMamGKJK+oyTg
+         L3aQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@analogue.co header.s=s1 header.b="Pi+8w5t/";
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=cvQAwlgU;
+       spf=pass (google.com: domain of bounces+15015167-9b87-funnygum977=gmail.com@em6341.analogue.co designates 149.72.59.188 as permitted sender) smtp.mailfrom="bounces+15015167-9b87-funnygum977=gmail.com@em6341.analogue.co";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=analogue.co
+Return-Path: <bounces+15015167-9b87-funnygum977=gmail.com@em6341.analogue.co>
+Received: from o3.newsletter.mail.analogue.co (o3.newsletter.mail.analogue.co. [149.72.59.188])
+        by mx.google.com with ESMTPS id l16-20020a67fdd0000000b00457bc910100si1418689vsq.256.2023.11.15.11.07.47
+        for <funnygum977@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 15 Nov 2023 11:07:48 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounces+15015167-9b87-funnygum977=gmail.com@em6341.analogue.co designates 149.72.59.188 as permitted sender) client-ip=149.72.59.188;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@analogue.co header.s=s1 header.b="Pi+8w5t/";
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=cvQAwlgU;
+       spf=pass (google.com: domain of bounces+15015167-9b87-funnygum977=gmail.com@em6341.analogue.co designates 149.72.59.188 as permitted sender) smtp.mailfrom="bounces+15015167-9b87-funnygum977=gmail.com@em6341.analogue.co";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=analogue.co
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=analogue.co;
+	h=content-type:from:mime-version:subject:reply-to:x-feedback-id:to:
+	list-unsubscribe:cc:content-type:from:subject:to;
+	s=s1; bh=k2WNTDOJ0PhS/Y4RzDtN+DW9Md+MdeLSanX+4qm2rjo=;
+	b=Pi+8w5t/+rYht08tO1o+0Cf5wKcDPX23ZVEgMRmDxyXeLE4yu35a7cGzjkynzs/Salo3
+	lWUasQMeHt/RA5XFDotkzbrKFlT1LVyQczQaQPGhCjHnEOgbFI47Fay+BEGSEYPn+8Ok7+
+	kg0DETYhED+1mPolXddcvmajyczyInIer8JbCjPCVxOjwWJ6EOUQwm/UtUfRDo9AEG0AdL
+	Fk1hBtN5fVXdp6umqZExJBoP9jfpKUeV3J7fJ2KwWeBhjYYd3LqbH+3SDm3MZXkyudnPPP
+	BJhSyzdSKF2/2DvEEWSHIJ3yeHNEDboaz1YY84IZifgpNJlxuKDuI87t7WGHV7oA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info;
+	h=content-type:from:mime-version:subject:reply-to:x-feedback-id:to:
+	list-unsubscribe:cc:content-type:from:subject:to;
+	s=smtpapi; bh=k2WNTDOJ0PhS/Y4RzDtN+DW9Md+MdeLSanX+4qm2rjo=;
+	b=cvQAwlgU1B+ADycozIWhWwUig8ir2Sa44qCd8+Fzudk1C1CnsXTrQO3W6xVjpb3YsOiW
+	FsSRSQ0UDo9TSFWS5mYS4jpQ5w8cwMOrSUyWdvP/GcJiTrxYljU/MqxZRO3XpdefGXXJ+y
+	GkIjrdd39Dl8wE7Q2SNePiqwbSXpCJ6Hs=
+Received: by filterdrecv-f7cb6fc56-b9kjp with SMTP id filterdrecv-f7cb6fc56-b9kjp-1-6554EC16-191
+        2023-11-15 16:04:38.887970585 +0000 UTC m=+2496177.629841066
+Received: from MTUwMTUxNjc (unknown)
+	by geopod-ismtpd-14 (SG) with HTTP
+	id sD7rW0qtSP6r3RrtN6XKAw
+	Wed, 15 Nov 2023 16:04:38.864 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=3225f4d0408df8058e80b45df0846766346a43afa0dcd57bea9dff17ba01
+Date: Wed, 15 Nov 2023 16:04:40 +0000 (UTC)
+From: Analogue <mailer@analogue.co>
+Mime-Version: 1.0
+Message-ID: <sD7rW0qtSP6r3RrtN6XKAw@geopod-ismtpd-14>
+Subject: Analogue Pocket - Classic Limited Editions
+Reply-To: support@analogue.co
+X-Feedback-ID: 15015167:SG
+X-SG-EID: 
+ =?us-ascii?Q?sv1G=2FipOYMFsB5W1Ge2HgSRWqRXgSVVrrT0gzCGy3vHQhXRgWHvExBUSGFVu=2FH?=
+ =?us-ascii?Q?7wyFBvqT4+0YWQrNcYcyQO7Lf5=2FIpCcBKxBRKyW?=
+ =?us-ascii?Q?MhT8UBlGolB2GSYNA+zcV=2FqfwW14MU7kBnhE2wU?=
+ =?us-ascii?Q?0So7QYSAazzJ6ap0C6+On4V5LOh=2FRHWy2YaOsnW?=
+ =?us-ascii?Q?hgsXPW9iVnYGk=2FuFL8ddD4dKFLKK1KWDTRiEkNK?=
+ =?us-ascii?Q?lSavflZWSxx7L6FtHK989tu9=2FY5ROWw2koLc9M?=
+X-SG-ID: 
+ =?us-ascii?Q?se=2F49CGmbS0sfR97ImeXvDoOrI1ra2UfBi=2FYp+tM4sZlJ2PdK+SetPMIv+rKLE?=
+ =?us-ascii?Q?zD+O8kuKHowtD22JNgMgVQg978i=2FSIh61XQxwrq?=
+ =?us-ascii?Q?3IqaGxIySh155eqFKUPgmAPXfui3aOj92jsCcIc?=
+ =?us-ascii?Q?ZCSiIA=2FQgOJlOlHw+PTQmQVtF2CwI1di109tlEN?=
+ =?us-ascii?Q?BZeI0TGElw1D6kql2dS1rpO3yiJ4DtQaK0jnMgh?=
+ =?us-ascii?Q?0HIchVLRHQsn=2FKENgQCCbAfvnakAbXfgKvuVf2m?=
+ =?us-ascii?Q?mlm=2FOCI1gA=2FJyjPh5eIsqxVGqT7DUdEaiAycbBk?=
+ =?us-ascii?Q?1WqEQRWpmO1eLK4bt1UVcjOVu0IdfFONJqIv6+T?=
+ =?us-ascii?Q?IywxDjxb42tV8JSOtIwymXhc3Xflgf6XXqmBzHX?=
+ =?us-ascii?Q?0EWzfU5vs5ZFz2+ql0tLy0+p3Meoiv0zp=2FTAjYq?=
+ =?us-ascii?Q?Z2ptYogeO9epiUbeygjVKWMQoES8HSMLSrt+YWr?=
+ =?us-ascii?Q?jpUfoAyz60FSr+Y8Bwk7lXhop7X4nqPnDEUoxXa?=
+ =?us-ascii?Q?og9PQJNKu+Imw95tzQKrnAX=2FASaxLBz2w5x0XV=2F?=
+ =?us-ascii?Q?y4ZKCVZ4=2Fhwee4Bh43DnD0FFs0aaADt=2F2rUc781?=
+ =?us-ascii?Q?fg1ZgI6xFwOV=2FW+JWCOn0RVAp0qt=2FfPYT8SsHl0?=
+ =?us-ascii?Q?bc3EFkQ5Ja5PIFBHmkYQfAVRxWFteE0VVLgjRL5?=
+ =?us-ascii?Q?=2F85gr0T5KdwoudYPwxzFO9PU3X4c=2F2ROr0crOsq?=
+ =?us-ascii?Q?m4Ji8DAZgtqyHZ1ZafBL0D=2FP04N9FB8q86pw8zE?=
+ =?us-ascii?Q?nArn+bl7k51YYRCZd2M53BBrlGl4=2FQ28D=2FTezBo?=
+ =?us-ascii?Q?u=2FHzFFKhCkqlU54Lb4yI3qv+mZtDyc3uMA7FDDl?=
+ =?us-ascii?Q?5JsYsKuLHzill95icdqZIjk3cffTP?=
+To: funnygum977@gmail.com
+X-Entity-ID: LZQSkiwdNW35m4iR7f7nOw==
+List-Unsubscribe: 
+ =?us-ascii?Q?=3Cmailto=3Aunsubscribe=40em6341=2Eanalogue=2Eco=3Fsubject=3D15015167=2ECziR10?=
+ =?us-ascii?Q?mzWMLg=5FWvuKANxlXAXp65Y1JhboGQWcoggnkNoM?=
+ =?us-ascii?Q?DAwdTAwMCjoCpyWNL6IggkQMBJCGTbH5c3Fzmya?=
+ =?us-ascii?Q?rXPtP6cy8s8C1IsqSYmt-q5HWScCFZj6-F49-K0?=
+ =?us-ascii?Q?PVwSovGy7iOPW0NJqYcRYkEpXhcb1zh-Pb61EX4?=
+ =?us-ascii?Q?VD9LiZnwWoZ9bjIVvS4A=3D=3D=2EDGxF-=5FXPjwJYrksF?=
+ =?us-ascii?Q?eUf3Nf-hjSA81BXfORk37nWPPSFoMDAwdTAwMPI?=
+ =?us-ascii?Q?lnTl341kXWhjlB8zNN=5F1gv7waPIcl=5Fgz7mPt5O1?=
+ =?us-ascii?Q?sFoELpZY92uV6bJ8iPRW8akJvR86Kxwy4GKo60W?=
+ =?us-ascii?Q?0zLe3UPtJ6GZ-H5H9yzJOp=5FK07E1N6PdxrTRODd?=
+ =?us-ascii?Q?ZQkM5T9SXkiPdepIm1tZ9W6foityYxbsdQeTcNF?=
+ =?us-ascii?Q?aFgG2zp=5FJUoGhM-wjOdqJAdJkt0CwdsDGrk2Ntt?=
+ =?us-ascii?Q?eCmf0n7Kt=5Fuk8Vm9Mlj=5FmDpL2028UbrByDwPyhN?=
+ =?us-ascii?Q?NZ5Y38D1-EuneI1pLHFkNJD8mZ=5FF2UjX7ioJK15?=
+ =?us-ascii?Q?EGYWozewIIoHYoIQE6pLkfeAZjXQGct3ZqB9hZM?=
+ =?us-ascii?Q?flrPVq9PafmWl4QQgGiMrGZu=5Fqcd8YAscVtIzPi?=
+ =?us-ascii?Q?Qo0wkW65JaGlX1m-kuUxhSfEmeLUgF7E8W6TSB3?=
+ =?us-ascii?Q?h3YX=5FZECjTPSqi0gIbaadbl=5FGvlR0rPrIwIYAQ5?=
+ =?us-ascii?Q?usRTa0eikBzNNtXdR=5FpDtnU61fL3IAwXf4taksx?=
+ =?us-ascii?Q?3wQVbg08YSchJA5i9JTtTZaM3iG6iRabrERVCJ1?=
+ =?us-ascii?Q?9d2PCfdw5p8mbI0NeBB6hmdJLxf8k9UJV8xSUd5?=
+ =?us-ascii?Q?1x33tTa84WG6bV9UbGaeVusqSMzN3M2bW6AvasP?=
+ =?us-ascii?Q?BOFl0O7PAzM1a197oRDv8sB0JDK50y49DxZWsX7?=
+ =?us-ascii?Q?l-nJFvAbhR8n=5FZ3uS2Fz-jmAwDUT-nienLHQVJT?=
+ =?us-ascii?Q?SIH-crVcqqavmyNwEwDS-eBJGoiR6vQOVFQPQJs?=
+ =?us-ascii?Q?MC8wB1mncwqVz4n6nQ88q-K2fzNscHVZW0hubnE?=
+ =?us-ascii?Q?Pqb1oNSl-fR6Hy94qp1=5FWpG9lRyDcMRPNGvYjJL?=
+ =?us-ascii?Q?ZutOX9Y6R8OGqbgfQkt-A6qvOOoUA2KxxgjLmNc?=
+ =?us-ascii?Q?ZH678=5FffJXZuK99oQpWl=5Fq7-IcJ-0YljLxvCZfD?=
+ =?us-ascii?Q?IdZ5oS9Jm6SHlCJS9n73Cue2U4Lrsf9wcvRdWWY?=
+ =?us-ascii?Q?BhBAAQSo5yTf0F6Q1Ww61qARGPXJ=5F0wwGUt3aCM?=
+ =?us-ascii?Q?YRf6dBnkcWlMjeZNbcYZ69T=5F0cgK3oqE1wWvqhD?=
+ =?us-ascii?Q?PXPdHv5kudWHCX-YMUOrXxOwhQyg=5FFl0SFzklaJ?=
+ =?us-ascii?Q?xjZiRDgqQ=3D=3D=3E?=
+
+--3225f4d0408df8058e80b45df0846766346a43afa0dcd57bea9dff17ba01
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Mime-Version: 1.0
+
+Introducing
+Analogue Pocket - Classic Limited Editions ( https://www.analogue.co/editio=
+ns/pocket-classic ).
+Available in highly limited quantities.
+$249.99
+
+On sale: Nov 17th, 8am PST.
+Shipping: Nov 20th.
+
+=C2=A9 2023 Analogue, Inc.
+All rights reserved.
+
+Update subscription preferences ( http://url5579.analogue.co/asm/?user_id=
+=3D15015167&data=3DeMPK72xxgDi7GekknOLXa9yWQEWpvgPs0H9ffQ57Gn5oMDAwdTAwMJEr=
+1be5HA8XyPRHIV4VSHPaW-8ZoF2sF-UPOxqM3yeRYaBQJzAUBs7LTyabNS_HkOMVn1VSIExKEPe=
+8mJfQINg-K1Hd6AGLlqxiEDig6rGR8wy8I1-Q_Ya-o_TdrfCp_r1d8KfKaUp1VyJceM1ftN4yiV=
+kXYf5yQGDOmu3OaY6xloIebadxtpIYTIeQ3iiJF-AsRrqspQdk8wZh7opQgqWUZZa5wdYmc7YFi=
+kw5EdlHnwXRlp4NCf3Y1i-aXWDIr_gkFgWmLvPF806oySqMyiNF5QK1H3IY51sdHuYvf8hopEw7=
+EnZl6iIaLj5AzUxV_1MgV_RWz8k5Db8_tdVRDLrTiLTjJ7kdRBqLA0tRP2QzZisWXHoHaj8ZE_d=
+W9maZotYppg9z4qy-rCu7H04r1r850uwboQO_f-69jhur7zDIzt_GZ4R909jtJF-R9Kw-4PdNqX=
+v1e2GEA_yDrz4QLKO4pFM7LeahKHL6VnHlF43Pgh_-Jd7s0qe1OD7KqDUY7SBEc-RrTvRfNV02w=
+q6IGxEkujOSbZr7Ng2KBWOHvxTdKoUlpRvNo4W4ScFhMX8FOA-ENtucd3TgTi4aUB8hY1mJFPtt=
+S6QnTJz0xsQGSOL60oHlRXqw3G148rba9Jlxs2u5xRaMbTJCza19Yalf9iTzyeQX0MFgSCyQy9q=
+Th5a4iIKWRU1ONWVJRgOhfrSw0LSYPY859hO873Vx6co2uHueYVPbMYyqjQWhxqbXb7hejUqaP7=
+A2DwU_LNvQ36EJszktZGX2mnxttxjc1jtGa37LVakJTRaxJHIDMURPDy8BKSmJfFivu6MT6RkU4=
+ZlQWFEWxnPF9s0UeXJpyl9KNtcfAk82OiS3wLvRhf_d1cSItBggSxwlwroCtxIMbblD_pPSaqxD=
+SUTmPZQYENBGIJJVz9Adx6iaSdTJ4BGZIpTiSQWgRM0OD-MAsv7C40i2_38-gTnutJfes3pC4pb=
+9gbv_jK4nRhlEuRetaGykAWMzJqAIkcIbrdkPIVpVPMNldjOk5Xn8UG1mxz7DNm4TyafCIvyciL=
+oAKsdqW5_d6Nrit3hgxVVN9a6I34UNH5BzuuCidF8pmyJby_WP2P-5lVmfwEbYiaLv-_urLCbTk=
+moYeXYGecevc6VZfN5uslJs9E20XIxhixABUMUMwAoJ88s=3D ) =E2=80=94 Unsubscribe (=
+ http://url5579.analogue.co/asm/unsubscribe/?user_id=3D15015167&data=3DOgwT=
+9eupw2qrsgmms9MwK4bgEEyNA1vkgpyFCI_7AmFoMDAwdTAwMM-hdhGnmO1guvOZQ1j3CNUogfR=
+qC3yhYiUmd7A9TMpaSaSLHQThCevdrfpOR0ExBdpZ59_L181YAzNSZo961Wgkj2ZlL1NLYrkZ3p=
+DMFI5mP-jds_hsGuKuWV_WQPcXXSHCDFONRFHh-ExVb1F0aKMc7huipXHcn72DjT2vc1sgk3dCW=
+2wbbKgWN9XK6aLsu_CWJvCOgbdvavtIDsvieQ2Ul-nFjCx_g48nbDkBxeLm7ffpsiWTFfQLHMdO=
+naMFBHzF-1TzkTUfILZdUymc2Hw6FxNqu1rARHJ0igMLPiE_Tzg2Cga3KGZ9KCEtpvEIQPwUL6C=
+S9daJy0b6yTOScw8mGgox102KfTWDkvswhr_nhg91bW0blG6Xh1JwWjvEkbvglEIw4WYdjmyIPH=
+kR2O0CH6LMajYNB4Lc5fuI-_9bFC0mixHrptVz-ZqjKe_SdPx5bguVtKXRDVVYtm9apkf3elF7G=
+AYyCuhYEM6apESd5sW9VSmcyedObrS_ZSDYsxcYX-liUMWPLkFrBXSJpYcndLnkiikUldpzcOgf=
+pV8N41nsSM3xIjD9jlqfvokAsA6AABZyX6h_OGtCMRgTq2QjJyg8hn5X4qob8j6KTLvMS1ZJ8wx=
+V2E3IYJkXqVUc51rGXALgaWjQuZN7MS4swE86H5C1SeJ3mzNhhaIAuWCXa6nVXwN2JLYwBfG916=
+4Qrh5AxfAOMh58DHiIwMZTkLj4S3sPFsX8dr6lVzKDn85xpiFW1-zvV5gMT-JGHImC78edXmpir=
+2YZ68ZlgjEP9n6UAR2VLe2gkdWU5bntS7e6xcamid3WbJZyRexlSxHwksQw3Y_9Tu13s3miX23y=
+J1Bm4-1IbPWqgfBs0T123EM5CuqAQMXKZ8w18jVfRfKgHAvzNkVS8Rbif9ATN-CFoGGl1KkTC_R=
+FnLAnuE007hZpoZXAWp_dFTEJKqzWJ2GkfxTZilo9DJTM_cl8Ov0h-8AU60AT3lOvLaLp8fFth9=
+03wQhxiRgL-DveLY9wMYB9SyAhZdxNaHDyZ7FgsAwAvVqUyxNbYDnT1t6at_o_BnwMyLR_-0Ocw=
+pCHk1YJ3uc7yocgp8tmOpsjViFNttFV-mbFhRQhYjpL8V7gUKN225e9fEYyOo2o66eUC6XPOJdG=
+N-XBcHPJT6DENgy3nrTVbYxlqcfPpMFvmNz-W9omz4Ea )
+--3225f4d0408df8058e80b45df0846766346a43afa0dcd57bea9dff17ba01
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=us-ascii
+Mime-Version: 1.0
+
+
+<html lang=3D"en" translate=3D"no">
+  <head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html charset=3DUTF-8"=
+ />
+    <title>Analogue Pocket - Classic Limited Editions</title>
+    <meta name=3D"color-scheme" content=3D"light dark">
+    <meta name=3D"supported-color-schemes" content=3D"light dark">
+    <style>
+      #contents a {
+        color: #000;
+      }
+      :root {
+        color-scheme: light dark;
+        supported-color-schemes: light dark;
+      }
+      @media (prefers-color-scheme: dark) {
+        .lightimage {
+          display: none !important;
+        }
+        .darkimageWrapper,
+        .darkimage {
+          display: block !important;
+        }
+        #contents a {
+          color: #fff;
+        }
+      }
+      </style>
+      <style>
+      @font-face {font-family:'CircularXX';
+src:url('https://assets.analogue.co/type/circular-regular.4445da5b8f9ac63a0=
+fa7151b5029f567.woff2') format('woff2'), url('https://assets.analogue.co/ty=
+pe/circular-regular.5460a349153d395d58757053bb6bccf1.woff') format('woff');
+font-weight:400;
+font-style:normal;
+font-display:swap;
+mso-font-alt: 'Arial';}
+    @font-face {font-family:'CircularXX';
+src:url('https://assets.analogue.co/type/circular-bold.05c3f17b5ed5a6bc5f92=
+51565b71a081.woff2') format('woff2'), url('https://assets.analogue.co/type/=
+circular-bold.ef2c65651cfcb871be1dd2f7a1bfce0d.woff') format('woff');
+font-weight:600;
+font-style:normal;
+font-display:swap;
+mso-font-alt: 'Arial';}
+      </style>
+  </head>
+  <body>
+    <table id=3D"contents" role=3D"presentation" width=3D"100%" border=3D"0=
+" cellspacing=3D"0" cellpadding=3D"0" style=3D"width:100%!important;">
+      <tbody>
+        <tr>
+          <td align=3D"center">
+            <table role=3D"presentation"width=3D"600" border=3D"0" cellspac=
+ing=3D"0" cellpadding=3D"40">
+              <tbody>
+                <tr>
+                  <td align=3D"center">
+                    <div style=3D"font-family:-apple-system,BlinkMacSystemF=
+ont,'Segoe UI','Roboto','Oxygen','Ubuntu','Cantarell','Fira Sans','Droid Sa=
+ns','Helvetica Neue',sans-serif;text-align:left;">
+                      <table role=3D"presentation" width=3D"100%" border=3D=
+"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"width:100%!important;">
+                        <tbody>
+                          <tr>
+                            <td align=3D"center">
+                              <div>
+                                <img src=3D"https://images.analogue.co/2-po=
+cket_classic_le.bd3fd76d76c78307c1ca53fd6630011c.png?format=3Dauto&w=3D1000=
+&q=3D100&s=3De68fca6371ed88d0c4f9d80e49134757" alt=3D"Analogue Pocket - Cla=
+ssic Limited Editions" height=3D"400" width=3D"600" style=3D"display: block=
+; height: auto;" />
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <p style=3D"font-family:'CircularXX','Helvetica','Hel=
+vetica Neue',Arial,sans-serif;text-align:left; font-size: 26px; line-height=
+: 39px; font-weight: bold;">Introducing<br /><a href=3D"http://url5579.anal=
+ogue.co/ls/click?upn=3DU4qoCcquL-2FQvgiHimLaJWmBxR9Zfuh0E2TtZqaGzYohmJ-2FGZ=
+P07jHjEnlK3ED7AniYkcH53-2FPHJhXNSbP3qAew-3D-3DpyMn_oKpHbu4hmsCLnrDdPvdJ-2Bg=
+-2FjsIhjIorolnLs2ASJaLPrKbcLXM3zB-2BL0q4-2BmCFk1CPPe8UM6u2BR-2BNpIKQTdpQ92a=
+bQ1mcNnzmDmwqNkjbMVrsoukJDixKjrLiDoPd30m32N4YyGkDI3tpbajJ8b7W4iy8a4u7Bh4p-2=
+Br40Sm0C-2BZzh3ALi1NUh8PlO3MwPs0zvdFKemLLNRi8x-2BoK7IuQcuvmE-2Bk32KGvmv990B=
+vJh08bwzfgs6Tjvq-2F7GSgsG2ILhY5XJn-2BhVxplGAQTBgpXZ9Q-2BZjmFQWfOr0hAhOw6poJ=
+9GZStucsjIA1StBiHTrs5LQG-2BFphnADGum17W53eHNDbsnMoX7iBlQDaWu-2Bsb-2BLvuuk7x=
+-2BLv1pRDqpdWg7KvuumrMo3cg2EgSx3yFe3HCAVhfDUAgHYAFMLLljQIsYC-2FSWLYOsRAWxAO=
+2igE7WRSxj5-2FbodMMjfoc3AHr4uTJwynmh5do0xY3XDFWfEi7OdaeazyL5TsrDSQrbk7Farjk=
+YmgBALuB90JP1uwokl2bMur1-2FEf-2B3u10Ce59SAKDACUDWzT0kVBTUEbztUhjpuBqovlbcXM=
+QF39zImq83eSpNHYtP45IRCFqN5mvIduwTCA5HAdqpvwklSob7YAcPScumxmA83q0oshrFQNa-2=
+BdXVCOZikeLnMXHHanhghd0Fhh7R8k7UJT4UO6CeiFUQ4cXBNFB4LYMtIaW-2BDwJavA3X2DSlY=
+AhEQEBbcYntTmazxFTs-2BwJQPYiWKJG9Z3sB6gRrlu6CrBI2U3XS5QJURVFFsDmbkQjsskmtcI=
+8a2lqXbcIC8PALxqF1zdjZT0pIkRJT02TuSNVuDqvMmo1-2F5bhf8waK2j2Xmv0THL1qb-2F1WX=
+o3pVgGKtZ-2BgIepbTU7bU0CfvKQuFQOCXBNSfwljeIU-2B6jqRfhCNG-2FI-2BMEjhMVRSpQoN=
+P7-2BU6yN-2BbcJt-2Fh11m4jHF3jWo5-2BIgxmCAFh4Q8sqWsa0qBu-2Bi9h94bfsu4tCXy7gK=
+GcK-2B-2B5UFSw7zkfPg9s12RfoiU62lCGHpK1-2FeLNCw-3D-3D" target=3D"_blank">Ana=
+logue Pocket - Classic Limited Editions</a>.<br />Available in highly limit=
+ed quantities.<br />$249.99</p>
+                      <p style=3D"font-family:'CircularXX','Helvetica','Hel=
+vetica Neue',Arial,sans-serif;text-align:left; font-size: 26px; line-height=
+: 39px; font-weight: bold;">On sale: Nov 17th, 8am PST.<br />Shipping: Nov =
+20th.</p>
+                    </div>
+                    <div>
+                      <br />
+                    </div>
+                    <div>
+                      <img src=3D"https://images.analogue.co/email/footer-l=
+ogo-black.png?auto=3Dformat&s=3D77395e62502d3d0c2866376e08797cf8" alt=3D"An=
+alogue" height=3D"40" width=3D"43" style=3D"display: block; height: auto;" =
+class=3D"lightimage" />
+                      <div class=3D"darkimageWrapper" style=3D"mso-hide: al=
+l; display: none">
+                        <img src=3D"https://images.analogue.co/email/footer=
+-logo-white.png?auto=3Dformat&s=3D8650c9ff874498b26cd6fbdbed695790" alt=3D"=
+Analogue" width=3D"43" height=3D"40" class=3D"darkimage" style=3D"display: =
+none;">
+                      </div>
+                      <p style=3D"font-family:'CircularXX','Helvetica','Hel=
+vetica Neue',Arial,sans-serif;text-align:center; font-size: 12px; line-heig=
+ht: 18px; font-weight: bold;">&copy; 2023 Analogue, Inc.<br />All rights re=
+served.</p>
+                    </div>
+                    <div>
+                      <p style=3D"font-family:'CircularXX','Helvetica','Hel=
+vetica Neue',Arial,sans-serif;text-align:center; font-size: 12px; line-heig=
+ht: 18px;">
+                        <a href=3D"http://url5579.analogue.co/asm/?user_id=
+=3D15015167&amp;data=3DeMPK72xxgDi7GekknOLXa9yWQEWpvgPs0H9ffQ57Gn5oMDAwdTAw=
+MJEr1be5HA8XyPRHIV4VSHPaW-8ZoF2sF-UPOxqM3yeRYaBQJzAUBs7LTyabNS_HkOMVn1VSIEx=
+KEPe8mJfQINg-K1Hd6AGLlqxiEDig6rGR8wy8I1-Q_Ya-o_TdrfCp_r1d8KfKaUp1VyJceM1ftN=
+4yiVkXYf5yQGDOmu3OaY6xloIebadxtpIYTIeQ3iiJF-AsRrqspQdk8wZh7opQgqWUZZa5wdYmc=
+7YFikw5EdlHnwXRlp4NCf3Y1i-aXWDIr_gkFgWmLvPF806oySqMyiNF5QK1H3IY51sdHuYvf8ho=
+pEw7EnZl6iIaLj5AzUxV_1MgV_RWz8k5Db8_tdVRDLrTiLTjJ7kdRBqLA0tRP2QzZisWXHoHaj8=
+ZE_dW9maZotYppg9z4qy-rCu7H04r1r850uwboQO_f-69jhur7zDIzt_GZ4R909jtJF-R9Kw-4P=
+dNqXv1e2GEA_yDrz4QLKO4pFM7LeahKHL6VnHlF43Pgh_-Jd7s0qe1OD7KqDUY7SBEc-RrTvRfN=
+V02wq6IGxEkujOSbZr7Ng2KBWOHvxTdKoUlpRvNo4W4ScFhMX8FOA-ENtucd3TgTi4aUB8hY1mJ=
+FPttS6QnTJz0xsQGSOL60oHlRXqw3G148rba9Jlxs2u5xRaMbTJCza19Yalf9iTzyeQX0MFgSCy=
+Qy9qTh5a4iIKWRU1ONWVJRgOhfrSw0LSYPY859hO873Vx6co2uHueYVPbMYyqjQWhxqbXb7hejU=
+qaP7A2DwU_LNvQ36EJszktZGX2mnxttxjc1jtGa37LVakJTRaxJHIDMURPDy8BKSmJfFivu6MT6=
+RkU4ZlQWFEWxnPF9s0UeXJpyl9KNtcfAk82OiS3wLvRhf_d1cSItBggSxwlwroCtxIMbblD_pPS=
+aqxDSUTmPZQYENBGIJJVz9Adx6iaSdTJ4BGZIpTiSQWgRM0OD-MAsv7C40i2_38-gTnutJfes3p=
+C4pb9gbv_jK4nRhlEuRetaGykAWMzJqAIkcIbrdkPIVpVPMNldjOk5Xn8UG1mxz7DNm4TyafCIv=
+yciLoAKsdqW5_d6Nrit3hgxVVN9a6I34UNH5BzuuCidF8pmyJby_WP2P-5lVmfwEbYiaLv-_urL=
+CbTkmoYeXYGecevc6VZfN5uslJs9E20XIxhixABUMUMwAoJ88s=3D">Update subscription =
+preferences</a>&nbsp;&nbsp;&mdash;&nbsp;&nbsp;
+                        <a href=3D"http://url5579.analogue.co/asm/unsubscri=
+be/?user_id=3D15015167&amp;data=3DOgwT9eupw2qrsgmms9MwK4bgEEyNA1vkgpyFCI_7A=
+mFoMDAwdTAwMM-hdhGnmO1guvOZQ1j3CNUogfRqC3yhYiUmd7A9TMpaSaSLHQThCevdrfpOR0Ex=
+BdpZ59_L181YAzNSZo961Wgkj2ZlL1NLYrkZ3pDMFI5mP-jds_hsGuKuWV_WQPcXXSHCDFONRFH=
+h-ExVb1F0aKMc7huipXHcn72DjT2vc1sgk3dCW2wbbKgWN9XK6aLsu_CWJvCOgbdvavtIDsvieQ=
+2Ul-nFjCx_g48nbDkBxeLm7ffpsiWTFfQLHMdOnaMFBHzF-1TzkTUfILZdUymc2Hw6FxNqu1rAR=
+HJ0igMLPiE_Tzg2Cga3KGZ9KCEtpvEIQPwUL6CS9daJy0b6yTOScw8mGgox102KfTWDkvswhr_n=
+hg91bW0blG6Xh1JwWjvEkbvglEIw4WYdjmyIPHkR2O0CH6LMajYNB4Lc5fuI-_9bFC0mixHrptV=
+z-ZqjKe_SdPx5bguVtKXRDVVYtm9apkf3elF7GAYyCuhYEM6apESd5sW9VSmcyedObrS_ZSDYsx=
+cYX-liUMWPLkFrBXSJpYcndLnkiikUldpzcOgfpV8N41nsSM3xIjD9jlqfvokAsA6AABZyX6h_O=
+GtCMRgTq2QjJyg8hn5X4qob8j6KTLvMS1ZJ8wxV2E3IYJkXqVUc51rGXALgaWjQuZN7MS4swE86=
+H5C1SeJ3mzNhhaIAuWCXa6nVXwN2JLYwBfG9164Qrh5AxfAOMh58DHiIwMZTkLj4S3sPFsX8dr6=
+lVzKDn85xpiFW1-zvV5gMT-JGHImC78edXmpir2YZ68ZlgjEP9n6UAR2VLe2gkdWU5bntS7e6xc=
+amid3WbJZyRexlSxHwksQw3Y_9Tu13s3miX23yJ1Bm4-1IbPWqgfBs0T123EM5CuqAQMXKZ8w18=
+jVfRfKgHAvzNkVS8Rbif9ATN-CFoGGl1KkTC_RFnLAnuE007hZpoZXAWp_dFTEJKqzWJ2GkfxTZ=
+ilo9DJTM_cl8Ov0h-8AU60AT3lOvLaLp8fFth903wQhxiRgL-DveLY9wMYB9SyAhZdxNaHDyZ7F=
+gsAwAvVqUyxNbYDnT1t6at_o_BnwMyLR_-0OcwpCHk1YJ3uc7yocgp8tmOpsjViFNttFV-mbFhR=
+QhYjpL8V7gUKN225e9fEYyOo2o66eUC6XPOJdGN-XBcHPJT6DENgy3nrTVbYxlqcfPpMFvmNz-W=
+9omz4Ea">Unsubscribe</a>
+                      </p>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+     =20
+  <img src=3D"http://url5579.analogue.co/wf/open?upn=3Df3b2A-2B3gKFk-2BSR9f=
+MyOrh6ZzXgKKvV2FpFgGB3dYQh-2F-2FLw-2BBIKooIWgcQTtL5YanuYMTNY0m6q9bJAO-2FIka=
+2ZuFmaLnwT0xHf-2F9um74cfD7Ypmnq2CjwZ0r49FEfLoz1ByQNFrJIb-2Bh-2BCTUFNlzCbSow=
+fc069YVEdk1XDLxjSI4nz7DoF3n9RafIjtdooV0c1ApN-2FQmmJzYt-2FgC3S951uDSu058wzxy=
+Ihd4cyV3WFopb-2FICPcydZP9OwHgLo-2FBL-2BZgWaGrbega4HLzMvAVGlVKwzSX2v2KtA7RHO=
+YMEWLNe3cDae7QlptNsOfoEfc7ZNU6TqqFbmNFlYb3XoAzw10KDs-2BSPmRh-2BApA8AVWfJesK=
+5lfQJDBTA88HUgVdhj-2BlUj1Nu0VNEZVtRForpW64ddYcMJWaW3H6Si-2FaufgF4m4aDvkAPkb=
+GZHQBqhKXBEL7Gz28tR1amEqcQmOq6cuOjALDgY3u-2FtF-2F4SU3p9A0JVJWfc4VCflLEO94OX=
+57s8qL18hbv4-2Fj8H46D99x-2FrCZA-2F-2B1Nohsms20VXpBUsv2QdiAZhEJpOVicxbmXfmhX=
+TK3k8G1evbT4IhJGb1GsFg4aTDOMs6bmkXGpbrI2swJtdxU447EjqCc1b2vB5mdwRExxn-2Bgd0=
+HDZElK949r2qkKQHVsHVdWAx80V49xBFS4Wvhwl-2B9fVxVSQDKcobeQpsop-2FD7ftZqZ8FJAQ=
+yPjE5kTGM0Sa7eD3MfWS0odyuSW2-2FXMo1ZfmAs7h-2BcSjrFgcOLpmJRGjfsFaG4nv9GN-2Fj=
+TfnfxedBhodn2r3WL-2F3tnzuk5b2RGvhgWjd8zD6iXZTxGEO43CmVFG-2BYjzhnSuu9wJ3yn6Z=
+ne-2FTj-2FqArUKycpEBG-2BvTfXrrMhPxOIk-2FYsSQ-2B5CAq1BevGqzWH4juPpnjCUByzggz=
+1yVWbtkzMRZPB5pv55JpQipRp4u0bNTDYORh0SAqNVtulq8R5Jio6SJayH-2Fmiu0EoDwrdV6ZM=
+h9R1813rqC4E6Vlxn5FVb-2BTpw2AC1scdUbUXMJJPPddWtHN8koGQ-3D-3D" alt=3D"" widt=
+h=3D"1" height=3D"1" border=3D"0" style=3D"height:1px !important;width:1px =
+!important;border-width:0 !important;margin-top:0 !important;margin-bottom:=
+0 !important;margin-right:0 !important;margin-left:0 !important;padding-top=
+:0 !important;padding-bottom:0 !important;padding-right:0 !important;paddin=
+g-left:0 !important;"/></body>
+</html>
+
+--3225f4d0408df8058e80b45df0846766346a43afa0dcd57bea9dff17ba01--

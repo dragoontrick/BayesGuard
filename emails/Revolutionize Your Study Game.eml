@@ -1,0 +1,597 @@
+Delivered-To: funnygum977@gmail.com
+Received: by 2002:a05:7108:7399:b0:339:159:19dc with SMTP id h25csp2956570gdq;
+        Thu, 16 Nov 2023 07:07:44 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFlctigISYDeYPVTly+eDeTrk/OzU4fpxo4BLG2cFSByZrfPWS+u29yXLp2SEvFy3f4chdY
+X-Received: by 2002:a25:cec5:0:b0:daf:56fe:41f8 with SMTP id x188-20020a25cec5000000b00daf56fe41f8mr16091623ybe.11.1700147264600;
+        Thu, 16 Nov 2023 07:07:44 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1700147264; cv=none;
+        d=google.com; s=arc-20160816;
+        b=mFpvMoICLRSuqT8rjnXi/dWNFqIsA8TB9f+RApFY7jZM0FkqBF5g6VMhH6QOfCzqq2
+         A3q1sVolPQxIc3dNQNV1OfqBjLABPdLXilC9/WodETw9PP2mp4UHXXOIaI1mRJpsUs4a
+         jCQRZWYqd39KWk5fOjJ2VDnh1QXxLx3tDjlOFpk6rQHwY2jOhkRXhYOlIDVg3kE6deEj
+         ETUvW4hgRLgvAln23L9iKtc8XFK/Act25sL/yMdtn4iV19GmxIn4cNEtfRxeoPqJ8Xme
+         onss3I3OeTbT/jZbDDaeSgKikGne5rQIoLGtUwDdCWI7piS9pI0KFd3ZeHEQflQZ2Edk
+         Z8KQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:list-unsubscribe-post:list-unsubscribe:list-id
+         :feedback-id:message-id:date:to:reply-to:from:subject:dkim-signature
+         :dkim-signature;
+        bh=no908w+9rVzoyF9Y/sMJRKPn1yVFoehLQiyaKoG5EoU=;
+        fh=gPQs2rEhe3FqnKWps3xtRWXpb+fymwcJoPERBNlXw4g=;
+        b=gBd9mQyqfTVYTH9l3IdKHSS6WSvKWZGC76TKLdNTG+DVHgqZ4kHCQVzxovGZKIRByO
+         k+F4pOB4JdMTzJVmXqGW05ScVlyOiwO7gRqElMHJxQmbajOxB7Xn8NnN7S5IjnlLgdHQ
+         RfrE4FfhBJDcQz5mGxxe92lmyf+dJ95laL1LZiZiSycIQ1EjtHKynaAv8/w0JOFSgv2k
+         GK92NI4F8KpgfZmSMgEA5TaXd/i5qQGWFLE0J7nNecDgbCNrro0yH7ORtO/cIodwc7/G
+         VIWeTnoHWHzqke6ZDAoYQzXqsNMBUbrjW9b5xkN9VS6NhCvoLLqdA6P4Y9CbJFwwBCvp
+         sYGg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.mcsv.net header.s=k1 header.b="ZqWa26/4";
+       dkim=pass header.i=@studyfetch.com header.s=k2 header.b=P+66sOnY;
+       spf=pass (google.com: domain of bounce-mc.us8_187958286.8893550-2c1557146b@mail177.suw16.rsgsv.net designates 198.2.182.177 as permitted sender) smtp.mailfrom=bounce-mc.us8_187958286.8893550-2c1557146b@mail177.suw16.rsgsv.net
+Return-Path: <bounce-mc.us8_187958286.8893550-2c1557146b@mail177.suw16.rsgsv.net>
+Received: from mail177.suw16.rsgsv.net (mail177.suw16.rsgsv.net. [198.2.182.177])
+        by mx.google.com with ESMTPS id l12-20020a25cc0c000000b00d9c6beccb61si6833713ybf.501.2023.11.16.07.07.44
+        for <funnygum977@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 16 Nov 2023 07:07:44 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounce-mc.us8_187958286.8893550-2c1557146b@mail177.suw16.rsgsv.net designates 198.2.182.177 as permitted sender) client-ip=198.2.182.177;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.mcsv.net header.s=k1 header.b="ZqWa26/4";
+       dkim=pass header.i=@studyfetch.com header.s=k2 header.b=P+66sOnY;
+       spf=pass (google.com: domain of bounce-mc.us8_187958286.8893550-2c1557146b@mail177.suw16.rsgsv.net designates 198.2.182.177 as permitted sender) smtp.mailfrom=bounce-mc.us8_187958286.8893550-2c1557146b@mail177.suw16.rsgsv.net
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.mcsv.net;
+	s=k1; t=1700146984; x=1700233384;
+	bh=no908w+9rVzoyF9Y/sMJRKPn1yVFoehLQiyaKoG5EoU=;
+	h=Subject:From:Reply-To:To:Date:Message-ID:X-MC-User:Feedback-ID:
+	 List-ID:List-Unsubscribe:List-Unsubscribe-Post:Content-Type:
+	 MIME-Version:CC:Date:Subject:From;
+	b=ZqWa26/4Y+ldaKXOZfZCw9NNK6FP5VMw5OqDUOAfvIOYr+6HaNXqSo75N1uQ0jBn1
+	 MzQfKdqihWGjj7NCHnjS2QALsStH8tJhXJIBS8DGOCP14O0N3K04J5X3f//lvaUDPp
+	 PVDZsuExfcXseJ+wWPiWwOoUQLgPBKUgerSJcEosNM48UxQTuRP9ue1oob9jQ+pXZx
+	 hnMZf1WmViP2+kXkcEcbfomvVMqxt6cxG3/vlsV0+JI5R9uOF56HcOWI9Iu7RmgmQs
+	 T/cwJvCeZjqflIojpOp6FLy0Tw95RDOJVc6qjGFQ4qWz18IjzXNp/uilkqDqPnvzzJ
+	 XXazPf/K9aT4A==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=studyfetch.com;
+	s=k2; t=1700146984; x=1700407484; i=noreply@studyfetch.com;
+	bh=no908w+9rVzoyF9Y/sMJRKPn1yVFoehLQiyaKoG5EoU=;
+	h=Subject:From:Reply-To:To:Date:Message-ID:X-MC-User:Feedback-ID:
+	 List-ID:List-Unsubscribe:List-Unsubscribe-Post:Content-Type:
+	 MIME-Version:CC:Date:Subject:From;
+	b=P+66sOnYnMWRBOsq8Krlf3m2YV/UBmzZmU6KY6CndvmZZzisvd3PhoZreyeekZFVm
+	 s2d6xmsF3rygmC54T0AuvgWXIUB0ALnuLo88flksozLS421l1tZwaA9OcAP8EoYUEJ
+	 BzMKcjtckDwikulzCla0Li4ShQ3ei82uEZf8zjFLCEpB6MpM9YVclQIBEZfupPREf3
+	 NxkTW7frm/Lc/ujdDOlzRvdRQYZ+xvXldxgqJJ2MsGniYIwlg6twYQaEHruar3+053
+	 ExMvj/64hdwjAFnyKftOeBVZdEF+7hWu5joy6G0BejrPmis+KVUoxoRHBsbYjCoYAT
+	 IGsRP/6C/KBbw==
+Received: from localhost (localhost [127.0.0.1])
+	by mail177.suw16.rsgsv.net (Mailchimp) with ESMTP id 4SWNZJ4XkFzNDNvFN
+	for <funnygum977@gmail.com>; Thu, 16 Nov 2023 15:03:04 +0000 (GMT)
+Subject: =?utf-8?Q?Revolutionize=20Your=20Study=20Game?=
+From: =?utf-8?Q?Esan?= <noreply@studyfetch.com>
+Reply-To: =?utf-8?Q?Esan?= <noreply@studyfetch.com>
+To: <funnygum977@gmail.com>
+Date: Thu, 16 Nov 2023 15:02:19 +0000
+Message-ID: <60329fdf92abd6e69a757670d.2c1557146b.20231116150204.d62b628061.178d71d5@mail177.suw16.rsgsv.net>
+X-Mailer: Mailchimp Mailer - **CIDd62b6280612c1557146b**
+X-Campaign: mailchimp60329fdf92abd6e69a757670d.d62b628061
+X-campaignid: mailchimp60329fdf92abd6e69a757670d.d62b628061
+X-Report-Abuse: Please report abuse for this campaign here: https://mailchimp.com/contact/abuse/?u=60329fdf92abd6e69a757670d&id=d62b628061&e=2c1557146b
+X-MC-User: 60329fdf92abd6e69a757670d
+Feedback-ID: 187958286:187958286.8893550:us8:mc
+List-ID: 60329fdf92abd6e69a757670dmc list <60329fdf92abd6e69a757670d.863633.list-id.mcsv.net>
+X-Accounttype: pr
+List-Unsubscribe: <https://studyfetch.us8.list-manage.com/unsubscribe?u=60329fdf92abd6e69a757670d&id=222a3d9086&e=2c1557146b&c=d62b628061>, <mailto:unsubscribe-mc.us8_60329fdf92abd6e69a757670d.d62b628061-2c1557146b@unsubscribe.mailchimpapp.net?subject=unsubscribe>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Content-Type: multipart/alternative; boundary="_----------=_MCPart_464006436"
+MIME-Version: 1.0
+
+This is a multi-part message in MIME format
+
+--_----------=_MCPart_464006436
+Content-Type: text/plain; charset="utf-8"; format="fixed"
+Content-Transfer-Encoding: quoted-printable
+
+Try StudyFetch for free=2C sign up now!
+
+
+** ACE YOUR EXAMS
+------------------------------------------------------------
+
+
+** RISK-FREE=F0=9F=A7=91=E2=80=8D=F0=9F=8E=93
+------------------------------------------------------------
+SIGN UP NOW (https://www.studyfetch.com/)
+
+
+** Unlimited Study Sets =F0=9F=93=9A
+------------------------------------------------------------
+
+
+** Unlimited Uploads =F0=9F=93=B2
+------------------------------------------------------------
+
+
+** Unlimited AI Generated Practice Tests =F0=9F=A4=93
+------------------------------------------------------------
+
+
+** Unlimited AI Generated Flashcards =F0=9F=93=96
+------------------------------------------------------------
+
+
+** Unlimited Chat with
+------------------------------------------------------------
+
+
+** Spark.E =F0=9F=90=B6
+------------------------------------------------------------
+
+
+** Handwritten Notes and Photo Uploader =E2=9C=8D=EF=B8=8F
+------------------------------------------------------------
+
+
+** Live Lecture Assistant =F0=9F=91=A9=E2=80=8D=F0=9F=8F=AB
+------------------------------------------------------------
+TRY FOR FREE (https://www.studyfetch.com/)
+
+Copyright (C) 2023 StudyFetch. All rights reserved.
+
+Our mailing address is:
+contact@studyfetch.com
+
+Want to change how you receive these emails?
+You can update your preferences (https://studyfetch.us8.list-manage.com/pr=
+ofile?u=3D60329fdf92abd6e69a757670d&id=3D222a3d9086&e=3D2c1557146b&c=3Dd62b6=
+28061) or unsubscribe (https://studyfetch.us8.list-manage.com/unsubscribe?=
+u=3D60329fdf92abd6e69a757670d&id=3D222a3d9086&e=3D2c1557146b&c=3Dd62b628061)
+--_----------=_MCPart_464006436
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn=
+:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:of=
+fice"><head>
+<!--[if gte mso 15]>
+<xml>
+<o:OfficeDocumentSettings>
+<o:AllowPNG/>
+<o:PixelsPerInch>96</o:PixelsPerInch>
+</o:OfficeDocumentSettings>
+</xml>
+<![endif]-->
+<meta charset=3D"UTF-8" />
+<meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge" />
+<meta name=3D"viewport" content=3D"width=3Ddevice-width=2C initial-scale=
+=3D1" />
+<title>Revolutionize Your Study Game</title>
+<link rel=3D"stylesheet" href=3D"https://fonts.googleapis.com/css?family=
+=3DWork+Sans:400=2C400i=2C700=2C700i=2C900=2C900i" /><style>          img{=
+-ms-interpolation-mode:bicubic;}
+          table=2C td{mso-table-lspace:0pt; mso-table-rspace:0pt;}
+          .mceStandardButton=2C .mceStandardButton td=2C .mceStandardButto=
+n td a{mso-hide:all !important;}
+          p=2C a=2C li=2C td=2C blockquote{mso-line-height-rule:exactly;}
+          p=2C a=2C li=2C td=2C body=2C table=2C blockquote{-ms-text-size-=
+adjust:100%; -webkit-text-size-adjust:100%;}
+          @media only screen and (max-width: 480px){
+            body=2C table=2C td=2C p=2C a=2C li=2C blockquote{-webkit-text=
+-size-adjust:none !important;}
+          }
+          .mcnPreviewText{display: none !important;}
+          .bodyCell{margin:0 auto; padding:0; width:100%;}
+          .ExternalClass=2C .ExternalClass p=2C .ExternalClass td=2C .Exte=
+rnalClass div=2C .ExternalClass span=2C .ExternalClass font{line-height:10=
+0%;}
+          .ReadMsgBody{width:100%;} .ExternalClass{width:100%;}
+          a[x-apple-data-detectors]{color:inherit !important; text-decora=
+tion:none !important; font-size:inherit !important; font-family:inherit !i=
+mportant; font-weight:inherit !important; line-height:inherit !important;}
+            body{height:100%; margin:0; padding:0; width:100%; background:=
+ #ffffff;}
+            p{margin:0; padding:0;}
+            table{border-collapse:collapse;}
+            td=2C p=2C a{word-break:break-word;}
+            h1=2C h2=2C h3=2C h4=2C h5=2C h6{display:block; margin:0; padd=
+ing:0;}
+            img=2C a img{border:0; height:auto; outline:none; text-decorat=
+ion:none;}
+            a[href^=3D"tel"]=2C a[href^=3D"sms"]{color:inherit; cursor:d=
+efault; text-decoration:none;}
+            li p {margin: 0 !important;}
+            .ProseMirror a {
+                pointer-events: none;
+            }
+            @media only screen and (max-width: 480px){
+                body{width:100% !important; min-width:100% !important; }
+                body.mobile-native {
+                    -webkit-user-select: none; user-select: none; transiti=
+on: transform 0.2s ease-in; transform-origin: top center;
+                }
+                body.mobile-native.selection-allowed a=2C body.mobile-nati=
+ve.selection-allowed .ProseMirror {
+                    user-select: auto;
+                    -webkit-user-select: auto;
+                }
+                colgroup{display: none;}
+                img{height: auto !important;}
+                .mceWidthContainer{max-width: 660px !important;}
+                .mceColumn{display: block !important; width: 100% !importa=
+nt;}
+                .mceColumn-forceSpan{display: table-cell !important; width=
+: auto !important;}
+                .mceBlockContainer{padding-right:16px !important; padding-=
+left:16px !important;}
+                .mceBlockContainerE2E{padding-right:0px; padding-left:0px;=
+}
+                .mceSpacing-24{padding-right:16px !important; padding-left=
+:16px !important;}
+                .mceFooterSection .mceText=2C .mceFooterSection .mceText p=
+{font-size: 16px !important; line-height: 140% !important;}
+                .mceText=2C .mceText p{font-size: 16px !important; line-he=
+ight: 140% !important;}
+                h1{font-size: 30px !important; line-height: 120% !importan=
+t;}
+                h2{font-size: 26px !important; line-height: 120% !importan=
+t;}
+                h3{font-size: 20px !important; line-height: 125% !importan=
+t;}
+                h4{font-size: 18px !important; line-height: 125% !importan=
+t;}
+            }
+            @media only screen and (max-width: 640px){
+                .mceClusterLayout td{padding: 4px !important;}
+            }
+            div[contenteditable=3D"true"] {outline: 0;}
+            .ProseMirror .empty-node=2C .ProseMirror:empty {position: rela=
+tive;}
+            .ProseMirror .empty-node::before=2C .ProseMirror:empty::before=
+ {
+                position: absolute;
+                left: 0;
+                right: 0;
+                color: rgba(0=2C0=2C0=2C0.2);
+                cursor: text;
+            }
+            .ProseMirror .empty-node:hover::before=2C .ProseMirror:empty:h=
+over::before {
+                color: rgba(0=2C0=2C0=2C0.3);
+            }
+            .ProseMirror h1.empty-node:only-child::before=2C
+            .ProseMirror h2.empty-node:only-child::before=2C
+            .ProseMirror h3.empty-node:only-child::before=2C
+            .ProseMirror h4.empty-node:only-child::before {
+                content: 'Heading';
+            }
+            .ProseMirror p.empty-node:only-child::before=2C .ProseMirror:e=
+mpty::before {
+                content: 'Start typing...';
+            }
+            a .ProseMirror p.empty-node::before=2C a .ProseMirror:empty::b=
+efore {
+                content: '';
+            }
+            .mceText=2C .ProseMirror {
+                white-space: pre-wrap;
+            }
+body=2C #bodyTable { background-color: rgb(244=2C 244=2C 244); }.mceText=
+=2C .mceLabel { font-family: "Helvetica Neue"=2C Helvetica=2C Arial=2C Ver=
+dana=2C sans-serif; }.mceText=2C .mceLabel { color: rgb(0=2C 0=2C 0); }.mc=
+eText h1 { margin-bottom: 0px; }.mceText p { margin-bottom: 0px; }.mceText=
+ label { margin-bottom: 0px; }.mceText input { margin-bottom: 0px; }.mceSp=
+acing-12 .mceInput + .mceErrorMessage { margin-top: -6px; }.mceText h1 { m=
+argin-bottom: 0px; }.mceText p { margin-bottom: 0px; }.mceText label { mar=
+gin-bottom: 0px; }.mceText input { margin-bottom: 0px; }.mceSpacing-24 .mc=
+eInput + .mceErrorMessage { margin-top: -12px; }.mceInput { background-col=
+or: transparent; border: 2px solid rgb(208=2C 208=2C 208); width: 60%; col=
+or: rgb(77=2C 77=2C 77); display: block; }.mceInput[type=3D"radio"]=2C .m=
+ceInput[type=3D"checkbox"] { float: left; margin-right: 12px; display: in=
+line; width: auto !important; }.mceLabel > .mceInput { margin-bottom: 0px;=
+ margin-top: 2px; }.mceLabel { display: block; }.mceText p { color: rgb(0=
+=2C 0=2C 0); font-family: "Helvetica Neue"=2C Helvetica=2C Arial=2C Verdan=
+a=2C sans-serif; font-size: 16px; font-weight: normal; line-height: 1.5; t=
+ext-align: center; letter-spacing: 0px; direction: ltr; }.mceText h1 { col=
+or: rgb(0=2C 0=2C 0); font-family: "Helvetica Neue"=2C Helvetica=2C Arial=
+=2C Verdana=2C sans-serif; font-size: 31px; font-weight: bold; line-height=
+: 1.5; text-align: center; letter-spacing: 0px; direction: ltr; }.mceText=
+ a { color: rgb(0=2C 0=2C 0); font-style: normal; font-weight: normal; tex=
+t-decoration: underline; direction: ltr; }
+@media only screen and (max-width: 480px) {
+            .mceText p { font-size: 16px !important; line-height: 1.5 !imp=
+ortant; }
+          }
+@media only screen and (max-width: 480px) {
+            .mceText h1 { font-size: 31px !important; line-height: 1.5 !im=
+portant; }
+          }
+@media only screen and (max-width: 480px) {
+            .mceBlockContainer { padding-left: 16px !important; padding-ri=
+ght: 16px !important; }
+          }
+#dataBlockId-9 p=2C #dataBlockId-9 h1=2C #dataBlockId-9 h2=2C #dataBlockId=
+-9 h3=2C #dataBlockId-9 h4=2C #dataBlockId-9 ul { text-align: center; }</s=
+tyle></head>
+<body>
+<!--
+-->
+<!--[if !gte mso 9]><!----><span class=3D"mcnPreviewText" style=3D"displa=
+y:none; font-size:0px; line-height:0px; max-height:0px; max-width:0px; opa=
+city:0; overflow:hidden; visibility:hidden; mso-hide:all;">Try StudyFetch=
+ for free=2C sign up now!</span><!--<![endif]-->
+<!--
+-->
+<center>
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" height=3D"100%" wi=
+dth=3D"100%" id=3D"bodyTable" style=3D"background-color: rgb(244=2C 244=2C=
+ 244);">
+<tbody><tr>
+<td class=3D"bodyCell" align=3D"center" valign=3D"top">
+<table id=3D"root" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"100%"><tbody data-block-id=3D"13" class=3D"mceWrapper"><tr><td align=
+=3D"center" valign=3D"top" class=3D"mceWrapperOuter"><!--[if (gte mso 9)|=
+(IE)]><table align=3D"center" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" width=3D"660" style=3D"width:660px;"><tr><td><![endif]--><table bo=
+rder=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"max=
+-width:660px" role=3D"presentation"><tbody><tr><td style=3D"background-col=
+or:#ffffff;background-position:center;background-repeat:no-repeat;backgrou=
+nd-size:cover" class=3D"mceWrapperInner" valign=3D"top"><table align=3D"ce=
+nter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" role=
+=3D"presentation" data-block-id=3D"12"><tbody><tr class=3D"mceRow"><td sty=
+le=3D"background-position:center;background-repeat:no-repeat;background-si=
+ze:cover" valign=3D"top"><table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%" role=3D"presentation"><tbody><tr><td style=3D"paddin=
+g-top:0;padding-bottom:0" class=3D"mceColumn" data-block-id=3D"-4" valign=
+=3D"top" colspan=3D"12" width=3D"100%"><table border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" width=3D"100%" role=3D"presentation"><tbody><tr><td s=
+tyle=3D"padding-top:0;padding-bottom:0;padding-right:0;padding-left:0" cla=
+ss=3D"mceBlockContainer" align=3D"center" valign=3D"top"><img data-block-i=
+d=3D"2" width=3D"210" height=3D"auto" style=3D"width:210px;height:auto;max=
+-width:100%;display:block" alt=3D"" src=3D"https://mcusercontent.com/60329=
+fdf92abd6e69a757670d/images/d4fe19ec-6cf7-a844-1e8b-a8a4c168d615.png" role=
+=3D"presentation" class=3D"imageDropZone" /></td></tr><tr><td style=3D"bac=
+kground-color:#efeefa;padding-top:41px;padding-bottom:21px;padding-right:2=
+4px;padding-left:24px" class=3D"mceBlockContainer" valign=3D"top"><div dat=
+a-block-id=3D"19" class=3D"mceText" id=3D"dataBlockId-19" style=3D"width:1=
+00%"><h1><span style=3D"color:#3c315c;"><span style=3D"font-size: 45px"><s=
+pan style=3D"font-family: 'Work Sans'=2C sans-serif">ACE YOUR EXAMS</span>=
+</span></span></h1><h1 class=3D"last-child"><span style=3D"color:#3c315c;"=
+><span style=3D"font-size: 45px"><span style=3D"font-family: 'Work Sans'=
+=2C sans-serif">RISK-FREE</span></span></span><span style=3D"color:#ffffff=
+;"><span style=3D"font-size: 45px">=F0=9F=A7=91=E2=80=8D=F0=9F=8E=93</span=
+></span></h1></div></td></tr><tr><td style=3D"background-color:#efeefa;pad=
+ding-top:0;padding-bottom:0;padding-right:24px;padding-left:24px" class=3D=
+"mceBlockContainer" align=3D"center" valign=3D"top"><table align=3D"center=
+" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" d=
+ata-block-id=3D"37"><tbody><tr class=3D"mceStandardButton"><td style=3D"ba=
+ckground-color:#3c315c;border-radius:50px;text-align:center" class=3D"mceB=
+utton" valign=3D"top"><a href=3D"https://studyfetch.us8.list-manage.com/tr=
+ack/click?u=3D60329fdf92abd6e69a757670d&id=3Dbe8ab698cf&e=3D2c1557146b" t=
+arget=3D"_blank" style=3D"background-color:#3c315c;border-radius:50px;bord=
+er:1px solid #3c315c;color:#ffffff;display:block;font-family:'Work Sans'=
+=2C sans-serif;font-size:27px;font-weight:bold;font-style:normal;padding:1=
+6px 28px;text-decoration:none;min-width:30px;text-align:center;direction:l=
+tr;letter-spacing:0px">SIGN UP NOW</a></td></tr><tr>
+<!--[if mso]>
+<td align=3D"center">
+<v:roundrect xmlns:v=3D"urn:schemas-microsoft-com:vml"
+xmlns:w=3D"urn:schemas-microsoft-com:office:word"
+href=3D"https://www.studyfetch.com/"
+style=3D"v-text-anchor:middle; width:241.71px; height:65.33px;"
+arcsize=3D"21%"
+strokecolor=3D"#3c315c"
+strokeweight=3D"1px"
+fillcolor=3D"#3c315c">
+<v:stroke dashstyle=3D"solid"/>
+<w:anchorlock />
+<center style=3D"
+color: #ffffff;
+display: block;
+font-family: 'Work Sans'=2C sans-serif;
+font-size: 27;
+font-style: normal;
+font-weight: bold;
+letter-spacing: 0px;
+text-decoration: none;
+text-align: center;
+direction: ltr;"
+>
+SIGN UP NOW
+</center>
+</v:roundrect>
+</td>
+<![endif]-->
+</tr></tbody></table></td></tr><tr><td style=3D"background-color:#efeefa;p=
+adding-top:0;padding-bottom:0;padding-right:0;padding-left:0" class=3D"mce=
+BlockContainerE2E" align=3D"full" valign=3D"top"><img data-block-id=3D"36"=
+ width=3D"659.9999999999999" height=3D"auto" style=3D"width:659.9999999999=
+999px;height:auto;max-width:100%;display:block" alt=3D"" src=3D"https://mc=
+usercontent.com/60329fdf92abd6e69a757670d/images/98a0d085-704c-1b72-c7ab-7=
+352e2c041a1.jpeg" role=3D"presentation" class=3D"imageDropZone" /></td></t=
+r><tr><td style=3D"background-color:#a69aeb;padding-top:30px;padding-botto=
+m:30px;padding-right:30px;padding-left:30px" class=3D"mceBlockContainer" v=
+align=3D"top"><div data-block-id=3D"22" class=3D"mceText" id=3D"dataBlockI=
+d-22" style=3D"width:100%"><h1 class=3D"last-child"><span style=3D"color:#=
+ffffff;"><span style=3D"font-size: 43px"><span style=3D"font-family: 'Work=
+ Sans'=2C sans-serif">Unlimited Study Sets =F0=9F=93=9A</span></span></spa=
+n></h1></div></td></tr><tr><td style=3D"padding-top:0;padding-bottom:0;pad=
+ding-right:0;padding-left:0" class=3D"mceBlockContainerE2E" align=3D"full"=
+ valign=3D"top"><img data-block-id=3D"23" width=3D"660" height=3D"auto" st=
+yle=3D"width:660px;height:auto;max-width:100%;display:block" alt=3D"" src=
+=3D"https://mcusercontent.com/60329fdf92abd6e69a757670d/images/89a037a6-80=
+35-2f84-bdfe-1c3a5dbca1ad.png" role=3D"presentation" class=3D"imageDropZon=
+e" /></td></tr><tr><td style=3D"background-color:#a69aeb;padding-top:30px;=
+padding-bottom:30px;padding-right:30px;padding-left:30px" class=3D"mceBloc=
+kContainer" valign=3D"top"><div data-block-id=3D"24" class=3D"mceText" id=
+=3D"dataBlockId-24" style=3D"width:100%"><h1 class=3D"last-child"><span st=
+yle=3D"color:#ffffff;"><span style=3D"font-size: 43px"><span style=3D"font=
+-family: 'Work Sans'=2C sans-serif">Unlimited Uploads =F0=9F=93=B2</span><=
+/span></span></h1></div></td></tr><tr><td style=3D"padding-top:0;padding-b=
+ottom:0;padding-right:0;padding-left:0" class=3D"mceBlockContainerE2E" ali=
+gn=3D"full" valign=3D"top"><img data-block-id=3D"25" width=3D"660" height=
+=3D"auto" style=3D"width:660px;height:auto;max-width:100%;display:block" a=
+lt=3D"" src=3D"https://mcusercontent.com/60329fdf92abd6e69a757670d/images/=
+c81d72ab-5a72-30f8-4f59-b0c70ae6ee91.png" role=3D"presentation" class=3D"i=
+mageDropZone" /></td></tr><tr><td style=3D"background-color:#a69aeb;paddin=
+g-top:30px;padding-bottom:30px;padding-right:30px;padding-left:30px" class=
+=3D"mceBlockContainer" valign=3D"top"><div data-block-id=3D"26" class=3D"m=
+ceText" id=3D"dataBlockId-26" style=3D"width:100%"><h1 class=3D"last-child=
+"><span style=3D"color:#ffffff;"><span style=3D"font-size: 43px"><span sty=
+le=3D"font-family: 'Work Sans'=2C sans-serif">Unlimited AI Generated Pract=
+ice Tests =F0=9F=A4=93</span></span></span></h1></div></td></tr><tr><td st=
+yle=3D"padding-top:0;padding-bottom:0;padding-right:0;padding-left:0" clas=
+s=3D"mceBlockContainerE2E" align=3D"full" valign=3D"top"><img data-block-i=
+d=3D"27" width=3D"660" height=3D"auto" style=3D"width:660px;height:auto;ma=
+x-width:100%;display:block" alt=3D"" src=3D"https://mcusercontent.com/6032=
+9fdf92abd6e69a757670d/images/f5b263f9-d460-f128-9dd8-56d299518903.png" rol=
+e=3D"presentation" class=3D"imageDropZone" /></td></tr><tr><td style=3D"ba=
+ckground-color:#a69aeb;padding-top:30px;padding-bottom:30px;padding-right:=
+30px;padding-left:30px" class=3D"mceBlockContainer" valign=3D"top"><div da=
+ta-block-id=3D"28" class=3D"mceText" id=3D"dataBlockId-28" style=3D"width:=
+100%"><h1 class=3D"last-child"><span style=3D"color:#ffffff;"><span style=
+=3D"font-size: 43px"><span style=3D"font-family: 'Work Sans'=2C sans-serif=
+">Unlimited AI Generated Flashcards =F0=9F=93=96</span></span></span></h1>=
+</div></td></tr><tr><td style=3D"padding-top:0;padding-bottom:0;padding-ri=
+ght:0;padding-left:0" class=3D"mceBlockContainerE2E" align=3D"full" valign=
+=3D"top"><img data-block-id=3D"29" width=3D"660" height=3D"auto" style=3D"=
+width:660px;height:auto;max-width:100%;display:block" alt=3D"" src=3D"http=
+s://mcusercontent.com/60329fdf92abd6e69a757670d/images/b89631e5-bcf7-eed6-=
+9b4c-365c77951e58.png" role=3D"presentation" class=3D"imageDropZone" /></t=
+d></tr><tr><td style=3D"background-color:#a69aeb;padding-top:30px;padding-=
+bottom:30px;padding-right:30px;padding-left:30px" class=3D"mceBlockContain=
+er" valign=3D"top"><div data-block-id=3D"30" class=3D"mceText" id=3D"dataB=
+lockId-30" style=3D"width:100%"><h1><span style=3D"color:#ffffff;"><span s=
+tyle=3D"font-size: 43px"><span style=3D"font-family: 'Work Sans'=2C sans-s=
+erif">Unlimited Chat with</span></span></span></h1><h1 class=3D"last-child=
+"><span style=3D"color:#ffffff;"><span style=3D"font-size: 43px"><span sty=
+le=3D"font-family: 'Work Sans'=2C sans-serif">Spark.E</span> =F0=9F=90=B6<=
+/span></span></h1></div></td></tr><tr><td style=3D"padding-top:0;padding-b=
+ottom:0;padding-right:0;padding-left:0" class=3D"mceBlockContainerE2E" ali=
+gn=3D"full" valign=3D"top"><img data-block-id=3D"31" width=3D"660" height=
+=3D"auto" style=3D"width:660px;height:auto;max-width:100%;display:block" a=
+lt=3D"" src=3D"https://mcusercontent.com/60329fdf92abd6e69a757670d/images/=
+7c86a2b5-4a0c-09b8-522a-313bcd22ffa7.png" role=3D"presentation" class=3D"i=
+mageDropZone" /></td></tr><tr><td style=3D"background-color:#a69aeb;paddin=
+g-top:30px;padding-bottom:30px;padding-right:30px;padding-left:30px" class=
+=3D"mceBlockContainer" valign=3D"top"><div data-block-id=3D"32" class=3D"m=
+ceText" id=3D"dataBlockId-32" style=3D"width:100%"><h1 class=3D"last-child=
+"><span style=3D"color:#ffffff;"><span style=3D"font-size: 43px"><span sty=
+le=3D"font-family: 'Work Sans'=2C sans-serif">Handwritten Notes and Photo=
+ Uploader =E2=9C=8D=EF=B8=8F</span></span></span></h1></div></td></tr><tr>=
+<td style=3D"background-color:#a69aeb;padding-top:12px;padding-bottom:12px=
+;padding-right:12px;padding-left:12px" class=3D"mceBlockContainer" align=
+=3D"full" valign=3D"top"><img data-block-id=3D"33" width=3D"659.9999999999=
+999" height=3D"auto" style=3D"width:659.9999999999999px;height:auto;max-wi=
+dth:100%;display:block" alt=3D"" src=3D"https://mcusercontent.com/60329fdf=
+92abd6e69a757670d/images/b6518309-d556-f39b-5506-4a2bbccc192e.jpeg" role=
+=3D"presentation" class=3D"imageDropZone" /></td></tr><tr><td style=3D"bac=
+kground-color:#a69aeb;padding-top:30px;padding-bottom:30px;padding-right:3=
+0px;padding-left:30px" class=3D"mceBlockContainer" valign=3D"top"><div dat=
+a-block-id=3D"34" class=3D"mceText" id=3D"dataBlockId-34" style=3D"width:1=
+00%"><h1 class=3D"last-child"><span style=3D"color:#ffffff;"><span style=
+=3D"font-size: 43px"><span style=3D"font-family: 'Work Sans'=2C sans-serif=
+">Live Lecture Assistant =F0=9F=91=A9=E2=80=8D=F0=9F=8F=AB</span></span></=
+span></h1></div></td></tr><tr><td style=3D"padding-top:0;padding-bottom:0;=
+padding-right:0;padding-left:0" class=3D"mceBlockContainerE2E" align=3D"fu=
+ll" valign=3D"top"><img data-block-id=3D"35" width=3D"659.9999999999999" h=
+eight=3D"auto" style=3D"width:659.9999999999999px;height:auto;max-width:10=
+0%;display:block" alt=3D"" src=3D"https://mcusercontent.com/60329fdf92abd6=
+e69a757670d/images/c83ebc20-ad37-4669-0b61-8c3b25f3ff7d.png" role=3D"prese=
+ntation" class=3D"imageDropZone" /></td></tr><tr><td style=3D"background-c=
+olor:#a69aeb;padding-top:61px;padding-bottom:61px;padding-right:24px;paddi=
+ng-left:24px" class=3D"mceBlockContainer" align=3D"center" valign=3D"top">=
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" data-block-id=3D"20"><tbody><tr class=3D"mceStandardB=
+utton"><td style=3D"background-color:#3c315c;border-radius:50px;text-align=
+:center" class=3D"mceButton" valign=3D"top"><a href=3D"https://studyfetch.=
+us8.list-manage.com/track/click?u=3D60329fdf92abd6e69a757670d&id=3D3e7afdc=
+71f&e=3D2c1557146b" target=3D"_blank" style=3D"background-color:#3c315c;b=
+order-radius:50px;border:1px solid #3c315c;color:#ffffff;display:block;fon=
+t-family:'Work Sans'=2C sans-serif;font-size:27px;font-weight:bold;font-st=
+yle:normal;padding:16px 28px;text-decoration:none;min-width:30px;text-alig=
+n:center;direction:ltr;letter-spacing:0px">TRY FOR FREE</a></td></tr><tr>
+<!--[if mso]>
+<td align=3D"center">
+<v:roundrect xmlns:v=3D"urn:schemas-microsoft-com:vml"
+xmlns:w=3D"urn:schemas-microsoft-com:office:word"
+href=3D"https://www.studyfetch.com/"
+style=3D"v-text-anchor:middle; width:249.01000000000002px; height:65.33px;=
+"
+arcsize=3D"20%"
+strokecolor=3D"#3c315c"
+strokeweight=3D"1px"
+fillcolor=3D"#3c315c">
+<v:stroke dashstyle=3D"solid"/>
+<w:anchorlock />
+<center style=3D"
+color: #ffffff;
+display: block;
+font-family: 'Work Sans'=2C sans-serif;
+font-size: 27;
+font-style: normal;
+font-weight: bold;
+letter-spacing: 0px;
+text-decoration: none;
+text-align: center;
+direction: ltr;"
+>
+TRY FOR FREE
+</center>
+</v:roundrect>
+</td>
+<![endif]-->
+</tr></tbody></table></td></tr><tr><td style=3D"background-color:transpare=
+nt;padding-top:20px;padding-bottom:20px;padding-right:24px;padding-left:24=
+px" class=3D"mceBlockContainer" valign=3D"top"><table border=3D"0" cellpad=
+ding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"background-color:tran=
+sparent" role=3D"presentation" data-block-id=3D"6"><tbody><tr><td style=3D=
+"min-width:100%;border-top:2px solid #000000" valign=3D"top"></td></tr></t=
+body></table></td></tr><tr><td style=3D"padding-top:8px;padding-bottom:8px=
+;padding-right:8px;padding-left:8px" class=3D"mceLayoutContainer" valign=
+=3D"top"><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" width=3D"100%" role=3D"presentation" data-block-id=3D"11" id=3D"se=
+ction_a5e0bf2e5008278a4c554caa6db62577" class=3D"mceFooterSection"><tbody>=
+<tr class=3D"mceRow"><td style=3D"background-position:center;background-re=
+peat:no-repeat;background-size:cover" valign=3D"top"><table border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"12" width=3D"100%" role=3D"presentation"><=
+tbody><tr><td style=3D"padding-top:0;padding-bottom:0;margin-bottom:12px"=
+ class=3D"mceColumn" data-block-id=3D"-3" valign=3D"top" colspan=3D"12" wi=
+dth=3D"100%"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"100%" role=3D"presentation"><tbody><tr><td style=3D"padding-top:0;padd=
+ing-bottom:0;padding-right:0;padding-left:0" class=3D"mceBlockContainer" a=
+lign=3D"center" valign=3D"top"><img data-block-id=3D"8" width=3D"210" heig=
+ht=3D"auto" style=3D"width:210px;height:auto;max-width:100%;display:block"=
+ alt=3D"" src=3D"https://mcusercontent.com/60329fdf92abd6e69a757670d/image=
+s/d4fe19ec-6cf7-a844-1e8b-a8a4c168d615.png" role=3D"presentation" class=3D=
+"imageDropZone" /></td></tr><tr><td style=3D"padding-top:12px;padding-bott=
+om:12px;padding-right:16px;padding-left:16px" class=3D"mceBlockContainer"=
+ align=3D"center" valign=3D"top"><div data-block-id=3D"9" class=3D"mceText=
+" id=3D"dataBlockId-9" style=3D"display:inline-block;width:100%"><p class=
+=3D"last-child">Copyright (C) 2023 StudyFetch. All rights reserved.<br /><=
+br /><br />Our mailing address is:<br />contact@studyfetch.com<br /><br />=
+<span style=3D"font-size: 12px">Want to change how you receive these email=
+s?</span><br /><span style=3D"font-size: 12px">You can </span><a href=3D"h=
+ttps://studyfetch.us8.list-manage.com/profile?u=3D60329fdf92abd6e69a757670=
+d&id=3D222a3d9086&e=3D2c1557146b&c=3Dd62b628061"><span style=3D"font-size: 1=
+2px">update your preferences</span></a><span style=3D"font-size: 12px"> or=
+ </span><a href=3D"https://studyfetch.us8.list-manage.com/unsubscribe?u=3D=
+60329fdf92abd6e69a757670d&id=3D222a3d9086&e=3D2c1557146b&c=3Dd62b628061"><sp=
+an style=3D"font-size: 12px">unsubscribe</span></a></p></div></td></tr><tr=
+><td class=3D"mceLayoutContainer" align=3D"center" valign=3D"top"><table a=
+lign=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"=
+100%" role=3D"presentation" data-block-id=3D"-2"><tbody><tr class=3D"mceRo=
+w"><td style=3D"background-position:center;background-repeat:no-repeat;bac=
+kground-size:cover;padding-top:0px;padding-bottom:0px" valign=3D"top"><tab=
+le border=3D"0" cellpadding=3D"0" cellspacing=3D"24" width=3D"100%" role=
+=3D"presentation"><tbody></tbody></table></td></tr></tbody></table></td></=
+tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></t=
+d></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table=
+></td></tr></tbody></table><!--[if (gte mso 9)|(IE)]></td></tr></table><!=
+[endif]--></td></tr></tbody></table>
+</td>
+</tr>
+</tbody></table>
+</center>
+<img src=3D"https://studyfetch.us8.list-manage.com/track/open.php?u=3D6032=
+9fdf92abd6e69a757670d&id=3Dd62b628061&e=3D2c1557146b" height=3D"1" width=
+=3D"1" alt=3D""></body></html>
+--_----------=_MCPart_464006436--

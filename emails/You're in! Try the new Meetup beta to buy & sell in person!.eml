@@ -1,0 +1,3078 @@
+Delivered-To: funnygum977@gmail.com
+Received: by 2002:a05:7108:6396:b0:339:159:19dc with SMTP id z22csp107304gdq;
+        Thu, 26 Oct 2023 13:34:29 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGCh71il9Qx0IhCUzx1XNIFWn2xqLVRvIYPlYh+cdiofUJxtL/dAL+b345fbMEWg/L2V3Na
+X-Received: by 2002:a25:cf88:0:b0:d9a:ed4d:b396 with SMTP id f130-20020a25cf88000000b00d9aed4db396mr543914ybg.6.1698352469035;
+        Thu, 26 Oct 2023 13:34:29 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1698352469; cv=none;
+        d=google.com; s=arc-20160816;
+        b=ECOQtRRTURfSddVxvDY1z8uHJGCwmjmNxmxI5J7OrJpItvpi46euU7ZVgrLioP0dNx
+         62OqeGr+cM+g1nPy7y0CyeqtKwAANdsoa1bCps01gjq8qr1Q0sSj87g8K9WMDgXGGV12
+         22eqeqw0AlQErRO32lHt0u2tojOIO42XPoax3qkybmnNRWqWrUVzGssuo4bfuixa+wnU
+         i/fXWjeM5UgPuTu/14PTpAjIOge85/VsdjW7nQZv+yWNmMNcAJK8UWzl2CebNQNxTc6p
+         QqVxlpu1rzgq3z5cT7brpYOWFzhJ/KfgqiHbQFnhLa7PnpR3T7dfvu5noV2oMArjDOp9
+         3m1A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:list-unsubscribe:reply-to:subject:message-id:mime-version:from
+         :date:dkim-signature:dkim-signature;
+        bh=It9BG3PiO6Q2Gau6GmmkYEfubl4FmyAdnYCixqbG6hU=;
+        fh=3KxIDdUNjr10SEPqSSEpS++ic6Rdy+Dm2Nyl3+vUblM=;
+        b=XoSWi47EfuqMED/Tr2eAcQYbCo+m4b2qvnjDe6IAkeFPwvkvP8+z3Awj5w5Owjw/1R
+         lCzWt3ztS5jCGa/cn8SG7j6nNOmvY6/4qxRSLZLrsEkRTDxYLNh00WT2+w9sIZGwMl+n
+         lJx+70Fc+atD8yE8Xc7SJQhioKqJxj3T5UW4uddKVkhgXLF1U2f9WH8jNaTOyIpoG4yr
+         uadaYF3Od442qqEQzmcDnttrDkH77dl4L3HDfB704dspq9y04LqlWhvTiu8NUtIwzbJZ
+         Siy5mw/hQ67U/txlNToiuPLhNvZLYjqzFgfFwnlvK2LAH7at9H3Z+CaNmpx6jhk0p/7g
+         dUNQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@hello.us.mercari.com header.s=s1 header.b=Dz1iU80c;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=Xe488PFf;
+       spf=pass (google.com: domain of bounces+35455781-e3d8-funnygum977=gmail.com@abmail.hello.us.mercari.com designates 223.165.120.130 as permitted sender) smtp.mailfrom="bounces+35455781-e3d8-funnygum977=gmail.com@abmail.hello.us.mercari.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=mercari.com
+Return-Path: <bounces+35455781-e3d8-funnygum977=gmail.com@abmail.hello.us.mercari.com>
+Received: from o4825.abmail.hello.us.mercari.com (o4825.abmail.hello.us.mercari.com. [223.165.120.130])
+        by mx.google.com with ESMTPS id z184-20020a254cc1000000b00da0c4e5808dsi281159yba.20.2023.10.26.13.34.28
+        for <funnygum977@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 26 Oct 2023 13:34:29 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+35455781-e3d8-funnygum977=gmail.com@abmail.hello.us.mercari.com designates 223.165.120.130 as permitted sender) client-ip=223.165.120.130;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@hello.us.mercari.com header.s=s1 header.b=Dz1iU80c;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=Xe488PFf;
+       spf=pass (google.com: domain of bounces+35455781-e3d8-funnygum977=gmail.com@abmail.hello.us.mercari.com designates 223.165.120.130 as permitted sender) smtp.mailfrom="bounces+35455781-e3d8-funnygum977=gmail.com@abmail.hello.us.mercari.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=mercari.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=hello.us.mercari.com;
+	h=content-type:from:mime-version:subject:reply-to:list-unsubscribe:
+	x-feedback-id:to:cc:content-type:from:subject:to;
+	s=s1; bh=It9BG3PiO6Q2Gau6GmmkYEfubl4FmyAdnYCixqbG6hU=;
+	b=Dz1iU80c8xPzTLgwgio8IKtCFERfAASq/Yiiru3Ol0Za1tFv5ZV9GYCwb8KkI1HtpaLT
+	eqgHOKjXQP3hzjv68PEWEQvxdmdBDBc28zHSofd65auYzDLHMGyAFz3ysgzfzKuZqMYx+u
+	Z/rAReObe9fzwEuFm5sM+Kypsz980aBw/JhY8Dj/sQ/ARP0FctUZhlDZZI8Gq9onH4uanG
+	Nkh+9x/zXLgrzuUe6ryEQVS3ttW6xj9sa8qeKuE5IqOdJqH9b9+cbBdN55M/nsy4UgkwGa
+	rOBWxvuuWv8XkOiUujGZf6W9jqFWghSWJuBbwNuuc96bVa/4RbZ1SHy1dXjVhOjQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info;
+	h=content-type:from:mime-version:subject:reply-to:list-unsubscribe:
+	x-feedback-id:to:cc:content-type:from:subject:to;
+	s=smtpapi; bh=It9BG3PiO6Q2Gau6GmmkYEfubl4FmyAdnYCixqbG6hU=;
+	b=Xe488PFfKAdZ3l3Hfd9ArNQL/24l+woMNCZsNrBVeXhLH4S3atZ0WqIkx6D5QSlD+usL
+	Fs+f0cLAngNbS057BWz9D5BwGSUrPs/uCh9MVp4PqHuBgEU6p4xSBqxL1mI8t6xtZv7xi4
+	2N0c614/xBz4KydwZb8NhCyTmzcKu3+vc=
+Received: by filterdrecv-59b97c8fcd-xrrrk with SMTP id filterdrecv-59b97c8fcd-xrrrk-1-653ACD54-69
+        2023-10-26 20:34:28.486842354 +0000 UTC m=+784358.828306761
+Received: from MzU0NTU3ODE (unknown)
+	by geopod-ismtpd-34 (SG) with HTTP
+	id RJ9L94TVQ12aJOHWiQa7MA
+	Thu, 26 Oct 2023 20:34:28.456 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=a95815733aef0aafe63bc068300af1c5a88e334b42942dd2ef13bfdf3b46
+Date: Thu, 26 Oct 2023 20:34:28 +0000 (UTC)
+From: Mercari <no-reply@hello.us.mercari.com>
+Mime-Version: 1.0
+Message-ID: <RJ9L94TVQ12aJOHWiQa7MA@geopod-ismtpd-34>
+Subject: You're in! Try the new Meetup beta to buy & sell in person!
+Reply-To: no-reply@contact-us.mercariapp.com
+List-Unsubscribe: 
+ =?us-ascii?Q?=3Cmailto=3A4=5Fmn4a6molb310gw1lqgtx0fqyl0to5j6khatvlel4ahwq72rfdzwk?=
+ =?us-ascii?Q?jm=40unsubscribe=2Eemailinboundprocessing=2Ec?=
+ =?us-ascii?Q?om=3Fsubject=3DUnsubscribe&body=3DDO=5FNOT=5FDELE?=
+ =?us-ascii?Q?TE-27pse8vtw0gkjp47vn7twnbctmnmk9908uya?=
+ =?us-ascii?Q?t04xtq3xane014em0zoog351dnuk5u5ep02t9c7?=
+ =?us-ascii?Q?pz1l3bqtjt65-DO=5FNOT=5FDELETE=3E?=
+X-Feedback-ID: 35455781:SG
+X-SG-EID: 
+ =?us-ascii?Q?gyMJed=2FLrSjENY4rB7J7lMSflOnquj4tS9xElUtf0EwvwwQoh2KKYgWOABukcf?=
+ =?us-ascii?Q?Z4kc4AJupt05BEMSCBDYECXag7EtIyAaUkTadi=2F?=
+ =?us-ascii?Q?x6LoE9WquHy9ukF8hR7JLKv8IsT7MlGJE4qBc1v?=
+ =?us-ascii?Q?3HfyEintLfJ7AWUiSmfu88yUXTB14OI1MqzUXuH?=
+ =?us-ascii?Q?SOn4DWhDBs2Jg5XEp3kQnuwG2vNKDrZ5vLEx5+4?=
+ =?us-ascii?Q?zoTFx9Aue3LaXrsvxvRvDbUDToAysZ5uvISpqZ?=
+X-SG-ID: 
+ =?us-ascii?Q?N2C25iY2uzGMFz6rgvQsb8raWjw0ZPf1VmjsCkspi=2FKvUYPFb2vwyNNeBc9bJi?=
+ =?us-ascii?Q?ChvtCnKBvySwqeAHis6McUm7HnH1jc2h64h3H2h?=
+ =?us-ascii?Q?sZOd1hnYMbVYRxn=2FAS6WJL2X3Asp3wnesykcb5w?=
+ =?us-ascii?Q?KDihUinPWR6lbABBkJB3kxIW0ahSjNtEeQ1am15?=
+ =?us-ascii?Q?EmConTlsTs+0XIPxpY5MBM5=2FM9t1xoE8wNtPVkW?=
+ =?us-ascii?Q?vBNO7lCJgPX=2F4IILn+wng0kjLPpYrz55EzM7ySv?=
+ =?us-ascii?Q?d+=2FWl5ClbkD7eN7THRa6jJedYdAvFh2hc8UYYK9?=
+ =?us-ascii?Q?1Jpd=2FY0otZcsQEhwlyxCfZx9GB77bTFIEDjooQO?=
+ =?us-ascii?Q?K7kIDREh0xB6RfkxRZ4J6wJtJqGVHsQGoJcfJ8h?=
+ =?us-ascii?Q?ihhosauxv9MAjMKlTYPocUsOwFVX1IICOSXYZT6?=
+ =?us-ascii?Q?t2YpN4beDG2OHSYVhevaP9g517ShWvbbqVDDP2r?=
+ =?us-ascii?Q?pBqFuBWsBLoXSm5O+i8mf=2F4QF97xQRYx3x5zghc?=
+ =?us-ascii?Q?fYCRkI3yusbwhqzCw4UHaYoqlRxQlqYr7oe2ZLL?=
+ =?us-ascii?Q?yR=2FjvaB3PVVdF+gBU02pTF3Ej0PVU94pDOI2TI8?=
+ =?us-ascii?Q?TJIm33G?=
+To: funnygum977@gmail.com
+X-Entity-ID: WRCFZfaqyDC+m0J4QE9nBA==
+
+--a95815733aef0aafe63bc068300af1c5a88e334b42942dd2ef13bfdf3b46
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Mime-Version: 1.0
+
+Pay in person to save on shipping & selling fees! Open to learn
+more.  =20
+  @media only screen and
+(min-width:560px) { .e2_header_full_bleed-container { padding:
+32px 30px 20px 30px !important; } }
+
+  Mercari header =20
+( https://ablink.links.us.mercari.com/ls/click?upn=3Dc0EushdgISemCp7RgyGG1X=
+x7uQ9-2FZo2VGorlQ2djaGXd6Q5f-2BwcIIYofkYACo5wPlfeDnqFhQhz-2FC-2Bw7qKA4OKIYg=
+P0MnrhTY2OxWAB8tfu0yMbcyOxEXkdcBZcQIu8CUPSXjJw4PbmuC-2F6cv26z4w-3D-3DHYjl_o=
+KpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaLMYNBdt-2FnsqjCTBbxIHk9Sh6FBW6A=
+RqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SKM4iC-2BqfPuWUsFuOZs2lm47rJGyICzbvwCrXODYD=
+e92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GKYSBa2wRFlL5u5AbXPl5EiyFffQpI6Chij-2F2khGF=
+YOPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwkjQbzS9lm7NAG7QlBk4xV8sWVQQIB7NkZi1wq8-2FP=
+qcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr1KJmDeXCOU3Laqqno55bLe5Hr6nw22Kqfx6bowAn8YZ=
+xoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2FIakIN8HuQyTLI38WZwkqKz6i52DSBhn3sWO5L-2F3=
+yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUkXoS9t3o6vkPXnf-2Bgha-2FP8e5UoTqXFeFtduygB=
+Kr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZDmPJwxOT-2BfVkx8FJK6R1QLMkhpMwxavyMB-2B89=
+yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDKsAbxIUeF0WJka0xe6ZvZ1ISsE3e1U5why7-2Fws-2=
+FDZt-2BIMhpyAEESFo8Tao081E1pBSSGntR80Lz5NvFyn7TfUPL7aaKm11arF6vx7e70CKf3sJk=
+zKmj6Y2f6I9CPQRtlwROYQJ2x3uUIBCgepaGFsMUatn6jW-2Flwc-3D )
+=20
+  @media only screen and
+(min-width:560px) { .e2-body-paragraph-container { padding: 32px
+0px !important; } .e2-body-paragraph-text { font-size: 20px
+!important; line-height: 26px !important; padding: 24px 30px
+!important; } } =20
+
+ Meet meetups! Now you can meet up to buy and sell nearby items. Enjoy the =
+Mercari <a universal =3D true style=3D'text-decoration: underline; color: #=
+4c4c4c;' href =3D 'https://ablink.links.us.mercari.com/ls/click?upn=3Dc0Eus=
+hdgISemCp7RgyGG1Xx7uQ9-2FZo2VGorlQ2djaGWh0oJ0aKqU-2FonJqwXy9Ebt4NhWXCvaDZYB=
+GR90hHIldTRW9SwVs2tQxE76INB15q6Tk7In1YEcLj-2F3FndJSpldh05F9MndxBtrsxW7f4WNc=
+GiAsUzit46XuBoVV372x0-2B7IYDlMKBLhPo5XRPhQ2qFrCDf_oKpHbu4hmsCLnrDdPvdJ-2Bg-=
+2FjsIhjIorolnLs2ASJaLMYNBdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR=
+-2BAt6x7SKM4iC-2BqfPuWUsFuOZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZ=
+fu-2BYp7GKYSBa2wRFlL5u5AbXPl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RUmSu-2F=
+blOQ5XEKwkjQbzS9lm7NAG7QlBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-=
+2FyjjYSr1KJmDeXCOU3Laqqno55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6c=
+WRMLm1M-2FIakIN8HuQyTLI38WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8z=
+fz19AZrfUkXoS9t3o6vkPXnf-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVozzmUa-=
+2Fzy1LBoOZDmPJwxOT-2BfVkx8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6u=
+R6WJVBDTDKsAbxIUeF0WL-2Fhj3Ae5eOiEgZmIz2mo00b2BQrsqQXH8f18wqquHHB2I4JuJBdwt=
+O6eF-2FFBONIyThkZj-2FEkFgG1jYwzMAdMxtdyB3g4hj58O5eiSCXffM-2FCMz9z9-2BPTcIjG=
+LjbXoj7e40OAjfh0R9v6qvEBvI1ZBk-3D>Meetup beta program</a>, only available i=
+n <a universal =3D true style=3D'text-decoration: underline; color: #4c4c4c=
+;' href =3D 'https://ablink.links.us.mercari.com/ls/click?upn=3Dc0EushdgISe=
+mCp7RgyGG1Xx7uQ9-2FZo2VGorlQ2djaGWh0oJ0aKqU-2FonJqwXy9Ebt4NhWXCvaDZYBGR90hH=
+IldTRW9SwVs2tQxE76INB15q6Tk7In1YEcLj-2F3FndJSpldeqa48QJGsk61V7JoQ2NKqAKGoGQ=
+eRS-2BUERpJ3DCpPOo-3DKMYw_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaLMYN=
+Bdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SKM4iC-2BqfPuWUs=
+FuOZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GKYSBa2wRFlL5u5A=
+bXPl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwkjQbzS9lm7NAG7Q=
+lBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr1KJmDeXCOU3Laqqn=
+o55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2FIakIN8HuQyTLI3=
+8WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUkXoS9t3o6vkPXnf=
+-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZDmPJwxOT-2BfVk=
+x8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDKsAbxIUeF0WGzff=
+fToXFUihZqAyIl8Bn3T0yH3PKC48p3FzhHz5Uv3aXTcqr9S62A3BRGPJwhnW-2FZf7Z9KCDujT0=
+7ND4ilatt6ByvV7UDkRM8cG0CNMZVa8LpWmsP3dTE6LREOe9-2BYofoyWBFKRoYeKfdGjnF05fU=
+-3D>eligible Los Angeles area zip codes</a>. To use Meetup, your default ad=
+dress must be in an <a universal =3D true style=3D'text-decoration: underli=
+ne; color: #4c4c4c;' href =3D 'https://ablink.links.us.mercari.com/ls/click=
+?upn=3Dc0EushdgISemCp7RgyGG1Xx7uQ9-2FZo2VGorlQ2djaGWh0oJ0aKqU-2FonJqwXy9Ebt=
+4NhWXCvaDZYBGR90hHIldTRW9SwVs2tQxE76INB15q6Tk7In1YEcLj-2F3FndJSpldeqa48QJGs=
+k61V7JoQ2NKqAKGoGQeRS-2BUERpJ3DCpPOo-3D7kCI_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIh=
+jIorolnLs2ASJaLMYNBdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6=
+x7SKM4iC-2BqfPuWUsFuOZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BY=
+p7GKYSBa2wRFlL5u5AbXPl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5X=
+EKwkjQbzS9lm7NAG7QlBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjY=
+Sr1KJmDeXCOU3Laqqno55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1=
+M-2FIakIN8HuQyTLI38WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZ=
+rfUkXoS9t3o6vkPXnf-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1L=
+BoOZDmPJwxOT-2BfVkx8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVB=
+DTDKsAbxIUeF0WNZG29drnJzeUbc9whLcKm4nypcH60ArQasjxdHpUsWPID1BL-2FgdbKdK-2FK=
+ZIBPmzn2NzRL3zgIX0wI7Oow-2FNGWX3-2BzFlWcmdE0X7h8HdjpEBKb4gBLkcoqmYuJmnrcc-2=
+FYqIXGTwkA5ohaU1VLt0f7kk-3D>eligible zip code.</a>
+
+
+
+
+
+  @media only screen and
+(min-width: 560px){ .e2-body-bulleted-list-small-table{
+border-spacing: 0 16px !important; }
+.e2-body-bulleted-list-small-text{ font-size: 20px !important;
+line-height: 26px !important; padding-left: 16px !important; }
+.e2-body-bulleted-list-small-bullet{ width: 15px !important;
+height: 15px !important; } } =20
+
+
+<b>Exchange and pay for items in-person </b>
+
+
+<b>Save on shipping and selling fees!</b>
+
+
+<b>Skip packing bulky, fragile, or heavy items</b>
+
+
+
+
+
+
+
+
+
+
+ Download the latest version of the Mercari app to try it out (<a universal=
+ =3D false style=3D'text-decoration: underline; color: #4c4c4c;' href =3D '=
+https://ablink.links.us.mercari.com/ls/click?upn=3Dc0EushdgISemCp7RgyGG1Uzy=
+GrEGTklmm3wfEngK-2FqippxK6YhhRrNjJQrJORxIEM3oXjOz3sPxXRrmxabei5qMtDI-2FSabE=
+YN8Ru5huyKqY-3DH80U_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaLMYNBdt-2F=
+nsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SKM4iC-2BqfPuWUsFuOZs2=
+lm47rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GKYSBa2wRFlL5u5AbXPl5E=
+iyFffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwkjQbzS9lm7NAG7QlBk4xV=
+8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr1KJmDeXCOU3Laqqno55bLe=
+5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2FIakIN8HuQyTLI38WZwkq=
+Kz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUkXoS9t3o6vkPXnf-2Bgha=
+-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZDmPJwxOT-2BfVkx8FJK6=
+R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDKsAbxIUeF0WJSRh20ZZhy=
+j89vVjCBWUi3z55vFZKSTzm18T6zheL8GDNMJc158FEKg5AUpDGddRuOHa34faeD2FHiRqQIcBI=
+JDKF8V2tyt3R1qq92kHOvJgDrobZoKFhGPPHsvfyywpV9YjUpS2XvalsSc4zu1RO4-3D>iOS</a=
+> | <a universal =3D false style=3D'text-decoration: underline; color: #4c4=
+c4c;' href =3D 'https://ablink.links.us.mercari.com/ls/click?upn=3Dc0Eushdg=
+ISemCp7RgyGG1RJ2SBREMPHgninrZVtQALRdQJzOsx9aF32HBiIJfoiA0lp0VlKrEtLvDK4HmsG=
+rgqqm5-2By82qKFEM6YIOrdAtI-3DXsEN_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2=
+ASJaLMYNBdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SKM4iC-2=
+BqfPuWUsFuOZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GKYSBa2w=
+RFlL5u5AbXPl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwkjQbzS9=
+lm7NAG7QlBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr1KJmDeXC=
+OU3Laqqno55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2FIakIN8=
+HuQyTLI38WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUkXoS9t3=
+o6vkPXnf-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZDmPJwx=
+OT-2BfVkx8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDKsAbxIU=
+eF0WFHkf0wa2w9Mg2VG3OGCovoBCpHnLuoLPzD0guddzDSS5BUcyEUHHH-2BBI3O4Ek7kL2VCvc=
+WRE7CIhODmp8-2B-2F-2BGRsh19DSIZPp155fnQbBpnVrh-2Fx-2FFGtDlJDO1pwWGVcozVdVmE=
+htWkDgpkNbqDwEbg-3D>Android</a>).
+
+
+
+
+
+
+  @media only screen and
+(min-width: 560px) { .e2-body-cta-single-button-link { font-size:
+20px !important; line-height: 26px !important; border-radius: 8px
+!important; -webkit-border-radius: 8px !important;
+-moz-border-radius: 8px !important; padding: 16px 32px
+!important; } .e2-body-cta-single-button { border-radius: 8px
+!important; -webkit-border-radius: 8px !important;
+-moz-border-radius: 8px !important; }
+.e2-body-cta-single-container { padding: 24px 0px !important; } }
+
+
+
+
+Learn more (
+https://ablink.links.us.mercari.com/ls/click?upn=3Dc0EushdgISemCp7RgyGG1Xx7=
+uQ9-2FZo2VGorlQ2djaGWh0oJ0aKqU-2FonJqwXy9Ebt4NhWXCvaDZYBGR90hHIldTRW9SwVs2t=
+QxE76INB15q6Tk7In1YEcLj-2F3FndJSpldh05F9MndxBtrsxW7f4WNcGiAsUzit46XuBoVV372=
+x0-2BRnebLEB6JbcQInnypfymBw_KV_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJ=
+aLMYNBdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SKM4iC-2Bqf=
+PuWUsFuOZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GKYSBa2wRFl=
+L5u5AbXPl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwkjQbzS9lm7=
+NAG7QlBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr1KJmDeXCOU3=
+Laqqno55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2FIakIN8HuQ=
+yTLI38WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUkXoS9t3o6v=
+kPXnf-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZDmPJwxOT-=
+2BfVkx8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDKsAbxIUeF0=
+WJCCYLETPF8XXKszCPddCR7EijeQNcv5u-2F1Q1PuRqfM2E0fKu-2FwSFMoFaVbVy0FC6JNAAzH=
+D746qUxgAyXbrRxxeqHXI7qjm0O-2FltbpLhHuAgQj-2Fiqn2fP-2BCnBxWH0KQ6Xf-2BnbWsrt=
+tlMTPSnHoCuAw-3D )
+
+
+  @media only screen and
+(min-width: 560px) { .e2-body-title-text { padding: 24px 0 0 0
+!important; font-size: 36px !important; line-height: 40px
+!important; } } =20
+
+How does it work for buyers?
+
+  @media only screen and
+(min-width: 560px) { .e2_images_photography-container { margin:
+24px auto !important; display: block !important; }
+.e2_images_photography-image { border-radius: 8px !important; } }
+
+     -->   =20
+( https://ablink.links.us.mercari.com/ls/click?upn=3Dc0EushdgISemCp7RgyGG1X=
+x7uQ9-2FZo2VGorlQ2djaGXd6Q5f-2BwcIIYofkYACo5wPW6-2BpT-2BH7JIpSptF6Eq0fQA-3D=
+-3DtOfz_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaLMYNBdt-2FnsqjCTBbxIHk=
+9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SKM4iC-2BqfPuWUsFuOZs2lm47rJGyICzb=
+vwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GKYSBa2wRFlL5u5AbXPl5EiyFffQpI6Chi=
+j-2F2khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwkjQbzS9lm7NAG7QlBk4xV8sWVQQIB7NkZ=
+i1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr1KJmDeXCOU3Laqqno55bLe5Hr6nw22Kqfx=
+6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2FIakIN8HuQyTLI38WZwkqKz6i52DSBhn3=
+sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUkXoS9t3o6vkPXnf-2Bgha-2FP8e5UoTqX=
+FeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZDmPJwxOT-2BfVkx8FJK6R1QLMkhpMwxa=
+vyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDKsAbxIUeF0WC6znJsG7maPOzQMWuSFgXg=
+SSSgpgcuPvu0jIQVnNYhTJ6l6Y6VviiAE2-2Blglh4J-2BkN5d-2BGyajVVHOJRL6SSUgF9lh0p=
+Ti1F0ysRioENyt40bvXNdhE3wEVvGoKlaWSaueJHfZJqFw-2FNSAXU-2B-2BNS6tc-3D )
+
+
+
+
+
+  @media only screen and
+(min-width: 560px) { .e2-body-numbered-list-li{ font-size: 24px
+!important; line-height: 26px !important; padding-left: 16px
+!important; } .e2-body-numbered-list-li-span{ font-size: 20px
+!important; } .e2-body-numbered-list-number{ padding: 0 0 0 51px
+!important; } .e2-body-numbered-list-li-next{ margin-top: 24px
+!important; } .e2-body-numbered-list-wrapper{ margin: 24px auto
+24px auto !important; } .e2-body-numbered-list-padding{ padding:
+0 !important; } } =20
+   li
+{text-align:-webkit-match-parent; display:list-item;text-indent:
+-1em;}        *
+<b>Use the filter to set your search range: </b> Filter to find thousands o=
+f items nearby. All listings in <a universal =3D true style=3D'text-decorat=
+ion: underline; color: #4c4c4c;' href =3D 'https://ablink.links.us.mercari.=
+com/ls/click?upn=3Dc0EushdgISemCp7RgyGG1Xx7uQ9-2FZo2VGorlQ2djaGWh0oJ0aKqU-2=
+FonJqwXy9Ebt4NhWXCvaDZYBGR90hHIldTRW9SwVs2tQxE76INB15q6Tk7In1YEcLj-2F3FndJS=
+pldeqa48QJGsk61V7JoQ2NKqAKGoGQeRS-2BUERpJ3DCpPOo-3DVTT4_oKpHbu4hmsCLnrDdPvd=
+J-2Bg-2FjsIhjIorolnLs2ASJaLMYNBdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcM=
+GK1QfR-2BAt6x7SKM4iC-2BqfPuWUsFuOZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT=
+4WoHFZfu-2BYp7GKYSBa2wRFlL5u5AbXPl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RU=
+mSu-2FblOQ5XEKwkjQbzS9lm7NAG7QlBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2F=
+UIMAK-2FyjjYSr1KJmDeXCOU3Laqqno55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-=
+2Bzq6cWRMLm1M-2FIakIN8HuQyTLI38WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2Buj=
+dVhM8zfz19AZrfUkXoS9t3o6vkPXnf-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVo=
+zzmUa-2Fzy1LBoOZDmPJwxOT-2BfVkx8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9=
+Z8ja6uR6WJVBDTDKsAbxIUeF0WHu52-2BorHyxnkSZtuEmfgJpJ-2BURf7k6ou2SgN-2BC9Y-2F=
+Mtn-2B6lAiTLOji3W-2BK1nhgW7U6Nb-2F9qAWEFXqV12FrnjhRblKAhVAgNSCf-2BYLr7moVPd=
+-2BPSzG-2FWYrqVDysDE-2BuCP-2FqwBvyS1twH1KoXC20ABx8-3D>eligible Los Angeles =
+zip codes</a> are available for in-person purchases, but the seller must ac=
+cept the request to meet up. Note: Distances are approximate based on zip c=
+odes.
+
+*
+<b>Send a meetup request:</b> Click =E2=80=98Ask to pick up=E2=80=99 to sen=
+d an automated meetup request to the seller and wait for them to accept you=
+r request.
+
+*
+<b>Coordinate your meetup:</b> If the seller accepts your request to meet u=
+p, work with them to set a day, time, and place to meet, and ask how they p=
+refer to be paid (cash, digital payment, etc).
+
+*
+<b>Transact offline:</b> Meetups take place outside of Mercari =E2=80=93 <b=
+>you=E2=80=99ll save since there=E2=80=99s no shipping fees!</b> Pay the se=
+ller directly by their preferred method (cash or digital payment).
+
+
+
+
+
+
+
+
+
+<b>Important: Don=E2=80=99t purchase the item on Mercari =E2=80=93 that=E2=
+=80=99ll cancel the meetup request.</b>
+
+
+
+
+
+
+
+  @media only screen and
+(min-width: 560px) { .e2-body-cta-double-button-link { font-size:
+20px !important; line-height: 26px !important; border-radius: 8px
+!important; -webkit-border-radius: 8px !important;
+-moz-border-radius: 8px !important; padding: 16px 32px
+!important; } .e2-body-cta-double-button { border-radius: 8px
+!important; -webkit-border-radius: 8px !important;
+-moz-border-radius: 8px !important; }
+.e2-body-cta-double-container { padding: 24px 0px !important; } }
+
+
+
+
+
+Learn more (
+https://ablink.links.us.mercari.com/ls/click?upn=3Dc0EushdgISemCp7RgyGG1Xx7=
+uQ9-2FZo2VGorlQ2djaGWh0oJ0aKqU-2FonJqwXy9Ebt4NhWXCvaDZYBGR90hHIldTRW9SwVs2t=
+QxE76INB15q6Tk7In1YEcLj-2F3FndJSpldh05F9MndxBtrsxW7f4WNcGiAsUzit46XuBoVV372=
+x0-2BRnebLEB6JbcQInnypfymB0jHV_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJ=
+aLMYNBdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SKM4iC-2Bqf=
+PuWUsFuOZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GKYSBa2wRFl=
+L5u5AbXPl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwkjQbzS9lm7=
+NAG7QlBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr1KJmDeXCOU3=
+Laqqno55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2FIakIN8HuQ=
+yTLI38WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUkXoS9t3o6v=
+kPXnf-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZDmPJwxOT-=
+2BfVkx8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDKsAbxIUeF0=
+WH5Hq-2FjYFmfqdoubmNtvTh-2BELFvg7noAOvOPHRqf5XLsBkRkipDZ-2Falpaf5Zgau-2FOJJ=
+46O0gIbR6AbIgwGCezNMm0LRYz2h10dsaxv1TkEqGlXUZl2Gds0uKxvguCSRSbUPnf-2FiJwWLq=
+ssLe8mC4kvM-3D )
+Shop now (
+https://ablink.links.us.mercari.com/ls/click?upn=3Dc0EushdgISemCp7RgyGG1Xx7=
+uQ9-2FZo2VGorlQ2djaGXd6Q5f-2BwcIIYofkYACo5wPHB4jtLv3vXRYAMXG1dUPPxtz5Dk7B72=
+Az-2B9Tcw8E15M-3DGwse_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaLMYNBdt-=
+2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SKM4iC-2BqfPuWUsFuOZ=
+s2lm47rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GKYSBa2wRFlL5u5AbXPl=
+5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwkjQbzS9lm7NAG7QlBk4=
+xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr1KJmDeXCOU3Laqqno55b=
+Le5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2FIakIN8HuQyTLI38WZw=
+kqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUkXoS9t3o6vkPXnf-2Bg=
+ha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZDmPJwxOT-2BfVkx8FJ=
+K6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDKsAbxIUeF0WBoh3DMgu=
+YOHaPkSby6HOjkMXBi3Gedo1hSPItx0p5D5TDBic0HPH4Zv5ipchCQZ20cjiccRWS-2BeknU6P0=
+G6Q1gtfILGc1kEM0d9Lp-2BqiGiQpfGoJSKWO-2BENEOMExAYkMDNuDTr0RdIlb-2Fc5TtkHVbw=
+-3D )
+
+
+
+How does it work for sellers?
+
+     -->   =20
+( https://ablink.links.us.mercari.com/ls/click?upn=3Dc0EushdgISemCp7RgyGG1X=
+x7uQ9-2FZo2VGorlQ2djaGXd6Q5f-2BwcIIYofkYACo5wPW6-2BpT-2BH7JIpSptF6Eq0fQA-3D=
+-3DZXFL_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaLMYNBdt-2FnsqjCTBbxIHk=
+9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SKM4iC-2BqfPuWUsFuOZs2lm47rJGyICzb=
+vwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GKYSBa2wRFlL5u5AbXPl5EiyFffQpI6Chi=
+j-2F2khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwkjQbzS9lm7NAG7QlBk4xV8sWVQQIB7NkZ=
+i1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr1KJmDeXCOU3Laqqno55bLe5Hr6nw22Kqfx=
+6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2FIakIN8HuQyTLI38WZwkqKz6i52DSBhn3=
+sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUkXoS9t3o6vkPXnf-2Bgha-2FP8e5UoTqX=
+FeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZDmPJwxOT-2BfVkx8FJK6R1QLMkhpMwxa=
+vyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDKsAbxIUeF0WERf-2FJTdhU-2BVd5xeU1k=
+kGp-2FLvsSPv0jW-2FT7GPjNbTTzhW3gn58BKcd-2F4ZKkB9-2BI-2BZTvWCVVDrnjaZC7i7-2F=
+XozXtMj-2B47iNA2pAKXQRVsVTXcC0gpJ7MrpUcM7LQp3SxYMY3cdjPbJYikpkX1Yewa2G8-3D =
+)
+
+
+
+
+
+  @media only screen and
+(min-width: 560px) { .e2-body-numbered-list-li{ font-size: 24px
+!important; line-height: 26px !important; padding-left: 16px
+!important; } .e2-body-numbered-list-li-span{ font-size: 20px
+!important; } .e2-body-numbered-list-number{ padding: 0 0 0 51px
+!important; } .e2-body-numbered-list-li-next{ margin-top: 24px
+!important; } .e2-body-numbered-list-wrapper{ margin: 24px auto
+24px auto !important; } .e2-body-numbered-list-padding{ padding:
+0 !important; } } =20
+   li
+{text-align:-webkit-match-parent; display:list-item;text-indent:
+-1em;}        *
+<b>Eligible items:</b> All listings in <a universal =3D true style=3D'text-=
+decoration: underline; color: #4c4c4c;' href =3D 'https://ablink.links.us.m=
+ercari.com/ls/click?upn=3Dc0EushdgISemCp7RgyGG1Xx7uQ9-2FZo2VGorlQ2djaGWh0oJ=
+0aKqU-2FonJqwXy9Ebt4NhWXCvaDZYBGR90hHIldTRW9SwVs2tQxE76INB15q6Tk7In1YEcLj-2=
+F3FndJSpldeqa48QJGsk61V7JoQ2NKqAKGoGQeRS-2BUERpJ3DCpPOo-3D85yT_oKpHbu4hmsCL=
+nrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaLMYNBdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQ=
+gBXNHcMGK1QfR-2BAt6x7SKM4iC-2BqfPuWUsFuOZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0I=
+ea7gtWT4WoHFZfu-2BYp7GKYSBa2wRFlL5u5AbXPl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2F=
+F45T1RUmSu-2FblOQ5XEKwkjQbzS9lm7NAG7QlBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQV=
+vstE-2FUIMAK-2FyjjYSr1KJmDeXCOU3Laqqno55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO=
+4-2Bha-2Bzq6cWRMLm1M-2FIakIN8HuQyTLI38WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLf=
+dR-2BujdVhM8zfz19AZrfUkXoS9t3o6vkPXnf-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HM=
+TzYSGVozzmUa-2Fzy1LBoOZDmPJwxOT-2BfVkx8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzd=
+vaL6CT9Z8ja6uR6WJVBDTDKsAbxIUeF0WKU4GlD35JWQPZ7AUR7wfQtM2J-2FRkF2T2xPcZAv5I=
+01DR-2BdomunZQw2udDXaMMrRQDLtMU-2BreC3FZST7gd6-2BxC2rh1WysaK-2FDpFe5eCKjkqK=
+fnDzUCcBGcP7gnubqgnCLo0u80FG6pbwRHlJWiMMSFU-3D>eligible Los Angeles zip cod=
+es</a> are available for in-person purchases, but the seller must accept th=
+e request to meet up.=20
+
+*
+<b>Coordinate your meetup:</b> When a buyer sends a meet up request, work w=
+ith the buyer to set a day, time, and place to meet. Be sure to let them kn=
+ow what payment method you prefer. <br><br> <b>Tip:</b> Consider adding ''p=
+ending sale'' or ''reserved'' to your listing title to hold the item until =
+you meet.
+
+*
+<b>Transact offline:</b> Meetups take place outside of Mercari, so you=E2=
+=80=99ll be paid in person and <b>save on shipping and selling fees</b>! Yo=
+u=E2=80=99ll need to accept cash or a digital payment method.
+
+*
+<b>Mark the item as sold:</b> Once the meetup is complete, mark the item as=
+ sold and you=E2=80=99re done!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Learn more (
+https://ablink.links.us.mercari.com/ls/click?upn=3Dc0EushdgISemCp7RgyGG1Xx7=
+uQ9-2FZo2VGorlQ2djaGWh0oJ0aKqU-2FonJqwXy9Ebt4NhWXCvaDZYBGR90hHIldTRW9SwVs2t=
+QxE76INB15q6Tk7In1YEcLj-2F3FndJSpldh05F9MndxBtrsxW7f4WNcGiAsUzit46XuBoVV372=
+x0-2BRnebLEB6JbcQInnypfymBZSn9_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJ=
+aLMYNBdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SKM4iC-2Bqf=
+PuWUsFuOZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GKYSBa2wRFl=
+L5u5AbXPl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwkjQbzS9lm7=
+NAG7QlBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr1KJmDeXCOU3=
+Laqqno55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2FIakIN8HuQ=
+yTLI38WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUkXoS9t3o6v=
+kPXnf-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZDmPJwxOT-=
+2BfVkx8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDKsAbxIUeF0=
+WDdWIh3irhR1FRwVXJF0WKwtB3oV-2BzDn5U816fwVpY5QgukZMZHsJ-2FX61RELvBEzN2MJJrN=
+c6LCAUvhGs-2FO2HCAtFpmOhSquCfacCgADh1A1L1eXbUvpzFRoeGVGGdsGaSN7Pe4JZgrd5vNO=
+XuzQqYU-3D )
+List now (
+https://ablink.links.us.mercari.com/ls/click?upn=3Dc0EushdgISemCp7RgyGG1Xx7=
+uQ9-2FZo2VGorlQ2djaGW1mBaFvw9g2NqwjOTKy-2F7ArY-2F1PtQ0i-2FlOf7-2F9f76iQA-3D=
+-3DK_cw_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaLMYNBdt-2FnsqjCTBbxIHk=
+9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SKM4iC-2BqfPuWUsFuOZs2lm47rJGyICzb=
+vwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GKYSBa2wRFlL5u5AbXPl5EiyFffQpI6Chi=
+j-2F2khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwkjQbzS9lm7NAG7QlBk4xV8sWVQQIB7NkZ=
+i1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr1KJmDeXCOU3Laqqno55bLe5Hr6nw22Kqfx=
+6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2FIakIN8HuQyTLI38WZwkqKz6i52DSBhn3=
+sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUkXoS9t3o6vkPXnf-2Bgha-2FP8e5UoTqX=
+FeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZDmPJwxOT-2BfVkx8FJK6R1QLMkhpMwxa=
+vyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDKsAbxIUeF0WNHCG5Py0VBixG1IExMeweN=
+4KRDZ-2FaPj-2BE-2B-2FWFoALAndrnrykdOoitic3QDg-2BonjMb-2BzkFHGwXcUPaw2S5WW5Y=
+3KTRQ4VMYsn0dqNipx6AoF-2FYMlRWbmDBdHmxRvBitvFepV8kuKeFKFLD4jWOpfbbU-3D )
+
+
+
+Tips for a successful in-person exchange
+
+     -->   =20
+( https://ablink.links.us.mercari.com/ls/click?upn=3Dc0EushdgISemCp7RgyGG1X=
+x7uQ9-2FZo2VGorlQ2djaGXd6Q5f-2BwcIIYofkYACo5wPW6-2BpT-2BH7JIpSptF6Eq0fQA-3D=
+-3Dz5nD_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaLMYNBdt-2FnsqjCTBbxIHk=
+9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SKM4iC-2BqfPuWUsFuOZs2lm47rJGyICzb=
+vwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GKYSBa2wRFlL5u5AbXPl5EiyFffQpI6Chi=
+j-2F2khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwkjQbzS9lm7NAG7QlBk4xV8sWVQQIB7NkZ=
+i1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr1KJmDeXCOU3Laqqno55bLe5Hr6nw22Kqfx=
+6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2FIakIN8HuQyTLI38WZwkqKz6i52DSBhn3=
+sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUkXoS9t3o6vkPXnf-2Bgha-2FP8e5UoTqX=
+FeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZDmPJwxOT-2BfVkx8FJK6R1QLMkhpMwxa=
+vyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDKsAbxIUeF0WBwZT0W2HGxvh6B9m-2FsIh=
+JYh6L0iYa9vfsJBiJi-2FdrkWNaNz1QkYN-2FfBi5ztC-2Bs5pO62zyuVzPsSaKMxaeK4bnRRXt=
+BDUT1bNrvR-2FVZmG9eCq1IxaKd7gx-2B-2Bd0z3WXxx46r2Zj0lgT3CSGhJ12GeXpE-3D )
+
+
+
+
+
+
+
+  @media only screen and
+(min-width: 560px) { .e2-body-numbered-list-li{ font-size: 24px
+!important; line-height: 26px !important; padding-left: 16px
+!important; } .e2-body-numbered-list-li-span{ font-size: 20px
+!important; } .e2-body-numbered-list-number{ padding: 0 0 0 51px
+!important; } .e2-body-numbered-list-li-next{ margin-top: 24px
+!important; } .e2-body-numbered-list-wrapper{ margin: 24px auto
+24px auto !important; } .e2-body-numbered-list-padding{ padding:
+0 !important; } } =20
+   li
+{text-align:-webkit-match-parent; display:list-item;text-indent:
+-1em;}        *
+<b>Get verified </b>=E2=80=93 Establish trust by <a universal =3D true styl=
+e=3D'text-decoration: underline; color: #4c4c4c;' href =3D 'https://ablink.=
+links.us.mercari.com/ls/click?upn=3Dc0EushdgISemCp7RgyGG1Xx7uQ9-2FZo2VGorlQ=
+2djaGWh0oJ0aKqU-2FonJqwXy9Ebt4NhWXCvaDZYBGR90hHIldTRW9SwVs2tQxE76INB15q6Tk7=
+In1YEcLj-2F3FndJSpldHHHHeAz56Ss-2Fr1CSGN-2F2fGWtmahU4XSZx4yOcV4uUFcrqB15ZYa=
+k9nx8XylsTaRgQ5iFCOe1ER6GqyQbttuZ7A-3D-3DwtNb_oKpHbu4hmsCLnrDdPvdJ-2Bg-2Fjs=
+IhjIorolnLs2ASJaLMYNBdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BA=
+t6x7SKM4iC-2BqfPuWUsFuOZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2=
+BYp7GKYSBa2wRFlL5u5AbXPl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ=
+5XEKwkjQbzS9lm7NAG7QlBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2Fyj=
+jYSr1KJmDeXCOU3Laqqno55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cWRML=
+m1M-2FIakIN8HuQyTLI38WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19=
+AZrfUkXoS9t3o6vkPXnf-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy=
+1LBoOZDmPJwxOT-2BfVkx8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJ=
+VBDTDKsAbxIUeF0WG9tOMpb1O-2BEgnxJx9W1L-2F-2FmH-2B9fraotcgiIuzBxsxhzhS3tnCmI=
+7gxTXwp3AIlHdR1JUQO1kXYecv-2BjuAo8u-2FKs7vYP1XBiTRFTKBUFgEFfPu2xHRQcegD9Rvb=
+F3gUyQ0TVEPa5Kpx-2BkMFHaFHkipg-3D>verifying your profile</a> in app to help=
+ keep the marketplace safe.
+
+*
+<b>Communicate on Mercari</b> =E2=80=93 Work out all the deets between buye=
+r and seller in the app.
+
+*
+<b>Provide ID cues</b> =E2=80=93 Give info to easily find you, e.g. what yo=
+u=E2=80=99ll be wearing and the make of your car, and ask for cues, too!
+
+*
+<b>Set a specific time</b> =E2=80=93 For instance, 12:30 pm vs. ''sometime =
+around noon'' so nobody's left waiting.
+
+*
+<b>Meet in a public place</b> =E2=80=93 Find a halfway point between you an=
+d the buyer that=E2=80=99s well-lit, has cameras, and is populated, like a =
+shopping center.
+
+*
+<b>Inspect the item</b> =E2=80=93 Check it out closely to ensure it matches=
+ the description and meets expectations.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Read safety tips (
+https://ablink.links.us.mercari.com/ls/click?upn=3Dc0EushdgISemCp7RgyGG1Xx7=
+uQ9-2FZo2VGorlQ2djaGWh0oJ0aKqU-2FonJqwXy9Ebt4NhWXCvaDZYBGR90hHIldTRW9SwVs2t=
+QxE76INB15q6Tk7In1YEcLj-2F3FndJSpldh05F9MndxBtrsxW7f4WNcGiAsUzit46XuBoVV372=
+x0-2BRBtdRREFVyupFydodAGpioU63tNligeuDwNRiaHRWEg-3D-3DIlf3_oKpHbu4hmsCLnrDd=
+PvdJ-2Bg-2FjsIhjIorolnLs2ASJaLMYNBdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXN=
+HcMGK1QfR-2BAt6x7SKM4iC-2BqfPuWUsFuOZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0Iea7g=
+tWT4WoHFZfu-2BYp7GKYSBa2wRFlL5u5AbXPl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2FF45T=
+1RUmSu-2FblOQ5XEKwkjQbzS9lm7NAG7QlBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE=
+-2FUIMAK-2FyjjYSr1KJmDeXCOU3Laqqno55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2B=
+ha-2Bzq6cWRMLm1M-2FIakIN8HuQyTLI38WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2=
+BujdVhM8zfz19AZrfUkXoS9t3o6vkPXnf-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMTzYS=
+GVozzmUa-2Fzy1LBoOZDmPJwxOT-2BfVkx8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6=
+CT9Z8ja6uR6WJVBDTDKsAbxIUeF0WAkWj4HPgthAO2hZlYG-2FxgrS4GDON2SlJeNxECCVNAbF1=
+7iNuy7uqLy-2FifzG8GYOvH3Ps1DzAbciKXMb4xOcw-2FPKLcATg-2FvIHluFaUDiom2o8EkG4j=
+hak-2FxsJ7o7k0Ff5TQfvfmtyUjarq2jq3qAdJo-3D )
+Verify your ID (
+https://ablink.links.us.mercari.com/ls/click?upn=3Dc0EushdgISemCp7RgyGG1Xx7=
+uQ9-2FZo2VGorlQ2djaGWh0oJ0aKqU-2FonJqwXy9Ebt4NhWXCvaDZYBGR90hHIldTRW9SwVs2t=
+QxE76INB15q6Tk7In1YEcLj-2F3FndJSpldHHHHeAz56Ss-2Fr1CSGN-2F2fGWtmahU4XSZx4yO=
+cV4uUFcrqB15ZYak9nx8XylsTaRg9NFIUSlv5GfIngJV82TMjg-3D-3DhvMC_oKpHbu4hmsCLnr=
+DdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaLMYNBdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgB=
+XNHcMGK1QfR-2BAt6x7SKM4iC-2BqfPuWUsFuOZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0Iea=
+7gtWT4WoHFZfu-2BYp7GKYSBa2wRFlL5u5AbXPl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2FF4=
+5T1RUmSu-2FblOQ5XEKwkjQbzS9lm7NAG7QlBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvs=
+tE-2FUIMAK-2FyjjYSr1KJmDeXCOU3Laqqno55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4-=
+2Bha-2Bzq6cWRMLm1M-2FIakIN8HuQyTLI38WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR=
+-2BujdVhM8zfz19AZrfUkXoS9t3o6vkPXnf-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMTz=
+YSGVozzmUa-2Fzy1LBoOZDmPJwxOT-2BfVkx8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdva=
+L6CT9Z8ja6uR6WJVBDTDKsAbxIUeF0WFmqOfbvrjia-2BPiwftslXdcip4P76K5dKRb0Wre4GMJ=
+7r-2BGVVgCT7RD1j4WG04MhHllk3k82ww-2F59BNVQsV6alW7R19xCLRx199Efgv5-2FOre1VC2=
+lz4D-2F6EduitU37sQ9L7CBMfPUrVCHI7qM1pSHFA-3D )
+
+
+
+<b>Important:</b> Returns, refunds, buyer and seller protection, and shippi=
+ng protection are not available for items you=E2=80=99ve purchased via meet=
+ups. See <a universal =3D true style=3D'text-decoration: underline; color: =
+#4c4c4c;' href =3D 'https://ablink.links.us.mercari.com/ls/click?upn=3Dc0Eu=
+shdgISemCp7RgyGG1Xx7uQ9-2FZo2VGorlQ2djaGU6sP1S88wevRVt8WZp6W2hXvIizDY-2BRAM=
+ENM0i0mRVXPfdoK1-2B5ldg1Oj0X-2FrC0LRJdW0vfnORtsJNI8qpOhwqe3SS_oKpHbu4hmsCLn=
+rDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaLMYNBdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQg=
+BXNHcMGK1QfR-2BAt6x7SKM4iC-2BqfPuWUsFuOZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0Ie=
+a7gtWT4WoHFZfu-2BYp7GKYSBa2wRFlL5u5AbXPl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2FF=
+45T1RUmSu-2FblOQ5XEKwkjQbzS9lm7NAG7QlBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVv=
+stE-2FUIMAK-2FyjjYSr1KJmDeXCOU3Laqqno55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4=
+-2Bha-2Bzq6cWRMLm1M-2FIakIN8HuQyTLI38WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfd=
+R-2BujdVhM8zfz19AZrfUkXoS9t3o6vkPXnf-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMT=
+zYSGVozzmUa-2Fzy1LBoOZDmPJwxOT-2BfVkx8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdv=
+aL6CT9Z8ja6uR6WJVBDTDKsAbxIUeF0WBjRTQUS0ewFBDyUpwsoYhVPpgYlTmDwx1AdvQqEu-2F=
+BYJ3IE1ZWEX1hparojYrLaz3VnCadR01xJQjoGhDcKcUUTQLQOFmPMRihdtc7XjHaF35zJTxtrD=
+Tzcj11NJ-2FJ1-2B-2BeBC-2Bd19gBtMRBp2i4llSI-3D>Terms</a>. <br><br> We hope y=
+ou enjoy our new meetup option. To learn more about meetups visit our <a un=
+iversal =3D true style=3D'text-decoration: underline; color: #4c4c4c;' href=
+ =3D 'https://ablink.links.us.mercari.com/ls/click?upn=3Dc0EushdgISemCp7Rgy=
+GG1Xx7uQ9-2FZo2VGorlQ2djaGU6sP1S88wevRVt8WZp6W2hbNtNufit8t6nzVT85ECrnEU0W6l=
+AAaaQalrwuylH6vaUJCs7CmZoY0qkpr8tdAIBUWIM_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjI=
+orolnLs2ASJaLMYNBdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7=
+SKM4iC-2BqfPuWUsFuOZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7=
+GKYSBa2wRFlL5u5AbXPl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEK=
+wkjQbzS9lm7NAG7QlBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr=
+1KJmDeXCOU3Laqqno55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-=
+2FIakIN8HuQyTLI38WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrf=
+UkXoS9t3o6vkPXnf-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBo=
+OZDmPJwxOT-2BfVkx8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDT=
+DKsAbxIUeF0WBPHemTLF8NB3eolljpn6-2BdtNERVeW4keII-2BQFtrqu7GrtMVqZm9T0DZVjvb=
+IkByz2J2QmWm244hwqVzwFGmWrPFjO5osfgqHMteBZCR6tErLUQKnufh8tn63RBcbDuaQvfZbdB=
+Y-2FPg4yRtPA4Hw62U-3D>Help Center Guide</a>
+
+
+
+
+.e2-body-signature-profile-container{ width: 100% !important;
+max-width: 500px; background-color: white; } @media only screen
+and (min-width: 560px) { .e2-body-signature-text1{ font-size:
+26px !important; line-height: 30px !important; letter-spacing:
+-0.4px !important; } .e2-body-signature-text2{ font-size: 20px
+!important; line-height: 26px !important; }
+.e2-body-signature-image{ width: 70px !important; height: 70px
+!important; } .e2-body-signature-profile-container{ padding: 24px
+30px !important; } } =20
+
+
+Happy shopping!
+-Team Mercari
+
+
+
+
+
+
+
+
+
+
+  .e2_body_link_bar-angleBraket{
+content:url("https://ablink.links.us.mercari.com/ls/click?upn=3Dc0EushdgISe=
+mCp7RgyGG1SZwS3fJqsASsvScZaKuKhVhpUW9VLmEl0jjqHkq-2FTIURLJZYSKb5jzjqCOI2mr9=
+Jdx5Pix3AujWL4B5ritEPpHsMKvITZdud1EPe8dJS6OgQntNSJZyXnNAsjXfYdREMr6o9akGmta=
+VD4AhO4M8EXVNyrqmNMPO2649x67BlMRP3az-_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorol=
+nLs2ASJaLMYNBdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SKM4=
+iC-2BqfPuWUsFuOZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GKYS=
+Ba2wRFlL5u5AbXPl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwkjQ=
+bzS9lm7NAG7QlBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr1KJm=
+DeXCOU3Laqqno55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2FIa=
+kIN8HuQyTLI38WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUkXo=
+S9t3o6vkPXnf-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZDm=
+PJwxOT-2BfVkx8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDKsA=
+bxIUeF0WDDtB0lyCckyP0wZeG-2BCDN9AA58aTJPiPWPiQoHunjasOkKUTXuWgNebFYVdnyAgaH=
+WjehtPGRZ9UcrOFCZ3giF3ey0LwgQMs7ff7bV6EmtfcJ9pS-2BxeNEW0j82o6dO-2BNDqk-2FZK=
+b7H4-2Bv5-2BwiW20GNg-3D
+height:10px; width: 6px; } @media only screen and (min-width:
+560px) { .e2_body_link_bar-link{ font-size: 20px !important;
+margin: 12px 6px !important; } .e2_body_link_bar-padding{
+padding: 12px 24px !important; } .e2_body_link_bar-angleBraket{
+content:url("https://ablink.links.us.mercari.com/ls/click?upn=3Dc0EushdgISe=
+mCp7RgyGG1SZwS3fJqsASsvScZaKuKhVhpUW9VLmEl0jjqHkq-2FTIURLJZYSKb5jzjqCOI2mr9=
+Jdx5Pix3AujWL4B5ritEPpHPCJRTVJ-2Bk46gpJS0YQbrVp4gulNofHo8S-2FU7SlJ8279a51Z7=
+GID-2BMC3eI6A4RZjCuhk7yRbwNcKn5pRPqvkRfm6GC_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIh=
+jIorolnLs2ASJaLMYNBdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6=
+x7SKM4iC-2BqfPuWUsFuOZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BY=
+p7GKYSBa2wRFlL5u5AbXPl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5X=
+EKwkjQbzS9lm7NAG7QlBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjY=
+Sr1KJmDeXCOU3Laqqno55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1=
+M-2FIakIN8HuQyTLI38WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZ=
+rfUkXoS9t3o6vkPXnf-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1L=
+BoOZDmPJwxOT-2BfVkx8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVB=
+DTDKsAbxIUeF0WN9eggPVJibN-2F9DiC07tEsJML8uvDn-2BtBLax-2FfzfWfMSqp3uLZVEptDW=
+gQLegUi8Vmq8o41EWs4QBOOK-2BHk69RZZNkDESx1k8R6T6mDW-2FwsAXws7NZQChTvmihaPwa8=
+-2Fb63h6RLMfR9TnQXgNh7oaUg-3D
+!important; height: 15px !important; width: 9px !important; } }
+
+Help Center.> (
+https://ablink.links.us.mercari.com/ls/click?upn=3Dc0EushdgISemCp7RgyGG1Xx7=
+uQ9-2FZo2VGorlQ2djaGWh0oJ0aKqU-2FonJqwXy9Ebt4NhWXCvaDZYBGR90hHIldTRW9SwVs2t=
+QxE76INB15q6Tk7In1YEcLj-2F3FndJSpldnbOOFfmcM987Ko7OqFfaUQ-3D-3DARym_oKpHbu4=
+hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaLMYNBdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUd=
+yhzsQgBXNHcMGK1QfR-2BAt6x7SKM4iC-2BqfPuWUsFuOZs2lm47rJGyICzbvwCrXODYDe92yH1=
+IBS0Iea7gtWT4WoHFZfu-2BYp7GKYSBa2wRFlL5u5AbXPl5EiyFffQpI6Chij-2F2khGFYOPBku=
+Ac-2FF45T1RUmSu-2FblOQ5XEKwkjQbzS9lm7NAG7QlBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9=
+KNxQVvstE-2FUIMAK-2FyjjYSr1KJmDeXCOU3Laqqno55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQ=
+jddmO4-2Bha-2Bzq6cWRMLm1M-2FIakIN8HuQyTLI38WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy=
+3UWLfdR-2BujdVhM8zfz19AZrfUkXoS9t3o6vkPXnf-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0Y=
+kR1HMTzYSGVozzmUa-2Fzy1LBoOZDmPJwxOT-2BfVkx8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-=
+2BVzdvaL6CT9Z8ja6uR6WJVBDTDKsAbxIUeF0WPR98agZQRjaWsdx-2B7uoqx6r5oIWwvbVx4-2=
+Be4942ixG7KTIODbK0EJ5hGjeeXn2AU-2FRh7ewRpShUrspyAUrLHN1gIVwg1n5Ca48CXqg5QzU=
+RYqsoiPDcEZF-2FVgtRGKe-2FGa6vn3U2GZs3UrKGu5fZvKk-3D )
+
+
+Bundles.> (
+https://ablink.links.us.mercari.com/ls/click?upn=3Dc0EushdgISemCp7RgyGG1Xx7=
+uQ9-2FZo2VGorlQ2djaGWh0oJ0aKqU-2FonJqwXy9Ebt4NhWXCvaDZYBGR90hHIldTRW9SwVs2t=
+QxE76INB15q6Tk7In1YEcLj-2F3FndJSpld9PiRavdbez-2BnkXSlSVo2xZF4lraY16Y-2FGjYI=
+ZVS-2Flzi3xmLvuwvKX0SDykxN1fH2GYxrelGEeAsCcj8GYy55ag-3D-3DThNq_oKpHbu4hmsCL=
+nrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaLMYNBdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQ=
+gBXNHcMGK1QfR-2BAt6x7SKM4iC-2BqfPuWUsFuOZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0I=
+ea7gtWT4WoHFZfu-2BYp7GKYSBa2wRFlL5u5AbXPl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2F=
+F45T1RUmSu-2FblOQ5XEKwkjQbzS9lm7NAG7QlBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQV=
+vstE-2FUIMAK-2FyjjYSr1KJmDeXCOU3Laqqno55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO=
+4-2Bha-2Bzq6cWRMLm1M-2FIakIN8HuQyTLI38WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLf=
+dR-2BujdVhM8zfz19AZrfUkXoS9t3o6vkPXnf-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HM=
+TzYSGVozzmUa-2Fzy1LBoOZDmPJwxOT-2BfVkx8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzd=
+vaL6CT9Z8ja6uR6WJVBDTDKsAbxIUeF0WI3asmYQAzYvIKdHYWpsUp4QrD2E-2BxvIhm24OOvoa=
+-2FS7KqZ-2BXG-2FjD526iFYiPO6aovb0bA0xr-2Bp45qSGtuBs1-2Br1KYOsbZYp-2Fe-2FQo1=
+REMIiBRIGCOHMNBkg-2Bp4Xyk6aDBj90TEcNV5qRL5lFChetWfM-3D )
+
+
+Shipping.> (
+https://ablink.links.us.mercari.com/ls/click?upn=3Dc0EushdgISemCp7RgyGG1Xx7=
+uQ9-2FZo2VGorlQ2djaGVe-2BrAqzIcmbeFVUD4Ljt3H5iGe97dbNvvbG8zdG4RFMRRAqWjtub7=
+dcvmR5WiNYPfD0b6fg-2F0sosfu2Yuk8O9w9aY3_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIor=
+olnLs2ASJaLMYNBdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SK=
+M4iC-2BqfPuWUsFuOZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GK=
+YSBa2wRFlL5u5AbXPl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwk=
+jQbzS9lm7NAG7QlBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr1K=
+JmDeXCOU3Laqqno55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2F=
+IakIN8HuQyTLI38WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUk=
+XoS9t3o6vkPXnf-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZ=
+DmPJwxOT-2BfVkx8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDK=
+sAbxIUeF0WKMwkY2lYL72aUknElzqu39HYJzrMf4ClVfnkwNRugV3zCQPjk9bNTXQrC2W5Na-2F=
+LFXElvNrDhNkF3KXhJUuvz3oZUt87b-2FWz-2BhvUy0NnGMY3FHWYpEvZobnPLD4yjxfYJjrOsC=
+add5ckhAJccLnzuA-3D )
+
+
+Invite a friend.> (
+https://ablink.links.us.mercari.com/ls/click?upn=3Dc0EushdgISemCp7RgyGG1Xx7=
+uQ9-2FZo2VGorlQ2djaGWh0oJ0aKqU-2FonJqwXy9Ebt4NhWXCvaDZYBGR90hHIldTRW9SwVs2t=
+QxE76INB15q6VkF-2Fp6ChSOWsm1dU-2B6hfHShtO_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjI=
+orolnLs2ASJaLMYNBdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7=
+SKM4iC-2BqfPuWUsFuOZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7=
+GKYSBa2wRFlL5u5AbXPl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEK=
+wkjQbzS9lm7NAG7QlBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr=
+1KJmDeXCOU3Laqqno55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-=
+2FIakIN8HuQyTLI38WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrf=
+UkXoS9t3o6vkPXnf-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBo=
+OZDmPJwxOT-2BfVkx8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDT=
+DKsAbxIUeF0WN7vgW2acsft2WazkE6h7Gk1MeRg4g77iLVN8Np2OP6KCLC49ARK03U799uVL1WW=
+v9cR9EnTERLDhaZiJUE4nlrY1VzC-2FNG8QsT1NpJCOxIH10vgWuqHQDVNVsgBI37r1owAUz3eh=
+QqMnFEL4-2FpzTDI-3D )
+
+
+Authenticate.> (
+https://ablink.links.us.mercari.com/ls/click?upn=3Dc0EushdgISemCp7RgyGG1Xx7=
+uQ9-2FZo2VGorlQ2djaGWh0oJ0aKqU-2FonJqwXy9Ebt4NhWXCvaDZYBGR90hHIldTRW9SwVs2t=
+QxE76INB15q7VHIgYmVqgxZCvh8s1A7j6ifBAsewmhngvo1C3Kkknyw-3D-3DmSue_oKpHbu4hm=
+sCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaLMYNBdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyh=
+zsQgBXNHcMGK1QfR-2BAt6x7SKM4iC-2BqfPuWUsFuOZs2lm47rJGyICzbvwCrXODYDe92yH1IB=
+S0Iea7gtWT4WoHFZfu-2BYp7GKYSBa2wRFlL5u5AbXPl5EiyFffQpI6Chij-2F2khGFYOPBkuAc=
+-2FF45T1RUmSu-2FblOQ5XEKwkjQbzS9lm7NAG7QlBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KN=
+xQVvstE-2FUIMAK-2FyjjYSr1KJmDeXCOU3Laqqno55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjd=
+dmO4-2Bha-2Bzq6cWRMLm1M-2FIakIN8HuQyTLI38WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3U=
+WLfdR-2BujdVhM8zfz19AZrfUkXoS9t3o6vkPXnf-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR=
+1HMTzYSGVozzmUa-2Fzy1LBoOZDmPJwxOT-2BfVkx8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2B=
+VzdvaL6CT9Z8ja6uR6WJVBDTDKsAbxIUeF0WINdFRdO3Axm0GxhGCACK-2FuXaTBprO-2BQJys6=
+vueUJqmrj6l7hCONQeFqEVdzDs6QlQB3m1tJFOJM7lKK2fx8eTfvTGd7u7Tm8OdnJPZFfxnrNaX=
+XqLzxYi49HELO4t5WeZNktgHNpQjD3fJI9uNeCOg-3D )
+
+
+
+
+
+
+
+
+.e2-footer-normal-footer-links:visited { text-decoration: none;
+color: inherit; } @media only screen and (min-width: 560px) {
+.e2-footer-normal-footer-wrapper { font-size: 20px !important;
+line-height: 24px !important; padding: 62px 32px !important; }
+.e2-footer-normal-footer-spacing { padding-top: 32px !important;
+} .e2-footer-normal-footer-socialMedia>img { height: 58px
+!important; width: 58px !important; } }
+
+    =20
+( https://ablink.links.us.mercari.com/ls/click?upn=3Dc0EushdgISemCp7RgyGG1Q=
+E5Ysa-2FFzKf3n86wuNGYOU5s71kqD4vmvPsyFZ5Oya4CkVc_oKpHbu4hmsCLnrDdPvdJ-2Bg-2=
+FjsIhjIorolnLs2ASJaLMYNBdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-=
+2BAt6x7SKM4iC-2BqfPuWUsFuOZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZf=
+u-2BYp7GKYSBa2wRFlL5u5AbXPl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RUmSu-2Fb=
+lOQ5XEKwkjQbzS9lm7NAG7QlBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2=
+FyjjYSr1KJmDeXCOU3Laqqno55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cW=
+RMLm1M-2FIakIN8HuQyTLI38WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zf=
+z19AZrfUkXoS9t3o6vkPXnf-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2=
+Fzy1LBoOZDmPJwxOT-2BfVkx8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR=
+6WJVBDTDKsAbxIUeF0WMMh0Fw-2BSO3b7JdKXf7MDL96HLB-2BX2p95TabE-2Byj5TqARC0cn-2=
+F0pzh-2FG7ihByRWZiwu2g5Zja8l-2Bd3iWGNDgberwG2hkhdzqAbbLJiVF-2FFd6E60N4SMmbo=
+8FagRDaSomuwCvf1Y90oVr0a4Ob1PaR8Q-3D ) =20
+( https://ablink.links.us.mercari.com/ls/click?upn=3Dc0EushdgISemCp7RgyGG1d=
+cRUl8uXcRwXaSQx8Kk7ySNH2voB2ch2oXWuEMLHmJzFgd6_oKpHbu4hmsCLnrDdPvdJ-2Bg-2Fj=
+sIhjIorolnLs2ASJaLMYNBdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2B=
+At6x7SKM4iC-2BqfPuWUsFuOZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZfu-=
+2BYp7GKYSBa2wRFlL5u5AbXPl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RUmSu-2FblO=
+Q5XEKwkjQbzS9lm7NAG7QlBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2Fy=
+jjYSr1KJmDeXCOU3Laqqno55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cWRM=
+Lm1M-2FIakIN8HuQyTLI38WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz1=
+9AZrfUkXoS9t3o6vkPXnf-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2Fz=
+y1LBoOZDmPJwxOT-2BfVkx8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6W=
+JVBDTDKsAbxIUeF0WKNYNiU1LBn0VNfBddHkVLeV7CEOP6ihypriGXZZ7g28D-2B2qCIFzOQVqt=
+NsFEX4vP7rcgVuO9StZdeEAtKSIB0ewIrSY3ChbuWJhu0kv1fihZ4OAzYhOVSs0Af4AAoJ7LRzK=
+h247XbMcd0y00F3QSJQ-3D ) =20
+( https://ablink.links.us.mercari.com/ls/click?upn=3Dc0EushdgISemCp7RgyGG1T=
+4HxRYdpHJ1OxTKVvaD5JqNIRlfFdmJy-2Fye9-2FYK5DqEjS0P_oKpHbu4hmsCLnrDdPvdJ-2Bg=
+-2FjsIhjIorolnLs2ASJaLMYNBdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1Qf=
+R-2BAt6x7SKM4iC-2BqfPuWUsFuOZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT4WoHF=
+Zfu-2BYp7GKYSBa2wRFlL5u5AbXPl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RUmSu-2=
+FblOQ5XEKwkjQbzS9lm7NAG7QlBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK=
+-2FyjjYSr1KJmDeXCOU3Laqqno55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6=
+cWRMLm1M-2FIakIN8HuQyTLI38WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8=
+zfz19AZrfUkXoS9t3o6vkPXnf-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVozzmUa=
+-2Fzy1LBoOZDmPJwxOT-2BfVkx8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6=
+uR6WJVBDTDKsAbxIUeF0WO7asbeYWrL5urDZKT9bES4qdndeMphttIbiVn-2BUcv0nh5M25ush3=
+B1YsyYXGG9DPyaO3sK9Pfk-2FxEY4hqxp6OBoXqAMNGWIt6b-2Bq7SrnDKgcsbWNI38dMiV-2FS=
+Koewqy2WcvrIo19-2B-2FqDragi0rXEsA-3D ) =20
+( https://ablink.links.us.mercari.com/ls/click?upn=3Dc0EushdgISemCp7RgyGG1d=
+NXAP7KAyJxgfuv1AtB-2Bgs3V6vS-2F9k5jTqDnk7GF6d4V6Fgbyx2VQefAMXrMtycow-3D-3DQ=
+dtR_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaLMYNBdt-2FnsqjCTBbxIHk9Sh6=
+FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SKM4iC-2BqfPuWUsFuOZs2lm47rJGyICzbvwCr=
+XODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GKYSBa2wRFlL5u5AbXPl5EiyFffQpI6Chij-2F=
+2khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwkjQbzS9lm7NAG7QlBk4xV8sWVQQIB7NkZi1wq=
+8-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr1KJmDeXCOU3Laqqno55bLe5Hr6nw22Kqfx6bow=
+An8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2FIakIN8HuQyTLI38WZwkqKz6i52DSBhn3sWO5=
+L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUkXoS9t3o6vkPXnf-2Bgha-2FP8e5UoTqXFeFt=
+duygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZDmPJwxOT-2BfVkx8FJK6R1QLMkhpMwxavyMB=
+-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDKsAbxIUeF0WK1s5bGOiJ2Tk-2BPFl64TVLyGV=
+8q-2B6vdtSJW3uc5AqFMGlMOdWjKl7yw-2FMAXUC8Fl9bLz8U3HBypnYpKAKMuBIJEHA3TY-2Fy=
+7na21T0ceq1gFz9dvUEC7hBrtjAOg2iKY0pDqBA0Dt-2FfQoVzU-2BLJyDKoU-3D ) =20
+( https://ablink.links.us.mercari.com/ls/click?upn=3Dc0EushdgISemCp7RgyGG1e=
+hv09xykuJyOnkg-2FtW4GzrY3eAeVvPw09q2LJsXxVBt2bEMyjRSUmuayHeoa4iNsA-3D-3DH86=
+b_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaLMYNBdt-2FnsqjCTBbxIHk9Sh6FB=
+W6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SKM4iC-2BqfPuWUsFuOZs2lm47rJGyICzbvwCrXO=
+DYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GKYSBa2wRFlL5u5AbXPl5EiyFffQpI6Chij-2F2k=
+hGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwkjQbzS9lm7NAG7QlBk4xV8sWVQQIB7NkZi1wq8-=
+2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr1KJmDeXCOU3Laqqno55bLe5Hr6nw22Kqfx6bowAn=
+8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2FIakIN8HuQyTLI38WZwkqKz6i52DSBhn3sWO5L-=
+2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUkXoS9t3o6vkPXnf-2Bgha-2FP8e5UoTqXFeFtdu=
+ygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZDmPJwxOT-2BfVkx8FJK6R1QLMkhpMwxavyMB-2=
+B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDKsAbxIUeF0WH23yNEkzvS1UBmA6i-2FyFhPuTp6=
+zkvzBXUA-2FKrzx1rJP-2BqC5X9kyHmV5Hz0o3WcU-2BthbHl6WbWrWuUnvUcWi-2F6xzqsgoVQ=
+qbCEUihb1OYYqx2A5g3Do1d8zn97f-2BwmcGkga2xmuGtEsgsWqJ-2BxXRLiw-3D ) =20
+( https://ablink.links.us.mercari.com/ls/click?upn=3Dc0EushdgISemCp7RgyGG1d=
+IvAXqg7HkEp9Qi-2B6CzQG-2FvtZhtiOzO2CoC5-2B-2F457L-2FGsv3_oKpHbu4hmsCLnrDdPv=
+dJ-2Bg-2FjsIhjIorolnLs2ASJaLMYNBdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHc=
+MGK1QfR-2BAt6x7SKM4iC-2BqfPuWUsFuOZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtW=
+T4WoHFZfu-2BYp7GKYSBa2wRFlL5u5AbXPl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1R=
+UmSu-2FblOQ5XEKwkjQbzS9lm7NAG7QlBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2=
+FUIMAK-2FyjjYSr1KJmDeXCOU3Laqqno55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha=
+-2Bzq6cWRMLm1M-2FIakIN8HuQyTLI38WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2Bu=
+jdVhM8zfz19AZrfUkXoS9t3o6vkPXnf-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGV=
+ozzmUa-2Fzy1LBoOZDmPJwxOT-2BfVkx8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT=
+9Z8ja6uR6WJVBDTDKsAbxIUeF0WPS3IQsOjCWfGf7zMN-2Fp02r8VbCf0ApT5gYanGxNAXMN-2B=
+X5XZVZcBsIkIMwUcSj40MK2S2ysKp1jxlV1RFq6bTnP0wHd4jg2kbS1OURcadygwJDQODDOWpJb=
+-2Fdq6TQgcSGIAvNvH4hj9qQa1E-2B6UHZU-3D )    Contact Us=20
+( https://ablink.links.us.mercari.com/ls/click?upn=3Dc0EushdgISemCp7RgyGG1X=
+x7uQ9-2FZo2VGorlQ2djaGWh0oJ0aKqU-2FonJqwXy9Ebtexu1sXk7UeV7cYFoA7w6eUCyWO32t=
+Ri8adUxxUGTIx0-3Dqy73_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaLMYNBdt-=
+2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SKM4iC-2BqfPuWUsFuOZ=
+s2lm47rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GKYSBa2wRFlL5u5AbXPl=
+5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwkjQbzS9lm7NAG7QlBk4=
+xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr1KJmDeXCOU3Laqqno55b=
+Le5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2FIakIN8HuQyTLI38WZw=
+kqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUkXoS9t3o6vkPXnf-2Bg=
+ha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZDmPJwxOT-2BfVkx8FJ=
+K6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDKsAbxIUeF0WMQBcBTJ-=
+2Fn51quWssKRQMY7LbUqb00IoCR6p8B5Xbmta05nlvvahs7jw-2Bgq-2FbHdGdUox-2F5AlKKkx=
+2Gk642MTb3rNCKVYti0JG1CkYNtWh5nUrVneGcqxhlT42YGtjnGtpO-2BlQ0bzlhJw-2BwHLv7B=
+hii8-3D )
+ | Account=20
+( https://ablink.links.us.mercari.com/ls/click?upn=3Dc0EushdgISemCp7RgyGG1X=
+x7uQ9-2FZo2VGorlQ2djaGWh0oJ0aKqU-2FonJqwXy9Ebtexu1sXk7UeV7cYFoA7w6ebK2ZLdzN=
+8GlTg81-2Be7vrqs-3DnvWK_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaLMYNBd=
+t-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SKM4iC-2BqfPuWUsFu=
+OZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GKYSBa2wRFlL5u5AbX=
+Pl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwkjQbzS9lm7NAG7QlB=
+k4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr1KJmDeXCOU3Laqqno5=
+5bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2FIakIN8HuQyTLI38W=
+ZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUkXoS9t3o6vkPXnf-2=
+Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZDmPJwxOT-2BfVkx8=
+FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDKsAbxIUeF0WJDYfcl=
+8KRoY-2BUTM3DHaJbJXOCjgkWaOmU1SIVSNryIAulk7lk5cjRoD5aOZsc5UmbkD-2Fy7HzFoOx2=
+KqS6v-2FDvCu4I1RzrDv3A5wKHoxsqJL3raXKMHBIA6PEFt-2Fpscf9g8vhHZLAK0kLy7q2768S=
+wc-3D )
+ | Help Center=20
+( https://ablink.links.us.mercari.com/ls/click?upn=3Dc0EushdgISemCp7RgyGG1X=
+x7uQ9-2FZo2VGorlQ2djaGWh0oJ0aKqU-2FonJqwXy9EbtkMRm9uTuDX-2F-2B3eoK24X9HpoaE=
+gvCMKCPuxGYc-2BgmY-2F8-3DgHgo_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJa=
+LMYNBdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SKM4iC-2BqfP=
+uWUsFuOZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GKYSBa2wRFlL=
+5u5AbXPl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwkjQbzS9lm7N=
+AG7QlBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr1KJmDeXCOU3L=
+aqqno55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2FIakIN8HuQy=
+TLI38WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUkXoS9t3o6vk=
+PXnf-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZDmPJwxOT-2=
+BfVkx8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDKsAbxIUeF0W=
+OrnFdLWarrHo7hWz1Ubqf-2FLrzuPuPeGBqQxnrEzvtdCRlzqg-2B7RadkX6F-2BlbrVqXELhl7=
+5oYeKdo1y1dUvYelKOF7mV8pE-2BH7qgEpKTbWq8bW8oX8PHrtRpvvFPYX-2BXCyUzSZQnJPFoh=
+OzjW10n2HA-3D )   =C2=A9
+2023 Mercari. PO Box 60178, Palo
+Alto, CA 94306  Manage Subscriptions=20
+( https://ablink.links.us.mercari.com/ls/click?upn=3Dc0EushdgISemCp7RgyGG1X=
+x7uQ9-2FZo2VGorlQ2djaGXd6Q5f-2BwcIIYofkYACo5wPudEbFrmE6UDnrzU2-2BLycdn7MpO5=
+T9Xfgp9xFIpo2PCM-3DVYtc_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaLMYNBd=
+t-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SKM4iC-2BqfPuWUsFu=
+OZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GKYSBa2wRFlL5u5AbX=
+Pl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwkjQbzS9lm7NAG7QlB=
+k4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr1KJmDeXCOU3Laqqno5=
+5bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2FIakIN8HuQyTLI38W=
+ZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUkXoS9t3o6vkPXnf-2=
+Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZDmPJwxOT-2BfVkx8=
+FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDKsAbxIUeF0WEuC10U=
+0Emr-2B1yQaMpx4L7sS5GQQG-2BVw8ikJSVTFlpIzAbaOW4W9zN6GJZQoJRXUwyQzxmdJvLV6BK=
+YN9Pq6X-2FgRJ0RGl9MrknOStfh3y0js4cMItMYTV3-2FRl6wQHlOPbUfjcXlM6qT2ampR0TUFt=
+KA-3D )
+ |  Unsubscribe=20
+( https://ablink.links.us.mercari.com/ls/click?upn=3Dc0EushdgISemCp7RgyGG1Z=
+CzoUNHBsdBaM-2FwxtrouLQZOpnZvaVVGTAs-2F-2BWrdFrNJltAc1p4se2K9UfR7phHhhh2P0F=
+KOz9g4q2ab8qPYoSdHeRg33-2Ba9ed7d0Ijb3wxAnVX3llFeVeffHUIM6adDf9jlQYnpTQzTZ16=
+N1fAhfV8EhC96VFyFq1wizryF8-2Bup_Wv_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs=
+2ASJaLMYNBdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SKM4iC-=
+2BqfPuWUsFuOZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GKYSBa2=
+wRFlL5u5AbXPl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwkjQbzS=
+9lm7NAG7QlBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr1KJmDeX=
+COU3Laqqno55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2FIakIN=
+8HuQyTLI38WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUkXoS9t=
+3o6vkPXnf-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZDmPJw=
+xOT-2BfVkx8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDKsAbxI=
+UeF0WB79w2nrREmQ-2FFGkKc7o2NjZ-2FIN2YFCrk6Uydiyp3ns5uragYyXYtrLUBGqYihFCevp=
+Gh-2F2foN4mrQwGU1EVLdO5zh8O86-2Bp9hXvyMFiR3hA-2FI9trnpIwPE6LaWnRNMH4QUBUMrt=
+wseC2PLZVSdi4rg-3D )
+=20
+
+
+--a95815733aef0aafe63bc068300af1c5a88e334b42942dd2ef13bfdf3b46
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Mime-Version: 1.0
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w=
+3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8">
+<style>@media only screen and (min-width:560px) {
+  .e2_header_full_bleed-container {
+    padding: 32px 30px 20px 30px !important;
+  }
+  .e2-body-paragraph-container {
+    padding: 32px 0px !important;
+  }
+  .e2-body-paragraph-text {
+    font-size: 20px !important; line-height: 26px !important; padding: 24px=
+ 30px !important;
+  }
+  .e2-body-paragraph-container {
+    padding: 32px 0px !important;
+  }
+  .e2-body-paragraph-text {
+    font-size: 20px !important; line-height: 26px !important; padding: 24px=
+ 30px !important;
+  }
+  .e2-body-paragraph-container {
+    padding: 32px 0px !important;
+  }
+  .e2-body-paragraph-text {
+    font-size: 20px !important; line-height: 26px !important; padding: 24px=
+ 30px !important;
+  }
+  .e2-body-paragraph-container {
+    padding: 32px 0px !important;
+  }
+  .e2-body-paragraph-text {
+    font-size: 20px !important; line-height: 26px !important; padding: 24px=
+ 30px !important;
+  }
+}
+@media only screen and (min-width: 560px) {
+  .e2-body-bulleted-list-small-table {
+    border-spacing: 0 16px !important;
+  }
+  .e2-body-bulleted-list-small-text {
+    font-size: 20px !important; line-height: 26px !important; padding-left:=
+ 16px !important;
+  }
+  .e2-body-bulleted-list-small-bullet {
+    width: 15px !important; height: 15px !important;
+  }
+  .e2-body-cta-single-button-link {
+    font-size: 20px !important; line-height: 26px !important; border-radius=
+: 8px !important; -webkit-border-radius: 8px !important; -moz-border-radius=
+: 8px !important; padding: 16px 32px !important;
+  }
+  .e2-body-cta-single-button {
+    border-radius: 8px !important; -webkit-border-radius: 8px !important; -=
+moz-border-radius: 8px !important;
+  }
+  .e2-body-cta-single-container {
+    padding: 24px 0px !important;
+  }
+  .e2-body-title-text {
+    padding: 24px 0 0 0 !important; font-size: 36px !important; line-height=
+: 40px !important;
+  }
+  .e2_images_photography-container {
+    margin: 24px auto !important; display: block !important;
+  }
+  .e2_images_photography-image {
+    border-radius: 8px !important;
+  }
+  .e2-body-numbered-list-li {
+    font-size: 24px !important; line-height: 26px !important; padding-left:=
+ 16px !important;
+  }
+  .e2-body-numbered-list-li-span {
+    font-size: 20px !important;
+  }
+  .e2-body-numbered-list-number {
+    padding: 0 0 0 51px !important;
+  }
+  .e2-body-numbered-list-li-next {
+    margin-top: 24px !important;
+  }
+  .e2-body-numbered-list-wrapper {
+    margin: 24px auto 24px auto !important;
+  }
+  .e2-body-numbered-list-padding {
+    padding: 0 !important;
+  }
+  .e2-body-cta-double-button-link {
+    font-size: 20px !important; line-height: 26px !important; border-radius=
+: 8px !important; -webkit-border-radius: 8px !important; -moz-border-radius=
+: 8px !important; padding: 16px 32px !important;
+  }
+  .e2-body-cta-double-button {
+    border-radius: 8px !important; -webkit-border-radius: 8px !important; -=
+moz-border-radius: 8px !important;
+  }
+  .e2-body-cta-double-container {
+    padding: 24px 0px !important;
+  }
+  .e2-body-title-text {
+    padding: 24px 0 0 0 !important; font-size: 36px !important; line-height=
+: 40px !important;
+  }
+  .e2_images_photography-container {
+    margin: 24px auto !important; display: block !important;
+  }
+  .e2_images_photography-image {
+    border-radius: 8px !important;
+  }
+  .e2-body-numbered-list-li {
+    font-size: 24px !important; line-height: 26px !important; padding-left:=
+ 16px !important;
+  }
+  .e2-body-numbered-list-li-span {
+    font-size: 20px !important;
+  }
+  .e2-body-numbered-list-number {
+    padding: 0 0 0 51px !important;
+  }
+  .e2-body-numbered-list-li-next {
+    margin-top: 24px !important;
+  }
+  .e2-body-numbered-list-wrapper {
+    margin: 24px auto 24px auto !important;
+  }
+  .e2-body-numbered-list-padding {
+    padding: 0 !important;
+  }
+  .e2-body-cta-double-button-link {
+    font-size: 20px !important; line-height: 26px !important; border-radius=
+: 8px !important; -webkit-border-radius: 8px !important; -moz-border-radius=
+: 8px !important; padding: 16px 32px !important;
+  }
+  .e2-body-cta-double-button {
+    border-radius: 8px !important; -webkit-border-radius: 8px !important; -=
+moz-border-radius: 8px !important;
+  }
+  .e2-body-cta-double-container {
+    padding: 24px 0px !important;
+  }
+  .e2-body-title-text {
+    padding: 24px 0 0 0 !important; font-size: 36px !important; line-height=
+: 40px !important;
+  }
+  .e2_images_photography-container {
+    margin: 24px auto !important; display: block !important;
+  }
+  .e2_images_photography-image {
+    border-radius: 8px !important;
+  }
+  .e2-body-numbered-list-li {
+    font-size: 24px !important; line-height: 26px !important; padding-left:=
+ 16px !important;
+  }
+  .e2-body-numbered-list-li-span {
+    font-size: 20px !important;
+  }
+  .e2-body-numbered-list-number {
+    padding: 0 0 0 51px !important;
+  }
+  .e2-body-numbered-list-li-next {
+    margin-top: 24px !important;
+  }
+  .e2-body-numbered-list-wrapper {
+    margin: 24px auto 24px auto !important;
+  }
+  .e2-body-numbered-list-padding {
+    padding: 0 !important;
+  }
+  .e2-body-cta-double-button-link {
+    font-size: 20px !important; line-height: 26px !important; border-radius=
+: 8px !important; -webkit-border-radius: 8px !important; -moz-border-radius=
+: 8px !important; padding: 16px 32px !important;
+  }
+  .e2-body-cta-double-button {
+    border-radius: 8px !important; -webkit-border-radius: 8px !important; -=
+moz-border-radius: 8px !important;
+  }
+  .e2-body-cta-double-container {
+    padding: 24px 0px !important;
+  }
+  .e2-body-signature-text1 {
+    font-size: 26px !important; line-height: 30px !important; letter-spacin=
+g: -0.4px !important;
+  }
+  .e2-body-signature-text2 {
+    font-size: 20px !important; line-height: 26px !important;
+  }
+  .e2-body-signature-image {
+    width: 70px !important; height: 70px !important;
+  }
+  .e2-body-signature-profile-container {
+    padding: 24px 30px !important;
+  }
+  .e2_body_link_bar-link {
+    font-size: 20px !important; margin: 12px 6px !important;
+  }
+  .e2_body_link_bar-padding {
+    padding: 12px 24px !important;
+  }
+  .e2_body_link_bar-angleBraket {
+    content: url("https://braze-images.com/appboy/communication/assets/imag=
+e_assets/images/624db05a28586c706c659f33/original.png?1649258586") !importa=
+nt; height: 15px !important; width: 9px !important;
+  }
+  .e2-footer-normal-footer-wrapper {
+    font-size: 20px !important; line-height: 24px !important; padding: 62px=
+ 32px !important;
+  }
+  .e2-footer-normal-footer-spacing {
+    padding-top: 32px !important;
+  }
+  .e2-footer-normal-footer-socialMedia>img {
+    height: 58px !important; width: 58px !important;
+  }
+}
+.e2-footer-normal-footer-links:visited {
+text-decoration: none; color: inherit;
+}
+</style>
+</head>
+<body>
+<div style=3D"display:none !important;visibility:hidden;mso-hide:all;font-s=
+ize:1px;color:#ffffff;line-height:1px;max-height:0px;max-width:0px;opacity:=
+0;overflow:hidden;">Pay in person to save on shipping &amp; selling fees!=
+=C2=A0Open to learn more.</div>
+<div style=3D"background-color: #F2F2F2 !important;">
+<div style=3D"max-width: 560px; background-color: #FFFFFF !important; margi=
+n: auto;">
+
+
+<a universal=3D"true" href=3D"https://ablink.links.us.mercari.com/uni/ls/cl=
+ick?upn=3Dc0EushdgISemCp7RgyGG1Xx7uQ9-2FZo2VGorlQ2djaGXd6Q5f-2BwcIIYofkYACo=
+5wPlfeDnqFhQhz-2FC-2Bw7qKA4OKIYgP0MnrhTY2OxWAB8tfu0yMbcyOxEXkdcBZcQIu8CUPSX=
+jJw4PbmuC-2F6cv26z4w-3D-3DACos_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJ=
+aLMYNBdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SKM4iC-2Bqf=
+PuWUsFuOZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GKYSBa2wRFl=
+L5u5AbXPl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwkjQbzS9lm7=
+NAG7QlBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr1KJmDeXCOU3=
+Laqqno55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2FIakIN8HuQ=
+yTLI38WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUkXoS9t3o6v=
+kPXnf-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZDmPJwxOT-=
+2BfVkx8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDKsAbxIUeF0=
+WOMjoR8X5vKHU0pGBx-2BkdPY3-2B-2FVW3eaOmF76G1ZIvCHByp9ZpcLkAjDLfKoY9U4OB4B5L=
+VCe2I9d-2B6-2B0dAIlBCQ3wJwRIuzQPh-2BvNQViX-2BZhHwA4Wgj8IdtwP6bTLJDDd1tdpS3p=
+VxK38O9uyQ4QLZY-3D">
+<!--
+  WARNING:
+  THIS CONTENT BLOCK WAS AUTO-GENERATED USING EMAIL-BUILDER.
+  DO NOT DIRECTLY MODIFY THIS FILE
+-->
+
+<div class=3D"e2_header_full_bleed-container" style=3D"position: relative; =
+color: white; max-width: 500px; margin: 0px auto; padding: 15px 16px;" widt=
+h=3D"500" align=3D"center">
+    <img class=3D"e2_header_full_bleed-bgImage" style=3D"border-radius: 8px=
+; width: 100%; height: auto; max-width: 500px;" width=3D"500" alt=3D"Mercar=
+i header" src=3D"https://braze-images.com/appboy/communication/assets/image=
+_assets/images/6531a66b836a1c004c9205d8/original.png?1697752683">
+</div>
+
+</a>
+
+
+<!--
+  WARNING:
+  THIS CONTENT BLOCK WAS AUTO-GENERATED USING EMAIL-BUILDER.
+  DO NOT DIRECTLY MODIFY THIS FILE
+-->
+
+<table align=3D"center" width=3D"500" class=3D"e2-body-paragraph-container"=
+ style=3D"border-collapse: collapse; border-spacing: 0; float: none; text-a=
+lign: center; vertical-align: top; max-width: 560px; width: 100%; margin: 0=
+ auto; padding: 20px 15px;">
+    <tbody>
+        <tr>
+            <th class=3D"e2-body-paragraph-column" valign=3D"middle" style=
+=3D"margin: 0px auto;">
+                <table>
+                    <tr>
+                        <th>
+                            <p align=3D"left" width=3D"500" style=3D"font-f=
+amily: Helvetica; font-style: normal; font-weight: normal; color: #4C4C4C; =
+max-width: 500px; font-size: 14px; line-height: 20px; margin: 0px auto; pad=
+ding: 16px 15px;" class=3D"e2-body-paragraph-text">
+Meet meetups! Now you can meet up to buy and sell nearby items. Enjoy the M=
+ercari <a universal =3D true style=3D'text-decoration: underline; color: #4=
+c4c4c;' href =3D 'https://ablink.links.us.mercari.com/uni/ls/click?upn=3Dc0=
+EushdgISemCp7RgyGG1Xx7uQ9-2FZo2VGorlQ2djaGWh0oJ0aKqU-2FonJqwXy9Ebt4NhWXCvaD=
+ZYBGR90hHIldTRW9SwVs2tQxE76INB15q6Tk7In1YEcLj-2F3FndJSpldh05F9MndxBtrsxW7f4=
+WNcGiAsUzit46XuBoVV372x0-2BRnebLEB6JbcQInnypfymBtm6I_oKpHbu4hmsCLnrDdPvdJ-2=
+Bg-2FjsIhjIorolnLs2ASJaLMYNBdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1=
+QfR-2BAt6x7SKM4iC-2BqfPuWUsFuOZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT4Wo=
+HFZfu-2BYp7GKYSBa2wRFlL5u5AbXPl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RUmSu=
+-2FblOQ5XEKwkjQbzS9lm7NAG7QlBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2FUIM=
+AK-2FyjjYSr1KJmDeXCOU3Laqqno55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-2Bz=
+q6cWRMLm1M-2FIakIN8HuQyTLI38WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2BujdVh=
+M8zfz19AZrfUkXoS9t3o6vkPXnf-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVozzm=
+Ua-2Fzy1LBoOZDmPJwxOT-2BfVkx8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9Z8j=
+a6uR6WJVBDTDKsAbxIUeF0WLkrcZAmN8MSAabeBYs-2Bk9XKWmON1plawLTQ3nsx46mqbQmV4tp=
+wOV866l4aJg-2FxQ93lDdufziaTwyQYDfhgnlavRKXi9jUzpOkO-2BZviwNWddO6wn1-2Fv46Ho=
+zf4JypCMRwU-2FQGwK05goCY7afZDHAfQ-3D'>Meetup beta program</a>, only availab=
+le in <a universal =3D true style=3D'text-decoration: underline; color: #4c=
+4c4c;' href =3D 'https://ablink.links.us.mercari.com/uni/ls/click?upn=3Dc0E=
+ushdgISemCp7RgyGG1Xx7uQ9-2FZo2VGorlQ2djaGWh0oJ0aKqU-2FonJqwXy9Ebt4NhWXCvaDZ=
+YBGR90hHIldTRW9SwVs2tQxE76INB15q6Tk7In1YEcLj-2F3FndJSpldeqa48QJGsk61V7JoQ2N=
+KqIcD12uYETOem2eYdhU3FV0-3DNErU_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2AS=
+JaLMYNBdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SKM4iC-2Bq=
+fPuWUsFuOZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GKYSBa2wRF=
+lL5u5AbXPl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwkjQbzS9lm=
+7NAG7QlBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr1KJmDeXCOU=
+3Laqqno55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2FIakIN8Hu=
+QyTLI38WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUkXoS9t3o6=
+vkPXnf-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZDmPJwxOT=
+-2BfVkx8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDKsAbxIUeF=
+0WKQV8p3mEnSQz4Onn-2FYHeV12s6Pj0UHEmeyXBGKQPLPBt4ydsAdSh3-2B85j6-2Fh1ILymBm=
+AfN1sliSiil1dTHihI7-2B4bupm379JWminlail36cQUVic7qS4GfNED-2B5-2BsoVGjBgzqe09=
+-2B4FZ2SZ2lER4Gk-3D'>eligible Los Angeles area zip codes</a>. To use Meetup=
+, your default address must be in an <a universal =3D true style=3D'text-de=
+coration: underline; color: #4c4c4c;' href =3D 'https://ablink.links.us.mer=
+cari.com/uni/ls/click?upn=3Dc0EushdgISemCp7RgyGG1Xx7uQ9-2FZo2VGorlQ2djaGWh0=
+oJ0aKqU-2FonJqwXy9Ebt4NhWXCvaDZYBGR90hHIldTRW9SwVs2tQxE76INB15q6Tk7In1YEcLj=
+-2F3FndJSpldeqa48QJGsk61V7JoQ2NKqIcD12uYETOem2eYdhU3FV0-3DaVk7_oKpHbu4hmsCL=
+nrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaLMYNBdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQ=
+gBXNHcMGK1QfR-2BAt6x7SKM4iC-2BqfPuWUsFuOZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0I=
+ea7gtWT4WoHFZfu-2BYp7GKYSBa2wRFlL5u5AbXPl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2F=
+F45T1RUmSu-2FblOQ5XEKwkjQbzS9lm7NAG7QlBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQV=
+vstE-2FUIMAK-2FyjjYSr1KJmDeXCOU3Laqqno55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO=
+4-2Bha-2Bzq6cWRMLm1M-2FIakIN8HuQyTLI38WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLf=
+dR-2BujdVhM8zfz19AZrfUkXoS9t3o6vkPXnf-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HM=
+TzYSGVozzmUa-2Fzy1LBoOZDmPJwxOT-2BfVkx8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzd=
+vaL6CT9Z8ja6uR6WJVBDTDKsAbxIUeF0WJ3Gnn4XTKzeIqxU4ueKM2iYWkbYZ6Y6RZXTH2OsgcM=
+jIlkjvc7aBWQTSzR2eLDbbxNc7tOUnwtt0ePyLuyx1OhQauCxXjULsaXj0-2FaO5RhTP5M7R1oh=
+FP-2B6X3VwImEsTL3uN1lJkI1QGubaFeG-2BjDc-3D'>eligible zip code.</a>
+                            </p>
+                        </th>
+                    </tr>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>
+
+
+
+=20
+
+
+
+<!--
+  WARNING:
+  THIS CONTENT BLOCK WAS AUTO-GENERATED USING EMAIL-BUILDER.
+  DO NOT DIRECTLY MODIFY THIS FILE
+-->
+
+   =20
+
+<table align=3D"center" style=3D"max-width: 500px !important; width: 100% !=
+important;">
+    <tbody>
+        <tr>
+            <td style=3D"padding: 0 0 0 15px;">
+                <table class=3D"e2-body-bulleted-list-small-table" style=3D=
+"border-spacing: 0 8px;">
+               =20
+                    <tr>
+                        <td style=3D"" valign=3D"top">
+                            <img class=3D"e2-body-bulleted-list-small-bulle=
+t" style=3D"width: 12px; height: 12px; padding: 5px;" src=3D"https://braze-=
+images.com/appboy/communication/assets/image_assets/images/617871c819da4672=
+14001799/original.png?1635283400">
+                        </td>
+                        <td class=3D"e2-body-bulleted-list-small-text" styl=
+e=3D"font-family: Helvetica; font-style: normal; font-weight: normal; color=
+: #222222; font-size: 14px; line-height: 20px; padding-left: 8px;" valign=
+=3D"top">
+                        <b>Exchange and pay for items in-person  </b>
+                        </td>
+                    </tr>
+               =20
+               =20
+                    <tr>
+                        <td style=3D"" valign=3D"top">
+                            <img class=3D"e2-body-bulleted-list-small-bulle=
+t" style=3D"width: 12px; height: 12px; padding: 5px;" src=3D"https://braze-=
+images.com/appboy/communication/assets/image_assets/images/617871c819da4672=
+14001799/original.png?1635283400">
+                        </td>
+                        <td class=3D"e2-body-bulleted-list-small-text" styl=
+e=3D"font-family: Helvetica; font-style: normal; font-weight: normal; color=
+: #222222; font-size: 14px; line-height: 20px; padding-left: 8px;" valign=
+=3D"top">
+                        <b>Save on shipping and selling fees!</b>
+                        </td>
+                    </tr>
+               =20
+               =20
+                <tr>
+                    <td style=3D"" valign=3D"top">
+                        <img class=3D"e2-body-bulleted-list-small-bullet" s=
+tyle=3D"width: 12px; height: 12px; padding: 5px;" src=3D"https://braze-imag=
+es.com/appboy/communication/assets/image_assets/images/617871c819da46721400=
+1799/original.png?1635283400">
+                    </td>
+                    <td class=3D"e2-body-bulleted-list-small-text" style=3D=
+"font-family: Helvetica; font-style: normal; font-weight: normal; color: #2=
+22222; font-size: 14px; line-height: 20px; padding-left: 8px;" valign=3D"to=
+p">
+                    <b>Skip packing bulky, fragile, or heavy items</b>
+                    </td>
+                </tr>
+               =20
+               =20
+               =20
+               =20
+               =20
+               =20
+               =20
+               =20
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+   =20
+
+
+
+<!--
+  WARNING:
+  THIS CONTENT BLOCK WAS AUTO-GENERATED USING EMAIL-BUILDER.
+  DO NOT DIRECTLY MODIFY THIS FILE
+-->
+
+<table align=3D"center" width=3D"500" class=3D"e2-body-paragraph-container"=
+ style=3D"border-collapse: collapse; border-spacing: 0; float: none; text-a=
+lign: center; vertical-align: top; max-width: 560px; width: 100%; margin: 0=
+ auto; padding: 20px 15px;">
+    <tbody>
+        <tr>
+            <th class=3D"e2-body-paragraph-column" valign=3D"middle" style=
+=3D"margin: 0px auto;">
+                <table>
+                    <tr>
+                        <th>
+                            <p align=3D"left" width=3D"500" style=3D"font-f=
+amily: Helvetica; font-style: normal; font-weight: normal; color: #4C4C4C; =
+max-width: 500px; font-size: 14px; line-height: 20px; margin: 0px auto; pad=
+ding: 16px 15px;" class=3D"e2-body-paragraph-text">
+Download the latest version of the Mercari app to try it out (<a universal =
+=3D false style=3D'text-decoration: underline; color: #4c4c4c;' href =3D 'h=
+ttps://ablink.links.us.mercari.com/ls/click?upn=3Dc0EushdgISemCp7RgyGG1UzyG=
+rEGTklmm3wfEngK-2FqippxK6YhhRrNjJQrJORxIEM3oXjOz3sPxXRrmxabei5stdxtBjMsBZzn=
+FhLmFCae0-3DOnpL_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaLMYNBdt-2Fnsq=
+jCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SKM4iC-2BqfPuWUsFuOZs2lm4=
+7rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GKYSBa2wRFlL5u5AbXPl5EiyF=
+ffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwkjQbzS9lm7NAG7QlBk4xV8sW=
+VQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr1KJmDeXCOU3Laqqno55bLe5Hr=
+6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2FIakIN8HuQyTLI38WZwkqKz6=
+i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUkXoS9t3o6vkPXnf-2Bgha-2F=
+P8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZDmPJwxOT-2BfVkx8FJK6R1Q=
+LMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDKsAbxIUeF0WOsbtZVuzpiBpm=
+PLnLLXJS3OuE-2FUPVITofPft-2BzIGWacySafdx7lKpim6kEXWgZjRN2CQpypupFbk46zBf4mO=
+69s-2FutBqI5rX6FlAV52-2FD3g5YqDrbgCTLpVRP2oHjyE2T4v-2F77HeagjWX6whLAgKB8-3D=
+'>iOS</a> | <a universal =3D false style=3D'text-decoration: underline; col=
+or: #4c4c4c;' href =3D 'https://ablink.links.us.mercari.com/ls/click?upn=3D=
+c0EushdgISemCp7RgyGG1RJ2SBREMPHgninrZVtQALRdQJzOsx9aF32HBiIJfoiA0lp0VlKrEtL=
+vDK4HmsGrgm0uJU34QZm2hB061JuxAQM-3DS3le_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIor=
+olnLs2ASJaLMYNBdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SK=
+M4iC-2BqfPuWUsFuOZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GK=
+YSBa2wRFlL5u5AbXPl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwk=
+jQbzS9lm7NAG7QlBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr1K=
+JmDeXCOU3Laqqno55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2F=
+IakIN8HuQyTLI38WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUk=
+XoS9t3o6vkPXnf-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZ=
+DmPJwxOT-2BfVkx8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDK=
+sAbxIUeF0WH36sWnE4axLquScEt4jjnKiRCsAtzNVmZptCEInkadKUSHRqSoy8ZfGYDf7tSffYY=
+E1RyYEIYF9m180JKKWMXEjADEzhKOE4Z2kinEvEaJtbmT2PAQYpcVEEp-2BPDFkyWck3vRgb-2F=
+-2BphkYk-2FoJ6vWAo-3D'>Android</a>).
+                            </p>
+                        </th>
+                    </tr>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<!--
+  WARNING:
+  THIS CONTENT BLOCK WAS AUTO-GENERATED USING EMAIL-BUILDER.
+  DO NOT DIRECTLY MODIFY THIS FILE
+-->
+
+
+
+
+<table align=3D"center" cellpadding=3D"0" cellspacing=3D"0" width=3D"500" c=
+lass=3D"e2-body-cta-single-container" style=3D"border-spacing: 0; width: 10=
+0% !important; max-width: 500px !important; padding: 16px 15px;">
+    <tbody>
+        <tr style=3D"border-spacing: 0; width: 100% !important; max-width: =
+500px;">
+            <td style=3D"width: 100% !important;" align=3D"center">
+                <table align=3D"center" cellpadding=3D"0" cellspacing=3D"0"=
+ style=3D"text-align: center; border-spacing: 0; width: 100% !important;">
+                    <tr>
+                        <td align=3D"center" class=3D"e2-body-cta-single-bu=
+tton" style=3D"border-radius: 4px; -webkit-border-radius: 4px; -moz-border-=
+radius: 4px; border-spacing: 0; width: 100% !important;" bgcolor=3D"#252B60=
+">
+                            <table align=3D"center" style=3D"text-align: ce=
+nter; border-spacing: 0; width: 100%;">
+                                <tr style=3D"border-spacing: 0; width: 100%=
+; max-width: 500px;">
+                                    <td style=3D"border-spacing: 0; width: =
+100%; max-width: 500px;">
+                                        <a class=3D"e2-body-cta-single-butt=
+on-link" universal=3D"true" style=3D"font-family: Helvetica; font-style: no=
+rmal; font-weight: bold; text-decoration: none; display: block; color: #FFF=
+FFF; text-align: center; border-radius: 4px; -webkit-border-radius: 4px; -m=
+oz-border-radius: 4px; font-size: 14px; line-height: 20px; white-space: now=
+rap; margin: auto; padding: 12px 16px; border: 0 solid #252b60;" href=3D"ht=
+tps://ablink.links.us.mercari.com/uni/ls/click?upn=3Dc0EushdgISemCp7RgyGG1X=
+x7uQ9-2FZo2VGorlQ2djaGWh0oJ0aKqU-2FonJqwXy9Ebt4NhWXCvaDZYBGR90hHIldTRW9SwVs=
+2tQxE76INB15q6Tk7In1YEcLj-2F3FndJSpldh05F9MndxBtrsxW7f4WNcGiAsUzit46XuBoVV3=
+72x0-2BRnebLEB6JbcQInnypfymBDrvI_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2A=
+SJaLMYNBdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SKM4iC-2B=
+qfPuWUsFuOZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GKYSBa2wR=
+FlL5u5AbXPl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwkjQbzS9l=
+m7NAG7QlBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr1KJmDeXCO=
+U3Laqqno55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2FIakIN8H=
+uQyTLI38WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUkXoS9t3o=
+6vkPXnf-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZDmPJwxO=
+T-2BfVkx8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDKsAbxIUe=
+F0WGYa537NMuM9LXopWMh7xmMEPKPeGT42zukWyWPSOoaqg35QBAJeLhwnYoNHyqdUpYcW-2Bq0=
+OGTkMXe5mvpVGHyIRy6T-2BoGpGgFkcicEBlqn1hlXAWHQWDTo4pBuhSkZDEjuytMLGSewbt-2F=
+Rp4M0xHnw-3D">
+                                            Learn more
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+
+
+<!--
+  WARNING:
+  THIS CONTENT BLOCK WAS AUTO-GENERATED USING EMAIL-BUILDER.
+  DO NOT DIRECTLY MODIFY THIS FILE
+-->
+
+
+<table align=3D"center" width=3D"500" style=3D"max-width: 500px; width: 100=
+%; margin: 0px auto;" bgcolor=3D"white">
+    <tbody>
+        <tr>
+            <td class=3D"e2-body-title-text" style=3D"font-family: Helvetic=
+a; font-style: normal; font-weight: bold; color: #252B60; font-size: 24px; =
+line-height: 28px; margin: 0px auto; padding: 15px 16px 0;" align=3D"left">
+                How does it work for buyers?
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+<a universal=3D"true" href=3D"https://ablink.links.us.mercari.com/uni/ls/cl=
+ick?upn=3Dc0EushdgISemCp7RgyGG1Xx7uQ9-2FZo2VGorlQ2djaGXd6Q5f-2BwcIIYofkYACo=
+5wPW6-2BpT-2BH7JIpSptF6Eq0fQA-3D-3D3z69_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIor=
+olnLs2ASJaLMYNBdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SK=
+M4iC-2BqfPuWUsFuOZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GK=
+YSBa2wRFlL5u5AbXPl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwk=
+jQbzS9lm7NAG7QlBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr1K=
+JmDeXCOU3Laqqno55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2F=
+IakIN8HuQyTLI38WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUk=
+XoS9t3o6vkPXnf-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZ=
+DmPJwxOT-2BfVkx8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDK=
+sAbxIUeF0WFkWTwIHcunEjGgByw-2FIoYofyGLowu-2Bnf5n3vtpVyTD8sxX6dztKV3X37PzZ-2=
+FcNA0CC7I2FtXE53-2BAoNmWcNeF3rqi6V-2FP8wvbwsTK-2FMop5FEaflaNs4Y0dkeP6ORS0Gr=
+o-2BUg2CQFuYVMBjgnHUnNy4-3D">=20
+<!--
+  WARNING:
+  THIS CONTENT BLOCK WAS AUTO-GENERATED USING EMAIL-BUILDER.
+  DO NOT DIRECTLY MODIFY THIS FILE
+-->
+
+
+<div class=3D"e2_images_photography-container" width=3D"500" align=3D"cente=
+r" style=3D"max-width: 500px !important; margin: 16px auto; padding: 0px 15=
+px;">
+    <!--[if mso]>
+      <img width=3D"500" max-width=3D"500" src=3Dhttps://braze-images.com/a=
+ppboy/communication/assets/image_assets/images/652f4ca8a5468d004de5b825/ori=
+ginal.png?1697598632/>
+    <![endif]-->
+    <!--[if !mso]>-->
+    <img width=3D"500" height=3D"500" class=3D"e2_images_photography-image"=
+ style=3D"max-width: 500px !important; width: 100% !important; height: auto=
+; border-radius: 4px;" src=3D"https://braze-images.com/appboy/communication=
+/assets/image_assets/images/652f4ca8a5468d004de5b825/original.png?169759863=
+2">
+    <!--<![endif]-->
+</div>
+
+</a>
+
+
+
+
+
+
+
+
+<!--
+  WARNING:
+  THIS CONTENT BLOCK WAS AUTO-GENERATED USING EMAIL-BUILDER.
+  DO NOT DIRECTLY MODIFY THIS FILE
+-->
+
+
+
+<!-- [if gte mso 9]>
+<style>
+li {text-align:-webkit-match-parent; display:list-item;text-indent: -1em;}
+</style>
+<![endif]-->
+
+<table width=3D"500" align=3D"center" style=3D"max-width: 500px !important;=
+ width: 100% !important; margin: 16px auto;" class=3D"e2-body-numbered-list=
+-wrapper" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+  <tbody>
+    <tr>
+      <td class=3D"e2-body-numbered-list-padding" style=3D"padding: 0 15px;=
+">
+        <ol class=3D"e2-body-numbered-list-number" style=3D"margin: 0; padd=
+ing: 0 0 0 31px;">
+         =20
+          <li class=3D"e2-body-numbered-list-li" style=3D"color: #5356EE; f=
+ont-family: Helvetica; font-style: normal; font-weight: normal; font-size: =
+16px; line-height: 20px; padding-left: 8px;">
+            <span class=3D"e2-body-numbered-list-li-span" style=3D"color: #=
+222222; font-size: 14px;"><b>Use the filter to set your search range: </b> =
+Filter to find thousands of items nearby. All listings in <a universal =3D =
+true style=3D'text-decoration: underline; color: #4c4c4c;' href =3D 'https:=
+//ablink.links.us.mercari.com/uni/ls/click?upn=3Dc0EushdgISemCp7RgyGG1Xx7uQ=
+9-2FZo2VGorlQ2djaGWh0oJ0aKqU-2FonJqwXy9Ebt4NhWXCvaDZYBGR90hHIldTRW9SwVs2tQx=
+E76INB15q6Tk7In1YEcLj-2F3FndJSpldeqa48QJGsk61V7JoQ2NKqIcD12uYETOem2eYdhU3FV=
+0-3DCpKo_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaLMYNBdt-2FnsqjCTBbxIH=
+k9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SKM4iC-2BqfPuWUsFuOZs2lm47rJGyICz=
+bvwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GKYSBa2wRFlL5u5AbXPl5EiyFffQpI6Ch=
+ij-2F2khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwkjQbzS9lm7NAG7QlBk4xV8sWVQQIB7Nk=
+Zi1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr1KJmDeXCOU3Laqqno55bLe5Hr6nw22Kqf=
+x6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2FIakIN8HuQyTLI38WZwkqKz6i52DSBhn=
+3sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUkXoS9t3o6vkPXnf-2Bgha-2FP8e5UoTq=
+XFeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZDmPJwxOT-2BfVkx8FJK6R1QLMkhpMwx=
+avyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDKsAbxIUeF0WCae-2BKImddU-2B9nUfNZ=
+KcZwnbySk4WGMrtecb27VwvkEclqF7KQacyOYG-2BT52pMmbXS1iNXOQsB-2FoLqBzDN7MgZTA8=
+AE80Bjo2LTHVBIRu8V-2FxaL1Gu7x7B53764abjywjInNLSF33RvZbUpnoMhS-2Bhw-3D'>elig=
+ible Los Angeles zip codes</a> are available for in-person purchases, but t=
+he seller must accept the request to meet up. Note: Distances are approxima=
+te based on zip codes.</span>
+          </li>
+         =20
+         =20
+          <li class=3D"e2-body-numbered-list-li e2-body-numbered-list-li-ne=
+xt" style=3D"color: #5356EE; font-family: Helvetica; font-style: normal; fo=
+nt-weight: normal; font-size: 16px; line-height: 20px; padding-left: 8px; m=
+argin-top: 16px;">
+            <span class=3D"e2-body-numbered-list-li-span" style=3D"color: #=
+222222; font-size: 14px;"><b>Send a meetup request:</b> Click =E2=80=98Ask =
+to pick up=E2=80=99 to send an automated meetup request to the seller and w=
+ait for them to accept your request.</span>
+          </li>
+         =20
+         =20
+          <li class=3D"e2-body-numbered-list-li e2-body-numbered-list-li-ne=
+xt" style=3D"color: #5356EE; font-family: Helvetica; font-style: normal; fo=
+nt-weight: normal; font-size: 16px; line-height: 20px; padding-left: 8px; m=
+argin-top: 16px;">
+            <span class=3D"e2-body-numbered-list-li-span" style=3D"color: #=
+222222; font-size: 14px;"><b>Coordinate your meetup:</b> If the seller acce=
+pts your request to meet up, work with them to set a day, time, and place t=
+o meet, and ask how they prefer to be paid (cash, digital payment, etc).</s=
+pan>
+          </li>
+         =20
+         =20
+          <li class=3D"e2-body-numbered-list-li e2-body-numbered-list-li-ne=
+xt" style=3D"color: #5356EE; font-family: Helvetica; font-style: normal; fo=
+nt-weight: normal; font-size: 16px; line-height: 20px; padding-left: 8px; m=
+argin-top: 16px;">
+            <span class=3D"e2-body-numbered-list-li-span" style=3D"color: #=
+222222; font-size: 14px;"><b>Transact offline:</b> Meetups take place outsi=
+de of Mercari =E2=80=93 <b>you=E2=80=99ll save since there=E2=80=99s no shi=
+pping fees!</b> Pay the seller directly by their preferred method (cash or =
+digital payment).</span>
+          </li>
+         =20
+         =20
+         =20
+         =20
+         =20
+         =20
+         =20
+        </ol>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+<!--
+  WARNING:
+  THIS CONTENT BLOCK WAS AUTO-GENERATED USING EMAIL-BUILDER.
+  DO NOT DIRECTLY MODIFY THIS FILE
+-->
+
+<table align=3D"center" width=3D"500" class=3D"e2-body-paragraph-container"=
+ style=3D"border-collapse: collapse; border-spacing: 0; float: none; text-a=
+lign: center; vertical-align: top; max-width: 560px; width: 100%; margin: 0=
+ auto; padding: 20px 15px;">
+    <tbody>
+        <tr>
+            <th class=3D"e2-body-paragraph-column" valign=3D"middle" style=
+=3D"margin: 0px auto;">
+                <table>
+                    <tr>
+                        <th>
+                            <p align=3D"left" width=3D"500" style=3D"font-f=
+amily: Helvetica; font-style: normal; font-weight: normal; color: #4C4C4C; =
+max-width: 500px; font-size: 14px; line-height: 20px; margin: 0px auto; pad=
+ding: 16px 15px;" class=3D"e2-body-paragraph-text"><b>Important: Don=E2=80=
+=99t purchase the item on Mercari =E2=80=93 that=E2=80=99ll cancel the meet=
+up request.</b>
+                            </p>
+                        </th>
+                    </tr>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<!--
+  WARNING:
+  THIS CONTENT BLOCK WAS AUTO-GENERATED USING EMAIL-BUILDER.
+  DO NOT DIRECTLY MODIFY THIS FILE
+-->
+
+
+
+
+
+<table class=3D"e2-body-cta-double-container" width=3D"500" align=3D"center=
+" cellspacing=3D"0" cellpadding=3D"0" style=3D"border-spacing: 0; width: 10=
+0% !important; max-width: 500px !important; margin: auto; padding: 16px 15p=
+x;">
+    <tbody>
+        <tr>
+            <td style=3D"border-spacing: 0; width: 48.4%; margin: auto;">
+                <table align=3D"right" cellpadding=3D"0" cellspacing=3D"0" =
+style=3D"border-spacing: 0; width: 100%;">
+                    <tbody>
+                        <tr>
+                            <td style=3D"width: 100%;" align=3D"center">
+                                <table align=3D"center" cellpadding=3D"0" c=
+ellspacing=3D"0" style=3D"text-align: center; width: 100%;">
+                                    <tr>
+                                        <td align=3D"center" class=3D"e2-bo=
+dy-cta-double-button" style=3D"border-radius: 4px; -webkit-border-radius: 4=
+px; -moz-border-radius: 4px; border-spacing: 0; width: 100%;" bgcolor=3D"#F=
+2F3FE">
+                                            <table align=3D"center" style=
+=3D"text-align: center; border-spacing: 0; width: 100%;">
+                                                <tr>
+                                                    <td>
+                                                        <a class=3D"e2-body=
+-cta-double-button-link" style=3D"font-family: Helvetica; font-style: norma=
+l; font-weight: bold; text-decoration: none; display: block; color: #252B60=
+; text-align: center; border-radius: 4px; -webkit-border-radius: 4px; -moz-=
+border-radius: 4px; font-size: 14px; line-height: 20px; white-space: nowrap=
+; margin: auto; padding: 12px 16px; border: 0 solid #f2f3fe;" href=3D"https=
+://ablink.links.us.mercari.com/ls/click?upn=3Dc0EushdgISemCp7RgyGG1Xx7uQ9-2=
+FZo2VGorlQ2djaGWh0oJ0aKqU-2FonJqwXy9Ebt4NhWXCvaDZYBGR90hHIldTRW9SwVs2tQxE76=
+INB15q6Tk7In1YEcLj-2F3FndJSpldh05F9MndxBtrsxW7f4WNcGiAsUzit46XuBoVV372x0-2B=
+RnebLEB6JbcQInnypfymB-YcQ_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaLMYN=
+Bdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SKM4iC-2BqfPuWUs=
+FuOZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GKYSBa2wRFlL5u5A=
+bXPl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwkjQbzS9lm7NAG7Q=
+lBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr1KJmDeXCOU3Laqqn=
+o55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2FIakIN8HuQyTLI3=
+8WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUkXoS9t3o6vkPXnf=
+-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZDmPJwxOT-2BfVk=
+x8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDKsAbxIUeF0WN2nH=
+cTO5oJaxHc2OlxVVI60HWfSmfey80-2BdlslmyWOxLXJTPWvIqVZeQmtiQJyZ5gz02KRdMUWw06=
+DmN-2FeSpjmSoEKGZ-2F06GP8QYP71o-2BkBxZ3hT6veQzIEv62ol2OBtc9Eekx-2FmkFbGluF3=
+UyfuXI-3D">
+                                                            Learn more
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td style=3D"border-spacing: 0; width: 3.2%; margin: auto;"></t=
+d>
+            <td style=3D"border-spacing: 0; width: 48.4%; margin: auto;">
+                <table align=3D"left" cellpadding=3D"0" cellspacing=3D"0" s=
+tyle=3D"border-spacing: 0; width: 100%;">
+                    <tbody>
+                        <tr>
+                            <td style=3D"width: 100%;" align=3D"center">
+                                <table align=3D"center" cellpadding=3D"0" c=
+ellspacing=3D"0" style=3D"text-align: center; border-spacing: 0; width: 100=
+%;">
+                                    <tr>
+                                        <td align=3D"center" class=3D"e2-bo=
+dy-cta-double-button" style=3D"border-radius: 4px; -webkit-border-radius: 4=
+px; -moz-border-radius: 4px; border-spacing: 0; width: 100%;" bgcolor=3D"#2=
+52B60">
+                                            <table align=3D"center" style=
+=3D"text-align: center; border-spacing: 0; width: 100%;">
+                                                <tr>
+                                                    <td>
+                                                        <a class=3D"e2-body=
+-cta-double-button-link" style=3D"font-family: Helvetica; font-style: norma=
+l; font-weight: bold; text-decoration: none; display: block; color: #FFFFFF=
+; text-align: center; border-radius: 4px; -webkit-border-radius: 4px; -moz-=
+border-radius: 4px; font-size: 14px; line-height: 20px; white-space: nowrap=
+; margin: auto; padding: 12px 16px; border: 0 solid #252b60;" href=3D"https=
+://ablink.links.us.mercari.com/ls/click?upn=3Dc0EushdgISemCp7RgyGG1Xx7uQ9-2=
+FZo2VGorlQ2djaGXd6Q5f-2BwcIIYofkYACo5wPHB4jtLv3vXRYAMXG1dUPPxtz5Dk7B72Az-2B=
+9Tcw8E15M-3D1MyN_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaLMYNBdt-2Fnsq=
+jCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SKM4iC-2BqfPuWUsFuOZs2lm4=
+7rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GKYSBa2wRFlL5u5AbXPl5EiyF=
+ffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwkjQbzS9lm7NAG7QlBk4xV8sW=
+VQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr1KJmDeXCOU3Laqqno55bLe5Hr=
+6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2FIakIN8HuQyTLI38WZwkqKz6=
+i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUkXoS9t3o6vkPXnf-2Bgha-2F=
+P8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZDmPJwxOT-2BfVkx8FJK6R1Q=
+LMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDKsAbxIUeF0WHR8Fewa0NkElx=
+cvL3T3sSAsHrzfSPBRzRD-2F4q-2BcmLHrvrq8UA1G3Zl5zpKv03XAKv1966zpMrt1UoOxwDCK6=
+El4ZejC6ZiKgPAkGWT7BXchVesloh-2BDA-2FNYC1ogjPjGxukJZwY-2FEFY8UbwY5NLVrcM-3D=
+">
+                                                            Shop now
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+
+
+<!--
+  WARNING:
+  THIS CONTENT BLOCK WAS AUTO-GENERATED USING EMAIL-BUILDER.
+  DO NOT DIRECTLY MODIFY THIS FILE
+-->
+
+
+<table align=3D"center" width=3D"500" style=3D"max-width: 500px; width: 100=
+%; margin: 0px auto;" bgcolor=3D"white">
+    <tbody>
+        <tr>
+            <td class=3D"e2-body-title-text" style=3D"font-family: Helvetic=
+a; font-style: normal; font-weight: bold; color: #252B60; font-size: 24px; =
+line-height: 28px; margin: 0px auto; padding: 15px 16px 0;" align=3D"left">
+                How does it work for sellers?
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+<a universal=3D"true" href=3D"https://ablink.links.us.mercari.com/uni/ls/cl=
+ick?upn=3Dc0EushdgISemCp7RgyGG1Xx7uQ9-2FZo2VGorlQ2djaGXd6Q5f-2BwcIIYofkYACo=
+5wPW6-2BpT-2BH7JIpSptF6Eq0fQA-3D-3DAldJ_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIor=
+olnLs2ASJaLMYNBdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SK=
+M4iC-2BqfPuWUsFuOZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GK=
+YSBa2wRFlL5u5AbXPl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwk=
+jQbzS9lm7NAG7QlBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr1K=
+JmDeXCOU3Laqqno55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2F=
+IakIN8HuQyTLI38WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUk=
+XoS9t3o6vkPXnf-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZ=
+DmPJwxOT-2BfVkx8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDK=
+sAbxIUeF0WHirfsdbJfVKPIVFn9CYFY3XNSn2lKhW9rsaLZhasue0zHfuGVgwckFu-2Fha1fjYa=
+Veb84OZ3lTbrbjUEarOebMfKjzoDu2YWUgt6HxXpEy76-2BA2xYGWWmlCNTHi4G-2BWMBarnhOJ=
+iEU0G5SHSvxWmtiQ-3D">=20
+<!--
+  WARNING:
+  THIS CONTENT BLOCK WAS AUTO-GENERATED USING EMAIL-BUILDER.
+  DO NOT DIRECTLY MODIFY THIS FILE
+-->
+
+
+<div class=3D"e2_images_photography-container" width=3D"500" align=3D"cente=
+r" style=3D"max-width: 500px !important; margin: 16px auto; padding: 0px 15=
+px;">
+    <!--[if mso]>
+      <img width=3D"500" max-width=3D"500" src=3Dhttps://braze-images.com/a=
+ppboy/communication/assets/image_assets/images/6532ffe9e70808004c5bae74/ori=
+ginal.png?1697841129/>
+    <![endif]-->
+    <!--[if !mso]>-->
+    <img width=3D"500" height=3D"500" class=3D"e2_images_photography-image"=
+ style=3D"max-width: 500px !important; width: 100% !important; height: auto=
+; border-radius: 4px;" src=3D"https://braze-images.com/appboy/communication=
+/assets/image_assets/images/6532ffe9e70808004c5bae74/original.png?169784112=
+9">
+    <!--<![endif]-->
+</div>
+
+</a>
+
+
+
+
+
+
+
+
+<!--
+  WARNING:
+  THIS CONTENT BLOCK WAS AUTO-GENERATED USING EMAIL-BUILDER.
+  DO NOT DIRECTLY MODIFY THIS FILE
+-->
+
+
+
+<!-- [if gte mso 9]>
+<style>
+li {text-align:-webkit-match-parent; display:list-item;text-indent: -1em;}
+</style>
+<![endif]-->
+
+<table width=3D"500" align=3D"center" style=3D"max-width: 500px !important;=
+ width: 100% !important; margin: 16px auto;" class=3D"e2-body-numbered-list=
+-wrapper" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+  <tbody>
+    <tr>
+      <td class=3D"e2-body-numbered-list-padding" style=3D"padding: 0 15px;=
+">
+        <ol class=3D"e2-body-numbered-list-number" style=3D"margin: 0; padd=
+ing: 0 0 0 31px;">
+         =20
+          <li class=3D"e2-body-numbered-list-li" style=3D"color: #5356EE; f=
+ont-family: Helvetica; font-style: normal; font-weight: normal; font-size: =
+16px; line-height: 20px; padding-left: 8px;">
+            <span class=3D"e2-body-numbered-list-li-span" style=3D"color: #=
+222222; font-size: 14px;"><b>Eligible items:</b> All listings in <a univers=
+al =3D true style=3D'text-decoration: underline; color: #4c4c4c;' href =3D =
+'https://ablink.links.us.mercari.com/uni/ls/click?upn=3Dc0EushdgISemCp7RgyG=
+G1Xx7uQ9-2FZo2VGorlQ2djaGWh0oJ0aKqU-2FonJqwXy9Ebt4NhWXCvaDZYBGR90hHIldTRW9S=
+wVs2tQxE76INB15q6Tk7In1YEcLj-2F3FndJSpldeqa48QJGsk61V7JoQ2NKqIcD12uYETOem2e=
+YdhU3FV0-3Ddrpd_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaLMYNBdt-2Fnsqj=
+CTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SKM4iC-2BqfPuWUsFuOZs2lm47=
+rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GKYSBa2wRFlL5u5AbXPl5EiyFf=
+fQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwkjQbzS9lm7NAG7QlBk4xV8sWV=
+QQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr1KJmDeXCOU3Laqqno55bLe5Hr6=
+nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2FIakIN8HuQyTLI38WZwkqKz6i=
+52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUkXoS9t3o6vkPXnf-2Bgha-2FP=
+8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZDmPJwxOT-2BfVkx8FJK6R1QL=
+MkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDKsAbxIUeF0WIan6bBHHFdWfL3=
+w-2BeXYRwT8lb5R2ZSoMRXHzJe-2F7YSvf7oShykaVNuDvF8tqqGkcChmx3etQJcaUTrc4kNP7i=
+GrUM9zQ3Sbn9WaS0piSErEeEanPVxDn-2B7bEMvkzjYVI3rdzoSEwZE-2FiBEKahiBg9k-3D'>e=
+ligible Los Angeles zip codes</a> are available for in-person purchases, bu=
+t the seller must accept the request to meet up. </span>
+          </li>
+         =20
+         =20
+          <li class=3D"e2-body-numbered-list-li e2-body-numbered-list-li-ne=
+xt" style=3D"color: #5356EE; font-family: Helvetica; font-style: normal; fo=
+nt-weight: normal; font-size: 16px; line-height: 20px; padding-left: 8px; m=
+argin-top: 16px;">
+            <span class=3D"e2-body-numbered-list-li-span" style=3D"color: #=
+222222; font-size: 14px;"><b>Coordinate your meetup:</b> When a buyer sends=
+ a meet up request, work with the buyer to set a day, time, and place to me=
+et. Be sure to let them know what payment method you prefer.=20
+<br><br>
+<b>Tip:</b> Consider adding ''pending sale'' or ''reserved'' to your listin=
+g title to hold the item until you meet.</span>
+          </li>
+         =20
+         =20
+          <li class=3D"e2-body-numbered-list-li e2-body-numbered-list-li-ne=
+xt" style=3D"color: #5356EE; font-family: Helvetica; font-style: normal; fo=
+nt-weight: normal; font-size: 16px; line-height: 20px; padding-left: 8px; m=
+argin-top: 16px;">
+            <span class=3D"e2-body-numbered-list-li-span" style=3D"color: #=
+222222; font-size: 14px;"><b>Transact offline:</b> Meetups take place outsi=
+de of Mercari, so you=E2=80=99ll be paid in person and <b>save on shipping =
+and selling fees</b>! You=E2=80=99ll need to accept cash or a digital payme=
+nt method.</span>
+          </li>
+         =20
+         =20
+          <li class=3D"e2-body-numbered-list-li e2-body-numbered-list-li-ne=
+xt" style=3D"color: #5356EE; font-family: Helvetica; font-style: normal; fo=
+nt-weight: normal; font-size: 16px; line-height: 20px; padding-left: 8px; m=
+argin-top: 16px;">
+            <span class=3D"e2-body-numbered-list-li-span" style=3D"color: #=
+222222; font-size: 14px;"><b>Mark the item as sold:</b> Once the meetup is =
+complete, mark the item as sold and you=E2=80=99re done!</span>
+          </li>
+         =20
+         =20
+         =20
+         =20
+         =20
+         =20
+         =20
+        </ol>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<!--
+  WARNING:
+  THIS CONTENT BLOCK WAS AUTO-GENERATED USING EMAIL-BUILDER.
+  DO NOT DIRECTLY MODIFY THIS FILE
+-->
+
+
+
+
+
+<table class=3D"e2-body-cta-double-container" width=3D"500" align=3D"center=
+" cellspacing=3D"0" cellpadding=3D"0" style=3D"border-spacing: 0; width: 10=
+0% !important; max-width: 500px !important; margin: auto; padding: 16px 15p=
+x;">
+    <tbody>
+        <tr>
+            <td style=3D"border-spacing: 0; width: 48.4%; margin: auto;">
+                <table align=3D"right" cellpadding=3D"0" cellspacing=3D"0" =
+style=3D"border-spacing: 0; width: 100%;">
+                    <tbody>
+                        <tr>
+                            <td style=3D"width: 100%;" align=3D"center">
+                                <table align=3D"center" cellpadding=3D"0" c=
+ellspacing=3D"0" style=3D"text-align: center; width: 100%;">
+                                    <tr>
+                                        <td align=3D"center" class=3D"e2-bo=
+dy-cta-double-button" style=3D"border-radius: 4px; -webkit-border-radius: 4=
+px; -moz-border-radius: 4px; border-spacing: 0; width: 100%;" bgcolor=3D"#F=
+2F3FE">
+                                            <table align=3D"center" style=
+=3D"text-align: center; border-spacing: 0; width: 100%;">
+                                                <tr>
+                                                    <td>
+                                                        <a class=3D"e2-body=
+-cta-double-button-link" style=3D"font-family: Helvetica; font-style: norma=
+l; font-weight: bold; text-decoration: none; display: block; color: #252B60=
+; text-align: center; border-radius: 4px; -webkit-border-radius: 4px; -moz-=
+border-radius: 4px; font-size: 14px; line-height: 20px; white-space: nowrap=
+; margin: auto; padding: 12px 16px; border: 0 solid #f2f3fe;" href=3D"https=
+://ablink.links.us.mercari.com/ls/click?upn=3Dc0EushdgISemCp7RgyGG1Xx7uQ9-2=
+FZo2VGorlQ2djaGWh0oJ0aKqU-2FonJqwXy9Ebt4NhWXCvaDZYBGR90hHIldTRW9SwVs2tQxE76=
+INB15q6Tk7In1YEcLj-2F3FndJSpldh05F9MndxBtrsxW7f4WNcGiAsUzit46XuBoVV372x0-2B=
+RnebLEB6JbcQInnypfymBs5xl_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaLMYN=
+Bdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SKM4iC-2BqfPuWUs=
+FuOZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GKYSBa2wRFlL5u5A=
+bXPl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwkjQbzS9lm7NAG7Q=
+lBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr1KJmDeXCOU3Laqqn=
+o55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2FIakIN8HuQyTLI3=
+8WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUkXoS9t3o6vkPXnf=
+-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZDmPJwxOT-2BfVk=
+x8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDKsAbxIUeF0WEP71=
+qySWkf1qkPCax2NafKk25Cb-2FQrr2veri9VkkcfTHQz7V3G-2BH4r36SWDGRZYWUMuA4-2B6RU=
+hCHiYsKIId1UvulW2Y6R5Wj80XS89r-2F09fXApOiBmzsTVXb2CfSRQ9N6e3iU9-2FK-2BNCw62=
+QkibUVtw-3D">
+                                                            Learn more
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td style=3D"border-spacing: 0; width: 3.2%; margin: auto;"></t=
+d>
+            <td style=3D"border-spacing: 0; width: 48.4%; margin: auto;">
+                <table align=3D"left" cellpadding=3D"0" cellspacing=3D"0" s=
+tyle=3D"border-spacing: 0; width: 100%;">
+                    <tbody>
+                        <tr>
+                            <td style=3D"width: 100%;" align=3D"center">
+                                <table align=3D"center" cellpadding=3D"0" c=
+ellspacing=3D"0" style=3D"text-align: center; border-spacing: 0; width: 100=
+%;">
+                                    <tr>
+                                        <td align=3D"center" class=3D"e2-bo=
+dy-cta-double-button" style=3D"border-radius: 4px; -webkit-border-radius: 4=
+px; -moz-border-radius: 4px; border-spacing: 0; width: 100%;" bgcolor=3D"#2=
+52B60">
+                                            <table align=3D"center" style=
+=3D"text-align: center; border-spacing: 0; width: 100%;">
+                                                <tr>
+                                                    <td>
+                                                        <a class=3D"e2-body=
+-cta-double-button-link" style=3D"font-family: Helvetica; font-style: norma=
+l; font-weight: bold; text-decoration: none; display: block; color: #FFFFFF=
+; text-align: center; border-radius: 4px; -webkit-border-radius: 4px; -moz-=
+border-radius: 4px; font-size: 14px; line-height: 20px; white-space: nowrap=
+; margin: auto; padding: 12px 16px; border: 0 solid #252b60;" href=3D"https=
+://ablink.links.us.mercari.com/ls/click?upn=3Dc0EushdgISemCp7RgyGG1Xx7uQ9-2=
+FZo2VGorlQ2djaGW1mBaFvw9g2NqwjOTKy-2F7ArY-2F1PtQ0i-2FlOf7-2F9f76iQA-3D-3DGi=
+iC_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaLMYNBdt-2FnsqjCTBbxIHk9Sh6F=
+BW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SKM4iC-2BqfPuWUsFuOZs2lm47rJGyICzbvwCrX=
+ODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GKYSBa2wRFlL5u5AbXPl5EiyFffQpI6Chij-2F2=
+khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwkjQbzS9lm7NAG7QlBk4xV8sWVQQIB7NkZi1wq8=
+-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr1KJmDeXCOU3Laqqno55bLe5Hr6nw22Kqfx6bowA=
+n8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2FIakIN8HuQyTLI38WZwkqKz6i52DSBhn3sWO5L=
+-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUkXoS9t3o6vkPXnf-2Bgha-2FP8e5UoTqXFeFtd=
+uygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZDmPJwxOT-2BfVkx8FJK6R1QLMkhpMwxavyMB-=
+2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDKsAbxIUeF0WH28-2FBju7bCiJJXk38AdMWMWLm=
+hj2qxZ84hvRezY5l4jxaFrZPOXh9jmY0ZFPog1xABXtEkK9TYksTb-2F-2FQeMLeaTR6ZUfg5Az=
+3ttkT4D7B97PYtiHw5GanJv-2B7P0UVj-2F8TUJtx-2BvJS6IzGh24udSfdk-3D">
+                                                            List now
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+
+
+
+<!--
+  WARNING:
+  THIS CONTENT BLOCK WAS AUTO-GENERATED USING EMAIL-BUILDER.
+  DO NOT DIRECTLY MODIFY THIS FILE
+-->
+
+
+<table align=3D"center" width=3D"500" style=3D"max-width: 500px; width: 100=
+%; margin: 0px auto;" bgcolor=3D"white">
+    <tbody>
+        <tr>
+            <td class=3D"e2-body-title-text" style=3D"font-family: Helvetic=
+a; font-style: normal; font-weight: bold; color: #252B60; font-size: 24px; =
+line-height: 28px; margin: 0px auto; padding: 15px 16px 0;" align=3D"left">
+                Tips for a successful in-person exchange
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+<a universal=3D"true" href=3D"https://ablink.links.us.mercari.com/uni/ls/cl=
+ick?upn=3Dc0EushdgISemCp7RgyGG1Xx7uQ9-2FZo2VGorlQ2djaGXd6Q5f-2BwcIIYofkYACo=
+5wPW6-2BpT-2BH7JIpSptF6Eq0fQA-3D-3Dh3SZ_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIor=
+olnLs2ASJaLMYNBdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SK=
+M4iC-2BqfPuWUsFuOZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GK=
+YSBa2wRFlL5u5AbXPl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwk=
+jQbzS9lm7NAG7QlBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr1K=
+JmDeXCOU3Laqqno55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2F=
+IakIN8HuQyTLI38WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUk=
+XoS9t3o6vkPXnf-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZ=
+DmPJwxOT-2BfVkx8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDK=
+sAbxIUeF0WHA-2FgATACwP6cXms8Vecf0MYpKD2suxc4NAAiWbURBFXny5YCAtSeZmDpkgoHxYA=
+qMkIuKySKYPjHfxfSFNR-2F1a0dP0ubFoRomEE56EGQdSmU-2FJCOuYme4J0q7XsRsWA5FdISew=
+7CDWjAw-2B786lOOH8-3D">=20
+<!--
+  WARNING:
+  THIS CONTENT BLOCK WAS AUTO-GENERATED USING EMAIL-BUILDER.
+  DO NOT DIRECTLY MODIFY THIS FILE
+-->
+
+
+<div class=3D"e2_images_photography-container" width=3D"500" align=3D"cente=
+r" style=3D"max-width: 500px !important; margin: 16px auto; padding: 0px 15=
+px;">
+    <!--[if mso]>
+      <img width=3D"500" max-width=3D"500" src=3Dhttps://braze-images.com/a=
+ppboy/communication/assets/image_assets/images/652f60c53b8c850050f5d2b1/ori=
+ginal.png?1697603781/>
+    <![endif]-->
+    <!--[if !mso]>-->
+    <img width=3D"500" height=3D"500" class=3D"e2_images_photography-image"=
+ style=3D"max-width: 500px !important; width: 100% !important; height: auto=
+; border-radius: 4px;" src=3D"https://braze-images.com/appboy/communication=
+/assets/image_assets/images/652f60c53b8c850050f5d2b1/original.png?169760378=
+1">
+    <!--<![endif]-->
+</div>
+
+</a>
+
+
+
+
+
+
+
+
+
+
+
+<!--
+  WARNING:
+  THIS CONTENT BLOCK WAS AUTO-GENERATED USING EMAIL-BUILDER.
+  DO NOT DIRECTLY MODIFY THIS FILE
+-->
+
+
+
+<!-- [if gte mso 9]>
+<style>
+li {text-align:-webkit-match-parent; display:list-item;text-indent: -1em;}
+</style>
+<![endif]-->
+
+<table width=3D"500" align=3D"center" style=3D"max-width: 500px !important;=
+ width: 100% !important; margin: 16px auto;" class=3D"e2-body-numbered-list=
+-wrapper" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+  <tbody>
+    <tr>
+      <td class=3D"e2-body-numbered-list-padding" style=3D"padding: 0 15px;=
+">
+        <ol class=3D"e2-body-numbered-list-number" style=3D"margin: 0; padd=
+ing: 0 0 0 31px;">
+         =20
+          <li class=3D"e2-body-numbered-list-li" style=3D"color: #5356EE; f=
+ont-family: Helvetica; font-style: normal; font-weight: normal; font-size: =
+16px; line-height: 20px; padding-left: 8px;">
+            <span class=3D"e2-body-numbered-list-li-span" style=3D"color: #=
+222222; font-size: 14px;"><b>Get verified </b>=E2=80=93 Establish trust by =
+<a universal =3D true style=3D'text-decoration: underline; color: #4c4c4c;'=
+ href =3D 'https://ablink.links.us.mercari.com/uni/ls/click?upn=3Dc0EushdgI=
+SemCp7RgyGG1Xx7uQ9-2FZo2VGorlQ2djaGWh0oJ0aKqU-2FonJqwXy9Ebt4NhWXCvaDZYBGR90=
+hHIldTRW9SwVs2tQxE76INB15q6Tk7In1YEcLj-2F3FndJSpldHHHHeAz56Ss-2Fr1CSGN-2F2f=
+GWtmahU4XSZx4yOcV4uUFcrqB15ZYak9nx8XylsTaRg9NFIUSlv5GfIngJV82TMjg-3D-3D_DVY=
+_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaLMYNBdt-2FnsqjCTBbxIHk9Sh6FBW=
+6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SKM4iC-2BqfPuWUsFuOZs2lm47rJGyICzbvwCrXOD=
+YDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GKYSBa2wRFlL5u5AbXPl5EiyFffQpI6Chij-2F2kh=
+GFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwkjQbzS9lm7NAG7QlBk4xV8sWVQQIB7NkZi1wq8-2=
+FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr1KJmDeXCOU3Laqqno55bLe5Hr6nw22Kqfx6bowAn8=
+YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2FIakIN8HuQyTLI38WZwkqKz6i52DSBhn3sWO5L-2=
+F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUkXoS9t3o6vkPXnf-2Bgha-2FP8e5UoTqXFeFtduy=
+gBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZDmPJwxOT-2BfVkx8FJK6R1QLMkhpMwxavyMB-2B=
+89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDKsAbxIUeF0WIJDEq-2F1-2FobRuUv300iShE19VW=
+CnEs0H29xWX9gUyBkVkCkb2sBJOY20Ogl1-2Bv9HlwYO7fAgckoXrCCNHN-2BImcnN9brnA8BRD=
+wCIg0-2BQaYZqu6jzd55uH2KBcuJPO8wd8yEe6wtxS5Lfa9WIn06LFIw-3D'>verifying your=
+ profile</a> in app to help keep the marketplace safe.</span>
+          </li>
+         =20
+         =20
+          <li class=3D"e2-body-numbered-list-li e2-body-numbered-list-li-ne=
+xt" style=3D"color: #5356EE; font-family: Helvetica; font-style: normal; fo=
+nt-weight: normal; font-size: 16px; line-height: 20px; padding-left: 8px; m=
+argin-top: 16px;">
+            <span class=3D"e2-body-numbered-list-li-span" style=3D"color: #=
+222222; font-size: 14px;"><b>Communicate on Mercari</b> =E2=80=93 Work out =
+all the deets between buyer and seller in the app.</span>
+          </li>
+         =20
+         =20
+          <li class=3D"e2-body-numbered-list-li e2-body-numbered-list-li-ne=
+xt" style=3D"color: #5356EE; font-family: Helvetica; font-style: normal; fo=
+nt-weight: normal; font-size: 16px; line-height: 20px; padding-left: 8px; m=
+argin-top: 16px;">
+            <span class=3D"e2-body-numbered-list-li-span" style=3D"color: #=
+222222; font-size: 14px;"><b>Provide ID cues</b> =E2=80=93 Give info to eas=
+ily find you, e.g. what you=E2=80=99ll be wearing and the make of your car,=
+ and ask for cues, too!</span>
+          </li>
+         =20
+         =20
+          <li class=3D"e2-body-numbered-list-li e2-body-numbered-list-li-ne=
+xt" style=3D"color: #5356EE; font-family: Helvetica; font-style: normal; fo=
+nt-weight: normal; font-size: 16px; line-height: 20px; padding-left: 8px; m=
+argin-top: 16px;">
+            <span class=3D"e2-body-numbered-list-li-span" style=3D"color: #=
+222222; font-size: 14px;"><b>Set a specific time</b> =E2=80=93 For instance=
+, 12:30 pm vs. ''sometime around noon'' so nobody's left waiting.</span>
+          </li>
+         =20
+         =20
+          <li class=3D"e2-body-numbered-list-li e2-body-numbered-list-li-ne=
+xt" style=3D"color: #5356EE; font-family: Helvetica; font-style: normal; fo=
+nt-weight: normal; font-size: 16px; line-height: 20px; padding-left: 8px; m=
+argin-top: 16px;">
+            <span class=3D"e2-body-numbered-list-li-span" style=3D"color: #=
+222222; font-size: 14px;"><b>Meet in a public place</b> =E2=80=93 Find a ha=
+lfway point between you and the buyer that=E2=80=99s well-lit, has cameras,=
+ and is populated, like a shopping center.</span>
+          </li>
+         =20
+         =20
+          <li class=3D"e2-body-numbered-list-li e2-body-numbered-list-li-ne=
+xt" style=3D"color: #5356EE; font-family: Helvetica; font-style: normal; fo=
+nt-weight: normal; font-size: 16px; line-height: 20px; padding-left: 8px; m=
+argin-top: 16px;">
+            <span class=3D"e2-body-numbered-list-li-span" style=3D"color: #=
+222222; font-size: 14px;"><b>Inspect the item</b> =E2=80=93 Check it out cl=
+osely to ensure it matches the description and meets expectations.</span>
+          </li>
+         =20
+         =20
+         =20
+         =20
+         =20
+        </ol>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<!--
+  WARNING:
+  THIS CONTENT BLOCK WAS AUTO-GENERATED USING EMAIL-BUILDER.
+  DO NOT DIRECTLY MODIFY THIS FILE
+-->
+
+
+
+
+
+<table class=3D"e2-body-cta-double-container" width=3D"500" align=3D"center=
+" cellspacing=3D"0" cellpadding=3D"0" style=3D"border-spacing: 0; width: 10=
+0% !important; max-width: 500px !important; margin: auto; padding: 16px 15p=
+x;">
+    <tbody>
+        <tr>
+            <td style=3D"border-spacing: 0; width: 48.4%; margin: auto;">
+                <table align=3D"right" cellpadding=3D"0" cellspacing=3D"0" =
+style=3D"border-spacing: 0; width: 100%;">
+                    <tbody>
+                        <tr>
+                            <td style=3D"width: 100%;" align=3D"center">
+                                <table align=3D"center" cellpadding=3D"0" c=
+ellspacing=3D"0" style=3D"text-align: center; width: 100%;">
+                                    <tr>
+                                        <td align=3D"center" class=3D"e2-bo=
+dy-cta-double-button" style=3D"border-radius: 4px; -webkit-border-radius: 4=
+px; -moz-border-radius: 4px; border-spacing: 0; width: 100%;" bgcolor=3D"#F=
+2F3FE">
+                                            <table align=3D"center" style=
+=3D"text-align: center; border-spacing: 0; width: 100%;">
+                                                <tr>
+                                                    <td>
+                                                        <a class=3D"e2-body=
+-cta-double-button-link" style=3D"font-family: Helvetica; font-style: norma=
+l; font-weight: bold; text-decoration: none; display: block; color: #252B60=
+; text-align: center; border-radius: 4px; -webkit-border-radius: 4px; -moz-=
+border-radius: 4px; font-size: 14px; line-height: 20px; white-space: nowrap=
+; margin: auto; padding: 12px 16px; border: 0 solid #f2f3fe;" href=3D"https=
+://ablink.links.us.mercari.com/ls/click?upn=3Dc0EushdgISemCp7RgyGG1Xx7uQ9-2=
+FZo2VGorlQ2djaGWh0oJ0aKqU-2FonJqwXy9Ebt4NhWXCvaDZYBGR90hHIldTRW9SwVs2tQxE76=
+INB15q6Tk7In1YEcLj-2F3FndJSpldh05F9MndxBtrsxW7f4WNcGiAsUzit46XuBoVV372x0-2B=
+RBtdRREFVyupFydodAGpioU63tNligeuDwNRiaHRWEg-3D-3DuIDb_oKpHbu4hmsCLnrDdPvdJ-=
+2Bg-2FjsIhjIorolnLs2ASJaLMYNBdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK=
+1QfR-2BAt6x7SKM4iC-2BqfPuWUsFuOZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT4W=
+oHFZfu-2BYp7GKYSBa2wRFlL5u5AbXPl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RUmS=
+u-2FblOQ5XEKwkjQbzS9lm7NAG7QlBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2FUI=
+MAK-2FyjjYSr1KJmDeXCOU3Laqqno55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-2B=
+zq6cWRMLm1M-2FIakIN8HuQyTLI38WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2BujdV=
+hM8zfz19AZrfUkXoS9t3o6vkPXnf-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVozz=
+mUa-2Fzy1LBoOZDmPJwxOT-2BfVkx8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9Z8=
+ja6uR6WJVBDTDKsAbxIUeF0WJEoTMZ7SoPx6Z805ZgYN-2BBJ3eq4YPqXHZgfwemuMwfYC2mra-=
+2FJzISDYifxChgloNqfs4pmAuXFLsoWAb-2B9obHf2svCNstlQfItlVSvjSqOJXHObzJgaDd0Tk=
+ewr2TyaeYCBk5SfHWA3h-2Bv069iULdk-3D">
+                                                            Read safety tip=
+s
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td style=3D"border-spacing: 0; width: 3.2%; margin: auto;"></t=
+d>
+            <td style=3D"border-spacing: 0; width: 48.4%; margin: auto;">
+                <table align=3D"left" cellpadding=3D"0" cellspacing=3D"0" s=
+tyle=3D"border-spacing: 0; width: 100%;">
+                    <tbody>
+                        <tr>
+                            <td style=3D"width: 100%;" align=3D"center">
+                                <table align=3D"center" cellpadding=3D"0" c=
+ellspacing=3D"0" style=3D"text-align: center; border-spacing: 0; width: 100=
+%;">
+                                    <tr>
+                                        <td align=3D"center" class=3D"e2-bo=
+dy-cta-double-button" style=3D"border-radius: 4px; -webkit-border-radius: 4=
+px; -moz-border-radius: 4px; border-spacing: 0; width: 100%;" bgcolor=3D"#2=
+52B60">
+                                            <table align=3D"center" style=
+=3D"text-align: center; border-spacing: 0; width: 100%;">
+                                                <tr>
+                                                    <td>
+                                                        <a class=3D"e2-body=
+-cta-double-button-link" style=3D"font-family: Helvetica; font-style: norma=
+l; font-weight: bold; text-decoration: none; display: block; color: #FFFFFF=
+; text-align: center; border-radius: 4px; -webkit-border-radius: 4px; -moz-=
+border-radius: 4px; font-size: 14px; line-height: 20px; white-space: nowrap=
+; margin: auto; padding: 12px 16px; border: 0 solid #252b60;" href=3D"https=
+://ablink.links.us.mercari.com/ls/click?upn=3Dc0EushdgISemCp7RgyGG1Xx7uQ9-2=
+FZo2VGorlQ2djaGWh0oJ0aKqU-2FonJqwXy9Ebt4NhWXCvaDZYBGR90hHIldTRW9SwVs2tQxE76=
+INB15q6Tk7In1YEcLj-2F3FndJSpldHHHHeAz56Ss-2Fr1CSGN-2F2fGWtmahU4XSZx4yOcV4uU=
+FcrqB15ZYak9nx8XylsTaRg9NFIUSlv5GfIngJV82TMjg-3D-3DHShB_oKpHbu4hmsCLnrDdPvd=
+J-2Bg-2FjsIhjIorolnLs2ASJaLMYNBdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcM=
+GK1QfR-2BAt6x7SKM4iC-2BqfPuWUsFuOZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT=
+4WoHFZfu-2BYp7GKYSBa2wRFlL5u5AbXPl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RU=
+mSu-2FblOQ5XEKwkjQbzS9lm7NAG7QlBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2F=
+UIMAK-2FyjjYSr1KJmDeXCOU3Laqqno55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-=
+2Bzq6cWRMLm1M-2FIakIN8HuQyTLI38WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2Buj=
+dVhM8zfz19AZrfUkXoS9t3o6vkPXnf-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVo=
+zzmUa-2Fzy1LBoOZDmPJwxOT-2BfVkx8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9=
+Z8ja6uR6WJVBDTDKsAbxIUeF0WJrQinAqvLK6qd2KPy66FheTTkcWGOoU6bBjGE-2FYY9UznW2f=
+lvJqwGh6zrr3XQS5ZG460X70T1e1Xg0gjhpeMqMdv2RlpdgigGGmV8ccX6aXpmdPv3aC03gNo-2=
+BG4eQMY790jSESgu53wIQ2RNTEh-2Fqo-3D">
+                                                            Verify your ID
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+
+
+<!--
+  WARNING:
+  THIS CONTENT BLOCK WAS AUTO-GENERATED USING EMAIL-BUILDER.
+  DO NOT DIRECTLY MODIFY THIS FILE
+-->
+
+<table align=3D"center" width=3D"500" class=3D"e2-body-paragraph-container"=
+ style=3D"border-collapse: collapse; border-spacing: 0; float: none; text-a=
+lign: center; vertical-align: top; max-width: 560px; width: 100%; margin: 0=
+ auto; padding: 20px 15px;">
+    <tbody>
+        <tr>
+            <th class=3D"e2-body-paragraph-column" valign=3D"middle" style=
+=3D"margin: 0px auto;">
+                <table>
+                    <tr>
+                        <th>
+                            <p align=3D"left" width=3D"500" style=3D"font-f=
+amily: Helvetica; font-style: normal; font-weight: normal; color: #4C4C4C; =
+max-width: 500px; font-size: 14px; line-height: 20px; margin: 0px auto; pad=
+ding: 16px 15px;" class=3D"e2-body-paragraph-text"><b>Important:</b> Return=
+s, refunds, buyer and seller protection, and shipping protection are not av=
+ailable for items you=E2=80=99ve purchased via meetups. See <a universal =
+=3D true style=3D'text-decoration: underline; color: #4c4c4c;' href =3D 'ht=
+tps://ablink.links.us.mercari.com/uni/ls/click?upn=3Dc0EushdgISemCp7RgyGG1X=
+x7uQ9-2FZo2VGorlQ2djaGU6sP1S88wevRVt8WZp6W2hXvIizDY-2BRAMENM0i0mRVXPfdoK1-2=
+B5ldg1Oj0X-2FrC0LSbnpyJnWCoBwLDPU0Ru9qCGCiX_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIh=
+jIorolnLs2ASJaLMYNBdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6=
+x7SKM4iC-2BqfPuWUsFuOZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BY=
+p7GKYSBa2wRFlL5u5AbXPl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5X=
+EKwkjQbzS9lm7NAG7QlBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjY=
+Sr1KJmDeXCOU3Laqqno55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1=
+M-2FIakIN8HuQyTLI38WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZ=
+rfUkXoS9t3o6vkPXnf-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1L=
+BoOZDmPJwxOT-2BfVkx8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVB=
+DTDKsAbxIUeF0WJjwWuh4HSwnpbMpaYKVrgv2bViRqFwrZnBk8PAgDMtiUoR31rxlCdcX-2F3Xe=
+JoHL-2Bs0bXFHv1-2BQZeXFakeH4ZTUHm92ARELCqXTAsD39g16ZLgqONPfzUZjASFgYD6667Cz=
+iJZxIOr5R5iu8ojphoTo-3D'>Terms</a>.
+<br><br>
+We hope you enjoy our new meetup option. To learn more about meetups visit =
+our <a universal =3D true style=3D'text-decoration: underline; color: #4c4c=
+4c;' href =3D 'https://ablink.links.us.mercari.com/uni/ls/click?upn=3Dc0Eus=
+hdgISemCp7RgyGG1Xx7uQ9-2FZo2VGorlQ2djaGU6sP1S88wevRVt8WZp6W2hbNtNufit8t6nzV=
+T85ECrnFzC1570K25UwnNieQ6Jo40-3DTxAL_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIoroln=
+Ls2ASJaLMYNBdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SKM4i=
+C-2BqfPuWUsFuOZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GKYSB=
+a2wRFlL5u5AbXPl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwkjQb=
+zS9lm7NAG7QlBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr1KJmD=
+eXCOU3Laqqno55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2FIak=
+IN8HuQyTLI38WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUkXoS=
+9t3o6vkPXnf-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZDmP=
+JwxOT-2BfVkx8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDKsAb=
+xIUeF0WL5bICffxQSdgMyLWCt0DTgTrCHMR1pr8Y3c4cVwWgmBDe3h0rgeo52BNMM-2B0Q7CEQD=
+xzOpGCFDKpQwW-2FaNLeKdPaoZN3N2sLhFzgpRTIo8ejhj6V21AYmaYMgKuIIa6LhhZBQVcWLnk=
+ybrdaBUHxv0-3D'>Help Center Guide</a>
+                            </p>
+                        </th>
+                    </tr>
+                </table>
+            </th>
+        </tr>
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+<table class=3D"e2-body-signature-profile-container" align=3D"center" style=
+=3D"max-width: 500px; width: 100% !important; padding: 16px 15px;" bgcolor=
+=3D"white">
+  <tr>
+    <td align=3D"left">
+    <!--[if mso]>
+      <table><tr><td align=3D"left" width=3D"500">
+    <![endif]-->
+      <div class=3D"e2-body-signature-text1" style=3D"font-family: 'Helveti=
+ca'; font-style: normal; font-weight: 400; font-size: 18px; line-height: 22=
+px; letter-spacing: -0.24px; color: #252B60; padding-bottom: 4px;">Happy sh=
+opping!</div>
+      <div class=3D"e2-body-signature-text2" style=3D"font-family: 'Helveti=
+ca'; font-style: normal; font-weight: 400; font-size: 14px; line-height: 20=
+px; color: #4C4C4C;">-Team Mercari</div>
+    <!--[if mso]>
+        </td></tr></table>
+    <![endif]-->
+    </td>
+    <td align=3D"right"><img class=3D"e2-body-signature-image" style=3D"wid=
+th: 50px; height: 50px;" width=3D"50" height=3D"50" src=3D"https://braze-im=
+ages.com/appboy/communication/assets/image_assets/images/62559ac38aefc477a6=
+a70cd4/original.png?1649777347"></td>
+  </tr>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--[if mso]>
+    <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%">=
+<tr><td align=3D"center">
+    <table><tr><td align=3D"left" width=3D"560">
+<![endif]-->
+<div style=3D"max-width: 560px; margin: auto;">
+<div class=3D"e2_body_link_bar-padding" style=3D"padding: 10px 9px;">
+
+<a class=3D"e2_body_link_bar-link" style=3D"text-decoration: none; color: #=
+252B60; background-color: #F2F3FE; font-family: 'Helvetica'; font-size: 14p=
+x; display: inline-block; border-radius: 18px; margin: 6px; padding: 8px 16=
+px;" universal=3D"true" href=3D"https://ablink.links.us.mercari.com/uni/ls/=
+click?upn=3Dc0EushdgISemCp7RgyGG1Xx7uQ9-2FZo2VGorlQ2djaGWh0oJ0aKqU-2FonJqwX=
+y9Ebt4NhWXCvaDZYBGR90hHIldTRW9SwVs2tQxE76INB15q6Tk7In1YEcLj-2F3FndJSpldnbOO=
+FfmcM987Ko7OqFfaUQ-3D-3DKuSq_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaL=
+MYNBdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SKM4iC-2BqfPu=
+WUsFuOZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GKYSBa2wRFlL5=
+u5AbXPl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwkjQbzS9lm7NA=
+G7QlBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr1KJmDeXCOU3La=
+qqno55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2FIakIN8HuQyT=
+LI38WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUkXoS9t3o6vkP=
+Xnf-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZDmPJwxOT-2B=
+fVkx8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDKsAbxIUeF0WK=
+kXalnSe3P2zFR4SpX0o86p-2F1pBnEPVI1ts-2FX7Hvd0v-2B1SX33WVQMwHj5TKwnI7AL5SePe=
+A04k6pVJQzMCvVYaejGVecN99tiBtXlbW4Xtk18aUjr-2FHEv14LNcNdKbGOjcG0wqOB-2FxLBn=
+fehFsl4Fg-3D">Help Center<span style=3D"color: #F2F3FE;">.</span><img alt=
+=3D"&gt;" class=3D"e2_body_link_bar-angleBraket" src=3D"https://braze-image=
+s.com/appboy/communication/assets/image_assets/images/624db05a28586c706c659=
+f33/original.png?1649258586" style=3D'content: url("https://braze-images.co=
+m/appboy/communication/assets/image_assets/images/624db05af3dc705b3e414d8c/=
+original.png?1649258586"); height: 10px; width: 6px;'></a>
+
+
+<a class=3D"e2_body_link_bar-link" style=3D"text-decoration: none; color: #=
+252B60; background-color: #F2F3FE; font-family: 'Helvetica'; font-size: 14p=
+x; display: inline-block; border-radius: 18px; margin: 6px; padding: 8px 16=
+px;" universal=3D"true" href=3D"https://ablink.links.us.mercari.com/uni/ls/=
+click?upn=3Dc0EushdgISemCp7RgyGG1Xx7uQ9-2FZo2VGorlQ2djaGWh0oJ0aKqU-2FonJqwX=
+y9Ebt4NhWXCvaDZYBGR90hHIldTRW9SwVs2tQxE76INB15q6Tk7In1YEcLj-2F3FndJSpld9PiR=
+avdbez-2BnkXSlSVo2xZF4lraY16Y-2FGjYIZVS-2Flzi3xmLvuwvKX0SDykxN1fH2GYxrelGEe=
+AsCcj8GYy55ag-3D-3Dma-u_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaLMYNBd=
+t-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SKM4iC-2BqfPuWUsFu=
+OZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GKYSBa2wRFlL5u5AbX=
+Pl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwkjQbzS9lm7NAG7QlB=
+k4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr1KJmDeXCOU3Laqqno5=
+5bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2FIakIN8HuQyTLI38W=
+ZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUkXoS9t3o6vkPXnf-2=
+Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZDmPJwxOT-2BfVkx8=
+FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDKsAbxIUeF0WLx4dXb=
+zchT4YvAFlG-2FuPMWei3NskvWz-2BndIpYc1qzjilUxnq-2Fb-2FKtL6l-2FmdMqd5frv6utk4=
+mfa-2FwdMahsssh1-2FO-2BbJqcnE3O9a4B6FYlXyXDXguoXqsbJx9s6Gu7dmNoG64sBnEoBB8V=
+oX89But2XI-3D">Bundles<span style=3D"color: #F2F3FE;">.</span><img alt=3D"&=
+gt;" class=3D"e2_body_link_bar-angleBraket" src=3D"https://braze-images.com=
+/appboy/communication/assets/image_assets/images/624db05a28586c706c659f33/o=
+riginal.png?1649258586" style=3D'content: url("https://braze-images.com/app=
+boy/communication/assets/image_assets/images/624db05af3dc705b3e414d8c/origi=
+nal.png?1649258586"); height: 10px; width: 6px;'></a>
+
+
+<a class=3D"e2_body_link_bar-link" style=3D"text-decoration: none; color: #=
+252B60; background-color: #F2F3FE; font-family: 'Helvetica'; font-size: 14p=
+x; display: inline-block; border-radius: 18px; margin: 6px; padding: 8px 16=
+px;" universal=3D"true" href=3D"https://ablink.links.us.mercari.com/uni/ls/=
+click?upn=3Dc0EushdgISemCp7RgyGG1Xx7uQ9-2FZo2VGorlQ2djaGVe-2BrAqzIcmbeFVUD4=
+Ljt3H5iGe97dbNvvbG8zdG4RFMRRAqWjtub7dcvmR5WiNYPfD0b6fg-2F0sosfu2Yuk8O9wMJcY=
+_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaLMYNBdt-2FnsqjCTBbxIHk9Sh6FBW=
+6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SKM4iC-2BqfPuWUsFuOZs2lm47rJGyICzbvwCrXOD=
+YDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GKYSBa2wRFlL5u5AbXPl5EiyFffQpI6Chij-2F2kh=
+GFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwkjQbzS9lm7NAG7QlBk4xV8sWVQQIB7NkZi1wq8-2=
+FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr1KJmDeXCOU3Laqqno55bLe5Hr6nw22Kqfx6bowAn8=
+YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2FIakIN8HuQyTLI38WZwkqKz6i52DSBhn3sWO5L-2=
+F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUkXoS9t3o6vkPXnf-2Bgha-2FP8e5UoTqXFeFtduy=
+gBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZDmPJwxOT-2BfVkx8FJK6R1QLMkhpMwxavyMB-2B=
+89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDKsAbxIUeF0WH4aJHLCcLh4cSsd-2FYuqqd9bmyWr=
+FvkpocDTFp3jzH9Sld2iKzGtD0YhCHTxt9HoqBodUxWfRDni817qt47wc2s48r3fM0Z-2BNPaGs=
+8-2Bbvdw4InPYPnYpmGc7rafBs-2BkUidgqpLt6Apl7V3O7p7ZnfoY-3D">Shipping<span st=
+yle=3D"color: #F2F3FE;">.</span><img alt=3D"&gt;" class=3D"e2_body_link_bar=
+-angleBraket" src=3D"https://braze-images.com/appboy/communication/assets/i=
+mage_assets/images/624db05a28586c706c659f33/original.png?1649258586" style=
+=3D'content: url("https://braze-images.com/appboy/communication/assets/imag=
+e_assets/images/624db05af3dc705b3e414d8c/original.png?1649258586"); height:=
+ 10px; width: 6px;'></a>
+
+
+<a class=3D"e2_body_link_bar-link" style=3D"text-decoration: none; color: #=
+252B60; background-color: #F2F3FE; font-family: 'Helvetica'; font-size: 14p=
+x; display: inline-block; border-radius: 18px; margin: 6px; padding: 8px 16=
+px;" universal=3D"true" href=3D"https://ablink.links.us.mercari.com/uni/ls/=
+click?upn=3Dc0EushdgISemCp7RgyGG1Xx7uQ9-2FZo2VGorlQ2djaGWh0oJ0aKqU-2FonJqwX=
+y9Ebt4NhWXCvaDZYBGR90hHIldTRW9SwVs2tQxE76INB15q6VkF-2Fp6ChSOWsm1dU-2B6hfHtm=
+Jc_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaLMYNBdt-2FnsqjCTBbxIHk9Sh6F=
+BW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SKM4iC-2BqfPuWUsFuOZs2lm47rJGyICzbvwCrX=
+ODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GKYSBa2wRFlL5u5AbXPl5EiyFffQpI6Chij-2F2=
+khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwkjQbzS9lm7NAG7QlBk4xV8sWVQQIB7NkZi1wq8=
+-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr1KJmDeXCOU3Laqqno55bLe5Hr6nw22Kqfx6bowA=
+n8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2FIakIN8HuQyTLI38WZwkqKz6i52DSBhn3sWO5L=
+-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUkXoS9t3o6vkPXnf-2Bgha-2FP8e5UoTqXFeFtd=
+uygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZDmPJwxOT-2BfVkx8FJK6R1QLMkhpMwxavyMB-=
+2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDKsAbxIUeF0WNpM-2BiK2WfM-2BDyCNAnv-2F9z=
+js7VX5oTzg9vIOl1x62Y-2FGhFdbL5CI3pdKSQqn8FlMRJqotts1I-2Fm-2FLqen764d3z4Jhv4=
+rS5648-2FvQEh6wrUS7QQDgZPlgDlyQ9k0lT3rPLCVhgdFWXuIB3mXNn6pcXn0-3D">Invite a=
+ friend<span style=3D"color: #F2F3FE;">.</span><img alt=3D"&gt;" class=3D"e=
+2_body_link_bar-angleBraket" src=3D"https://braze-images.com/appboy/communi=
+cation/assets/image_assets/images/624db05a28586c706c659f33/original.png?164=
+9258586" style=3D'content: url("https://braze-images.com/appboy/communicati=
+on/assets/image_assets/images/624db05af3dc705b3e414d8c/original.png?1649258=
+586"); height: 10px; width: 6px;'></a>
+
+
+<a class=3D"e2_body_link_bar-link" style=3D"text-decoration: none; color: #=
+252B60; background-color: #F2F3FE; font-family: 'Helvetica'; font-size: 14p=
+x; display: inline-block; border-radius: 18px; margin: 6px; padding: 8px 16=
+px;" universal=3D"true" href=3D"https://ablink.links.us.mercari.com/uni/ls/=
+click?upn=3Dc0EushdgISemCp7RgyGG1Xx7uQ9-2FZo2VGorlQ2djaGWh0oJ0aKqU-2FonJqwX=
+y9Ebt4NhWXCvaDZYBGR90hHIldTRW9SwVs2tQxE76INB15q7VHIgYmVqgxZCvh8s1A7j6ifBAse=
+wmhngvo1C3Kkknyw-3D-3D763Z_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaLMY=
+NBdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SKM4iC-2BqfPuWU=
+sFuOZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GKYSBa2wRFlL5u5=
+AbXPl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwkjQbzS9lm7NAG7=
+QlBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr1KJmDeXCOU3Laqq=
+no55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2FIakIN8HuQyTLI=
+38WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUkXoS9t3o6vkPXn=
+f-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZDmPJwxOT-2BfV=
+kx8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDKsAbxIUeF0WGkh=
+o1a1eHRW1TU-2BVPT6mKn3bczX4H8HW8bauy3RLDXa66gVGOKp7s1gzXzuFeCx55zDJAQ8Cl-2F=
+t2fzApm2jm7YpqdzWOawnnXLBQYeHouG1jcJnJZnNPHSQkWxh9q7uVTSr-2FoBAVvi9oYk5lEWh=
+bTQ-3D">Authenticate<span style=3D"color: #F2F3FE;">.</span><img alt=3D"&gt=
+;" class=3D"e2_body_link_bar-angleBraket" src=3D"https://braze-images.com/a=
+ppboy/communication/assets/image_assets/images/624db05a28586c706c659f33/ori=
+ginal.png?1649258586" style=3D'content: url("https://braze-images.com/appbo=
+y/communication/assets/image_assets/images/624db05af3dc705b3e414d8c/origina=
+l.png?1649258586"); height: 10px; width: 6px;'></a>
+
+
+
+
+
+
+</div>
+</div>
+<!--[if mso]>
+    </td></tr></table>
+    </td></tr></table>
+<![endif]-->
+
+
+<!--
+  WARNING:
+  THIS CONTENT BLOCK WAS AUTO-GENERATED USING EMAIL-BUILDER.
+  DO NOT DIRECTLY MODIFY THIS FILE
+-->
+
+
+
+<div align=3D"center" style=3D"margin-left: auto; margin-right: auto; max-w=
+idth: 560px;">
+  <div class=3D"e2-footer-normal-footer-wrapper" style=3D"font-family: Helv=
+etica; max-width: 560px; color: #4C4C4C; background-color: #f5f5f6; font-si=
+ze: 14px; line-height: 18px; margin: 0px auto; padding: 32px 15px;" align=
+=3D"center">
+    <div>
+      <a class=3D"e2-footer-normal-footer-links e2-footer-normal-footer-soc=
+ialMedia" href=3D"https://ablink.links.us.mercari.com/ls/click?upn=3Dc0Eush=
+dgISemCp7RgyGG1QE5Ysa-2FFzKf3n86wuNGYOU5s71kqD4vmvPsyFZ5Oya4ILBO_oKpHbu4hms=
+CLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaLMYNBdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhz=
+sQgBXNHcMGK1QfR-2BAt6x7SKM4iC-2BqfPuWUsFuOZs2lm47rJGyICzbvwCrXODYDe92yH1IBS=
+0Iea7gtWT4WoHFZfu-2BYp7GKYSBa2wRFlL5u5AbXPl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-=
+2FF45T1RUmSu-2FblOQ5XEKwkjQbzS9lm7NAG7QlBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNx=
+QVvstE-2FUIMAK-2FyjjYSr1KJmDeXCOU3Laqqno55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjdd=
+mO4-2Bha-2Bzq6cWRMLm1M-2FIakIN8HuQyTLI38WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UW=
+LfdR-2BujdVhM8zfz19AZrfUkXoS9t3o6vkPXnf-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1=
+HMTzYSGVozzmUa-2Fzy1LBoOZDmPJwxOT-2BfVkx8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BV=
+zdvaL6CT9Z8ja6uR6WJVBDTDKsAbxIUeF0WEAiAaKd4R-2BIoLHXq-2FMLqCK8ReDS63TKBN28z=
+zbbMyyluY6i01UFH9qIXGuqEpcuHPDtXcGuc0n9aHwfnPU4eKh0jiimWSLgQWFWlKzYjjQg-2By=
+217-2FN12TZbtPA47tXoaXl4Bxy6qy6de5BbhscPK7c-3D" style=3D"text-decoration: n=
+one; color: inherit;">
+        <img height=3D"40" width=3D"40" src=3D"https://appboy-images.com/ap=
+pboy/communication/assets/image_assets/images/60db6a628d664c6fc9cd2a9b/orig=
+inal.png?1624992354" style=3D"height: 40px; width: 40px;">
+      </a>
+      <a class=3D"e2-footer-normal-footer-links e2-footer-normal-footer-soc=
+ialMedia" href=3D"https://ablink.links.us.mercari.com/ls/click?upn=3Dc0Eush=
+dgISemCp7RgyGG1dcRUl8uXcRwXaSQx8Kk7ySNH2voB2ch2oXWuEMLHmJz4-35_oKpHbu4hmsCL=
+nrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaLMYNBdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQ=
+gBXNHcMGK1QfR-2BAt6x7SKM4iC-2BqfPuWUsFuOZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0I=
+ea7gtWT4WoHFZfu-2BYp7GKYSBa2wRFlL5u5AbXPl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2F=
+F45T1RUmSu-2FblOQ5XEKwkjQbzS9lm7NAG7QlBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQV=
+vstE-2FUIMAK-2FyjjYSr1KJmDeXCOU3Laqqno55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO=
+4-2Bha-2Bzq6cWRMLm1M-2FIakIN8HuQyTLI38WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLf=
+dR-2BujdVhM8zfz19AZrfUkXoS9t3o6vkPXnf-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HM=
+TzYSGVozzmUa-2Fzy1LBoOZDmPJwxOT-2BfVkx8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzd=
+vaL6CT9Z8ja6uR6WJVBDTDKsAbxIUeF0WGboNwIr3KQljbHQfIYHkvHxvvpmbdxT3VV5g9fx3p2=
+QjABke6OsWD-2B6oruMdosgtmquRfXmF-2BEYwpPghXTKh3h6qHjbFZF2xsyzoLFvYhK45O-2FY=
+2pZCcJHeHO-2FXpA9fLmlgEPut8dluuPaszaHOeXI-3D" style=3D"text-decoration: non=
+e; color: inherit;">
+        <img height=3D"40" width=3D"40" src=3D"https://braze-images.com/app=
+boy/communication/assets/image_assets/images/64fb904adb9c9b004be60642/origi=
+nal.png?1694208074" style=3D"height: 40px; width: 40px;">
+      </a>
+      <a class=3D"e2-footer-normal-footer-links e2-footer-normal-footer-soc=
+ialMedia" href=3D"https://ablink.links.us.mercari.com/ls/click?upn=3Dc0Eush=
+dgISemCp7RgyGG1T4HxRYdpHJ1OxTKVvaD5JqNIRlfFdmJy-2Fye9-2FYK5DqEjYeF_oKpHbu4h=
+msCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaLMYNBdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdy=
+hzsQgBXNHcMGK1QfR-2BAt6x7SKM4iC-2BqfPuWUsFuOZs2lm47rJGyICzbvwCrXODYDe92yH1I=
+BS0Iea7gtWT4WoHFZfu-2BYp7GKYSBa2wRFlL5u5AbXPl5EiyFffQpI6Chij-2F2khGFYOPBkuA=
+c-2FF45T1RUmSu-2FblOQ5XEKwkjQbzS9lm7NAG7QlBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9K=
+NxQVvstE-2FUIMAK-2FyjjYSr1KJmDeXCOU3Laqqno55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQj=
+ddmO4-2Bha-2Bzq6cWRMLm1M-2FIakIN8HuQyTLI38WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3=
+UWLfdR-2BujdVhM8zfz19AZrfUkXoS9t3o6vkPXnf-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0Yk=
+R1HMTzYSGVozzmUa-2Fzy1LBoOZDmPJwxOT-2BfVkx8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2=
+BVzdvaL6CT9Z8ja6uR6WJVBDTDKsAbxIUeF0WNYK2c61-2F8ZW-2F7mTVsemRv8Xb76FeP1Invr=
+xovtG06tXFhbczClm5Dl104cNifQrOQqpdcXQFtP75350Yf3AbYajCDY6Hx-2BbGVKBkAikjTfW=
+8LfTJqZukblqN3lJWvGv1n1ewawYRPZDAy-2FBfChJ-2F7o-3D" style=3D"text-decoratio=
+n: none; color: inherit;">
+        <img height=3D"40" width=3D"40" src=3D"https://appboy-images.com/ap=
+pboy/communication/assets/image_assets/images/60db6a61b6bb923eb57d1c28/orig=
+inal.png?1624992353" style=3D"height: 40px; width: 40px;">
+      </a>
+      <a class=3D"e2-footer-normal-footer-links e2-footer-normal-footer-soc=
+ialMedia" href=3D"https://ablink.links.us.mercari.com/ls/click?upn=3Dc0Eush=
+dgISemCp7RgyGG1dNXAP7KAyJxgfuv1AtB-2Bgs3V6vS-2F9k5jTqDnk7GF6d4V6Fgbyx2VQefA=
+MXrMtycow-3D-3DFQNy_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaLMYNBdt-2F=
+nsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SKM4iC-2BqfPuWUsFuOZs2=
+lm47rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GKYSBa2wRFlL5u5AbXPl5E=
+iyFffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwkjQbzS9lm7NAG7QlBk4xV=
+8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr1KJmDeXCOU3Laqqno55bLe=
+5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2FIakIN8HuQyTLI38WZwkq=
+Kz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUkXoS9t3o6vkPXnf-2Bgha=
+-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZDmPJwxOT-2BfVkx8FJK6=
+R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDKsAbxIUeF0WME5Wq9qMjp=
+ycECF-2FF3tgn9xc8UILFVYwULe6WrwmEUH0XRHAnICxtRJqbfZwr1ZLzz8jicgX39ULrqXHoOP=
+Sg-2ByWFd-2Buv5YBlok2azahRWaTnPES1-2B-2B2RufVcKAY3pYHJz3VovKymuzZL-2B11E0GP=
+3s-3D" style=3D"text-decoration: none; color: inherit;">
+        <img height=3D"40" width=3D"40" style=3D"height: 40px; width: 40px;=
+" src=3D"https://braze-images.com/appboy/communication/assets/image_assets/=
+images/6480c06efdca0a4cac3ba6ac/original.png?1686159470">
+      </a>
+      <a class=3D"e2-footer-normal-footer-links e2-footer-normal-footer-soc=
+ialMedia" href=3D"https://ablink.links.us.mercari.com/ls/click?upn=3Dc0Eush=
+dgISemCp7RgyGG1ehv09xykuJyOnkg-2FtW4GzrY3eAeVvPw09q2LJsXxVBt2bEMyjRSUmuayHe=
+oa4iNsA-3D-3DAVO2_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaLMYNBdt-2Fns=
+qjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SKM4iC-2BqfPuWUsFuOZs2lm=
+47rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GKYSBa2wRFlL5u5AbXPl5Eiy=
+FffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwkjQbzS9lm7NAG7QlBk4xV8s=
+WVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr1KJmDeXCOU3Laqqno55bLe5H=
+r6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2FIakIN8HuQyTLI38WZwkqKz=
+6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUkXoS9t3o6vkPXnf-2Bgha-2=
+FP8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZDmPJwxOT-2BfVkx8FJK6R1=
+QLMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDKsAbxIUeF0WJdSN5RVfKdY1=
+KLoMesG4NuoZ-2FjGJliPDOdHHCGBysW5qrrOhL0kNhGRzIzCX2AlyeaHv-2BQR4uYGugZDZC4K=
+EUUNC2H-2B8mruLboiU3C5m4Pf0jF0c95bvFNcWQ91MmrU769oCxaiMzqwfn2sY07-2BMJQ-3D"=
+ style=3D"text-decoration: none; color: inherit;">
+        <img height=3D"40" width=3D"40" style=3D"height: 40px; width: 40px;=
+" src=3D"https://braze-images.com/appboy/communication/assets/image_assets/=
+images/6480c06e89cda83a155602cd/original.png?1686159470">
+      </a>
+      <a class=3D"e2-footer-normal-footer-links e2-footer-normal-footer-soc=
+ialMedia" href=3D"https://ablink.links.us.mercari.com/ls/click?upn=3Dc0Eush=
+dgISemCp7RgyGG1dIvAXqg7HkEp9Qi-2B6CzQG-2FvtZhtiOzO2CoC5-2B-2F457L-2FWl_p_oK=
+pHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaLMYNBdt-2FnsqjCTBbxIHk9Sh6FBW6AR=
+qMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SKM4iC-2BqfPuWUsFuOZs2lm47rJGyICzbvwCrXODYDe=
+92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GKYSBa2wRFlL5u5AbXPl5EiyFffQpI6Chij-2F2khGFY=
+OPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwkjQbzS9lm7NAG7QlBk4xV8sWVQQIB7NkZi1wq8-2FPq=
+caSC9KNxQVvstE-2FUIMAK-2FyjjYSr1KJmDeXCOU3Laqqno55bLe5Hr6nw22Kqfx6bowAn8YZx=
+oJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2FIakIN8HuQyTLI38WZwkqKz6i52DSBhn3sWO5L-2F3y=
+k-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUkXoS9t3o6vkPXnf-2Bgha-2FP8e5UoTqXFeFtduygBK=
+r3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZDmPJwxOT-2BfVkx8FJK6R1QLMkhpMwxavyMB-2B89y=
+qzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDKsAbxIUeF0WPKuRApgDmLwE8X39aNUC5dbThDznI4L6=
+98i3tluOwzN3NHhiKF7ia1PFc9dWG7vw6P7YZKzbTtIGfpyRpNfFFo9Azn0OGCfgUpQFwfgm9Yo=
+3exckwTw1BXa7BqTJnePfboReoRnksIpvAHz3jArN8o-3D" style=3D"text-decoration: n=
+one; color: inherit;">
+        <img height=3D"40" width=3D"40" style=3D"height: 40px; width: 40px;=
+" src=3D"https://braze-images.com/appboy/communication/assets/image_assets/=
+images/6480c06e89cda839f756043c/original.png?1686159470">
+      </a>
+    </div>
+    <div class=3D"e2-footer-normal-footer-spacing" style=3D"padding-top: 24=
+px;"></div>
+    <div class=3D"E2_footer_links">
+      <a class=3D"e2-footer-normal-footer-links" universal=3D"true" href=3D=
+"https://ablink.links.us.mercari.com/uni/ls/click?upn=3Dc0EushdgISemCp7RgyG=
+G1Xx7uQ9-2FZo2VGorlQ2djaGWh0oJ0aKqU-2FonJqwXy9Ebtexu1sXk7UeV7cYFoA7w6eUCyWO=
+32tRi8adUxxUGTIx0-3Ddzus_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaLMYNB=
+dt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SKM4iC-2BqfPuWUsF=
+uOZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GKYSBa2wRFlL5u5Ab=
+XPl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwkjQbzS9lm7NAG7Ql=
+Bk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr1KJmDeXCOU3Laqqno=
+55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2FIakIN8HuQyTLI38=
+WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUkXoS9t3o6vkPXnf-=
+2Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZDmPJwxOT-2BfVkx=
+8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDKsAbxIUeF0WJcPqs=
+HrKys2B7BFeqCI8S4fj2fs1is08tkA-2BmdAQ-2B1bxqZZ4kS-2BJCtYVkpPoWYhODW-2FnYgDa=
+3j632qrykaliPvRbUXWM7GaTR38ADI1kwQvzyikxXXBCUN3tUEOkk-2FkwAdYALtPD6Uh2vJYIL=
+G-2Fedk-3D" style=3D"text-decoration: none; color: #4C4C4C;">
+        Contact Us
+      </a> |
+      <a class=3D"e2-footer-normal-footer-links" universal=3D"true" href=3D=
+"https://ablink.links.us.mercari.com/uni/ls/click?upn=3Dc0EushdgISemCp7RgyG=
+G1Xx7uQ9-2FZo2VGorlQ2djaGWh0oJ0aKqU-2FonJqwXy9Ebtexu1sXk7UeV7cYFoA7w6ebK2ZL=
+dzN8GlTg81-2Be7vrqs-3DqiDQ_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaLMY=
+NBdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SKM4iC-2BqfPuWU=
+sFuOZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GKYSBa2wRFlL5u5=
+AbXPl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwkjQbzS9lm7NAG7=
+QlBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr1KJmDeXCOU3Laqq=
+no55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2FIakIN8HuQyTLI=
+38WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUkXoS9t3o6vkPXn=
+f-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZDmPJwxOT-2BfV=
+kx8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDKsAbxIUeF0WB0B=
+SqMO8kdsxvIMOZX0yMCx8RBAIZuMTrfhJFPkVG0FpCNGAnaNB-2BDObsTz3Za5fDcJNdEoEJ4nj=
+bP9IgOB99-2FDIRewB-2FP4xM1SIqMrERXcdP-2F0OUJVghRdx9FAFo09cH1kvvXWfACmG75QXT=
+OWbz8-3D" style=3D"text-decoration: none; color: #4C4C4C;">
+        Account
+      </a> |
+      <a class=3D"e2-footer-normal-footer-links" universal=3D"true" href=3D=
+"https://ablink.links.us.mercari.com/uni/ls/click?upn=3Dc0EushdgISemCp7RgyG=
+G1Xx7uQ9-2FZo2VGorlQ2djaGWh0oJ0aKqU-2FonJqwXy9EbtkMRm9uTuDX-2F-2B3eoK24X9Hp=
+oaEgvCMKCPuxGYc-2BgmY-2F8-3DtDDi_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2A=
+SJaLMYNBdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SKM4iC-2B=
+qfPuWUsFuOZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GKYSBa2wR=
+FlL5u5AbXPl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwkjQbzS9l=
+m7NAG7QlBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr1KJmDeXCO=
+U3Laqqno55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2FIakIN8H=
+uQyTLI38WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUkXoS9t3o=
+6vkPXnf-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZDmPJwxO=
+T-2BfVkx8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDKsAbxIUe=
+F0WGJ-2B-2FkZT12HhipDWOY-2Beoxs7zx1PBnPEOr464-2BTsb92e1qWyVfbR1tuHhaTgVK7iC=
+4-2FY5n-2B72xsCsSc2dHGKdUnxKm9Una3EIcS0G-2B3Zc5pRY-2BNec9a36UlEQxqFpUiI1E7H=
+BGqchhqjVx68JhS4tzE-3D" style=3D"text-decoration: none; color: #4C4C4C;">
+        Help Center
+      </a>
+    </div>
+    <div class=3D"e2-footer-normal-footer-spacing" style=3D"padding-top: 24=
+px;"></div>
+    <div class>=C2=A9 2023 Mercari. PO Box 60178, Palo Alto, CA 94306</div>
+    <div class=3D"E2_footer_links">
+      <a class=3D"e2-footer-normal-footer-links" universal=3D"true" href=3D=
+"https://ablink.links.us.mercari.com/uni/ls/click?upn=3Dc0EushdgISemCp7RgyG=
+G1Xx7uQ9-2FZo2VGorlQ2djaGXd6Q5f-2BwcIIYofkYACo5wPudEbFrmE6UDnrzU2-2BLycdn7M=
+pO5T9Xfgp9xFIpo2PCM-3DIthT_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaLMY=
+NBdt-2FnsqjCTBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SKM4iC-2BqfPuWU=
+sFuOZs2lm47rJGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GKYSBa2wRFlL5u5=
+AbXPl5EiyFffQpI6Chij-2F2khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwkjQbzS9lm7NAG7=
+QlBk4xV8sWVQQIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr1KJmDeXCOU3Laqq=
+no55bLe5Hr6nw22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2FIakIN8HuQyTLI=
+38WZwkqKz6i52DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUkXoS9t3o6vkPXn=
+f-2Bgha-2FP8e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZDmPJwxOT-2BfV=
+kx8FJK6R1QLMkhpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDKsAbxIUeF0WCiL=
+Eg0V7WjTChip8WBzogE1kF3l-2FzXkoIjpIhJOhTIhCyM5wRkbWi75EBuwkxwiFAdKPtOTqoubJ=
+HlQPjct8thwFqSVWTi103hRSv0qCWQ1dnNIYsIXW46Urs38XEPl4kuxduFroEmloX7OH-2FEj4J=
+8-3D" style=3D"text-decoration: none; color: #4C4C4C;">Manage Subscriptions=
+</a> |
+     =20
+      <a class=3D"e2-footer-normal-footer-links" href=3D"https://ablink.lin=
+ks.us.mercari.com/ls/click?upn=3Dc0EushdgISemCp7RgyGG1ZCzoUNHBsdBaM-2Fwxtro=
+uLQZOpnZvaVVGTAs-2F-2BWrdFrNJltAc1p4se2K9UfR7phHhhh2P0FKOz9g4q2ab8qPYoSdHeR=
+g33-2Ba9ed7d0Ijb3wxAnVX3llFeVeffHUIM6adDf9jlQYnpTQzTZ16N1fAhfV8EhC96VFyFq1w=
+izryF8-2BuI4H3_oKpHbu4hmsCLnrDdPvdJ-2Bg-2FjsIhjIorolnLs2ASJaLMYNBdt-2FnsqjC=
+TBbxIHk9Sh6FBW6ARqMXUdyhzsQgBXNHcMGK1QfR-2BAt6x7SKM4iC-2BqfPuWUsFuOZs2lm47r=
+JGyICzbvwCrXODYDe92yH1IBS0Iea7gtWT4WoHFZfu-2BYp7GKYSBa2wRFlL5u5AbXPl5EiyFff=
+QpI6Chij-2F2khGFYOPBkuAc-2FF45T1RUmSu-2FblOQ5XEKwkjQbzS9lm7NAG7QlBk4xV8sWVQ=
+QIB7NkZi1wq8-2FPqcaSC9KNxQVvstE-2FUIMAK-2FyjjYSr1KJmDeXCOU3Laqqno55bLe5Hr6n=
+w22Kqfx6bowAn8YZxoJVTQjddmO4-2Bha-2Bzq6cWRMLm1M-2FIakIN8HuQyTLI38WZwkqKz6i5=
+2DSBhn3sWO5L-2F3yk-2Fy3UWLfdR-2BujdVhM8zfz19AZrfUkXoS9t3o6vkPXnf-2Bgha-2FP8=
+e5UoTqXFeFtduygBKr3t0YkR1HMTzYSGVozzmUa-2Fzy1LBoOZDmPJwxOT-2BfVkx8FJK6R1QLM=
+khpMwxavyMB-2B89yqzeY-2BVzdvaL6CT9Z8ja6uR6WJVBDTDKsAbxIUeF0WMs3D8-2B3sjyOn4=
+niHkK3iFunHZe6tJSuR9AOHr1Oic8okF2MmfkasJ8c96i0Wsp4qI3fNTViykHF4IinT5bamsWno=
+S8f3mgK4avfqvC6k2ljQkPS6p8DVWLsxJ-2F0pZH5BW1jtD28MKRTg40WuzHOO3w-3D" style=
+=3D"text-decoration: none; color: #4C4C4C;">Unsubscribe</a>
+     =20
+    </div>
+  </div>
+</div>
+<!-- prevent Gmail on iOS font size manipulation -->
+<div style=3D"display: none; white-space: nowrap; font: 15px courier;"> &nb=
+sp; &nbsp; &nbsp; &nbsp;
+  &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbs=
+p; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </di=
+v>
+
+
+
+</div>
+</div>
+<img src=3D"https://ablink.links.us.mercari.com/wf/open?upn=3Df3b2A-2B3gKFk=
+-2BSR9fMyOrh6ZzXgKKvV2FpFgGB3dYQh-2FLa1FlL-2F6-2FvpVjtEaJWD8b-2FLybqvsiTrGm=
+gVy612qPoiVLB3EDWxvlH6RmQvjhyVJeR0XKOEuUuaY-2Fg-2BA1nT5E15ambx81DAyPve9URaa=
+iekMvRJ-2B-2FczqWFVSSzkEkgoMZxNKvW0b9T5HWPN2prqdsJyi3n2zbMbWuac2fqLkCQvT7MZ=
+dAUd67Bw8EJfN6tzySS658upFs-2BXLAG-2Fbd0fc8IWpxjOQoDOHO6Nz7NEF-2FBQqqME-2Bal=
+3t5AnhJaOo9pMcjjPkxNTyxn8ssUJYLfJJZX2FY0tkW-2F7qeVWPiF6LsmgvIRL8B97di24nnOm=
+zWIEmFLeQVjuF0PlvG0-2BfekVMo2WiMcA6UQITrOm5bO0SpuLttwuDcBtvzmQdRWzYXlAJfZ3e=
+oQ5b4uTUbGi3rbjpESzGnl7AA-2BDgbamNwpoQzTemGk2trpw9MmashzB-2B1QdZOPb2Mg3Q2Bt=
+daG3Xz9GgZveED9r1vW1re2eWHUM2u3QspdH2RNZ9H-2BQOaFoBXdb1egWKlkoVpTr00Q5ig8ZX=
+-2BZs-2B6R9njO-2B1sy87aKjei50vRYOrheZUSky4mY8azglAtMCyu1wiKAAMdGwwdCoVqstqI=
+8-2FdGnETRQQEvdNtTfhNoafYXXEUKxRQrxgfC4XDHasctSzKOr6SsKDPF-2FaaP2djnpg-2BF3=
+V7gvZU7liSDSJiqX3ljHzz2WGeQEmGC7EADNIVQpg6aUUDx88Xw2MLI" alt=3D"" width=3D"=
+1" height=3D"1" border=3D"0" style=3D"height:1px !important;width:1px !impo=
+rtant;border-width:0 !important;margin-top:0 !important;margin-bottom:0 !im=
+portant;margin-right:0 !important;margin-left:0 !important;padding-top:0 !i=
+mportant;padding-bottom:0 !important;padding-right:0 !important;padding-lef=
+t:0 !important;"/></body>
+</html>
+
+--a95815733aef0aafe63bc068300af1c5a88e334b42942dd2ef13bfdf3b46--
