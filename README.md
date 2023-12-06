@@ -1,5 +1,5 @@
 # BayesGuard
-This project demonstrates how to build a simple email spam classification system using Python, scikit-learn, and the Multinomial Naive Bayes classifier. The program reads email data from `.eml` files, creates a bag-of-words representation of the email text, trains a classifier, and evaluates its performance.
+This project demonstrates how to build a simple email spam classification system using Python, scikit-learn, and the Gaussian Naive Bayes classifier. The program reads email data from an email.csv file, determines if the contents within are spam text or legitimate, trains a classifier, and evaluates its performance.
 
 ## Getting Started
 
@@ -8,10 +8,12 @@ This project demonstrates how to build a simple email spam classification system
 Before running the project, make sure you have the following libraries installed:
 
 - scikit-learn
+- pandas
 
 You can install these libraries using `pip`:
 
 ```pip install scikit-learn```
+```pip install pandas```
 
 ### Dataset
 
